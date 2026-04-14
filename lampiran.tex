@@ -1,0 +1,447 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, headheight=14.5pt}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[expansion=false]{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+
+% Warna Korporat PLN
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+\definecolor{lightgray}{RGB}{245,245,245}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=plnblue,
+    urlcolor=plnblue,
+    citecolor=plnblue
+}
+
+% Header & Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Lampiran Lembar Kerja -- Modul 4.3}}
+\fancyhead[R]{\small Level 4 (Mastery) -- PLN}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Format Heading
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{plnblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries\color{plnblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{plnblue}}{\thesubsection}{1em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+% Custom Boxes
+\newtcolorbox{plnbox}[1][]{%
+  colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries,
+  title=#1, sharp corners, boxrule=0.8pt, breakable
+}
+\newtcolorbox{instruksi}{%
+  colback=gray!8, colframe=gray!50!black, fonttitle=\bfseries,
+  title=Instruksi Pengisian, sharp corners, breakable
+}
+
+% List styling
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
+\setlist[enumerate]{leftmargin=*, topsep=2pt, itemsep=2pt}
+
+% Helper: lined fill space
+\newcommand{\fillline}[1][6cm]{\underline{\hspace{#1}}}
+\newcommand{\writespace}[1][2cm]{\rule{0pt}{#1}}
+
+\begin{document}
+
+% ================= COVER =================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+{\Huge\bfseries\color{plnblue} LAMPIRAN}\\[0.4cm]
+{\LARGE\bfseries Lembar Kerja Praktek (Worksheet)}\\[0.3cm]
+{\Large\bfseries Modul 4.3: Optimalisasi Prosedur dan Alur Kerja Terintegrasi}\\[0.8cm]
+\rule{0.8\linewidth}{0.6pt}\\[0.6cm]
+{\large Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
+{\large Level 4 (Mastery)}\\[1.2cm]
+{\large Disusun Khusus untuk: \textbf{PT PLN (Persero)}}\\
+{\large Target Peserta: Manajemen Atas (MA)}\\[2cm]
+
+\begin{plnbox}[Petunjuk Umum]
+\begin{enumerate}[nosep, leftmargin=*]
+    \item Lembar kerja ini merupakan bagian integral dari portofolio kompetensi Modul 4.3.
+    \item Setiap lampiran dirancang untuk dikerjakan selama sesi workshop sesuai durasi yang telah ditetapkan.
+    \item Hasil pengisian menjadi syarat penilaian kelulusan (Passing Grade $\geq$70).
+    \item Kerjakan secara berkelompok (4--5 orang) kecuali dinyatakan lain.
+    \item Setelah selesai, kumpulkan ke Unit Kearsipan Holding/Subholding.
+\end{enumerate}
+\end{plnbox}
+
+\vfill
+{\small Dicetak sebagai bagian dari paket modul pelatihan}\\
+{\small\today}
+\end{titlepage}
+
+% ============================================================
+%   LAMPIRAN A: Matriks Identifikasi Area Optimasi (Bab 2)
+% ============================================================
+\newpage
+\section*{\color{plnblue} LAMPIRAN A}
+\addcontentsline{toc}{section}{Lampiran A: Matriks Identifikasi Area Optimasi}
+{\Large\bfseries Matriks Identifikasi Area Optimasi}\\[0.2cm]
+{\normalsize\textit{Output Wajib Bab 2 -- Kriteria Penilaian 4.3.1}}\\[0.5cm]
+
+\noindent\textbf{Nama Kelompok:} \fillline[5cm] \quad \textbf{Tanggal:} \fillline[3cm]\\[0.3cm]
+\textbf{Proses yang Dievaluasi:} \fillline[9cm]\\[0.3cm]
+\textbf{Unit Kerja:} \fillline[5cm] \quad \textbf{Volume Proses/Tahun:} \fillline[3cm]
+
+\begin{instruksi}
+\begin{enumerate}[nosep, leftmargin=*]
+    \item Pilih 1 proses kearsipan PLN yang sedang berjalan di unit Anda.
+    \item Identifikasi minimal \textbf{4 area/tahapan} yang berpotensi untuk dioptimalkan.
+    \item Untuk setiap area, jelaskan jenis hambatan, potensi integrasi, dan estimasi dampak.
+    \item Tentukan prioritas berdasarkan urgensi vs effort implementasi.
+    \item Durasi pengerjaan: \textbf{15 menit}.
+\end{enumerate}
+\end{instruksi}
+
+\vspace{0.5cm}
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{2.5}
+\begin{tabularx}{\textwidth}{@{} c X X X c @{}}
+\toprule
+\textbf{No} & \textbf{Tahapan Proses} & \textbf{Jenis Hambatan / Titik Gesekan} & \textbf{Potensi Integrasi / Solusi} & \textbf{Prioritas} \\
+\midrule
+1 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\hline
+2 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\hline
+3 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\hline
+4 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\hline
+5 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\hline
+6 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent\textit{Keterangan Prioritas: T = Tinggi, S = Sedang, R = Rendah}
+
+\vspace{0.5cm}
+\noindent\textbf{Kesimpulan \& Rekomendasi Utama:}\\
+\noindent\rule{\textwidth}{0.3pt}\writespace[0.8cm]\\
+\noindent\rule{\textwidth}{0.3pt}\writespace[0.8cm]\\
+\noindent\rule{\textwidth}{0.3pt}\writespace[0.8cm]\\
+\noindent\rule{\textwidth}{0.3pt}
+
+% ============================================================
+%   LAMPIRAN B: Lembar Kerja Diagram BPMN To-Be (Bab 3)
+% ============================================================
+\newpage
+\section*{\color{plnblue} LAMPIRAN B}
+\addcontentsline{toc}{section}{Lampiran B: Lembar Kerja Diagram BPMN To-Be}
+{\Large\bfseries Lembar Kerja Diagram BPMN To-Be}\\[0.2cm]
+{\normalsize\textit{Output Wajib Bab 3 -- Kriteria Penilaian 4.3.2}}\\[0.5cm]
+
+\noindent\textbf{Nama Kelompok:} \fillline[5cm] \quad \textbf{Tanggal:} \fillline[3cm]\\[0.3cm]
+\textbf{Proses yang Dirancang Ulang:} \fillline[9cm]
+
+\begin{instruksi}
+\begin{enumerate}[nosep, leftmargin=*]
+    \item Gunakan area kosong di bawah untuk menggambar diagram alur kerja To-Be.
+    \item Gunakan notasi BPMN sederhana: $\bullet$ (Start), $\square$ (Task), $\diamond$ (Gateway), $\blacksquare$ (End).
+    \item Tentukan minimal 3 swimlane (Pool/Lane) untuk peran atau sistem yang berbeda.
+    \item Tandai setiap trigger otomatis dengan warna/arsir berbeda.
+    \item Durasi pengerjaan: \textbf{20 menit}.
+\end{enumerate}
+\end{instruksi}
+
+\vspace{0.3cm}
+
+% BPMN Drawing Area with swimlanes
+\noindent\textbf{Diagram Alur Kerja To-Be:}
+\vspace{0.3cm}
+
+\begin{tikzpicture}
+% Pool border
+\draw[plnblue, thick] (0,0) rectangle (15.3cm, 14cm);
+% Lane dividers
+\draw[plnblue!40, dashed] (2.2cm,0) -- (2.2cm,14cm);
+\draw[plnblue!30, dashed] (0,9.33cm) -- (15.3cm,9.33cm);
+\draw[plnblue!30, dashed] (0,4.67cm) -- (15.3cm,4.67cm);
+% Lane labels
+\node[rotate=90, font=\small\bfseries, text=plnblue] at (1.1cm, 11.67cm) {Lane 1:};
+\node[rotate=90, font=\small\itshape, text=gray] at (1.1cm, 10.3cm) {\fillline[2cm]};
+\node[rotate=90, font=\small\bfseries, text=plnblue] at (1.1cm, 7cm) {Lane 2:};
+\node[rotate=90, font=\small\itshape, text=gray] at (1.1cm, 5.6cm) {\fillline[2cm]};
+\node[rotate=90, font=\small\bfseries, text=plnblue] at (1.1cm, 2.33cm) {Lane 3:};
+\node[rotate=90, font=\small\itshape, text=gray] at (1.1cm, 0.9cm) {\fillline[2cm]};
+\end{tikzpicture}
+
+\vspace{0.3cm}
+\noindent\textbf{Daftar Trigger Otomatis:}
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{2.0}
+\begin{tabularx}{\textwidth}{@{} c X X X @{}}
+\toprule
+\textbf{No} & \textbf{Trigger Event / Status} & \textbf{Aksi Otomatis} & \textbf{Sistem Sumber} \\
+\midrule
+1 & & & \\
+\hline
+2 & & & \\
+\hline
+3 & & & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+%   LAMPIRAN C: Template Draft SOP Digital (Bab 4)
+% ============================================================
+\newpage
+\section*{\color{plnblue} LAMPIRAN C}
+\addcontentsline{toc}{section}{Lampiran C: Template Draft SOP Digital Terintegrasi}
+{\Large\bfseries Template Draft SOP Digital Terintegrasi}\\[0.2cm]
+{\normalsize\textit{Output Wajib Bab 4 -- Kriteria Penilaian 4.3.3}}\\[0.5cm]
+
+\noindent\textbf{Nama Kelompok:} \fillline \quad \textbf{Tanggal:} \fillline[3cm]
+
+\begin{instruksi}
+\begin{enumerate}[nosep, leftmargin=*]
+    \item Isi ketujuh komponen SOP untuk 1 proses kearsipan PLN yang telah dirancang di Bab 3.
+    \item Pastikan setiap komponen merujuk pada regulasi dan standar yang relevan.
+    \item Lakukan peer review silang dengan kelompok lain setelah selesai.
+    \item Durasi pengerjaan: \textbf{15 menit}.
+\end{enumerate}
+\end{instruksi}
+
+\vspace{0.4cm}
+
+% Komponen 1
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 1: Tujuan \& Ruang Lingkup}]
+\vspace{2.2cm}
+\end{tcolorbox}
+
+% Komponen 2
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 2: Definisi \& Akronim}]
+\vspace{2.2cm}
+\end{tcolorbox}
+
+% Komponen 3
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 3: Peran \& Tanggung Jawab}]
+\small
+\renewcommand{\arraystretch}{2.0}
+\begin{tabularx}{\textwidth}{@{} X X X @{}}
+\toprule
+\textbf{Peran} & \textbf{Jabatan/Fungsi} & \textbf{Tanggung Jawab Utama} \\
+\midrule
+Inisiator & & \\
+\hline
+Validator & & \\
+\hline
+Custodian & & \\
+\hline
+Approver & & \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+\end{tcolorbox}
+
+% Komponen 4
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 4: System Trigger \& Metadata Wajib}]
+\noindent\textbf{Trigger Event:} \fillline[10cm]\\[0.3cm]
+\textbf{Sistem Sumber:} \fillline[10cm]\\[0.3cm]
+\textbf{Metadata Wajib (min. 8 field):}\\[0.2cm]
+\begin{tabularx}{\textwidth}{@{} X X X X @{}}
+1. \fillline[3cm] & 2. \fillline[3cm] & 3. \fillline[3cm] & 4. \fillline[3cm] \\[0.4cm]
+5. \fillline[3cm] & 6. \fillline[3cm] & 7. \fillline[3cm] & 8. \fillline[3cm] \\
+\end{tabularx}
+\end{tcolorbox}
+
+\newpage
+
+% Komponen 5
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 5: Alur Validasi \& SLA}]
+\small
+\renewcommand{\arraystretch}{2.0}
+\begin{tabularx}{\textwidth}{@{} X X c X @{}}
+\toprule
+\textbf{Tahapan} & \textbf{PIC} & \textbf{SLA} & \textbf{Eskalasi Jika Lewat} \\
+\midrule
+Validasi Level 1 & & jam & \\
+\hline
+Validasi Level 2 & & jam & \\
+\hline
+Approval Final & & jam & \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+\end{tcolorbox}
+
+% Komponen 6
+\begin{tcolorbox}[colback=plnorange!5, colframe=plnorange!50, sharp corners, title={\small\bfseries Komponen 6: Exception Handling \& Fallback}]
+\noindent\textbf{Skenario 1 -- Sistem Down:}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}\writespace[0.5cm]
+
+\noindent\textbf{Skenario 2 -- Validasi Ditolak:}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}\writespace[0.5cm]
+
+\noindent\textbf{Skenario 3 -- Metadata Tidak Lengkap:}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}
+\end{tcolorbox}
+
+% Komponen 7
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 7: Referensi Regulasi \& Standar}]
+\begin{enumerate}[nosep, leftmargin=*]
+    \item \fillline[12cm]
+    \item \fillline[12cm]
+    \item \fillline[12cm]
+    \item \fillline[12cm]
+\end{enumerate}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+\noindent\textbf{Catatan Peer Review (diisi oleh kelompok penilai):}\\
+\noindent\rule{\textwidth}{0.3pt}\writespace[0.8cm]\\
+\noindent\rule{\textwidth}{0.3pt}\writespace[0.8cm]\\
+\noindent\rule{\textwidth}{0.3pt}
+
+% ============================================================
+%   LAMPIRAN D: Business Case & Action Plan 30 Hari (Bab 5)
+% ============================================================
+\newpage
+\section*{\color{plnblue} LAMPIRAN D}
+\addcontentsline{toc}{section}{Lampiran D: Business Case \& Action Plan 30 Hari}
+{\Large\bfseries Business Case \& Action Plan 30 Hari}\\[0.2cm]
+{\normalsize\textit{Output Wajib Bab 5 -- Kriteria Penilaian 4.3.4}}\\[0.5cm]
+
+\noindent\textbf{Nama Kelompok:} \fillline \quad \textbf{Tanggal:} \fillline[3cm]\\[0.3cm]
+\textbf{Proses yang Dioptimalkan:} \fillline[10cm]\\[0.3cm]
+\textbf{Unit Kerja Target Pilot:} \fillline[10cm]
+
+\begin{instruksi}
+\begin{enumerate}[nosep, leftmargin=*]
+    \item Isi seluruh komponen business case berdasarkan analisis di Bab 3--5.
+    \item Gunakan data kalkulasi ROI yang telah dihitung untuk bagian estimasi manfaat.
+    \item Susun action plan 30 hari yang realistis dengan PIC jelas.
+    \item Durasi pengerjaan: \textbf{15 menit}.
+\end{enumerate}
+\end{instruksi}
+
+\vspace{0.3cm}
+
+% Business Case
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue, sharp corners, title={\bfseries Business Case 1 Halaman}]
+
+\noindent\textbf{1. Latar Belakang \& Masalah:}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}\writespace[0.5cm]
+
+\noindent\textbf{2. Solusi yang Diusulkan:}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}\writespace[0.5cm]
+
+\noindent\textbf{3. Target KPI:}
+
+\vspace{0.2cm}
+{\small
+\renewcommand{\arraystretch}{1.8}
+\begin{tabularx}{\textwidth}{@{} X c c @{}}
+\toprule
+\textbf{Indikator} & \textbf{Baseline (Saat Ini)} & \textbf{Target (30 Hari)} \\
+\midrule
+Cycle Time & & \\
+\hline
+First-Time Accuracy & & \\
+\hline
+Compliance Rate & & \\
+\hline
+Retrieval Speed & & \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+}
+
+\noindent\textbf{4. Estimasi Manfaat Finansial:}\\[0.2cm]
+\begin{tabularx}{\textwidth}{@{} X r @{}}
+Penghematan cycle time: & Rp \fillline[4cm] /tahun \\[0.3cm]
+Reduksi biaya error/revisi: & Rp \fillline[4cm] /tahun \\[0.3cm]
+Mitigasi risiko kepatuhan: & Rp \fillline[4cm] /tahun \\[0.3cm]
+\textbf{Total Estimasi Manfaat:} & \textbf{Rp \fillline[4cm] /tahun} \\
+\end{tabularx}
+
+\vspace{0.3cm}
+\noindent\textbf{5. Estimasi Biaya Implementasi:} Rp \fillline[4cm]\\[0.3cm]
+\noindent\textbf{6. ROI Proyeksi:} \fillline[3cm]\% \quad \textbf{Payback Period:} \fillline[3cm]
+
+\end{tcolorbox}
+
+\vspace{0.4cm}
+
+% Action Plan 30 Hari
+\begin{tcolorbox}[colback=plnorange!5, colframe=plnorange, sharp corners, title={\bfseries Action Plan 30 Hari}]
+
+\small
+\renewcommand{\arraystretch}{2.2}
+\begin{tabularx}{\textwidth}{@{} c X X c @{}}
+\toprule
+\textbf{Minggu} & \textbf{Aktivitas Utama} & \textbf{PIC} & \textbf{Status} \\
+\midrule
+\textbf{1} & & & $\square$ \\
+\hline
+\textbf{2} & & & $\square$ \\
+\hline
+\textbf{3} & & & $\square$ \\
+\hline
+\textbf{4} & & & $\square$ \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+
+\noindent\textbf{Mekanisme Monitoring:} \fillline[8cm]\\[0.3cm]
+\noindent\textbf{Pelaporan Hasil Kepada:} \fillline[8cm]\\[0.3cm]
+\noindent\textbf{Tanggal Laporan Akhir:} \fillline[8cm]
+
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=green!5, colframe=green!50!black, width=0.85\textwidth, sharp corners]
+\centering
+\textbf{Tanda Tangan Kelompok}\\[0.5cm]
+\begin{tabularx}{0.9\textwidth}{@{} X X X @{}}
+\centering Ketua Kelompok & \centering Anggota 1 & \centering Anggota 2 \tabularnewline[1.5cm]
+\centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} \tabularnewline[0.2cm]
+\centering Anggota 3 & \centering Anggota 4 & \centering Fasilitator \tabularnewline[1.5cm]
+\centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} \tabularnewline
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\end{document}

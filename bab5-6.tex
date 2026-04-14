@@ -1,0 +1,445 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, headheight=14.5pt}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[expansion=false]{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Warna Korporat PLN (harus didefinisikan SEBELUM hypersetup)
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=plnblue,
+    urlcolor=plnblue,
+    citecolor=plnblue
+}
+
+% Header & Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Modul 4.3: Bab 5 \& 6}}
+\fancyhead[R]{\small Level 4 (Mastery) -- PLN}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Format Heading
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{plnblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries\color{plnblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{plnblue}}{\thesubsection}{1em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+% Custom Boxes
+\newtcolorbox{plnbox}[1][]{%
+  colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries,
+  title=#1, sharp corners, boxrule=0.8pt, breakable
+}
+\newtcolorbox{warnbox}{%
+  colback=plnorange!10, colframe=plnorange, fonttitle=\bfseries,
+  title=Catatan Batasan Materi, sharp corners, breakable
+}
+\newtcolorbox{outputbox}{%
+  colback=green!10, colframe=green!50!black, fonttitle=\bfseries,
+  title=Output Wajib, sharp corners, breakable
+}
+
+% List styling
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
+\setlist[enumerate]{leftmargin=*, topsep=2pt, itemsep=2pt}
+
+\begin{document}
+
+% ================= COVER STANDALONE =================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+{\Huge\bfseries\color{plnblue} MODUL 4.3 (Penutup)}\\[0.4cm]
+{\LARGE\bfseries Bab 5 \& 6: Analisis Efektivitas \& Penutup}\\[0.8cm]
+\rule{0.8\linewidth}{0.6pt}\\[0.6cm]
+{\large Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
+{\large Level 4 (Mastery)}\\[1.2cm]
+{\large Disusun Khusus untuk: \textbf{PT PLN (Persero)}}\\
+{\large Target Peserta: Manajemen Atas (MA)}\\[2.5cm]
+\includegraphics[width=4cm]{example-image}
+\vfill
+{\small Dokumen ini dapat dikompilasi secara terpisah dari Bab 1--4}
+\end{titlepage}
+
+\newpage
+% ================= BAB 5 =================
+\setcounter{chapter}{4}
+\chapter{Analisis Potensi Peningkatan Efektivitas}
+\textit{Durasi Fasilitasi: 15 Menit} \quad \textit{Kriteria Penilaian: 4.3.4}
+
+\section{Metodologi Pengukuran Kinerja Kearsipan}
+
+Bagi jajaran Manajemen Atas, tata kelola kearsipan tidak boleh lagi dipandang sebagai pusat biaya (\textit{cost center}) yang kinerjanya semata-mata diukur dari volume dokumen yang digudangkan. Di era ekosistem kelistrikan terintegrasi, unit kearsipan harus bertransformasi menjadi pusat penciptaan nilai (\textit{value center}). Oleh karena itu, efektivitas dari inisiatif optimalisasi prosedur tidak diukur dari tingginya anggaran IT atau kerumitan teknologi yang dibeli, melainkan dari \textbf{perubahan nyata pada efisiensi proses bisnis dan mitigasi risiko kepatuhan}.
+
+Metodologi pengukuran kinerja kearsipan dalam modul ini secara khusus dirancang untuk menjembatani kesenjangan antara teori kearsipan dengan bahasa bisnis BUMN. Metodologi ini bertumpu pada kemampuan mengkuantifikasi kemacetan operasional menjadi nominal kerugian, dan sebaliknya, menerjemahkan kelancaran alur persetujuan menjadi \textit{Return on Investment} (ROI) yang auditabel. Dengan pendekatan ini, setiap rencana optimalisasi prosedur memiliki basis argumen yang rasional sebelum diusulkan ke komite investasi.
+
+\subsection{Indikator Kinerja Utama (KPI)}
+Untuk mengukur dampak nyata dari setiap intervensi operasional, PLN membutuhkan metrik spesifik yang dapat dilacak kemajuannya. Tidak semua metrik relevan untuk Manajemen Atas. Oleh sebab itu, \textbf{Tabel 5.1} menyajikan empat indikator kunci terbaik yang berfokus pada efiensi kecepatan, akurasi, dan kepatuhan regulasi. Pemantauan keempat indikator ini akan langsung menyoroti seberapa sehat dan efisien tata kelola kearsipan berjalan di suatu unit.
+
+\vspace{0.3cm}
+\noindent
+{\small\bfseries Tabel 5.1: Indikator Kinerja Proses Kearsipan Terintegrasi}
+
+\vspace{0.2cm}
+\noindent
+\small
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Indikator} & \textbf{Definisi Operasional} & \textbf{Target Realistis (Setelah Optimalisasi)} \\
+\midrule
+\textbf{Cycle Time} & Waktu total dari penciptaan/transaksi hingga arsip tervalidasi \& tersimpan & $\downarrow$ 40--60\% (misal: 5 hari $\rightarrow$ 1--2 hari) \\
+\textbf{First-Time Accuracy} & Persentase arsip yang lolos validasi metadata tanpa revisi & $\uparrow$ $\geq$90\% \\
+\textbf{Retrieval Speed} & Waktu temu kembali arsip berdasarkan query bisnis/audit & $\downarrow$ $<$30 detik (digital) \\
+\textbf{Compliance Rate} & Persentase proses yang memenuhi SLA, retensi, \& jejak audit & $\uparrow$ $\geq$95\% \\
+\bottomrule
+\end{tabularx}
+\vspace{0.3cm}
+
+\begin{plnbox}[Kacamata Arsiparis: Keseimbangan Kecepatan \& Integritas]
+\small
+Dalam mengevaluasi KPI tersebut, Manajemen Atas perlu mewaspadai satu jebakan umum (\textit{logical fallacy}) dalam otomatisasi: \textbf{berasumsi bahwa kecepatan identik dengan kualitas tata kelola}. 
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Imunitas Hukum (\textit{Legal Admissibility}):} KPI \textit{First-Time Accuracy} bukan sekadar mencegah staf mengulang pekerjaan. Keakuratan metadata otomatis dan keutuhan \textit{hash integrity} adalah bukti primer berkekuatan hukum jika PLN diaudit BPK atau menghadapi litigasi.
+    \item \textbf{ROI dari Pemusnahan Data (\textit{Disposition}):} Pengukuran siklus waktu (\textit{Cycle Time}) tidak boleh berhenti hanya sampai arsip tercipta. Penahanan \textit{junk data} atau dokumen digital kadaluwarsa melewati masa Jadwal Retensi Arsip (JRA) demi alasan "berjaga-jaga" justru membebani biaya \textit{server} dan memicu risiko audit (\textit{e-discovery risk}). Tata kelola sejati mensyaratkan otomasi pemusnahan yang legal.
+\end{itemize}
+\end{plnbox}
+
+\begin{warnbox}
+\textbf{Catatan Batasan Materi:} Pengukuran ini berfokus pada \textbf{efektivitas alur kerja dan kepatuhan proses}, bukan pada \textit{uptime server}, \textit{throughput database}, atau \textit{kapasitas penyimpanan teknis} yang merupakan domain evaluasi infrastruktur (Modul 4.1/4.2).
+\end{warnbox}
+
+\subsection{Metode Penghitungan Efisiensi \& ROI}
+Untuk meyakinkan pemangku kepentingan, potensi peningkatan efektivitas dari keempat indikator di atas harus dikuantifikasi secara sederhana namun auditabel. Gunakan pendekatan \textbf{Time-Cost-Risk Saving}:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Penghematan Waktu $\times$ Biaya:} 
+    \begin{multline*}
+    \text{ROI Waktu} = (\text{Cycle Time Lama} - \text{Cycle Time Baru}) \\
+    \times\; \text{Volume Proses/Tahun} \times \text{Biaya Rata-Rata/Jam}
+    \end{multline*}
+    \item \textbf{Reduksi Biaya Kesalahan:} Hitung potensi penghematan dari penurunan revisi, pencetakan ulang, denda keterlambatan pelaporan, atau biaya audit temuan.
+    \item \textbf{Mitigasi Risiko Bisnis:} Nilai kualitatif-kuantitatif dari penurunan risiko kehilangan arsip vital, pelanggaran PP 71/2019, atau temuan audit BPK.
+\end{enumerate}
+
+\begin{plnbox}[PLN Context Box]
+\textbf{Ilustrasi Kalkulasi Sederhana (Proses arsip perintah kerja (SPK) Pemeliharaan GI):}
+\begin{itemize}[nosep]
+    \item Volume: 1.200 arsip perintah kerja (SPK)/tahun
+    \item Cycle Time: 5 hari $\rightarrow$ 1 hari (hemat 4 hari/arsip perintah kerja (SPK))
+    \item Biaya tenaga kerja \& overhead: Rp 150.000/hari
+    \item \textbf{Penghematan Waktu} = $1.200 \times 4 \times 150.000 = \textbf{Rp 720.000.000/tahun}$
+    \item \textbf{Dampak Tambahan:} Error metadata $\downarrow$ 85\%, temuan audit administratif $\rightarrow$ 0
+\end{itemize}
+\end{plnbox}
+
+\section{Studi Kasus End-to-End: Transformasi arsip perintah kerja (SPK) Pemeliharaan GI 150 kV}
+\label{sec:studikasus}
+
+Studi kasus berikut menyajikan simulasi lengkap penerapan optimalisasi alur kerja kearsipan pada proses Work Order (arsip perintah kerja (SPK)) pemeliharaan Gardu Induk 150 kV, dari kondisi awal hingga hasil implementasi pilot selama 90 hari.
+
+\subsubsection*{A. Profil Unit \& Konteks}
+\begin{itemize}[nosep, leftmargin=*]
+    \item \textbf{Unit:} UIT Jawa Bagian Tengah -- Area Pemeliharaan Gardu Induk
+    \item \textbf{Cakupan:} 48 Gardu Induk 150 kV, 12 tim teknisi pemeliharaan
+    \item \textbf{Volume:} $\pm$1.200 Work Order pemeliharaan/tahun (rata-rata 100 arsip perintah kerja (SPK)/bulan)
+    \item \textbf{Sistem Yang Ada:} Sistem Operasional (input arsip perintah kerja (SPK)), Filing cabinet \& folder bersama (arsip), Email (alur persetujuan)
+\end{itemize}
+
+\subsubsection*{B. Kondisi Sebelum Optimalisasi (As-Is)}
+
+\vspace{0.3cm}
+\noindent
+{\small\bfseries Tabel: Analisis Kondisi As-Is -- Dampak Proses Manual}
+
+\vspace{0.2cm}
+\noindent
+\small
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X r @{}}
+\toprule
+\textbf{Masalah} & \textbf{Dampak Operasional} & \textbf{Kerugian/Tahun} \\
+\midrule
+Cycle time rata-rata 5 hari/arsip perintah kerja (SPK) & Penundaan pelaporan kesiapan aset ke Dispatcher & Rp 720.000.000 \\
+Error metadata 35\% (input manual) & 420 arsip perintah kerja (SPK)/tahun perlu revisi, rata-rata 2 jam/revisi & Rp 52.500.000 \\
+Kehilangan 8 dokumen arsip/tahun & Temuan audit BPK, potensi sanksi administratif & Rp 200.000.000 \\
+Waktu temu kembali 15--30 menit & Keterlambatan respons saat audit mendadak & Rp 37.500.000 \\
+\addlinespace
+\multicolumn{2}{@{}l}{\textbf{Total Estimasi Kerugian Tahunan}} & \textbf{Rp 1.010.000.000} \\
+\bottomrule
+\end{tabularx}
+
+\begin{plnbox}[Catatan Perhitungan]
+\small
+\begin{itemize}[nosep, leftmargin=*]
+    \item Biaya cycle time: 1.200 arsip perintah kerja (SPK) $\times$ 4 hari terbuang $\times$ Rp 150.000/hari = Rp 720 juta
+    \item Biaya revisi: 420 arsip perintah kerja (SPK) $\times$ 2 jam $\times$ Rp 62.500/jam = Rp 52,5 juta
+    \item Biaya kehilangan arsip: 8 kasus $\times$ Rp 25 juta (biaya rekonstruksi + risiko sanksi) = Rp 200 juta
+    \item Biaya retrieval lambat: 1.200 arsip perintah kerja (SPK) $\times$ 0,25 jam terbuang $\times$ Rp 125.000/jam = Rp 37,5 juta
+\end{itemize}
+\end{plnbox}
+
+\subsubsection*{C. Intervensi Optimalisasi yang Diterapkan}
+
+\begin{enumerate}[leftmargin=*, nosep]
+    \item \textbf{Trigger Otomatis:} Status \textit{Selesai} di Sistem Operasional memicu auto-generate draft arsip arsip perintah kerja (SPK) + 12 field metadata wajib (ID GI, tanggal, teknisi, sparepart, kategori pemeliharaan, dll.)
+    \item \textbf{Validasi Digital:} Supervisor melakukan validasi via Sistem Tata Persuratan Digital dengan SLA maksimal 1$\times$24 jam kerja; eskalasi otomatis ke Manajer Area jika terlampaui
+    \item \textbf{Penyimpanan Langsung:} Arsip tervalidasi langsung tersimpan di repositori digital dengan hash integrity \& audit trail immutable
+    \item \textbf{SOP Digital 7 Komponen:} Prosedur baku mencakup trigger, metadata, SLA, exception handling, dan referensi regulasi
+\end{enumerate}
+
+\subsubsection*{D. Hasil Setelah 90 Hari Pilot (To-Be)}
+
+\vspace{0.3cm}
+\noindent
+{\small\bfseries Tabel: Perbandingan KPI -- Sebelum vs Sesudah Optimalisasi}
+
+\vspace{0.2cm}
+\noindent
+\small
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X c c c @{}}
+\toprule
+\textbf{Indikator Kinerja} & \textbf{Sebelum} & \textbf{Sesudah} & \textbf{Peningkatan} \\
+\midrule
+Cycle Time (rata-rata) & 5 hari & 0,8 hari & $\downarrow$ 84\% \\
+First-Time Accuracy & 65\% & 96\% & $\uparrow$ 31 poin \\
+Retrieval Speed & 15--30 menit & $<$20 detik & $\downarrow$ 99\% \\
+Compliance Rate & 72\% & 98\% & $\uparrow$ 26 poin \\
+Kehilangan Arsip & 8 kasus/tahun & 0 kasus & $\downarrow$ 100\% \\
+Temuan Audit BPK & 3 temuan/tahun & 0 temuan & $\downarrow$ 100\% \\
+\bottomrule
+\end{tabularx}
+
+\subsubsection*{E. Kalkulasi ROI \& Dampak Finansial}
+
+\vspace{0.3cm}
+\noindent
+{\small\bfseries Tabel: Ringkasan ROI Transformasi Kearsipan GI 150 kV}
+
+\vspace{0.2cm}
+\noindent
+\small
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X r @{}}
+\toprule
+\textbf{Komponen} & \textbf{Nilai (Rp/tahun)} \\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{\color{plnblue}Penghematan (Benefit)}} \\
+\quad Penghematan cycle time (1.200 arsip perintah kerja (SPK) $\times$ 4,2 hari $\times$ Rp 150.000) & 756.000.000 \\
+\quad Reduksi biaya revisi metadata ($\downarrow$ 85\%) & 44.625.000 \\
+\quad Eliminasi risiko kehilangan arsip & 200.000.000 \\
+\quad Efisiensi waktu temu kembali & 36.000.000 \\
+\addlinespace
+\textbf{Total Benefit Tahunan} & \textbf{1.036.625.000} \\
+\addlinespace
+\multicolumn{2}{@{}l}{\textbf{\color{red}Biaya Implementasi (Cost) -- Tahun Pertama}} \\
+\quad Konfigurasi trigger \& template SOP & 75.000.000 \\
+\quad Pelatihan 48 personel (3 batch) & 36.000.000 \\
+\quad Pendampingan konsultan (90 hari pilot) & 50.000.000 \\
+\addlinespace
+\textbf{Total Cost Tahun Pertama} & \textbf{161.000.000} \\
+\midrule
+\textbf{Net Benefit Tahun Pertama} & \textbf{875.625.000} \\
+\textbf{ROI Tahun Pertama} & \textbf{544\%} \\
+\textbf{Payback Period} & \textbf{$<$ 2 bulan} \\
+\bottomrule
+\end{tabularx}
+
+\subsubsection*{F. Lessons Learned}
+\begin{enumerate}[leftmargin=*, nosep]
+    \item \textbf{Quick Win Paling Berdampak:} Eliminasi langkah cetak-scan-upload memberikan penghematan waktu terbesar (60\% dari total \textit{cycle time saving}) untuk dokumen rutin. Untuk dokumen legal/kontrak yang wajib dipertahankan fisiknya secara hibrida, penghematan didapat dari otomasi \textit{metadata tracking}-nya.
+    \item \textbf{Faktor Keberhasilan Kritis:} Dukungan aktif Manajer Area sebagai champion proyek dan penegakan SLA validasi 1$\times$24 jam tanpa pengecualian.
+    \item \textbf{Hambatan yang Ditemui:} Resistensi awal dari 3 supervisor senior yang terbiasa tanda tangan basah -- diatasi dengan pendampingan 1-on-1 dan demonstrasi jejak audit digital yang lebih kuat secara hukum.
+    \item \textbf{Rekomendasi Skalabilitas:} Hasil pilot layak direplikasi ke seluruh UIT dengan penyesuaian minor pada template metadata sesuai karakteristik aset masing-masing area.
+\end{enumerate}
+
+\begin{outputbox}
+\textbf{Nilai Strategis Studi Kasus:} Dengan investasi Rp 161 juta, unit ini menghemat lebih dari \textbf{Rp 1 miliar/tahun} dan mengeliminasi seluruh temuan audit kearsipan. ROI 544\% menjadikan proyek ini salah satu inisiatif transformasi dengan \textit{return} tertinggi di lingkungan tata kelola informasi PLN.
+\end{outputbox}
+
+\section{Penyusunan Business Case \& Action Plan}
+Hasil analisis efektivitas harus dikemas dalam \textbf{Business Case 1 Halaman} yang langsung dapat diajukan ke komite tata kelola atau manajemen unit:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Template Business Case \& Action Plan 30 Hari}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Komponen} & \textbf{Isi Singkat} \\
+\midrule
+\textbf{Latar Belakang} & Proses yang ada, bottleneck, dampak operasional/kepatuhan \\
+\textbf{Solusi Usulan} & Alur kerja terintegrasi (Bab 3) + SOP digital (Bab 4) \\
+\textbf{Target KPI} & Cycle time, akurasi, compliance rate (Bab 5.1) \\
+\textbf{Estimasi Manfaat} & Penghematan waktu/biaya, mitigasi risiko, nilai strategis \\
+\textbf{Timeline 30 Hari} & Minggu 1: Pilot 1 unit $\rightarrow$ Minggu 2: Monitoring $\rightarrow$ Minggu 3: Evaluasi $\rightarrow$ Minggu 4: Standardisasi \\
+\textbf{PIC \& Sumber Daya} & Penanggung jawab proses, dukungan IT fungsional, fasilitator kearsipan \\
+\textbf{Mekanisme Monitoring} & Dashboard KPI bulanan, review peer, laporan kepatuhan triwulan \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Aktivitas Workshop (15 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Setiap kelompok menghitung potensi efisiensi proses yang telah dirancang di Bab 3--4.
+    \item Isi \textbf{Business Case 1 Halaman} menggunakan template di atas.
+    \item Susun \textbf{Action Plan 30 Hari} dengan timeline realistis \& PIC jelas.
+    \item Presentasi singkat (3 menit) untuk validasi kelayakan implementasi.
+\end{enumerate}
+
+\begin{outputbox}
+\textbf{Output Wajib Bab 5:} \textit{KPI Tracker + Business Case \& Action Plan 30 Hari}. Dokumen ini menjadi bukti kompetensi kriteria 4.3.4 dan dapat langsung digunakan sebagai usulan \textit{pilot project} di unit kerja masing-masing.
+\end{outputbox}
+
+\subsection*{Referensi Pendukung Bab 5}
+\begin{enumerate}[leftmargin=*, nosep]
+    \item NARA, \textit{Records Management Performance Measures} (Indikator proses)
+    \item World Bank RM Roadmap, \textit{Part 9: Implementation, Monitoring \& Review}
+    \item PARBICA, \textit{Recordkeeping for Good Governance Toolkit (Guideline 13: Digital Recordkeeping Readiness Self-assessment)}
+    \item Lean Six Sigma for Records Management (Whitepaper, efisiensi proses)
+\end{enumerate}
+
+\newpage
+% ================= BAB 6 =================
+\chapter{Penutup \& Refleksi}
+\textit{Durasi Fasilitasi: 5 Menit} \quad \textit{Evaluasi Mandiri \& Komitmen Tindak Lanjut}
+
+\section{Rangkuman Kompetensi yang Dicapai}
+Sepanjang Modul 4.3, peserta telah menyelesaikan empat kompetensi inti yang selaras dengan silabus Level 4 (Mastery):
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Peta Capaian Kompetensi Modul 4.3}
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Kriteria} & \textbf{Kompetensi} & \textbf{Output Portofolio} \\
+\midrule
+\textbf{4.3.1} & Evaluasi prosedur yang ada \& identifikasi area optimasi & Matriks Identifikasi Area Optimasi \\
+\textbf{4.3.2} & Rancang alur kerja terintegrasi (To-Be) & Diagram BPMN 2.0 + Peta Trigger \\
+\textbf{4.3.3} & Rumuskan SOP digital terintegrasi & Draft SOP 7 Komponen \\
+\textbf{4.3.4} & Analisis potensi peningkatan efektivitas & KPI Tracker + Action Plan 30 Hari \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Manajemen Perubahan Budaya (\textit{Change Management})}
+Keberhasilan transformasi alur kerja kearsipan tidak hanya ditentukan oleh kualitas desain proses dan SOP, melainkan juga oleh kesiapan organisasi dalam mengelola perubahan perilaku dan budaya kerja. Sebagai Manajemen Atas, kemampuan mengantisipasi dan memitigasi resistensi merupakan kompetensi kritis yang menentukan keberlangsungan implementasi.
+
+\subsection{Pola Resistensi Umum di Lingkungan BUMN}
+Berdasarkan pola yang lazim ditemui pada transformasi digital di lingkungan BUMN, terdapat empat kategori resistensi yang perlu diantisipasi:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Resistensi Kebiasaan (\textit{Habitual}):} Personel yang telah menjalankan prosedur manual selama bertahun-tahun merasa tidak nyaman dengan perubahan. Manifestasi: ``\textit{Cara lama sudah berjalan baik, kenapa harus berubah?}''
+    \item \textbf{Resistensi Kompetensi (\textit{Skill-Based}):} Kekhawatiran tidak mampu mengoperasikan sistem digital baru, terutama pada pegawai senior menjelang pensiun. Manifestasi: ``\textit{Saya tidak mengerti teknologi ini.}''
+    \item \textbf{Resistensi Kewenangan (\textit{Power-Based}):} Kekhawatiran bahwa otomasi dan transparansi akan mengurangi kontrol atau kewenangan yang selama ini dimiliki. Manifestasi: ``\textit{Ini mengubah struktur siapa yang memutuskan apa.}''
+    \item \textbf{Resistensi Kepercayaan (\textit{Trust-Based}):} Ketidakpercayaan terhadap validitas dokumen digital, tanda tangan elektronik, atau keamanan sistem. Manifestasi: ``\textit{Tanda tangan basah lebih sah secara hukum.}''
+\end{enumerate}
+
+\subsection{Strategi Mitigasi Resistensi}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Matriks Strategi Mitigasi Resistensi Perubahan}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Strategi} & \textbf{Taktik Implementasi} & \textbf{Konteks PLN} \\
+\midrule
+\textbf{Quick Win Demonstration} & Tunjukkan hasil nyata dalam 2 minggu pertama pada 1 proses sederhana & Pilot 1 GI: tunjukkan retrieval 20 detik vs 30 menit \\
+\textbf{Champion Network} & Rekrut 2--3 early adopter per unit sebagai agen perubahan informal & Supervisor muda yang antusias teknologi digital \\
+\textbf{Pendampingan 1-on-1} & Fasilitasi personal bagi personel senior dengan resistensi tinggi & Sesi 30 menit/minggu selama bulan pertama \\
+\textbf{Edukasi Regulasi} & Sosialisasikan bahwa tanda tangan elektronik tersertifikasi memiliki kekuatan hukum setara (UU ITE \& PP 71/2019) & Workshop mini 1 jam dengan Legal/GCG \\
+\textbf{Transparansi Manfaat} & Visualisasikan data penghematan dan perbaikan KPI secara berkala & Dashboard KPI bulanan dipresentasikan di rapat manajemen \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Peta Pemangku Kepentingan \& Pendekatan}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Matriks Engagement Pemangku Kepentingan}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Stakeholder} & \textbf{Posisi} & \textbf{Kepentingan Utama} & \textbf{Pendekatan} \\
+\midrule
+GM/VP Unit & Champion & Efisiensi operasional \& kepatuhan audit & Laporan ROI bulanan, eskalasi langsung \\
+Manajer Area & Supporter & Kelancaran proses harian & Delegasi sebagai PIC pilot, libatkan dalam desain SOP \\
+Supervisor Senior & Potensial Resistor & Kenyamanan prosedur lama & Pendampingan personal, pengakuan kontribusi \\
+Tim IT Fungsional & Enabler & Stabilitas sistem & Koordinasi teknis rutin, SLA jelas antar tim \\
+Unit Kearsipan & Co-Owner & Kepatuhan regulasi ANRI & Kolaborasi penyusunan template metadata \\
+Auditor Internal & Validator & Kelengkapan jejak audit & Demo audit trail digital, akses dashboard \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{plnbox}[PLN Context Box]
+\textbf{Taktik 30 Hari Pertama yang Terbukti Efektif:}
+\begin{enumerate}[nosep, leftmargin=*]
+    \item \textbf{Minggu 1--2:} Jalankan proses lama dan baru secara paralel (\textit{parallel run}). Biarkan personel melihat sendiri bahwa proses digital lebih cepat tanpa memaksakan penghentian proses lama.
+    \item \textbf{Minggu 3:} Hentikan proses lama secara resmi setelah personel merasa percaya diri. Sediakan \textit{helpdesk} internal untuk pertanyaan cepat.
+    \item \textbf{Minggu 4:} Rayakan \textit{quick win} pertama --- publikasikan data ``arsip diproses dalam 4 jam vs sebelumnya 5 hari'' di forum internal/grup koordinasi unit.
+\end{enumerate}
+\textbf{Kunci Sukses:} Jangan pernah mempermalukan personel yang lambat beradaptasi. Gunakan pendekatan \textit{``kita belajar bersama''} dan akui bahwa perubahan memerlukan waktu.
+\end{plnbox}
+
+\begin{warnbox}
+\textbf{Peringatan untuk Manajemen Atas:} Kesalahan paling fatal dalam transformasi digital kearsipan bukan memilih teknologi yang salah, melainkan \textbf{mengabaikan dimensi manusia}. Sebagian besar pilot project yang gagal di lingkungan BUMN bukan karena sistemnya tidak berfungsi, tetapi karena personel tidak disiapkan secara memadai untuk mengadopsinya. Alokasikan minimal 30\% dari anggaran dan waktu implementasi untuk aktivitas manajemen perubahan.
+\end{warnbox}
+
+\section{Refleksi Pembelajaran \& Komitmen Tindak Lanjut}
+Sebagai penutup, peserta diminta melakukan refleksi mandiri dan menyusun komitmen nyata:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Apa 1 proses kearsipan yang paling mendesak untuk dioptimalkan di unit Anda?}
+    \item \textbf{Siapa pemangku kepentingan kunci (IT, GCG, Operasional) yang perlu dilibatkan sejak awal?}
+    \item \textbf{Hambatan budaya atau prosedur apa yang paling mungkin muncul, dan bagaimana mitigasinya?}
+    \item \textbf{Komitmen 30 Hari:}
+
+    Saya, \underline{\hspace{3.5cm}}, menyatakan akan menginisiasi pilot optimalisasi alur kerja pada proses \underline{\hspace{3.5cm}} dengan target KPI \underline{\hspace{3cm}} dan melaporkan hasil monitoring kepada \underline{\hspace{3cm}} paling lambat tanggal~\underline{\hspace{2.5cm}}.
+\end{enumerate}
+
+\section{Evaluasi Mandiri \& Langkah Selanjutnya}
+\begin{itemize}[leftmargin=*]
+    \item Kerjakan \textbf{Post-Test Konsep} (10 soal) melalui LMS PLN untuk validasi pemahaman teoritis.
+    \item Kumpulkan ke-4 dokumen portofolio ke Unit Kearsipan Holding/Subholding sebagai syarat kelulusan (Passing Grade $\geq$70).
+    \item Jadwalkan \textbf{Peer Review Session} dengan unit lain untuk berbagi praktik baik optimalisasi prosedur.
+    \item Manfaatkan modul ini sebagai referensi dalam penyusunan \textit{Annual Records Management Improvement Plan} perusahaan.
+\end{itemize}
+
+\begin{plnbox}[PLN Context Box]
+\textbf{Dukungan Pasca Pelatihan:} PLN menyediakan kanal konsultasi tata kelola kearsipan melalui \textit{Center of Excellence Records Management} dan forum komunitas \textit{PLN Archives Champion}. Manfaatkan kanal ini untuk validasi desain alur kerja, pendampingan pilot project, dan pertukaran template SOP antar subholding.
+\end{plnbox}
+
+\begin{outputbox}
+\textbf{Selamat!} Anda telah menyelesaikan Modul 4.3. Empat dokumen portofolio yang telah Anda susun merupakan fondasi strategis untuk transformasi tata kelola arsip yang lebih efisien, akuntabel, dan terintegrasi di lingkungan PT PLN (Persero).
+\end{outputbox}
+
+\subsection*{Referensi Penutup}
+\begin{enumerate}[leftmargin=*, nosep]
+    \item World Bank RM Roadmap, \textit{Part 9: Implementation \& Sustainability}
+    \item PARBICA, \textit{Recordkeeping for Good Governance Toolkit (Guideline 1: Recordkeeping Capacity Checklist)}
+    \item Pedoman GCG BUMN Terkini \& Roadmap Transformasi Digital PLN
+    \item UU 43/2009 tentang Kearsipan \& PP 71/2019 tentang PSTE
+\end{enumerate}
+
+\end{document}

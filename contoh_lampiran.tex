@@ -1,0 +1,472 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, headheight=14.5pt}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[expansion=false]{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric, calc}
+
+% Warna Korporat PLN
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+\definecolor{fillgreen}{RGB}{230,245,230}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=plnblue,
+    urlcolor=plnblue,
+    citecolor=plnblue
+}
+
+% Header & Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{CONTOH Pengisian Lembar Kerja -- Modul 4.3}}
+\fancyhead[R]{\small Level 4 (Mastery) -- PLN}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Format Heading
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{plnblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries\color{plnblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{plnblue}}{\thesubsection}{1em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+% Custom Boxes
+\newtcolorbox{plnbox}[1][]{%
+  colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries,
+  title=#1, sharp corners, boxrule=0.8pt, breakable
+}
+\newtcolorbox{instruksi}{%
+  colback=gray!8, colframe=gray!50!black, fonttitle=\bfseries,
+  title=Instruksi Pengisian, sharp corners, breakable
+}
+\newtcolorbox{contohbox}{%
+  colback=green!5, colframe=green!50!black, fonttitle=\bfseries,
+  title=Ini Adalah Contoh Pengisian -- Bukan Lembar Kerja Kosong, 
+  sharp corners, breakable
+}
+
+% List styling
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
+\setlist[enumerate]{leftmargin=*, topsep=2pt, itemsep=2pt}
+
+\begin{document}
+
+% ================= COVER =================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+{\Huge\bfseries\color{plnblue} CONTOH PENGISIAN}\\[0.4cm]
+{\LARGE\bfseries Lembar Kerja Praktek (Worksheet)}\\[0.3cm]
+{\Large\bfseries Modul 4.3: Optimalisasi Prosedur dan Alur Kerja Terintegrasi}\\[0.8cm]
+\rule{0.8\linewidth}{0.6pt}\\[0.6cm]
+{\large Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
+{\large Level 4 (Mastery)}\\[1.2cm]
+{\large Disusun Khusus untuk: \textbf{PT PLN (Persero)}}\\
+{\large Target Peserta: Manajemen Atas (MA)}\\[1.5cm]
+
+\begin{contohbox}
+\begin{center}
+\textbf{PERHATIAN}
+\end{center}
+Dokumen ini berisi \textbf{contoh pengisian terbaik} untuk seluruh lembar kerja Modul 4.3. Gunakan sebagai referensi saat mengerjakan worksheet kosong Anda.
+
+\begin{itemize}[nosep, leftmargin=*]
+    \item Skenario yang digunakan: \textbf{Arsip Work Order Pemeliharaan Gardu Induk 150 kV}
+    \item Unit contoh: \textbf{UIT Jawa Bagian Tengah -- Area Pemeliharaan GI}
+    \item Semua data bersifat ilustratif namun realistis
+    \item Sesuaikan dengan konteks proses dan unit kerja Anda masing-masing
+\end{itemize}
+\end{contohbox}
+
+\vfill
+{\small Dicetak sebagai bagian dari paket modul pelatihan}\\
+{\small\today}
+\end{titlepage}
+
+% ============================================================
+%   CONTOH LAMPIRAN A: Matriks Identifikasi Area Optimasi
+% ============================================================
+\newpage
+\section*{\color{plnblue} CONTOH LAMPIRAN A}
+{\Large\bfseries Matriks Identifikasi Area Optimasi}\\[0.2cm]
+{\normalsize\textit{Output Wajib Bab 2 -- Kriteria Penilaian 4.3.1}}\\[0.5cm]
+
+\noindent\textbf{Nama Kelompok:} \underline{\textit{~Kelompok 3 -- Gardu Induk~}} \quad \textbf{Tanggal:} \underline{\textit{~11 April 2026~}}\\[0.3cm]
+\textbf{Proses yang Dievaluasi:} \underline{\textit{~Arsip arsip perintah kerja (SPK) Pemeliharaan GI 150 kV~}}\\[0.3cm]
+\textbf{Unit Kerja:} \underline{\textit{~UIT Jawa Tengah~}} \quad \textbf{Volume:} \underline{\textit{~1.200 arsip perintah kerja (SPK)/tahun~}}
+
+\vspace{0.4cm}
+
+\noindent
+\resizebox{\textwidth}{!}{%
+\small
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{17cm}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c @{}}
+\toprule
+\textbf{No} & \textbf{Tahapan Proses} & \textbf{Jenis Hambatan / Titik Gesekan} & \textbf{Potensi Integrasi / Solusi} & \textbf{Prior.} \\
+\midrule
+1 & Input data arsip perintah kerja (SPK) ke Sistem Operasional & Data arsip perintah kerja (SPK) diinput manual oleh teknisi, sering terlambat 1--2 hari setelah pekerjaan selesai & Sistem mobile input langsung di lapangan saat arsip perintah kerja (SPK) ditutup & \textbf{T} \\
+\hline
+2 & Pencetakan dokumen fisik arsip perintah kerja (SPK) & Setiap arsip perintah kerja (SPK) dicetak rangkap 3 (teknisi, supervisor, arsip); pemborosan kertas \& waktu & Eliminasi cetak; gunakan dokumen digital dengan tanda tangan elektronik & \textbf{T} \\
+\hline
+3 & Proses tanda tangan basah & Supervisor \& Manajer harus TTD fisik; sering tertunda karena dinas luar/cuti & Validasi digital via Tata Persuratan dengan SLA 1$\times$24 jam \& eskalasi otomatis & \textbf{T} \\
+4 & Scan \& upload dokumen & Dokumen yang sudah di-TTD harus di-scan lalu diupload manual ke folder bersama & Auto-capture: status operasi memicu \textit{draft} arsip otomatis & \textbf{T} \\
+5 & Pelabelan \& klasifikasi arsip & Metadata arsip diisi manual; inkonsistensi penamaan file antar teknisi berbeda & Template metadata standar 12 field wajib; auto-populate dari Sistem Operasional & \textbf{S} \\
+\hline
+6 & Pencarian arsip saat audit & Arsip tersebar di folder bersama tanpa indeks; rata-rata 15--30 menit per pencarian & Repositori digital terindeks dengan search by metadata \& full-text & \textbf{S} \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+}
+
+\noindent\textit{Keterangan Prioritas: T = Tinggi, S = Sedang, R = Rendah}
+
+\vspace{0.4cm}
+\noindent\textbf{Kesimpulan \& Rekomendasi Utama:}\\
+\noindent\textit{Dari 6 area yang diidentifikasi, 4 termasuk prioritas Tinggi dan semuanya terkait dengan proses manual yang dapat dieliminasi melalui integrasi sistem. Quick win terbesar adalah pada tahapan cetak-TTD-scan-upload (tahapan 2--4) yang secara kumulatif menyumbang 3--4 hari dari total cycle time 5 hari. Rekomendasi: fokuskan pilot project pada integrasi Sistem ERP $\rightarrow$ auto-generate arsip digital $\rightarrow$ validasi via Sistem Tata Persuratan.}
+
+% ============================================================
+%   CONTOH LAMPIRAN B: Diagram BPMN To-Be
+% ============================================================
+\newpage
+\section*{\color{plnblue} CONTOH LAMPIRAN B}
+{\Large\bfseries Lembar Kerja Diagram BPMN To-Be}\\[0.2cm]
+{\normalsize\textit{Output Wajib Bab 3 -- Kriteria Penilaian 4.3.2}}\\[0.5cm]
+
+\noindent\textbf{Nama Kelompok:} \underline{\textit{~Kelompok 3 -- Gardu Induk~}} \quad \textbf{Tanggal:} \underline{\textit{~11 April 2026~}}\\[0.3cm]
+\textbf{Proses yang Dirancang Ulang:} \underline{\textit{~Arsip arsip perintah kerja (SPK) Pemeliharaan GI 150 kV (To-Be)~}}
+
+\vspace{0.4cm}
+
+\noindent\textbf{Diagram Alur Kerja To-Be:}
+
+\vspace{0.3cm}
+\begin{center}
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=0.6cm and 0.3cm,
+  procstep/.style={rectangle, rounded corners=3pt, draw=plnblue, fill=plnblue!10, 
+    text width=2.2cm, minimum height=1.4cm, align=center, 
+    font=\scriptsize\bfseries, line width=0.8pt},
+  humstep/.style={rectangle, rounded corners=3pt, draw=plnorange, fill=plnorange!10, 
+    text width=2.2cm, minimum height=1.4cm, align=center, 
+    font=\scriptsize\bfseries, line width=0.8pt},
+  trigger/.style={circle, draw=green!60!black, fill=green!15, 
+    minimum size=1.3cm, align=center, font=\scriptsize\bfseries, line width=0.8pt},
+  endnode/.style={circle, draw=plnblue!80!black, fill=plnblue!20, 
+    minimum size=1.3cm, align=center, font=\scriptsize\bfseries, line width=1.2pt},
+  gateway/.style={diamond, draw=plnorange!80!black, fill=plnorange!8,
+    minimum width=1.5cm, minimum height=1.5cm, align=center, 
+    font=\scriptsize\bfseries, inner sep=1pt, aspect=1.8},
+  arr/.style={-{Stealth[length=5pt]}, thick, color=plnblue!70},
+  arrok/.style={-{Stealth[length=5pt]}, thick, color=green!60!black},
+  arrno/.style={-{Stealth[length=5pt]}, thick, color=red!60, dashed},
+  lanelab/.style={font=\scriptsize\bfseries, text=plnblue, rotate=90},
+  timelbl/.style={font=\tiny\bfseries, text=green!50!black},
+]
+% Lane backgrounds
+\fill[plnblue!3] (-0.5,-0.5) rectangle (18.5,3.5);
+\fill[plnorange!3] (-0.5,4.0) rectangle (18.5,7.5);
+\fill[plnblue!3] (-0.5,8.0) rectangle (18.5,11.5);
+% Lane labels
+\node[lanelab] at (-0.1, 1.5) {Sistem ERP / Sumber};
+\node[lanelab] at (-0.1, 5.75) {Supervisor / Validator};
+\node[lanelab] at (-0.1, 9.75) {Unit Kearsipan / Repositori};
+% Lane dividers
+\draw[plnblue!20, thick] (-0.5,3.75) -- (18.5,3.75);
+\draw[plnblue!20, thick] (-0.5,7.75) -- (18.5,7.75);
+% Lane 1: ERP/System
+\node[trigger] at (1.5,1.5) (t1) {Start\\Otomatis};
+\node[procstep, right=of t1] (a1) {Auto-\\Generate\\Draft Arsip};
+\node[procstep, right=of a1] (a2) {Auto-\\Capture\\12 Metadata};
+% Lane 2: Supervisor
+\node[humstep] at (9.5,5.75) (h1) {Review \&\\Validasi\\Digital};
+\node[gateway, right=of h1] (g1) {?};
+\node[humstep, below right=0.3cm and 0.8cm of g1] (h2) {Revisi \&\\Koreksi\\Metadata};
+% Lane 3: Kearsipan
+\node[procstep] at (14.5,9.75) (a3) {Simpan ke\\Repositori\\+ Hash};
+\node[procstep, right=of a3] (a4) {Log\\Audit\\Trail};
+\node[endnode, right=of a4] (e1) {Arsip\\Final};
+% Arrows
+\draw[arr] (t1) -- (a1);
+\draw[arr] (a1) -- (a2);
+\draw[arr] (a2.north) -- ++(0,0.8) -| node[above, pos=0.25, timelbl] {Notifikasi \textit{Routing}} (h1.south);
+\draw[arr] (h1) -- (g1);
+\draw[arrok] (g1.north) -- ++(0,0.5) -| node[above, pos=0.25, timelbl] {Approved} (a3.south);
+\draw[arrno] (g1) -- node[right, font=\tiny\itshape, text=red!60] {Rejected} (h2);
+\draw[arrno] (h2.south) -- ++(0,-1.5) -| (a2.south);
+\draw[arr] (a3) -- (a4);
+\draw[arr] (a4) -- (e1);
+% Time labels
+\node[timelbl, above=0.15cm of a1] {Otomatis};
+\node[timelbl, above=0.15cm of a2] {Otomatis};
+\node[timelbl, above=0.15cm of h1] {SLA: Max 1x24 jam};
+\node[timelbl, above=0.15cm of a3] {Otomatis};
+\node[timelbl, above=0.15cm of a4] {Immutable Log};
+% Eskalasi
+\node[font=\tiny\itshape, text=red!70, right=0.3cm of g1, yshift=0.9cm] {Eskalasi ke Manajer jika $>$24 jam};
+\end{tikzpicture}%
+}
+\end{center}
+
+\vspace{0.4cm}
+\noindent\textbf{Daftar Trigger Otomatis:}
+
+\vspace{0.2cm}
+\noindent
+{\small
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{No} & \textbf{Trigger Event / Status} & \textbf{Aksi Otomatis} & \textbf{Sistem Sumber} \\
+\midrule
+1 & Status arsip perintah kerja (SPK) berubah ke Selesai di operasional & Generate draft arsip arsip perintah kerja (SPK) + auto-populate 12 field metadata wajib & Sistem ERP \\
+\hline
+2 & Draft arsip ter-generate & Kirim notifikasi validasi ke Supervisor via E-Office; mulai timer SLA 1$\times$24 jam & E-Office \\
+\hline
+3 & SLA 1$\times$24 jam terlampaui tanpa validasi & Eskalasi otomatis ke Manajer Area + catat di log kepatuhan & E-Office / AMS \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+}
+
+% ============================================================
+%   CONTOH LAMPIRAN C: Template Draft SOP Digital
+% ============================================================
+\newpage
+\section*{\color{plnblue} CONTOH LAMPIRAN C}
+{\Large\bfseries Template Draft SOP Digital Terintegrasi}\\[0.2cm]
+{\normalsize\textit{Output Wajib Bab 4 -- Kriteria Penilaian 4.3.3}}\\[0.5cm]
+
+\noindent\textbf{Nama Kelompok:} \underline{\textit{~Kelompok 3 -- Gardu Induk~}} \quad \textbf{Tanggal:} \underline{\textit{~11 April 2026~}}
+
+\vspace{0.4cm}
+
+% Komponen 1
+\begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 1: Tujuan \& Ruang Lingkup}]
+\small
+\textbf{Tujuan:} Mengatur alur kerja pengelolaan arsip Work Order pemeliharaan Gardu Induk 150 kV secara digital terintegrasi, dari penciptaan otomatis melalui trigger SAP-PM hingga penyimpanan final di repositori kearsipan, dengan menjamin kelengkapan metadata, keterlacakan audit, dan kepatuhan terhadap PP 71/2019 serta Perka ANRI.
+
+\textbf{Ruang Lingkup:} Berlaku untuk seluruh arsip perintah kerja (SPK) pemeliharaan preventif dan korektif pada 48 Gardu Induk 150 kV di lingkungan UIT Jawa Bagian Tengah. Mencakup proses dari status TECO hingga arsip berstatus \texttt{Final \& Auditable}.
+\end{tcolorbox}
+
+% Komponen 2
+\begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 2: Definisi \& Akronim}]
+\small
+\begin{itemize}[nosep, leftmargin=*]
+    \item \textbf{arsip perintah kerja (SPK)} -- Work Order: dokumen perintah kerja pemeliharaan aset
+    \item \textbf{Status Selesai ERP:} Status di Sistem Operasional yang menandakan pekerjaan fisik sudah final.
+    \item \textbf{GI} -- Gardu Induk: fasilitas distribusi tenaga listrik tegangan tinggi
+    \item \textbf{SLA} -- Service Level Agreement: batas waktu layanan yang disepakati
+    \item \textbf{RBAC} -- Role-Based Access Control: pemberian akses berdasarkan peran
+    \item \textbf{Hash Integrity} -- Nilai hash kriptografi untuk menjamin keutuhan dokumen digital
+\end{itemize}
+\end{tcolorbox}
+
+% Komponen 3
+\begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 3: Peran \& Tanggung Jawab}]
+\small
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Peran} & \textbf{Jabatan/Fungsi} & \textbf{Tanggung Jawab Utama} \\
+\midrule
+Inisiator & Teknisi Pemeliharaan GI & Menyelesaikan arsip perintah kerja (SPK) di SAP-PM; memastikan status TECO diinput tepat waktu \\
+\hline
+Validator & Supervisor Pemeliharaan & Mereview kelengkapan metadata \& kesesuaian dokumen; melakukan validasi digital dalam SLA 1$\times$24 jam \\
+\hline
+Custodian & Staf Unit Kearsipan UIT & Memastikan arsip tersimpan di repositori; menjalankan backup berkala; menyediakan akses saat audit \\
+\hline
+Approver & Manajer Area Pemeliharaan & Eskalasi otomatis jika SLA terlampaui; menyetujui exception handling; review KPI bulanan \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+\end{tcolorbox}
+
+% Komponen 4
+\begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 4: System Trigger \& Metadata Wajib}]
+\small
+\noindent\textbf{Trigger Event:} \textit{Status arsip perintah kerja (SPK) berubah ke Selesai di Sistem Operasi}\\[0.2cm]
+\textbf{Sistem Sumber:} \textit{Sistem Operasi (ERP Module)}\\[0.2cm]
+\textbf{Metadata Wajib (12 field):}\\[0.2cm]
+\begin{tabularx}{\textwidth}{@{} X X X @{}}
+1. ID Work Order & 2. Nama Gardu Induk & 3. Kode Aset (FLOC) \\[0.2cm]
+4. Tanggal Mulai Kerja & 5. Tanggal Selesai (TECO) & 6. Nama Teknisi PJ \\[0.2cm]
+7. Jenis Pemeliharaan & 8. Sparepart Digunakan & 9. Kategori Risiko \\[0.2cm]
+10. Supervisor Validator & 11. Klasifikasi Arsip & 12. Hash Integrity \\
+\end{tabularx}
+\end{tcolorbox}
+
+\newpage
+
+% Komponen 5
+\begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 5: Alur Validasi \& SLA}]
+\small
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Tahapan} & \textbf{PIC} & \textbf{SLA} & \textbf{Eskalasi Jika Lewat} \\
+\midrule
+Validasi Level 1 (Kelengkapan Metadata) & Supervisor Pemeliharaan & 8 jam & Notifikasi pengingat otomatis setiap 4 jam \\
+\hline
+Validasi Level 2 (Kesesuaian Dokumen) & Supervisor Pemeliharaan & 16 jam & Eskalasi ke Manajer Area via Sistem Persuratan \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+\end{tcolorbox}
+
+% Komponen 6
+\begin{tcolorbox}[colback=plnorange!5, colframe=plnorange!50, sharp corners, title={\small\bfseries Komponen 6: Exception Handling \& Fallback}]
+\small
+\noindent\textbf{Skenario 1 -- Sistem SAP-PM Down ($>$4 jam):}\\
+Teknisi mengisi Formulir arsip perintah kerja (SPK) Digital Darurat (template Excel standar yang tersedia offline). Setelah sistem pulih, data diinput ulang ke SAP-PM dalam waktu 1$\times$24 jam. Supervisor memvalidasi kesamaan data offline vs online.
+
+\vspace{0.3cm}
+\noindent\textbf{Skenario 2 -- Validasi Ditolak oleh Supervisor:}\\
+Supervisor menuliskan alasan penolakan di kolom komentar E-Office. Sistem mengembalikan draft ke tahap auto-capture metadata untuk koreksi oleh teknisi. Timer SLA direset. Maksimal 2 kali penolakan; penolakan ke-3 dieskalasi ke Manajer untuk disposisi.
+
+\vspace{0.3cm}
+\noindent\textbf{Skenario 3 -- Metadata Tidak Lengkap (field kosong):}\\
+Sistem memblokir penyimpanan jika $<$10 dari 12 field terisi. Notifikasi otomatis dikirim ke teknisi pelapor dengan daftar field yang kosong. Arsip berstatus \texttt{Draft Incomplete} dan tidak masuk ke antrian validasi hingga dilengkapi.
+\end{tcolorbox}
+
+% Komponen 7
+\begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 7: Referensi Regulasi \& Standar}]
+\small
+\begin{enumerate}[nosep, leftmargin=*]
+    \item PP No. 71 Tahun 2019 tentang Penyelenggaraan Sistem dan Transaksi Elektronik (Pasal 14--16: Tanda Tangan Elektronik)
+    \item Peraturan Kepala ANRI No. 6 Tahun 2021 tentang Pedoman Pengelolaan Arsip Elektronik (Pasal 8--12: Metadata \& Prosedur)
+    \item ISO 15489-1:2016 -- Records Management: Principles (Clause 7.2: Process Design)
+    \item SOP Induk Tata Kelola Informasi PT PLN (Persero) -- Bab VII: Pengelolaan Arsip Digital
+\end{enumerate}
+\end{tcolorbox}
+
+\vspace{0.4cm}
+\noindent\textbf{Catatan Peer Review (diisi oleh Kelompok 1):}\\
+\textit{``SOP sudah sangat komprehensif. Saran: (1) Tambahkan prosedur untuk arsip perintah kerja (SPK) darurat/emergency yang tidak melalui perencanaan normal. (2) Pertimbangkan integrasi dengan sistem K3 (E-HSE) untuk arsip perintah kerja (SPK) yang melibatkan area berbahaya. (3) Perjelas siapa yang bertanggung jawab melakukan backup harian repositori.''}
+
+% ============================================================
+%   CONTOH LAMPIRAN D: Business Case & Action Plan 30 Hari
+% ============================================================
+\newpage
+\section*{\color{plnblue} CONTOH LAMPIRAN D}
+{\Large\bfseries Business Case \& Action Plan 30 Hari}\\[0.2cm]
+{\normalsize\textit{Output Wajib Bab 5 -- Kriteria Penilaian 4.3.4}}\\[0.5cm]
+
+\noindent\textbf{Nama Kelompok:} \underline{\textit{~Kelompok 3 -- Gardu Induk~}} \quad \textbf{Tanggal:} \underline{\textit{~11 April 2026~}}\\[0.3cm]
+\textbf{Proses yang Dioptimalkan:} \underline{\textit{~Arsip arsip perintah kerja (SPK) Pemeliharaan GI 150 kV~}}\\[0.3cm]
+\textbf{Unit Kerja Target Pilot:} \underline{\textit{~UIT Jawa Tengah -- GI Cibinong 150 kV (pilot 90 hari)~}}
+
+\vspace{0.3cm}
+
+% Business Case
+\begin{tcolorbox}[colback=fillgreen, colframe=plnblue, sharp corners, title={\bfseries Business Case 1 Halaman}]
+\small
+
+\noindent\textbf{1. Latar Belakang \& Masalah:}\\
+Proses kearsipan arsip perintah kerja (SPK) pemeliharaan GI saat ini memerlukan rata-rata 5 hari kerja per siklus, dengan 4 langkah manual (cetak, TTD basah, scan, upload) yang menyumbang 80\% dari total waktu. Error metadata mencapai 35\% yang mengakibatkan 420 arsip perintah kerja (SPK)/tahun perlu revisi. Dalam 2 tahun terakhir, unit kehilangan 8 dokumen arsip dan mendapat 3 temuan audit BPK terkait ketidaklengkapan jejak audit. Estimasi kerugian tahunan: Rp 1,01 miliar.
+
+\vspace{0.2cm}
+\noindent\textbf{2. Solusi yang Diusulkan:}\\
+Implementasi alur kerja terintegrasi dengan trigger otomatis dari SAP-PM (status TECO), auto-capture 12 field metadata, validasi digital via E-Office dengan SLA 1$\times$24 jam, dan penyimpanan langsung ke repositori dengan hash integrity \& audit trail immutable. Didukung SOP Digital 7 Komponen yang telah dirancang.
+
+\vspace{0.2cm}
+\noindent\textbf{3. Target KPI:}
+
+\vspace{0.2cm}
+{
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X c c @{}}
+\toprule
+\textbf{Indikator} & \textbf{Baseline (Saat Ini)} & \textbf{Target (30 Hari)} \\
+\midrule
+Cycle Time & 5 hari & $\leq$ 1 hari \\
+\hline
+First-Time Accuracy & 65\% & $\geq$ 90\% \\
+\hline
+Compliance Rate & 72\% & $\geq$ 95\% \\
+\hline
+Retrieval Speed & 15--30 menit & $<$ 30 detik \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+}
+
+\vspace{0.2cm}
+\noindent\textbf{4. Estimasi Manfaat Finansial:}\\[0.2cm]
+\begin{tabularx}{\textwidth}{@{} X r @{}}
+Penghematan cycle time (1.200 arsip perintah kerja (SPK) $\times$ 4,2 hari $\times$ Rp 150.000): & Rp 756.000.000 /tahun \\[0.2cm]
+Reduksi biaya error/revisi ($\downarrow$ 85\%): & Rp 44.625.000 /tahun \\[0.2cm]
+Mitigasi risiko kepatuhan (eliminasi temuan audit): & Rp 200.000.000 /tahun \\[0.2cm]
+\textbf{Total Estimasi Manfaat:} & \textbf{Rp 1.000.625.000 /tahun} \\
+\end{tabularx}
+
+\vspace{0.2cm}
+\noindent\textbf{5. Estimasi Biaya Implementasi:} Rp 161.000.000 (tahun pertama)\\[0.2cm]
+\noindent\textbf{6. ROI Proyeksi:} \textbf{522\%} \quad \textbf{Payback Period:} \textbf{$<$ 2 bulan}
+
+\end{tcolorbox}
+
+\vspace{0.3cm}
+
+% Action Plan 30 Hari
+\begin{tcolorbox}[colback=plnorange!5, colframe=plnorange, sharp corners, title={\bfseries Action Plan 30 Hari}]
+\small
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c @{}}
+\toprule
+\textbf{Minggu} & \textbf{Aktivitas Utama} & \textbf{PIC} & \textbf{Status} \\
+\midrule
+\textbf{1} & Konfigurasi trigger TECO $\rightarrow$ auto-generate di SAP-PM; setup template metadata 12 field; sosialisasi ke 12 teknisi GI Cibinong & IT Fungsional + Manajer Area & $\square$ \\
+\hline
+\textbf{2} & Parallel run (proses baru \& lama berjalan bersamaan); pendampingan 1-on-1 untuk 3 supervisor; monitoring harian compliance rate & Supervisor Senior + Fasilitator Kearsipan & $\square$ \\
+\hline
+\textbf{3} & Cutover ke proses baru secara penuh; hentikan proses cetak-scan; sediakan helpdesk internal; mulai pencatatan KPI harian & Manajer Area + Unit Kearsipan & $\square$ \\
+\hline
+\textbf{4} & Evaluasi KPI minggu 1--3; rayakan quick win (publikasi hasil di forum unit); susun laporan pilot untuk presentasi ke GM/VP & Manajer Area + Kelompok 3 & $\square$ \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.3cm}
+\noindent\textbf{Mekanisme Monitoring:} \textit{Dashboard KPI harian (cycle time, accuracy, compliance) ditampilkan di TV monitor ruang operasi GI Cibinong; review mingguan oleh Manajer Area setiap Jumat pagi}\\[0.2cm]
+\noindent\textbf{Pelaporan Hasil Kepada:} \textit{GM UIT Jawa Bagian Tengah (cc: VP Unit Induk, Unit Kearsipan Holding)}\\[0.2cm]
+\noindent\textbf{Tanggal Laporan Akhir:} \textit{12 Mei 2026 (H+30 dari kick-off pilot)}
+
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=green!5, colframe=green!50!black, width=0.85\textwidth, sharp corners]
+\centering
+\textbf{Tanda Tangan Kelompok}\\[0.4cm]
+\begin{tabularx}{0.9\textwidth}{@{} X X X @{}}
+\centering Ketua Kelompok & \centering Anggota 1 & \centering Anggota 2 \tabularnewline[0.8cm]
+\centering\textit{Ir. Budi Santoso} & \centering\textit{Dr. Rina Wijaya} & \centering\textit{Ahmad Fauzi, ST} \tabularnewline[0.1cm]
+\centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} \tabularnewline[0.3cm]
+\centering Anggota 3 & \centering Anggota 4 & \centering Fasilitator \tabularnewline[0.8cm]
+\centering\textit{Siti Nurhaliza, MM} & \centering\textit{Drs. Hendra K.} & \centering\textit{Tim PKA PLN} \tabularnewline[0.1cm]
+\centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} \tabularnewline
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\end{document}

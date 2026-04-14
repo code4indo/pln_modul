@@ -1,0 +1,531 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, headheight=14.5pt}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[expansion=false]{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric, backgrounds, fit, calc}
+
+% Warna Korporat PLN (harus didefinisikan SEBELUM hypersetup)
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=plnblue,
+    urlcolor=plnblue,
+    citecolor=plnblue
+}
+
+
+% Header & Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Modul 4.3: Optimalisasi Prosedur dan Alur Kerja Terintegrasi}}
+\fancyhead[R]{\small Level 4 (Mastery) -- PLN}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Format Heading
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{plnblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries\color{plnblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{plnblue}}{\thesubsection}{1em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+% Custom Boxes
+\newtcolorbox{plnbox}[1][]{%
+  colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries,
+  title=#1, sharp corners, boxrule=0.8pt, breakable
+}
+\newtcolorbox{warnbox}{%
+  colback=plnorange!10, colframe=plnorange, fonttitle=\bfseries,
+  title=Catatan Batasan Materi, sharp corners, breakable
+}
+\newtcolorbox{outputbox}{%
+  colback=green!10, colframe=green!50!black, fonttitle=\bfseries,
+  title=Output Wajib, sharp corners, breakable
+}
+
+% List styling
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
+\setlist[enumerate]{leftmargin=*, topsep=2pt, itemsep=2pt}
+
+\begin{document}
+
+% ================= COVER PAGE =================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+{\Huge\bfseries\color{plnblue} MODUL 4.3}\\[0.4cm]
+{\LARGE\bfseries Optimalisasi Prosedur dan Alur Kerja Terintegrasi}\\[0.8cm]
+\rule{0.8\linewidth}{0.6pt}\\[0.6cm]
+{\Large Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
+{\Large Level 4 (Mastery)}\\[1.2cm]
+{\large Disusun Khusus untuk: \textbf{PT PLN (Persero)}}\\
+{\large Target Peserta: Manajemen Atas (MA)}\\[2.5cm]
+% Ganti dengan logo PLN jika tersedia: \includegraphics[width=5cm]{logo_pln.png}
+\begin{figure}[h]
+\centering
+\includegraphics[width=4cm]{example-image} % Placeholder
+\end{figure}
+\vfill
+{\small \today}
+\end{titlepage}
+
+\chapter*{Daftar Isi}
+\addcontentsline{toc}{chapter}{Daftar Isi}
+
+\vspace{0.5cm}
+{\large\bfseries PETUNJUK PENGGUNAAN MODUL} \dotfill \textbf{Bagian Awal} \\
+\hspace*{1.5cm} Prasyarat \& Persiapan Peserta \dotfill \\
+\hspace*{1.5cm} Panduan Pembelajaran Blended \dotfill \\
+\hspace*{1.5cm} Peta Kompetensi \& Keterkaitan Modul \dotfill \\
+\hspace*{1.5cm} Estimasi Waktu \& Alur Pembelajaran \dotfill \\
+\hspace*{1.5cm} Output Portofolio \& Kriteria Kelulusan \dotfill \\[0.2cm]
+
+{\large\bfseries BAB 1 \quad PENDAHULUAN} \dotfill \textbf{Buku 1} \\
+\hspace*{1.5cm} 1.1 Latar Belakang \& Konteks Strategis PLN \dotfill \\
+\hspace*{1.5cm} 1.2 Makna "Optimalisasi" dan "Integrasi" \dotfill \\
+\hspace*{1.5cm} 1.3 Tujuan \& Hasil Belajar Modul \dotfill \\
+\hspace*{1.5cm} 1.4 Ruang Lingkup \& Batasan Materi \dotfill \\[0.2cm]
+
+{\large\bfseries BAB 2 \quad EVALUASI PROSEDUR YANG ADA \& IDENTIFIKASI AREA OPTIMASI} \dotfill \textbf{Buku 1} \\
+\hspace*{1.5cm} 2.1 Prinsip Evaluasi Proses Bisnis Kearsipan (Adopsi Standar PARBICA) \dotfill \\
+\hspace*{1.5cm} 2.2 Metode Pengumpulan Fakta Lapangan (\textit{Fact-Finding As-Is}) \dotfill \\
+\hspace*{1.5cm} 2.3 Teknik Pemetaan Alur \& Integrasi \dotfill \\
+\hspace*{1.5cm} 2.4 Kerangka Identifikasi Area Optimasi \dotfill \\[0.2cm]
+
+{\large\bfseries BAB 3 \quad PERANCANGAN ALUR KERJA TERINTEGRASI (TO-BE)} \dotfill \textbf{Buku 2} \\
+\hspace*{1.5cm} 3.1 Prinsip Desain Workflow Berbasis Otomasi \dotfill \\
+\hspace*{1.5cm} 3.2 Notasi BPMN 2.0 untuk Level Manajemen \dotfill \\
+\hspace*{1.5cm} 3.3 Pola Integrasi Alur Kerja PLN \dotfill \\
+\hspace*{1.5cm} 3.4 Validasi Alur Terintegrasi \dotfill \\[0.2cm]
+
+{\large\bfseries BAB 4 \quad PENYUSUNAN SOP DIGITAL TERINTEGRASI} \dotfill \textbf{Buku 2} \\
+\hspace*{1.5cm} 4.1 Evolusi SOP: Dari Manual ke Digital-Integrated \dotfill \\
+\hspace*{1.5cm} 4.2 Komponen Wajib SOP Terintegrasi (Berdasarkan PARBICA Guideline 2) \dotfill \\
+\hspace*{1.5cm} 4.3 Penyelarasan Regulasi \& Tata Kelola BUMN \dotfill \\
+\hspace*{1.5cm} 4.4 Review \& Finalisasi SOP \dotfill \\[0.2cm]
+
+{\large\bfseries BAB 5 \quad ANALISIS POTENSI PENINGKATAN EFEKTIVITAS} \dotfill \textbf{Buku 3} \\
+\hspace*{1.5cm} 5.1 Metodologi Pengukuran Kinerja Kearsipan \dotfill \\
+\hspace*{1.5cm} 5.2 Studi Kasus End-to-End: Transformasi arsip perintah kerja (SPK) Pemeliharaan GI 150 kV \dotfill \\
+\hspace*{1.5cm} 5.3 Penyusunan Business Case \& Action Plan \dotfill \\[0.2cm]
+
+{\large\bfseries BAB 6 \quad PENUTUP \& REFLEKSI} \dotfill \textbf{Buku 3} \\
+\hspace*{1.5cm} 6.1 Rangkuman Kompetensi yang Dicapai \dotfill \\
+\hspace*{1.5cm} 6.2 Manajemen Perubahan Budaya (Change Management) \dotfill \\
+\hspace*{1.5cm} 6.3 Refleksi Pembelajaran \& Komitmen Tindak Lanjut \dotfill \\
+\hspace*{1.5cm} 6.4 Evaluasi Mandiri \& Langkah Selanjutnya \dotfill \\[0.4cm]
+
+{\large\bfseries GLOSARIUM \& REFERENSI REGULASI} \dotfill \textbf{Buku 4} \\[0.4cm]
+
+{\large\bfseries LAMPIRAN: LEMBAR KERJA PRAKTEK} \dotfill \textbf{Buku 5} \\
+\hspace*{1.5cm} Lampiran A: Matriks Identifikasi Area Optimasi \dotfill \\
+\hspace*{1.5cm} Lampiran B: Lembar Kerja Diagram BPMN To-Be \dotfill \\
+\hspace*{1.5cm} Lampiran C: Template Draft SOP Digital Terintegrasi \dotfill \\
+\hspace*{1.5cm} Lampiran D: Business Case \& Action Plan 30 Hari \dotfill
+\newpage
+
+% ================= BAGIAN AWAL (FRONT MATTER) =================
+\chapter*{Petunjuk Penggunaan Modul}
+\addcontentsline{toc}{chapter}{Petunjuk Penggunaan Modul}
+
+\section*{Prasyarat \& Persiapan Peserta}
+Untuk memaksimalkan manfaat pembelajaran, peserta diharapkan telah:
+\begin{itemize}[leftmargin=*]
+    \item Memahami dasar-dasar tata kelola kearsipan (setara Level 2 atau pengalaman minimal 2 tahun di unit kearsipan/operasional)
+    \item Mengikuti Modul 4.1 (Analisis Sistem Yang Ada) dan 4.2 (Perancangan Arsitektur Terintegrasi) \textit{atau} memiliki pemahaman setara
+    \item Membawa contoh 1 prosedur kearsipan dari unit kerja masing-masing untuk studi kasus workshop
+    \item Mengakses referensi wajib sebelum pelatihan: \textit{World Bank RM Roadmap Part 4 \& 6}, \textit{Perka ANRI No. 6/2021}
+\end{itemize}
+
+\begin{warnbox}
+Jika peserta belum memenuhi prasyarat di atas, disarankan untuk meninjau ulang materi Level 3 Modul 2.2 (Proses Effectiveness) atau berkoordinasi dengan fasilitator untuk penyesuaian pendampingan.
+\end{warnbox}
+
+\section*{Panduan Pembelajaran Blended}
+Modul ini dirancang untuk pembelajaran blended (ICT + workshop). Ikuti panduan berikut:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Sebelum Sesi:} Baca Bab 1--2, lengkapi prasyarat, dan siapkan studi kasus unit kerja.
+    \item \textbf{Selama Sesi:} Fokus pada aktivitas workshop; gunakan template yang disediakan; catat pertanyaan untuk diskusi panel.
+    \item \textbf{Setelah Sesi:} Kumpulkan output portofolio; ikuti post-test; jadwalkan pilot implementation dengan unit terkait.
+    \item \textbf{Referensi Cepat:} Gunakan glosarium (Lampiran A) untuk istilah teknis; gunakan rubrik (Lampiran E) untuk self-assessment.
+\end{enumerate}
+
+\begin{plnbox}[Tips Efektif]
+Manfaatkan \textbf{PLN Context Box} di setiap bab untuk mengaitkan konsep dengan operasional nyata. Diskusikan dengan rekan satu unit untuk memperkaya perspektif implementasi.
+\end{plnbox}
+
+\section*{Peta Kompetensi \& Keterkaitan Modul}
+Modul 4.3 merupakan bagian integral dari Mata Pelajaran 4: \textit{Integrated Systems \& Process Optimization}. Berikut peta keterkaitannya:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Peta Keterkaitan Modul dalam Level 4}
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Modul} & \textbf{Fokus Utama} & \textbf{Output yang Menghubungkan ke 4.3} \\
+\midrule
+\textbf{4.1} & Analisis sistem/prosedur yang ada & Matriks kondisi \textit{As-Is} $\rightarrow$ input evaluasi 4.3.1 \\
+\textbf{4.2} & Desain arsitektur teknis terintegrasi & Blueprint integrasi $\rightarrow$ acuan trigger di 4.3.2 \\
+\textbf{4.3} & \textbf{Optimalisasi prosedur \& alur kerja} & \textbf{SOP Digital, BPMN To-Be, KPI Tracker} \\
+\textbf{4.4} & Keamanan \& keterlacakan terintegrasi & Matriks RBAC, Audit Trail $\rightarrow$ klausul keamanan SOP 4.3 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Alur Kompetensi:} \texttt{4.1 (As-Is)} $\rightarrow$ \texttt{4.2 (Architecture)} $\rightarrow$ \textbf{4.3 (Process Optimization)} $\rightarrow$ \texttt{4.4 (Security \& Traceability)}
+
+\section*{Estimasi Waktu \& Alur Pembelajaran}
+Modul ini dialokasikan \textbf{60 menit} dengan distribusi sebagai berikut:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Rincian Alokasi Waktu Modul 4.3}
+\begin{tabularx}{\textwidth}{@{} c X c c @{}}
+\toprule
+\textbf{Bab} & \textbf{Aktivitas Utama} & \textbf{Durasi} & \textbf{Output} \\
+\midrule
+Bab 1 & Pendahuluan: konteks strategis, tujuan \& ruang lingkup & 10 menit & Pemahaman konteks \& kesiapan \\
+Bab 2 & Evaluasi prosedur \& identifikasi area optimasi & 15 menit & Matriks Identifikasi Area Optimasi \\
+Bab 3 & Perancangan alur kerja terintegrasi (To-Be) & 20 menit & Diagram BPMN 2.0 + Peta Trigger \\
+Bab 4 & Penyusunan SOP digital terintegrasi & 15 menit & Draft SOP Digital Terintegrasi \\
+Bab 5 & Analisis efektivitas \& business case & 15 menit & KPI Tracker + Action Plan 30 Hari \\
+Bab 6 & Penutup, refleksi, evaluasi mandiri & 5 menit & Komitmen tindak lanjut \\
+\midrule
+\textbf{Total} & & \textbf{60 menit} & \textbf{4 Dokumen Portofolio} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{warnbox}
+Waktu bersifat fleksibel tergantung dinamika workshop. Fasilitator dapat menyesuaikan alokasi Bab 3--4 jika peserta memerlukan pendampingan ekstra pada desain BPMN atau SOP.
+\end{warnbox}
+
+\section*{Output Portofolio \& Kriteria Kelulusan}
+Peserta dinyatakan lulus modul ini jika memenuhi:
+
+\begin{enumerate}[leftmargin=*]
+    \item Mengumpulkan ke-4 dokumen portofolio berikut:
+    \begin{itemize}[nosep]
+        \item Matriks Identifikasi Area Optimasi (Bab 2)
+        \item Diagram BPMN 2.0 (To-Be) + Peta Trigger (Bab 3)
+        \item Draft SOP Digital Terintegrasi (Bab 4)
+        \item KPI Tracker + Action Plan 30 Hari (Bab 5)
+    \end{itemize}
+    \item Mencapai skor minimal \textbf{70/100} berdasarkan rubrik penilaian terintegrasi
+    \item Mengikuti post-test konseptual dengan nilai minimal 65
+    \item Menyampaikan komitmen tindak lanjut implementasi di unit kerja
+\end{enumerate}
+
+\begin{outputbox}
+\textbf{Target Akhir:} Peserta tidak hanya memahami konsep optimalisasi prosedur, tetapi memiliki \textbf{dokumen siap implementasi} yang dapat langsung diusulkan sebagai pilot project di unit kerja masing-masing.
+\end{outputbox}
+
+\newpage
+
+% ================= BAB 1 =================
+\chapter{Pendahuluan}
+\textit{Durasi Fasilitasi: 10 Menit} \quad \textit{Kriteria Penilaian: Pengantar Umum}
+
+\section{Latar Belakang \& Konteks Strategis PLN}
+Tata kelola arsip di lingkungan PT PLN (Persero) tidak lagi sekadar fungsi administratif, melainkan \textbf{penopang strategis keandalan operasional, kepatuhan regulasi, dan transformasi digital perusahaan}. Visi PLN dalam membangun ekosistem ketenagalistrikan yang tangguh, transparan, dan efisien memerlukan arus informasi yang akurat, cepat, dan teraudit. Setiap dokumen pemeliharaan aset, kontrak pengadaan, laporan keselamatan kerja, hingga catatan audit BPK merupakan aset informasi yang menentukan kecepatan pengambilan keputusan dan mitigasi risiko korporasi.
+
+Namun, pada praktiknya, banyak alur kerja kearsipan masih terhambat oleh prosedur manual, input data berulang, alur persetujuan yang tidak terdigitalisasi, dan ketidakkonsistenan metadata. Hal ini tidak hanya memperlambat siklus bisnis, tetapi juga meningkatkan risiko ketidakpatuhan terhadap PP 71/2019 tentang PSTE, Perka ANRI, dan standar audit BUMN.
+
+Modul ini dirancang khusus untuk \textbf{Manajemen Atas PLN} agar mampu mengevaluasi prosedur kearsipan dari perspektif proses bisnis, mengidentifikasi titik-titik yang dapat dioptimalkan melalui integrasi konseptual, serta merumuskan alur kerja dan SOP digital yang selaras dengan transformasi sistem PLN (contoh: Sistem ERP, Aplikasi Manajemen Aset, Tata Persuratan Digital, dan Repositori Kearsipan).
+
+\begin{warnbox}
+\textbf{Catatan Terminologi Sistem:} Modul ini sengaja menggunakan istilah sistem generik (seperti "Sistem Operasional/ERP", "Sistem Tata Persuratan") dan tidak mengikat pada satu merek aplikasi tertentu (seperti SAP, E-Office, atau IAM). Hal ini karena \textit{lifecycle} arsitektur IT dapat berubah sewaktu-waktu. Fasilitator sangat dianjurkan untuk mengganti istilah generik tersebut dengan nama aplikasi nyata yang saat ini sedang aktif digunakan oleh peserta di lingkungan PLN masing-masing saat sesi kelas berlangsung.
+\end{warnbox}
+
+\begin{plnbox}[PLN Context Box]
+\textbf{Contoh Nyata:} Alur arsip pemeliharaan gardu induk sering kali melibatkan input manual Work Order (arsip perintah kerja (SPK)) di \textit{Sistem Operasional (ERP)} $\rightarrow$ pencetakan dokumen $\rightarrow$ tanda tangan basah $\rightarrow$ scan ke repositori $\rightarrow$ approval via email. Redundansi ini menyebabkan delay 3--5 hari, risiko kehilangan jejak audit, dan ketidakselarasan metadata aset. Optimalisasi alur kerja berfokus pada penghapusan langkah non-nilai tambah dan pemicu (\textit{trigger}) otomatis, \textbf{bukan} pada pembangunan infrastruktur teknis baru.
+\end{plnbox}
+
+\section{Makna "Optimalisasi" dan "Integrasi"}
+Judul modul ini mengusung dua kata kunci utama yang wajib disepakati di awal:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Optimalisasi Prosedur:} Upaya sistematis menerapkan prinsip manajemen ramping (\textit{Lean Management}) untuk mengeliminasi pemborosan (\textit{waste}) dalam siklus kearsipan. Optimasi memfokuskan energi pada tugas bernilai tambah dengan memangkas repetisi, lalu mentransformasikannya menjadi siklus alur kerja utuh (\textit{single-flow}) berbasis \textit{approval} digital. \textbf{Catatan Realitas:} Karena PLN masih berada pada masa transisi \textbf{Arsip Hibrida (Hybrid Records)}, optimalisasi bukan berarti memaksakan 100\% \textit{paperless} seketika. Jika sebuah dokumen diwajibkan fisik oleh regulasi audit, maka yang diotomasi adalah \textit{metadata tracking} dan sinkronisasi antara gudang fisik dengan \textit{Finding Aid} digital.
+    \item \textbf{Alur Kerja Terintegrasi:} Arsitektur operasional di mana ``pulau-pulau sistem'' (seperti aplikasi ERP, Sistem Tata Persuratan Digital, dan Repositori Kearsipan Nasional) dihubungkan lewat pemicu otomatis (\textit{system triggers}). Dokumen diciptakan murni di unit transaksi/lapangan, dan sistem "menarik" data dan metadata secara otonom melintasi ranah unit kerja, memastikan kelancaran layanan serentak menjamin orisinalitas tanpa modifikasi ganda.
+\end{itemize}
+
+\begin{plnbox}[Kacamata Arsiparis: Integrasi Bukan Sekadar ''Koneksi API'']
+\small
+\textbf{Kesesatan Logika (Logical Fallacy):} Pihak pengembang IT sering menganggap bahwa jika dua aplikasi sukses mentransfer \textit{file} PDF dari \textit{Server A} ke \textit{Server B} menggunakan API (\textit{Application Programming Interface}), maka sistem tersebut sudah "terintegrasi".
+
+\textbf{Faktanya bagi Arsiparis:} Memindahkan data secara teknis hanyalah "interkoneksi". \textbf{Integrasi Kearsipan (\textit{Archival Integration})} menuntut bahwa arsip harus bergerak utuh bersama \textit{Content} (isi), \textit{Structure} (format), dan \textit{Context} (metadata pencipta dan kronologi). Jika sebuah surat pindah sistem secara mulus tapi jejak persetujuan (\textit{audit trail log}) direkayasa atau hilang selama masa transit lintas server, maka statusnya bukan lagi arsip, melainkan cuma \textit{file yatim piatu} yang cacat hukum. 
+\end{plnbox}
+
+\section{Tujuan \& Hasil Belajar Modul}
+Setelah menyelesaikan modul ini, peserta mampu:
+\begin{enumerate}[leftmargin=*, nosep]
+    \item \textbf{Mengevaluasi prosedur yang ada} dan mengidentifikasi area yang dapat dioptimalkan melalui integrasi \textit{(Kriteria 4.3.1)}
+    \item \textbf{Merancang alur kerja baru yang terintegrasi}, termasuk mekanisme penciptaan arsip otomatis dari sistem transaksi \textit{(Kriteria 4.3.2)}
+    \item \textbf{Merumuskan prosedur baku (SOP) digital} yang mengintegrasikan peran manusia, sistem, dan teknologi baru \textit{(Kriteria 4.3.3)}
+    \item \textbf{Menganalisis potensi peningkatan efektivitas} dari optimalisasi prosedur melalui indikator kinerja terukur \textit{(Kriteria 4.3.4)}
+\end{enumerate}
+Kompetensi akhir yang ditargetkan berada pada level \textbf{C5 (Mengevaluasi)} dan \textbf{C6 (Menciptakan)} taksonomi Bloom, dengan output berupa dokumen siap implementasi yang dapat langsung diusulkan ke unit terkait.
+
+\section{Ruang Lingkup \& Batasan Materi}
+Untuk memastikan fokus pembelajaran dan menghindari tumpang-tindih dengan modul pendahulu, ruang lingkup modul ini dibatasi secara ketat:
+
+\begin{table}[htbp]
+\centering
+\caption{Batasan Cakupan Modul 4.3}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{\color{plnblue}FOKUS MODUL 4.3} & \textbf{\color{red}TIDAK DIBAHAS (Modul Lain)} \\
+\midrule
+Evaluasi \textbf{alur kerja \& prosedur bisnis} kearsipan & Evaluasi kondisi awal sistem/infrastruktur (Modul 4.1) \\
+Identifikasi \textbf{titik integrasi konseptual} antar proses & Desain arsitektur teknis, skema API, atau database (Modul 4.2) \\
+Perancangan \textbf{trigger otomasi \& routing digital} & Pemilihan platform EDMS atau spesifikasi teknis server \\
+Penyusunan \textbf{SOP digital, SLA, \& exception handling} & Audit keamanan jaringan atau konfigurasi firewall \\
+Penghitungan \textbf{KPI proses \& ROI efisiensi waktu/biaya} & Analisis risiko korporasi tingkat enterprise (Level 3) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Referensi Pendukung Bab 1}
+\begin{enumerate}[leftmargin=*, nosep]
+    \item Silabus Level 4 Modul 4.3: Integrated Systems \& Process Optimization
+    \item World Bank Records Management Roadmap (Part 4, 6, 8)
+    \item PP 71/2019 tentang PSTE \& Perka ANRI No. 6/2021
+    \item Pedoman GCG BUMN Terkini \& Roadmap Transformasi Digital PLN
+\end{enumerate}
+
+\newpage
+
+% ================= BAB 2 =================
+\chapter{Evaluasi Prosedur Yang Ada \& Identifikasi Area Optimasi}
+\textit{Durasi Fasilitasi: 15 Menit} \quad \textit{Kriteria Penilaian: 4.3.1}
+
+\section{Prinsip Evaluasi Proses Bisnis Kearsipan (Adopsi Standar PARBICA)}
+Tahap awal dalam mentransformasi tata kelola kearsipan adalah melakukan evaluasi yang mendalam terhadap prosedur yang berjalan saat ini (\textit{as-is}). Tanpa pemahaman yang objektif mengenai titik lemah dan inefisiensi pada proses yang ada, upaya digitalisasi hanya akan memindahkan kerumitan manual ke dalam sistem elektronik. Oleh karena itu, bagian ini akan memaparkan kerangka metodologis yang kokoh untuk membedah alur kerja, mengidentifikasi hambatan (\textit{friction points}), dan menentukan area prioritas yang memberikan nilai tambah tertinggi bagi organisasi melalui adopsi standar internasional PARBICA yang telah dikontekstualisasikan untuk kebutuhan PLN.
+
+
+\subsection{Mengenal PARBICA: Mengapa Menjadi Rujukan Modul Ini?}
+\textbf{PARBICA} adalah singkatan dari \textit{Pacific Regional Branch of the International Council on Archives}. Organisasi ini merupakan cabang resmi kawasan Pasifik dari \textbf{ICA} (\textit{International Council on Archives}), yaitu badan internasional tertinggi di bidang kearsipan yang bermarkas di Paris, Prancis. PARBICA dibentuk tahun 1981 dan beranggotakan lembaga kearsipan nasional dari negara-negara kawasan Pasifik dan Oseania, seperti Australia, Selandia Baru, Fiji, dan negara-negara kepulauan Pasifik lainnya.
+
+\begin{warnbox}
+\textbf{Klarifikasi Kelembagaan Penting:} ICA memiliki beberapa cabang regional, di antaranya \textbf{PARBICA} (kawasan Pasifik) dan \textbf{SARBICA} (\textit{South-East Asian Regional Branch of ICA}, kawasan Asia Tenggara). \textbf{ANRI (Arsip Nasional Republik Indonesia)} secara kelembagaan adalah anggota aktif \textbf{SARBICA}, bukan PARBICA. Indonesia bahkan pernah menjadi tuan rumah Konferensi SARBICA (1975 \& 1985 di Jakarta) dan menjabat sebagai \textit{Chairman} SARBICA periode 1974--1977.
+
+Meskipun demikian, \textbf{PARBICA Toolkit bersifat \textit{open access}} dan dapat diunduh serta diadopsi secara gratis oleh siapa saja di seluruh dunia tanpa persyaratan keanggotaan. Oleh karena itu, penggunaan toolkit ini sebagai referensi metodologis dalam modul pelatihan PLN sepenuhnya sah dan merupakan praktik lazim dalam kolaborasi kearsipan internasional.
+\end{warnbox}
+
+\textbf{Mengapa PARBICA Toolkit dipilih sebagai kerangka acuan pada modul ini?} Berikut alasan strategisnya:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Konteks Transisi yang Sangat Relevan:} Berbeda dengan standar ISO yang ditulis secara universal (cenderung bercorak Eropa/Anglo-Saxon), PARBICA secara sengaja merancang pedomannya untuk menjawab tantangan nyata di negara-negara yang masih berada dalam \textbf{masa transisi dari arsip kertas ke arsip digital} --- kondisi yang sangat mirip dengan realitas yang dihadapi PLN dan korporasi Indonesia saat ini.
+    \item \textbf{Toolkit yang Praktikal dan Terukur:} PARBICA menerbitkan sebuah perangkat panduan komprehensif bernama \textit{``Recordkeeping for Good Governance Toolkit''} yang berisi \textbf{14 Guideline} operasional. Masing-masing Guideline dirancang modular sehingga dapat diadopsi parsial sesuai kebutuhan organisasi. Modul ini secara khusus mengadopsi:
+    \begin{itemize}[nosep]
+        \item \textbf{Guideline 1} --- \textit{Recordkeeping Capacity Checklist}: Untuk mendiagnosis kesiapan kapasitas kearsipan di tataran proses bisnis.
+        \item \textbf{Guideline 2} --- \textit{Identifying Recordkeeping Requirements}: Untuk merumuskan komponen wajib SOP kearsipan terintegrasi (dibahas mendalam di Bab 4).
+        \item \textbf{Guideline 13} --- \textit{Digital Recordkeeping Readiness Self-Assessment}: Untuk mengevaluasi sejauh mana prosedur digital sudah siap diterapkan.
+    \end{itemize}
+    \item \textbf{Legitimasi Metodologis:} Karena PARBICA adalah cabang resmi ICA, prinsip-prinsip dalam toolkit-nya otomatis selaras dengan ISO 15489-1:2016 dan standar kearsipan internasional lainnya. Adopsi ini bersifat \textbf{referensi metodologis}, bukan rujukan regulasi yang mengikat secara hukum.
+    \item \textbf{Pencantuman dalam Silabus Resmi:} Silabus Level 4 Kompetensi Kearsipan secara eksplisit mencantumkan PARBICA sebagai salah satu referensi wajib di samping ISO 15489 dan World Bank RM Roadmap.
+\end{enumerate}
+
+\begin{plnbox}[Mengapa Bukan Langsung ISO 15489 Saja?]
+\small
+\textbf{ISO 15489-1:2016} adalah standar \textbf{prinsip} (\textit{what to achieve}), sedangkan PARBICA Toolkit adalah panduan \textbf{operasional} (\textit{how to do it, step by step}). Bagi SDM PLN yang butuh langkah konkret untuk mengevaluasi dan merancang prosedur, PARBICA memberikan \textit{checklist}, \textit{template}, dan \textit{self-assessment tool} yang langsung bisa dipakai di lapangan --- tanpa perlu interpretasi ulang dari bahasa standar ISO yang cenderung abstrak dan umum. Sebagai pelengkap kontekstual, peserta juga didorong merujuk publikasi \textbf{SARBICA} dan pedoman tata kelola arsip yang diterbitkan \textbf{ANRI} untuk memastikan keselarasan dengan regulasi dan praktik terbaik nasional Indonesia.
+\end{plnbox}
+
+\subsection{Prinsip Kunci Evaluasi Kearsipan}
+Evaluasi prosedur dalam konteks ini bukan bertujuan mengaudit sistem IT, melainkan \textbf{memetakan efektivitas alur kerja kearsipan dari perspektif proses bisnis}. Prinsip dasarnya merupakan gabungan antara \textbf{ISO 15489-1:2016 (Clause 7.2)} dan adaptasi komprehensif dari \textbf{PARBICA \textit{Recordkeeping for Good Governance Toolkit}} (khususnya \textit{Guideline 1} dan \textit{Guideline 13}). Pedoman internasional ini menekankan bahwa pengarsipan harus terdesain otomatis di dalam \textit{workflow}, bukan aktivitas administratif susulan.
+
+Tiga prinsip kunci yang menjadi acuan evaluasi:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Value-Added Focus:} Setiap langkah dalam alur kearsipan harus memberikan nilai tambah bagi kepatuhan, keandalan data, atau kecepatan layanan. Langkah yang tidak memenuhi ini adalah kandidat optimasi.
+    \item \textbf{Single Source of Truth:} Data arsip harus tercipta sekali, di titik transaksi bisnis, dan mengalir secara konsisten ke repositori tanpa input ulang manual.
+    \item \textbf{Process-System Alignment:} Prosedur harus dirancang untuk memanfaatkan kemampuan sistem yang ada, bukan mengakali keterbatasannya dengan solusi alternatif manual.
+\end{itemize}
+
+\textbf{Checklist Diagnostik (Diadaptasi secara Menyeluruh dari PARBICA Guideline 13 untuk SDM PLN):}
+Untuk mengimplementasikan prinsip-prinsip tersebut secara terukur, Modul ini mengadopsi kerangka diagnostik kesiapan digital dari PARBICA Guideline 13. Evaluasi tidak hanya terbatas pada efisiensi proses, melainkan mencakup 7 domain kunci kesiapan tata kelola. Evaluasi ini menggunakan skor 1 (Belum Siap) hingga 5 (Sangat Siap).
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Checklist Diagnostik Kesiapan Digital \& Optimalisasi Proses (PARBICA Guideline 13 Adaptasi PLN)}
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X c c @{}}
+\toprule
+\textbf{Atribut} & \textbf{Pertanyaan Diagnostik} & \textbf{Domain} & \textbf{Skor (1-5)} \\
+\midrule
+1.1 & Apakah telah ada kebijakan eksplisit yang mewajibkan penciptaan arsip digital di titik transaksi bisnis? & Kebijakan & $\square$ \\
+2.1 & Apakah peran pengelola arsip telah didokumentasikan dalam RACI Chart resmi? & Tata Kelola & $\square$ \\
+3.2 & Apakah ada KPI yang mengaitkan akurasi pengarsipan dengan penilaian kinerja? & SDM/Budaya & $\square$ \\
+4.1 & Apakah sistem operasional memiliki kemampuan trigger otomatis ke repositori arsip? & Teknologi & $\square$ \\
+5.1 & Apakah informasi diketik lebih dari satu kali di aplikasi berbeda? & Proses & $\square$ \\
+5.3 & Berapa lama rata-rata dokumen menunggu untuk divalidasi? & Proses & $\square$ \\
+6.1 & Apakah setiap modifikasi arsip terekam dalam audit trail immutable? & Keamanan & $\square$ \\
+7.1 & Apakah format arsip memenuhi standar preservasi jangka panjang (PDF/A)? & Preservasi & $\square$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Sistem Skoring (Interpretasi PLN):}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Skor $\leq$ 2 (Belum Siap):} Perlu intervensi kebijakan, pelatihan, atau desain ulang alur kerja segera. Menjadi kandidat \textbf{prioritas utama} di Bab 3.
+    \item \textbf{Skor 3 (Siap Parsial):} Dapat dioptimalkan melalui perumusan \textit{trigger} digital, SLA, dan \textit{exception handling}.
+    \item \textbf{Skor $\geq$ 4 (Siap Integrasi):} Layak menjadi percontohan (\textit{pilot project}) alur kerja terintegrasi dan SOP digital.
+\end{itemize}
+
+\begin{warnbox}
+\textbf{Catatan Fasilitator:} Tekankan bahwa ``evaluasi'' di sini bersifat \textbf{deskriptif-analitis pada level prosedur}, bukan audit teknis. Peserta diajak melihat \textit{bagaimana pekerjaan mengalir}, bukan \textit{bagaimana server berjalan}.
+\end{warnbox}
+
+\section{Metode Pengumpulan Fakta Lapangan (\textit{Fact-Finding As-Is})}
+Sebelum memetakan prosedur untuk dievaluasi, SDM PLN diwajibkan menggali fakta riil di lapangan, bukan sekadar menyalin apa yang tertulis di buku manual SOP lama. Evaluasi kearsipan yang objektif dapat bersumber dari 3 teknik investigasi berikut:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{\textit{Document Shadowing} (Penelusuran Fisik/Digital):} Jadikan satu dokumen nyata sebagai objek pelacakan (contoh: melacak nomor tiket arsip perintah kerja (SPK) 1445 dari sejak tiket dibuka, dicetak, ditandatangani, hingga masuk di \textit{folder} arsip). Catat setiap hambatan maupun waktu transisinya.
+    \item \textbf{Ekstraksi \textit{Log} Sistem:} Menarik data riil \textit{time-stamp} dari log \textit{Aplikasi Operasional} atau \textit{Log Tata Persuratan} untuk membuktikan durasi asli (\textit{actual vs SLA}) dari suatu alur persetujuan.
+    \item \textbf{\textit{Gemba Walk} (Wawancara Aktor Lapangan):} Mengamati dan bertanya langsung kepada staf operasional pembuat arsip (seperti manajer atau petugas admin unit) mengenai kendala manual harian. Contoh pertanyaan operasional: \textit{"Berapa kali Anda harus meng-input ulang nama pelanggan yang sama ke dalam sistem yang berbeda?"}.
+\end{enumerate}
+
+\section{Teknik Pemetaan Alur \& Integrasi}
+Teknik yang paling efektif untuk mengidentifikasi area optimasi adalah \textbf{Value Stream Mapping (VSM) Level Bisnis}. VSM memvisualisasikan aliran informasi, dokumen, dan keputusan dari penciptaan hingga penyimpanan arsip.
+
+\subsection*{Langkah Pemetaan Cepat (60 Menit Workshop)}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Identifikasi Proses Kunci:} Pilih 1 proses kearsipan PLN yang berdampak tinggi (contoh: arsip arsip perintah kerja (SPK) pemeliharaan, kontrak pengadaan material, laporan insiden keselamatan).
+    \item \textbf{Gambarkan Alur Saat Ini (As-Is):} Gunakan simbol standar:
+    \begin{itemize}[nosep]
+        \item Input/Trigger \quad Proses/Verifikasi \quad Handoff/Approval
+        \item Penyimpanan Arsip \quad Waktu Tunda/Delay
+    \end{itemize}
+    \item \textbf{Tandai Titik Gesekan (\textit{Friction Points}):}
+    \begin{itemize}[nosep]
+        \item Duplikasi input data \quad Approval berjenjang tanpa SLA
+        \item Konversi format manual (cetak $\rightarrow$ scan $\rightarrow$ upload)
+        \item Ketidakkonsistenan metadata antar unit
+    \end{itemize}
+    \item \textbf{Identifikasi Potensi Integrasi:} Tentukan di mana sistem transaksi (seperti \textit{Sistem ERP, Pengadaan, atau Manajemen Aset}) secara konseptual dapat memicu penciptaan arsip otomatis tanpa intervensi manual.
+\end{enumerate}
+
+% --- DIAGRAM: Alur Proses Kearsipan As-Is ---
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=0.3cm and 0.1cm,
+  procstep/.style={rectangle, rounded corners=3pt, draw=plnblue, fill=plnblue!8, 
+    text width=1.65cm, minimum height=1.1cm, align=center, 
+    font=\tiny\bfseries, line width=0.7pt},
+  friction/.style={rectangle, rounded corners=3pt, draw=plnorange, fill=plnorange!15, 
+    text width=1.65cm, minimum height=1.1cm, align=center, 
+    font=\tiny\bfseries, line width=0.7pt},
+  delay/.style={diamond, draw=red!70, fill=red!8, 
+    minimum width=1.1cm, minimum height=1.1cm, align=center, 
+    font=\tiny\bfseries, inner sep=1pt, aspect=1.8},
+  arr/.style={-{Stealth[length=4pt]}, thick, color=plnblue!60},
+  arrd/.style={-{Stealth[length=4pt]}, thick, color=red!50},
+  lbl/.style={font=\tiny\itshape, text=gray!70!black},
+]
+% Row 1: Main flow
+\node[procstep] (s1) {Input SPK\\Manual\\(Sistem)};
+\node[friction, right=of s1] (s2) {Cetak\\Dokumen\\Fisik};
+\node[friction, right=of s2] (s3) {Tanda\\Tangan\\Basah};
+\node[friction, right=of s3] (s4) {Scan\\Dokumen};
+\node[friction, right=of s4] (s5) {Upload\\ke\\Repositori};
+\node[procstep, right=of s5] (s6) {Email\\Approval\\Berjenjang};
+\node[procstep, right=of s6] (s7) {Simpan\\Arsip\\Final};
+% Arrows
+\draw[arr] (s1) -- (s2);
+\draw[arr] (s2) -- (s3);
+\draw[arr] (s3) -- (s4);
+\draw[arr] (s4) -- (s5);
+\draw[arr] (s5) -- (s6);
+\draw[arr] (s6) -- (s7);
+% Delay diamonds below friction points
+\node[delay, below=0.4cm of s2] (d1) {Delay\\1 hari};
+\node[delay, below=0.4cm of s4] (d2) {Delay\\1--2 hari};
+\node[delay, below=0.4cm of s6] (d3) {Delay\\1--2 hari};
+\draw[arrd, dashed] (s2) -- (d1);
+\draw[arrd, dashed] (s4) -- (d2);
+\draw[arrd, dashed] (s6) -- (d3);
+% Friction labels
+\node[lbl, above=0.15cm of s2] {Redundan};
+\node[lbl, above=0.15cm of s3] {Non-digital};
+\node[lbl, above=0.15cm of s4] {Duplikasi};
+\node[lbl, above=0.15cm of s5] {Input ulang};
+% Total cycle time
+\node[below=1.4cm of s4, font=\small\bfseries, text=red!70!black] {Total Cycle Time: 3--5 Hari Kerja};
+% Legend
+\node[procstep, scale=0.7, right=0.3cm of s7, yshift=0.4cm] (leg1) {};
+\node[right=0.1cm of leg1, font=\tiny] {Proses Digital};
+\node[friction, scale=0.7, right=0.3cm of s7, yshift=-0.4cm] (leg2) {};
+\node[right=0.1cm of leg2, font=\tiny] {Titik Gesekan};
+\end{tikzpicture}%
+}
+\caption{Alur Proses Kearsipan As-Is: arsip perintah kerja (SPK) Pemeliharaan Gardu Induk (Sebelum Optimalisasi)}
+\label{fig:alur-asis}
+\end{figure}
+
+\begin{plnbox}[PLN Context Box]
+\textbf{Ilustrasi Alur Target:} \textit{Sistem Operasional (ERP)} melahirkan status persetujuan final $\rightarrow$ Trigger otomatis generate draft arsip arsip perintah kerja (SPK) + metadata aset (ID GI, tanggal, teknisi, sparepart) $\rightarrow$ Routing ke Supervisor via \textit{Sistem Tata Persuratan} untuk validasi digital $\rightarrow$ Arsip masuk ke repositori dengan status \texttt{Approved} \& hash integrity tercatat. \textbf{Tidak ada langkah cetak/scan/input ulang.}
+\end{plnbox}
+
+\section{Kerangka Identifikasi Area Optimasi}
+Untuk memastikan output terstruktur dan siap ditindaklanjuti, gunakan \textbf{Matriks Identifikasi Area Optimasi} berikut:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Template Matriks Identifikasi Area Optimasi}
+\begin{tabularx}{\textwidth}{@{} c X X X c @{}}
+\toprule
+\textbf{No} & \textbf{Tahapan Proses} & \textbf{Jenis Hambatan} & \textbf{Potensi Integrasi} & \textbf{Prioritas} \\
+\midrule
+1 & Input data arsip & Duplikasi input manual dari 2 sistem & Trigger otomatis dari Sistem ERP & Tinggi \\
+2 & Approval verifikasi & Routing email berjenjang tanpa SLA & Digital routing + notifikasi otomatis & Sedang \\
+3 & Klasifikasi \& Metadata & Tidak konsisten antar unit & Template metadata terstandar + auto-populate & Tinggi \\
+4 & Penyimpanan & Konversi cetak $\rightarrow$ scan $\rightarrow$ upload & Direct capture dari sistem sumber & Rendah \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\textit{Keterangan: Prioritas dinilai berdasarkan Tingkat Urgensi vs Effort Implementasi. Fokus pada area \textbf{Tinggi} untuk desain alur kerja di Bab 3.}
+
+\subsection*{Aktivitas Workshop (15 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Peserta dibagi dalam kelompok 4--5 orang.
+    \item Setiap kelompok memilih 1 proses kearsipan PLN yang sedang berjalan.
+    \item Isi Matriks Identifikasi Area Optimasi minimal 4 baris.
+    \item Presentasi singkat (2 menit/kelompok) + feedback fasilitator.
+\end{enumerate}
+
+\begin{outputbox}
+\textbf{Output Wajib Bab 2:} \textit{Matriks Identifikasi Area Optimasi} (berisi minimal 4 area, lengkap dengan jenis hambatan, potensi integrasi, dampak, dan prioritas). Dokumen ini menjadi dasar input untuk perancangan alur kerja terintegrasi di Bab 3 dan akan dinilai menggunakan rubrik kriteria 4.3.1.
+\end{outputbox}
+
+\subsection*{Referensi Pendukung Bab 2}
+\begin{enumerate}[leftmargin=*, nosep]
+    \item ISO 15489-1:2016, \textit{Clause 7.2 (Process design \& integration)}
+    \item PARBICA, \textit{Recordkeeping for Good Governance Toolkit (Guideline 2: Identifying Recordkeeping Requirements \& Guideline 13: Digital Readiness)} --- \textit{Open Access}
+    \item SARBICA, \textit{Guidelines \& Publications on Archival Management in South-East Asia}
+    \item ANRI, \textit{Pedoman Tata Kelola Kearsipan Nasional} (anri.go.id)
+    \item UK National Archives, \textit{Efficiency Guidance (Value mapping for records)}
+    \item PP 71/2019 tentang PSTE, \textit{Pasal 12: Penciptaan \& Pengelolaan Arsip Elektronik}
+\end{enumerate}
+
+\end{document}
