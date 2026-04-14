@@ -624,7 +624,7 @@ Dalam proses konversi prosedur fisik menjadi otomasi digital di PLN, setiap arsi
 \begin{plnbox}[Panduan Implementasi Klausul Metadata dalam SOP]
 \textbf{Integrasi Metadata ke Aturan Main (\textit{Rule-Based}):}
 \begin{enumerate}[leftmargin=*]
-    \item \textbf{Haram Input Manual:} Field krusial (\texttt{PLN\_DOC\_ID}, \texttt{TIMESTAMP\_CREATE}, \texttt{INTEGRITY\_HASH}) harus di-\textit{generate} otomatis oleh mesin, dilarang diketik manual guna membatasi \textit{human-error}.
+    \item \textbf{Restriksi Input Manual:} \textit{Field} krusial (\texttt{PLN\_DOC\_ID}, \texttt{TIMESTAMP\_CREATE}, \texttt{INTEGRITY\_HASH}) harus di-\textit{generate} otomatis oleh mesin, dan secara tegas dilarang untuk diketik manual guna membatasi \textit{human-error}.
     \item \textbf{Penolakan Tanpa Toleransi:} Sistem wajib memblokir (\textit{reject}) arsip masuk bila terdeteksi anomali \textit{field} kosong. Unit Kearsipan berhak memukul mundur laporan kepada pembuat draf aslinya.
     \item \textbf{Sifat \textit{Immutable} (Membeku):} Setelah arsip tervalidasi final lewat TTE, 12 metadata tersebut dikunci tidak bisa diubah selamanya. Perubahan harus lewat prosedur darurat (\textit{metadata amendment}) lengkap riwayat catatan dari para petinggi unit.
 \end{enumerate}
