@@ -592,6 +592,44 @@ Banyak resistensi di lingkungan BUMN terhadap digitalisasi muncul karena keragua
 \end{quote}
 \end{plnbox}
 
+\section{Standar Metadata Wajib Terintegrasi}
+Berdasarkan regulasi Indonesia (Perka ANRI No. 6 Tahun 2021 \& PP 71/2019) serta standar internasional (ISO 23081-1:2017), arsitektur kearsipan digital membutuhkan sekumpulan metadata wajib untuk memvalidasi konteks, konten, dan integritas dokumen. 
+
+Dalam proses konversi prosedur fisik menjadi otomasi digital di PLN, setiap arsip yang tercipta dari \textit{trigger} sistem (misalnya SAP-PM, AMS, atau E-Office) diwajibkan melakukan \textit{auto-capture} pada \textbf{12 field inti} berikut sebelum dokumen tersebut dapat dikunci permanen di repositori.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Standar 12 Field Metadata Wajib Terintegrasi untuk Arsip Operasional PLN}
+\begin{tabularx}{\textwidth}{@{} l >{\raggedright\arraybackslash}X c @{}}
+\toprule
+\textbf{Kode Field} & \textbf{Nama Field \& Definisi} & \textbf{Sumber \textit{Auto-Capture}} \\
+\midrule
+\texttt{PLN\_DOC\_ID} & ID Dokumen Unik PLN (format: \texttt{[UNIT]/[JENIS]/[TAHN]/[NOMOR]}) & Sistem Penomoran \\
+\texttt{ASSET\_ID} & ID Aset utama terkait (m. Gardu Induk, Trafo, Saluran) & SAP-PM / AMS \\
+\texttt{WO\_REF} & Referensi Nomor Work Order (arsip perintah kerja/SPK) & SAP-PM Module \\
+\texttt{CONTRACT\_REF} & Referensi Nomor Kontrak/Perjanjian Korporat & E-Proc / Legal \\
+\texttt{LOCATION\_CODE} & Kode lokasi operasional (Wilayah, Rayon, Titik Koordinat) & GIS / Master Data \\
+\texttt{CREATOR\_UNIT} & Unit entitas pencipta arsip (struktur organisasi PLN) & IAM / HR System \\
+\texttt{CREATOR\_ROLE} & Peran atau jabatan pengguna yang bertransaksi & IAM / RBAC \\
+\texttt{TIMESTAMP\_CREATE} & Waktu absolut penciptaan arsip (ISO 8601, timezone WIB/WITA/WIT) & System Clock \\
+\texttt{CLASSIFICATION} & Tingkat keamanan \& fungsi bisnis (misal: \texttt{VITAL/OPS/PM}) & Policy Engine \\
+\texttt{RETENTION\_RULE} & Ketetapan waktu simpan otomatis (Jadwal Retensi Arsip) & Retention DB \\
+\texttt{INTEGRITY\_HASH} & \textit{Identity hash} (SHA-256) untuk verifikasi anti-modifikasi & Crypto Module \\
+\texttt{AUDIT\_TRAIL\_REF} & ID log audit yang merekam riwayat akses dan perubahan & SIEM / Audit Log \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{plnbox}[Panduan Implementasi Klausul Metadata dalam SOP]
+\textbf{Integrasi Metadata ke Aturan Main (\textit{Rule-Based}):}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Haram Input Manual:} Field krusial (\texttt{PLN\_DOC\_ID}, \texttt{TIMESTAMP\_CREATE}, \texttt{INTEGRITY\_HASH}) harus di-\textit{generate} otomatis oleh mesin, dilarang diketik manual guna membatasi \textit{human-error}.
+    \item \textbf{Penolakan Tanpa Toleransi:} Sistem wajib memblokir (\textit{reject}) arsip masuk bila terdeteksi anomali \textit{field} kosong. Unit Kearsipan berhak memukul mundur laporan kepada pembuat draf aslinya.
+    \item \textbf{Sifat \textit{Immutable} (Membeku):} Setelah arsip tervalidasi final lewat TTE, 12 metadata tersebut dikunci tidak bisa diubah selamanya. Perubahan harus lewat prosedur darurat (\textit{metadata amendment}) lengkap riwayat catatan dari para petinggi unit.
+\end{enumerate}
+\end{plnbox}
+
 \section{Review \& Finalisasi SOP}
 Proses finalisasi SOP mengikuti siklus \textbf{Peer Review $\rightarrow$ Uji Keterbacaan $\rightarrow$ Persetujuan Manajemen} untuk memastikan kelayakan implementasi:
 
@@ -615,7 +653,27 @@ Proses finalisasi SOP mengikuti siklus \textbf{Peer Review $\rightarrow$ Uji Ket
     \item Setiap kelompok mengembangkan \textbf{Draft SOP Digital Terintegrasi} berdasarkan diagram BPMN dari Bab 3.
     \item Gunakan template struktur 7 komponen yang telah disediakan.
     \item Lakukan peer review silang dengan fokus pada kejelasan SLA, exception handling, dan keselarasan regulasi.
+    \item \textbf{Gunakan Checklist Validasi berikut sebagai instrumen telaah komponen metadata kelompok lain:}
 \end{enumerate}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Checklist Evaluasi Kesesuaian Metadata Wajib (Kriteria Penilaian)}
+\begin{tabularx}{\textwidth}{@{} l X c c @{}}
+\toprule
+\textbf{Field} & \textbf{Kriteria Parameter Validasi} & \textbf{Otomatis?} & \textbf{Cek Status} \\
+\midrule
+\texttt{PLN\_DOC\_ID} & Format string penomoran taat asas: \texttt{[UNIT]/[JENIS]...} & Otomatis & $\square$ \\
+\texttt{ASSET\_ID} & Terkoneksi secara valid pada Master Data Aset PLN & Otomatis & $\square$ \\
+\texttt{CREATOR\_UNIT} & Kode entitas selaras dengan pohon hierarki organisasi resmi PLN & Otomatis & $\square$ \\
+\texttt{TIMESTAMP\_CREATE} & Menggunakan notasi waktu internasional tersinkron presisi ISO 8601 & Otomatis & $\square$ \\
+\texttt{CLASSIFICATION} & Indikator pengamanan terdeteksi kokoh (Publik / Internal / Terbatas / Vital) & Semi-Otomatis & $\square$ \\
+\texttt{RETENTION\_RULE} & Durasi JRA terhubung dinamis via tabel penetapan kebijakan pusat PLN & Otomatis & $\square$ \\
+\texttt{INTEGRITY\_HASH} & Ekstensi jejak algoritma sandi SHA-256 memancar terverifikasi sistem & Otomatis & $\square$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \begin{outputbox}
 \textbf{Output Wajib Bab 4:} \textit{Draft SOP Digital Terintegrasi} (1 proses PLN). Dokumen ini menjadi portofolio utama untuk kriteria penilaian 4.3.3 dan dapat langsung diusulkan untuk uji coba terbatas (\textit{pilot}).
