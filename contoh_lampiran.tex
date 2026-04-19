@@ -140,7 +140,7 @@ Dokumen ini berisi \textbf{contoh pengisian terbaik} untuk seluruh lembar kerja 
 
 \vspace{0.4cm}
 \noindent\textbf{Kesimpulan \& Rekomendasi Utama:}\\
-\noindent\textit{Dari 6 area yang diidentifikasi, 4 termasuk prioritas Tinggi dan semuanya terkait dengan proses manual yang dapat dieliminasi melalui integrasi sistem. Quick win terbesar adalah pada tahapan cetak-TTD-scan-upload (tahapan 2--4) yang secara kumulatif menyumbang 3--4 hari dari total cycle time 5 hari. Rekomendasi: fokuskan pilot project pada integrasi Sistem ERP $\rightarrow$ auto-generate arsip digital $\rightarrow$ validasi via Sistem Tata Persuratan.}
+\noindent\textit{Dari 6 area yang diidentifikasi, 4 termasuk prioritas Tinggi dan semuanya terkait dengan proses manual yang dapat dieliminasi melalui integrasi sistem. Quick win terbesar adalah pada tahapan cetak-TTD-scan-upload (tahapan 2--4) yang secara kumulatif menyumbang 3--4 hari dari total waktu siklus 5 hari. Rekomendasi: fokuskan pilot project pada integrasi Sistem ERP $\rightarrow$ auto-generate arsip digital $\rightarrow$ validasi via Sistem Tata Persuratan.}
 
 % ============================================================
 %   CONTOH LAMPIRAN B: Diagram BPMN To-Be
@@ -227,7 +227,7 @@ Dokumen ini berisi \textbf{contoh pengisian terbaik} untuk seluruh lembar kerja 
 \end{center}
 
 \vspace{0.4cm}
-\noindent\textbf{Daftar Trigger Otomatis:}
+\noindent\textbf{Daftar Pemicu Otomatis:}
 
 \vspace{0.2cm}
 \noindent
@@ -235,7 +235,7 @@ Dokumen ini berisi \textbf{contoh pengisian terbaik} untuk seluruh lembar kerja 
 \renewcommand{\arraystretch}{1.6}
 \begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
 \toprule
-\textbf{No} & \textbf{Trigger Event / Status} & \textbf{Aksi Otomatis} & \textbf{Sistem Sumber} \\
+\textbf{No} & \textbf{Pemicu / Status} & \textbf{Aksi Otomatis} & \textbf{Sistem Sumber} \\
 \midrule
 1 & Status arsip perintah kerja (SPK) berubah ke Selesai di operasional & Generate draft arsip arsip perintah kerja (SPK) + auto-populate 12 field metadata wajib & Sistem ERP \\
 \hline
@@ -301,9 +301,9 @@ Approver & Manajer Area Pemeliharaan & Eskalasi otomatis jika SLA terlampaui; me
 \end{tcolorbox}
 
 % Komponen 4
-\begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 4: System Trigger \& Metadata Wajib}]
+\begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 4: Pemicu Sistem \& Metadata Wajib}]
 \small
-\noindent\textbf{Trigger Event:} \textit{Status arsip perintah kerja (SPK) berubah ke Selesai di Sistem Operasi}\\[0.2cm]
+\noindent\textbf{Pemicu:} \textit{Status arsip perintah kerja (SPK) berubah ke Selesai di Sistem Operasi}\\[0.2cm]
 \textbf{Sistem Sumber:} \textit{Sistem Operasi (ERP Module)}\\[0.2cm]
 \textbf{Metadata Wajib (12 field):}\\[0.2cm]
 \begin{tabularx}{\textwidth}{@{} X X X @{}}
@@ -385,7 +385,7 @@ Proses kearsipan arsip perintah kerja (SPK) pemeliharaan GI saat ini memerlukan 
 
 \vspace{0.2cm}
 \noindent\textbf{2. Solusi yang Diusulkan:}\\
-Implementasi alur kerja terintegrasi dengan trigger otomatis dari SAP-PM (status TECO), auto-capture 12 field metadata, validasi digital via E-Office dengan SLA 1$\times$24 jam, dan penyimpanan langsung ke repositori dengan hash integrity \& audit trail immutable. Didukung SOP Digital 7 Komponen yang telah dirancang.
+Implementasi alur kerja terintegrasi dengan tarik data otomatis dari SAP-PM (status TECO), auto-capture 12 field metadata, validasi digital via E-Office dengan SLA 1$\times$24 jam, dan penyimpanan langsung ke repositori dengan hash integrity \& audit trail immutable. Didukung SOP Digital 7 Komponen yang telah dirancang.
 
 \vspace{0.2cm}
 \noindent\textbf{3. Target KPI:}
@@ -397,13 +397,13 @@ Implementasi alur kerja terintegrasi dengan trigger otomatis dari SAP-PM (status
 \toprule
 \textbf{Indikator} & \textbf{Baseline (Saat Ini)} & \textbf{Target (30 Hari)} \\
 \midrule
-Cycle Time & 5 hari & $\leq$ 1 hari \\
+Waktu Siklus & 5 hari & $\leq$ 1 hari \\
 \hline
-First-Time Accuracy & 65\% & $\geq$ 90\% \\
+Ketepatan Awal & 65\% & $\geq$ 90\% \\
 \hline
-Compliance Rate & 72\% & $\geq$ 95\% \\
+Tingkat Kepatuhan Prosedur & 72\% & $\geq$ 95\% \\
 \hline
-Retrieval Speed & 15--30 menit & $<$ 30 detik \\
+Waktu Temu Kembali & 15--30 menit & $<$ 30 detik \\
 \bottomrule
 \end{tabularx}
 \renewcommand{\arraystretch}{1.0}
@@ -412,7 +412,7 @@ Retrieval Speed & 15--30 menit & $<$ 30 detik \\
 \vspace{0.2cm}
 \noindent\textbf{4. Estimasi Manfaat Finansial:}\\[0.2cm]
 \begin{tabularx}{\textwidth}{@{} X r @{}}
-Penghematan cycle time (1.200 arsip perintah kerja (SPK) $\times$ 4,2 hari $\times$ Rp 150.000): & Rp 756.000.000 /tahun \\[0.2cm]
+Penghematan waktu siklus (1.200 arsip perintah kerja (SPK) $\times$ 4,2 hari $\times$ Rp 150.000): & Rp 756.000.000 /tahun \\[0.2cm]
 Reduksi biaya error/revisi ($\downarrow$ 85\%): & Rp 44.625.000 /tahun \\[0.2cm]
 Mitigasi risiko kepatuhan (eliminasi temuan audit): & Rp 200.000.000 /tahun \\[0.2cm]
 \textbf{Total Estimasi Manfaat:} & \textbf{Rp 1.000.625.000 /tahun} \\
@@ -436,7 +436,7 @@ Mitigasi risiko kepatuhan (eliminasi temuan audit): & Rp 200.000.000 /tahun \\[0
 \midrule
 \textbf{1} & Konfigurasi trigger TECO $\rightarrow$ auto-generate di SAP-PM; setup template metadata 12 field; sosialisasi ke 12 teknisi GI Cibinong & IT Fungsional + Manajer Area & $\square$ \\
 \hline
-\textbf{2} & Parallel run (proses baru \& lama berjalan bersamaan); pendampingan 1-on-1 untuk 3 supervisor; monitoring harian compliance rate & Supervisor Senior + Fasilitator Kearsipan & $\square$ \\
+\textbf{2} & Parallel run (proses baru \& lama berjalan bersamaan); pendampingan 1-on-1 untuk 3 supervisor; monitoring harian tingkat kepatuhan prosedur & Supervisor Senior + Fasilitator Kearsipan & $\square$ \\
 \hline
 \textbf{3} & Cutover ke proses baru secara penuh; hentikan proses cetak-scan; sediakan helpdesk internal; mulai pencatatan KPI harian & Manajer Area + Unit Kearsipan & $\square$ \\
 \hline
@@ -446,7 +446,7 @@ Mitigasi risiko kepatuhan (eliminasi temuan audit): & Rp 200.000.000 /tahun \\[0
 \renewcommand{\arraystretch}{1.0}
 
 \vspace{0.3cm}
-\noindent\textbf{Mekanisme Monitoring:} \textit{Dashboard KPI harian (cycle time, accuracy, compliance) ditampilkan di TV monitor ruang operasi GI Cibinong; review mingguan oleh Manajer Area setiap Jumat pagi}\\[0.2cm]
+\noindent\textbf{Mekanisme Monitoring:} \textit{Dashboard KPI harian (waktu siklus, ketepatan awal, tingkat kepatuhan prosedur) ditampilkan di TV monitor ruang operasi GI Cibinong; review mingguan oleh Manajer Area setiap Jumat pagi}\\[0.2cm]
 \noindent\textbf{Pelaporan Hasil Kepada:} \textit{GM UIT Jawa Bagian Tengah (cc: VP Unit Induk, Unit Kearsipan Holding)}\\[0.2cm]
 \noindent\textbf{Tanggal Laporan Akhir:} \textit{12 Mei 2026 (H+30 dari kick-off pilot)}
 

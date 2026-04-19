@@ -90,6 +90,8 @@
 
 Bagi jajaran Manajemen Atas, tata kelola kearsipan tidak boleh lagi dipandang sebagai pusat biaya (\textit{cost center}) yang kinerjanya semata-mata diukur dari volume dokumen yang digudangkan. Di era ekosistem kelistrikan terintegrasi, unit kearsipan harus bertransformasi menjadi pusat penciptaan nilai (\textit{value center}). Oleh karena itu, efektivitas dari inisiatif optimalisasi prosedur tidak diukur dari tingginya anggaran IT atau kerumitan teknologi yang dibeli, melainkan dari \textbf{perubahan nyata pada efisiensi proses bisnis dan mitigasi risiko kepatuhan}.
 
+Dalam konteks ini, \textbf{mitigasi risiko kepatuhan} (atau mitigasi risiko bisnis) adalah langkah evaluasi secara kualitatif dan kuantitatif untuk menekan potensi ancaman kerugian operasional dan finansial akibat ketidakpatuhan terhadap regulasi kearsipan.
+
 Metodologi pengukuran kinerja kearsipan dalam modul ini secara khusus dirancang untuk menjembatani kesenjangan antara teori kearsipan dengan bahasa bisnis BUMN. Metodologi ini bertumpu pada kemampuan mengkuantifikasi kemacetan operasional menjadi nominal kerugian, dan sebaliknya, menerjemahkan kelancaran alur persetujuan menjadi \textit{Return on Investment} (ROI) yang dapat diaudit. Dengan pendekatan ini, setiap rencana optimalisasi prosedur memiliki basis argumen yang rasional sebelum diusulkan ke komite investasi.
 
 \begin{figure}[htbp]
@@ -102,7 +104,7 @@ Metodologi pengukuran kinerja kearsipan dalam modul ini secara khusus dirancang 
 \subsection{Indikator Kinerja Utama (KPI)}
 Dalam perbaikan tata kelola, \textbf{intervensi operasional} (atau optimalisasi) merujuk pada langkah-langkah atau inisiatif perbaikan spesifik yang diterapkan secara langsung pada prosedur yang sudah ada guna "mengobati" inefisiensi---seperti proses manual yang lambat atau rentan kesalahan---menjadi cara kerja baru yang terintegrasi. Secara singkat, \textit{jika analisis ROI adalah cara mengukur keuntungannya, maka intervensi operasional adalah tindakan perbaikan (solusi teknis dan prosedural) yang dieksekusi di lapangan untuk mendapatkan keuntungan tersebut}.
 
-Untuk mengetahui apakah sebuah intervensi operasional berhasil atau tidak, dampaknya wajib diukur menggunakan metrik spesifik yang dapat dilacak kemajuannya. Tidak semua metrik relevan untuk Manajemen Atas. Oleh sebab itu, \textbf{Tabel 5.1} menyajikan empat indikator kunci terbaik yang berfokus pada percepatan waktu penyelesaian (\textit{Cycle Time}), tingkat akurasi (\textit{First-Time Accuracy}), kecepatan temu kembali (\textit{Retrieval Speed}), dan tingkat kepatuhan regulasi (\textit{Compliance Rate}). Pemantauan keempat indikator ini akan langsung menyoroti seberapa sehat tata kelola kearsipan berjalan di suatu unit.
+Untuk mengetahui apakah sebuah intervensi operasional berhasil atau tidak, dampaknya wajib diukur menggunakan metrik spesifik yang dapat dilacak kemajuannya. Tidak semua metrik relevan untuk Manajemen Atas. Oleh sebab itu, \textbf{Tabel 5.1} menyajikan empat indikator kunci terbaik yang berfokus pada waktu siklus (\textit{Cycle Time}), ketepatan awal (\textit{First-Time Accuracy}), waktu temu kembali (\textit{Retrieval Speed}), dan tingkat kepatuhan prosedur (\textit{Compliance Rate}). Pemantauan keempat indikator ini akan langsung menyoroti seberapa sehat tata kelola kearsipan berjalan di suatu unit.
 
 \vspace{0.3cm}
 \noindent
@@ -115,21 +117,57 @@ Untuk mengetahui apakah sebuah intervensi operasional berhasil atau tidak, dampa
 \toprule
 \textbf{Indikator} & \textbf{Definisi Operasional} & \textbf{Target Realistis (Setelah Optimalisasi)} \\
 \midrule
-\textbf{Cycle Time} & Waktu total dari penciptaan/transaksi hingga arsip tervalidasi \& tersimpan & $\downarrow$ 40--60\% (misal: 5 hari $\rightarrow$ 1--2 hari) \\
-\textbf{First-Time Accuracy} & Persentase arsip yang lolos validasi metadata tanpa revisi & $\uparrow$ $\geq$90\% \\
-\textbf{Retrieval Speed} & Waktu temu kembali arsip berdasarkan query bisnis/audit & $\downarrow$ $<$30 detik (digital) \\
-\textbf{Compliance Rate} & Persentase proses yang memenuhi SLA, retensi, \& jejak audit & $\uparrow$ $\geq$95\% \\
+\textbf{Waktu Siklus} & Waktu total dari penciptaan/transaksi hingga arsip tervalidasi \& tersimpan & $\downarrow$ 40--60\% (misal: 5 hari $\rightarrow$ 1--2 hari) \\
+\textbf{Ketepatan Awal} & Persentase arsip yang lolos validasi metadata tanpa revisi & $\uparrow$ $\geq$90\% \\
+\textbf{Waktu Temu Kembali} & Waktu temu kembali arsip berdasarkan query bisnis/audit & $\downarrow$ $<$30 detik (digital) \\
+\textbf{Tingkat Kepatuhan Prosedur} & Persentase proses yang memenuhi SLA, retensi, \& jejak audit & $\uparrow$ $\geq$95\% \\
 \bottomrule
 \end{tabularx}
 \vspace{0.3cm}
 
+Secara operasional, untuk mendapatkan pengukuran yang valid pada indikator \textbf{Waktu Siklus (\textit{Cycle Time})}, penghitungan durasi tidak boleh berhenti dan dianggap selesai hanya pada saat draf pelaporan atau dokumen telah diketik. Sistem informasi atau pengelola proses harus dengan disiplin mencatat dua titik waktu utama:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Titik Awal (\textit{Start Time}):} Waktu \textit{timestamp} sistematis saat dokumen atau transaksi pertama kali diciptakan (misalnya detik saat draf mulai di-\textit{generate} di portal operasional).
+    \item \textbf{Titik Akhir (\textit{End Time}):} Waktu \textit{timestamp} sistematis saat dokumen tersebut telah 100\% selesai melewati alur persetujuan, metadatanya divalidasi, dan secara resmi \textit{tersimpan} ke dalam repositori kearsipan digital perwakilan fungsional.
+\end{enumerate}
+
+Sementara itu, untuk indikator \textbf{Ketepatan Awal (\textit{First-Time Accuracy})}, langkah pengukuran cukup memonitor persentase \textbf{jumlah dokumen yang berhasil tervalidasi dengan benar di percobaan pertama berbanding total volume dokumen yang masuk}. Sebagai ilutrasi dari studi kasus penciptaan dokumen:
+\begin{itemize}[leftmargin=*]
+    \item Jika dari total volume \textbf{1.200 arsip} per tahun, diketahui terdapat \textbf{420 arsip} yang gagal validasi sehingga harus direvisi akibat \textit{error input} manual.
+    \item Angka ini berarti tingkat kesalahan mencetak persentase 35\%, sehingga kinerja \textit{First-Time Accuracy} unit tersebut tercatat hanya sebesar \textbf{65\%}.
+    \item Pasca-optimalisasi, laju dokumen yang sukses lolos tanpa revisi tersebut dapat melonjak naik hingga misalnya \textbf{96\%}, yang mana secara meyakinkan melampaui standar wajib minimum $\geq$90\%.
+\end{itemize}
+
+Terakhir, untuk indikator \textbf{Waktu Temu Kembali (\textit{Retrieval Speed})}, metode pengukurannya bergantung secara spesifik pada ekosistem penyimpanan itu sendiri:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Di lingkungan arsip fisik:} Waktu dihitung dari mulai staf menerima \textit{request} pencarian hingga menemukan kertasnya di gudang letak \textit{filing cabinet}.
+    \item \textbf{Di lingkungan arsip digital:} Waktu dihitung berdasarkan kecepatan sistem komputer dalam menampilkan dokumen (\textit{query speed}) dan akurasi hasil navigasi dari \textit{search engine} kearsipan.
+\end{itemize}
+
+Terakhir, untuk indikator \textbf{Tingkat Kepatuhan Prosedur (\textit{Compliance Rate})}, pengukuran tidak boleh hanya melihat apakah dokumen "sudah ada di sistem", melainkan harus memastikan apakah dokumen tersebut memenuhi standar kriteria validitas serta \textbf{Imunitas Hukum (\textit{Legal Admissibility})} sebagai berikut:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Kesatuan Isi, Struktur, dan Konteks (Kelengkapan Jejak Audit):} Arsip harus memiliki kronologi (\textit{audit trail log}) yang utuh. Tanpa ini, dokumen tersebut hanyalah \textit{file} yatim piatu yang cacat hukum.
+    \item \textbf{Disahkan dengan Tanda Tangan Elektronik (TTE) Tersertifikasi:} Sesuai PP 71/2019, otorisasi wajib menggunakan TTE Tersertifikasi untuk memberikan kekuatan hukum yang sah dan mutlak.
+    \item \textbf{Bersifat \textit{Immutable} (Terkunci dan Tidak Dapat Direkayasa):} Dokumen dan metadata harus direkatkan oleh algoritma kriptografi (\textit{Hash Integrity}) sehingga tidak dapat diubah lagi keutuhannya sejak detik disetujui.
+    \item \textbf{Kelengkapan 12 Metadata Wajib Otomatis:} Menjamin 12 \textit{field} metadata (ID, Timestamp, Hash, dll.) ditarik secara otomatis oleh mesin guna membatasi celah \textit{human error}.
+    \item \textbf{Tercipta dari Sumber Kebenaran Tunggal (\textit{Single Source of Truth}):} Data mengalir otonom dari sistem sumber transaksi (ERP/Sistem Operasional) ke repositori tanpa penginputan ulang manual.
+\end{itemize}
+
+Sedangkan untuk dokumen yang diciptakan dalam bentuk fisik (\textbf{Arsip Hibrida}), kriteria kepatuhannya diukur berdasarkan:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Sinkronisasi Lokasi Fisik \& Digital (\textit{Finding Aid Consistency}):} Kepatuhan diukur dari apakah lokasi fisik dokumen (Gedung, Ruang, Rak, Boks, hingga Folder) sudah tercatat secara presisi di database sistem kearsipan sesaat setelah dokumen tercipta. Tanpa sinkronisasi ini, dokumen fisik dianggap tidak patuh karena tidak dapat ditemukan kembali dalam SLA yang ditentukan.
+    \item \textbf{Otentisitas Otoritas Basah \& Cap Unit:} Meskipun fisik, dokumen harus memenuhi unsur keabsahan tradisional: tanda tangan basah pejabat berwenang dan stempel unit asli. Kepatuhan prosedur mewajibkan adanya verifikasi visual atas kelengkapan "atribut sah" ini sebelum dokumen masuk ke tahap penyimpanan.
+    \item \textbf{Keberadaan Metadata Penanda (\textit{Proxy Metadata}):} Dokumen fisik wajib memiliki "kembaran digital" berupa lembar metadata di sistem yang mencatat minimal: Tanggal Cipta, Nomor Dokumen, dan Ringkasan Isi. Kriteria patuh terpenuhi jika petugas tidak perlu lagi membaca isi dokumen fisik hanya untuk mengetahui apa isinya.
+    \item \textbf{Kepatuhan Pelabelan Retensi (\textit{Physical Retention Labeling}):} Setiap boks atau folder fisik harus memiliki label retensi yang selaras dengan database JRA (Jadwal Retensi Arsip). Prosedur dianggap patuh jika tanggal pemusnahan/pemindahan yang tertera pada boks fisik sama persis dengan yang tercatat di sistem digital.
+    \item \textbf{Integritas Log Mutasi Fisik:} Setiap perpindahan dokumen fisik (dari meja kerja ke rak aktif, atau dipinjam unit lain) wajib terekam dalam log mutasi. Kepatuhan prosedur diukur dari kesesuaian antara "posisi riil" dokumen di gudang dengan "status posisi" dokumen di sistem.
+\end{itemize}
 \begin{plnbox}[Kacamata Arsiparis: Keseimbangan Kecepatan \& Integritas]
 \small
 Dalam mengevaluasi KPI tersebut, Manajemen Atas perlu mewaspadai satu jebakan umum (\textit{logical fallacy}) dalam otomatisasi: \textbf{berasumsi bahwa kecepatan identik dengan kualitas tata kelola}. 
 
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Imunitas Hukum (\textit{Legal Admissibility}):} KPI \textit{First-Time Accuracy} bukan sekadar mencegah staf mengulang pekerjaan. Keakuratan metadata otomatis dan keutuhan \textit{hash integrity} adalah bukti primer berkekuatan hukum jika PLN diaudit BPK atau menghadapi litigasi.
-    \item \textbf{ROI dari Pemusnahan Data (\textit{Disposition}):} Pengukuran siklus waktu (\textit{Cycle Time}) tidak boleh berhenti hanya sampai arsip tercipta. Penahanan \textit{junk data} atau dokumen digital kadaluwarsa melewati masa Jadwal Retensi Arsip (JRA) demi alasan "berjaga-jaga" justru membebani biaya \textit{server} dan memicu risiko audit (\textit{e-discovery risk}). Tata kelola sejati mensyaratkan otomasi pemusnahan yang legal.
+    \item \textbf{Imunitas Hukum (\textit{Legal Admissibility}):} KPI ketepatan awal bukan sekadar mencegah staf mengulang pekerjaan. Keakuratan metadata otomatis dan keutuhan \textit{hash integrity} adalah bukti primer berkekuatan hukum jika PLN diaudit BPK atau menghadapi litigasi.
+    \item \textbf{ROI dari Pemusnahan Data (\textit{Disposition}):} Perhatian tata kelola siklus hidup arsip secara utuh tidak boleh berhenti hanya pada fase penciptaan. Penahanan \textit{junk data} atau dokumen digital kadaluwarsa melewati masa Jadwal Retensi Arsip (JRA) demi alasan "berjaga-jaga" justru membebani biaya \textit{server} dan memicu risiko audit (\textit{e-discovery risk}). Tata kelola sejati mensyaratkan otomasi pemusnahan yang legal.
 \end{itemize}
 \end{plnbox}
 
@@ -143,18 +181,18 @@ Untuk meyakinkan pemangku kepentingan, potensi peningkatan efektivitas dari keem
 \begin{enumerate}[leftmargin=*]
     \item \textbf{Penghematan Waktu $\times$ Biaya:} 
     \begin{multline*}
-    \text{ROI Waktu} = (\text{Cycle Time Lama} - \text{Cycle Time Baru}) \\
+    \text{ROI Waktu} = (\text{Waktu Siklus Lama} - \text{Waktu Siklus Baru}) \\
     \times\; \text{Volume Proses/Tahun} \times \text{Biaya Rata-Rata/Jam}
     \end{multline*}
     \item \textbf{Reduksi Biaya Kesalahan:} Hitung potensi penghematan dari penurunan revisi, pencetakan ulang, denda keterlambatan pelaporan, atau biaya audit temuan.
-    \item \textbf{Mitigasi Risiko Bisnis:} Nilai kualitatif-kuantitatif dari penurunan risiko kehilangan arsip vital, pelanggaran PP 71/2019, atau temuan audit BPK.
+    \item \textbf{Mitigasi Risiko Kepatuhan (atau Risiko Bisnis):} Nilai kualitatif-kuantitatif dari penurunan risiko kehilangan arsip vital, pelanggaran PP 71/2019, atau temuan audit BPK.
 \end{enumerate}
 
 \begin{plnbox}[PLN Context Box]
 \textbf{Ilustrasi Kalkulasi Sederhana (Proses arsip perintah kerja (SPK) Pemeliharaan GI):}
 \begin{itemize}[nosep]
     \item Volume: 1.200 arsip perintah kerja (SPK)/tahun
-    \item Cycle Time: 5 hari $\rightarrow$ 1 hari (hemat 4 hari/arsip perintah kerja (SPK))
+    \item Waktu siklus: 5 hari $\rightarrow$ 1 hari (hemat 4 hari/arsip perintah kerja (SPK))
     \item Biaya tenaga kerja \& overhead: Rp 150.000/hari
     \item \textbf{Penghematan Waktu} = $1.200 \times 4 \times 150.000 = \textbf{Rp 720.000.000/tahun}$
     \item \textbf{Dampak Tambahan:} Error metadata $\downarrow$ 85\%, temuan audit administratif $\rightarrow$ 0
@@ -187,7 +225,7 @@ Studi kasus berikut menyajikan simulasi lengkap penerapan optimalisasi alur kerj
 \toprule
 \textbf{Masalah} & \textbf{Dampak Operasional} & \textbf{Kerugian/Tahun} \\
 \midrule
-Cycle time rata-rata 5 hari/arsip perintah kerja (SPK) & Penundaan pelaporan kesiapan aset ke Dispatcher & Rp 720.000.000 \\
+Waktu siklus rata-rata 5 hari/arsip perintah kerja (SPK) & Penundaan pelaporan kesiapan aset ke Dispatcher & Rp 720.000.000 \\
 Error metadata 35\% (input manual) & 420 arsip perintah kerja (SPK)/tahun perlu revisi, rata-rata 2 jam/revisi & Rp 52.500.000 \\
 Kehilangan 8 dokumen arsip/tahun & Temuan audit BPK, potensi sanksi administratif & Rp 200.000.000 \\
 Waktu temu kembali 15--30 menit & Keterlambatan respons saat audit mendadak & Rp 37.500.000 \\
@@ -199,17 +237,17 @@ Waktu temu kembali 15--30 menit & Keterlambatan respons saat audit mendadak & Rp
 \begin{plnbox}[Catatan Perhitungan]
 \small
 \begin{itemize}[nosep, leftmargin=*]
-    \item Biaya cycle time: 1.200 arsip perintah kerja (SPK) $\times$ 4 hari terbuang $\times$ Rp 150.000/hari = Rp 720 juta
+    \item Biaya waktu siklus: 1.200 arsip perintah kerja (SPK) $\times$ 4 hari terbuang $\times$ Rp 150.000/hari = Rp 720 juta
     \item Biaya revisi: 420 arsip perintah kerja (SPK) $\times$ 2 jam $\times$ Rp 62.500/jam = Rp 52,5 juta
     \item Biaya kehilangan arsip: 8 kasus $\times$ Rp 25 juta (biaya rekonstruksi + risiko sanksi) = Rp 200 juta
-    \item Biaya retrieval lambat: 1.200 arsip perintah kerja (SPK) $\times$ 0,25 jam terbuang $\times$ Rp 125.000/jam = Rp 37,5 juta
+    \item Biaya waktu temu kembali yang lambat: 1.200 arsip perintah kerja (SPK) $\times$ 0,25 jam terbuang $\times$ Rp 125.000/jam = Rp 37,5 juta
 \end{itemize}
 \end{plnbox}
 
 \subsubsection*{C. Intervensi Optimalisasi yang Diterapkan}
 
 \begin{enumerate}[leftmargin=*, nosep]
-    \item \textbf{Trigger Otomatis:} Status \textit{Selesai} di Sistem Operasional memicu auto-generate draft arsip arsip perintah kerja (SPK) + 12 field metadata wajib (ID GI, tanggal, teknisi, sparepart, kategori pemeliharaan, dll.)
+    \item \textbf{Pemicu Otomatis:} Status \textit{Selesai} di Sistem Operasional memicu auto-generate draft arsip arsip perintah kerja (SPK) + 12 field metadata wajib (ID GI, tanggal, teknisi, sparepart, kategori pemeliharaan, dll.)
     \item \textbf{Validasi Digital:} Supervisor melakukan validasi via Sistem Tata Persuratan Digital dengan SLA maksimal 1$\times$24 jam kerja; eskalasi otomatis ke Manajer Area jika terlampaui
     \item \textbf{Penyimpanan Langsung:} Arsip tervalidasi langsung tersimpan di repositori digital dengan hash integrity \& audit trail immutable
     \item \textbf{SOP Digital 7 Komponen:} Prosedur baku mencakup trigger, metadata, SLA, exception handling, dan referensi regulasi
@@ -228,10 +266,10 @@ Waktu temu kembali 15--30 menit & Keterlambatan respons saat audit mendadak & Rp
 \toprule
 \textbf{Indikator Kinerja} & \textbf{Sebelum} & \textbf{Sesudah} & \textbf{Peningkatan} \\
 \midrule
-Cycle Time (rata-rata) & 5 hari & 0,8 hari & $\downarrow$ 84\% \\
-First-Time Accuracy & 65\% & 96\% & $\uparrow$ 31 poin \\
-Retrieval Speed & 15--30 menit & $<$20 detik & $\downarrow$ 99\% \\
-Compliance Rate & 72\% & 98\% & $\uparrow$ 26 poin \\
+Waktu Siklus (rata-rata) & 5 hari & 0,8 hari & $\downarrow$ 84\% \\
+Ketepatan Awal & 65\% & 96\% & $\uparrow$ 31 poin \\
+Waktu Temu Kembali & 15--30 menit & $<$20 detik & $\downarrow$ 99\% \\
+Tingkat Kepatuhan Prosedur & 72\% & 98\% & $\uparrow$ 26 poin \\
 Kehilangan Arsip & 8 kasus/tahun & 0 kasus & $\downarrow$ 100\% \\
 Temuan Audit BPK & 3 temuan/tahun & 0 temuan & $\downarrow$ 100\% \\
 \bottomrule
@@ -251,7 +289,7 @@ Temuan Audit BPK & 3 temuan/tahun & 0 temuan & $\downarrow$ 100\% \\
 \textbf{Komponen} & \textbf{Nilai (Rp/tahun)} \\
 \midrule
 \multicolumn{2}{@{}l}{\textbf{\color{plnblue}Penghematan (Benefit)}} \\
-\quad Penghematan cycle time (1.200 arsip perintah kerja (SPK) $\times$ 4,2 hari $\times$ Rp 150.000) & 756.000.000 \\
+\quad Penghematan waktu siklus (1.200 arsip perintah kerja (SPK) $\times$ 4,2 hari $\times$ Rp 150.000) & 756.000.000 \\
 \quad Reduksi biaya revisi metadata ($\downarrow$ 85\%) & 44.625.000 \\
 \quad Eliminasi risiko kehilangan arsip & 200.000.000 \\
 \quad Efisiensi waktu temu kembali & 36.000.000 \\
@@ -259,7 +297,7 @@ Temuan Audit BPK & 3 temuan/tahun & 0 temuan & $\downarrow$ 100\% \\
 \textbf{Total Benefit Tahunan} & \textbf{1.036.625.000} \\
 \addlinespace
 \multicolumn{2}{@{}l}{\textbf{\color{red}Biaya Implementasi (Cost) -- Tahun Pertama}} \\
-\quad Konfigurasi trigger \& template SOP & 75.000.000 \\
+\quad Konfigurasi pemicu otomatis \& template SOP & 75.000.000 \\
 \quad Pelatihan 48 personel (3 batch) & 36.000.000 \\
 \quad Pendampingan konsultan (90 hari pilot) & 50.000.000 \\
 \addlinespace
@@ -273,7 +311,7 @@ Temuan Audit BPK & 3 temuan/tahun & 0 temuan & $\downarrow$ 100\% \\
 
 \subsubsection*{F. Lessons Learned}
 \begin{enumerate}[leftmargin=*, nosep]
-    \item \textbf{Quick Win Paling Berdampak:} Eliminasi langkah cetak-scan-upload memberikan penghematan waktu terbesar (60\% dari total \textit{cycle time saving}) untuk dokumen rutin. Untuk dokumen legal/kontrak yang wajib dipertahankan fisiknya secara hibrida, penghematan didapat dari otomasi \textit{metadata tracking}-nya.
+    \item \textbf{Quick Win Paling Berdampak:} Eliminasi langkah cetak-scan-upload memberikan penghematan waktu terbesar (60\% dari total penghematan waktu siklus) untuk dokumen rutin. Untuk dokumen legal/kontrak yang wajib dipertahankan fisiknya secara hibrida, penghematan didapat dari otomasi \textit{metadata tracking}-nya.
     \item \textbf{Faktor Keberhasilan Kritis:} Dukungan aktif Manajer Area sebagai champion proyek dan penegakan SLA validasi 1$\times$24 jam tanpa pengecualian.
     \item \textbf{Hambatan yang Ditemui:} Resistensi awal dari 3 supervisor senior yang terbiasa tanda tangan basah -- diatasi dengan pendampingan 1-on-1 dan demonstrasi jejak audit digital yang lebih kuat secara hukum.
     \item \textbf{Rekomendasi Skalabilitas:} Hasil pilot layak direplikasi ke seluruh UIT dengan penyesuaian minor pada template metadata sesuai karakteristik aset masing-masing area.
@@ -296,7 +334,7 @@ Hasil analisis efektivitas harus dikemas dalam \textbf{Business Case 1 Halaman} 
 \midrule
 \textbf{Latar Belakang} & Proses yang ada, bottleneck, dampak operasional/kepatuhan \\
 \textbf{Solusi Usulan} & Alur kerja terintegrasi (Bab 3) + SOP digital (Bab 4) \\
-\textbf{Target KPI} & Cycle time, akurasi, compliance rate (Bab 5.1) \\
+\textbf{Target KPI} & Waktu siklus, ketepatan awal, tingkat kepatuhan prosedur (Bab 5.1) \\
 \textbf{Estimasi Manfaat} & Penghematan waktu/biaya, mitigasi risiko, nilai strategis \\
 \textbf{Timeline 30 Hari} & Minggu 1: Pilot 1 unit $\rightarrow$ Minggu 2: Monitoring $\rightarrow$ Minggu 3: Evaluasi $\rightarrow$ Minggu 4: Standardisasi \\
 \textbf{PIC \& Sumber Daya} & Penanggung jawab proses, dukungan IT fungsional, fasilitator kearsipan \\
@@ -342,7 +380,7 @@ Sepanjang Modul 4.3, peserta telah menyelesaikan empat kompetensi inti yang sela
 \textbf{Kriteria} & \textbf{Kompetensi} & \textbf{Output Portofolio} \\
 \midrule
 \textbf{4.3.1} & Evaluasi prosedur yang ada \& identifikasi area optimasi & Matriks Identifikasi Area Optimasi \\
-\textbf{4.3.2} & Rancang alur kerja terintegrasi (To-Be) & Diagram BPMN 2.0 + Peta Trigger \\
+\textbf{4.3.2} & Rancang alur kerja terintegrasi (To-Be) & Diagram BPMN 2.0 + Peta Pemicu \\
 \textbf{4.3.3} & Rumuskan SOP digital terintegrasi & Draft SOP 7 Komponen \\
 \textbf{4.3.4} & Analisis potensi peningkatan efektivitas & KPI Tracker + Action Plan 30 Hari \\
 \bottomrule
@@ -372,7 +410,7 @@ Berdasarkan pola yang lazim ditemui pada transformasi digital di lingkungan BUMN
 \toprule
 \textbf{Strategi} & \textbf{Taktik Implementasi} & \textbf{Konteks PLN} \\
 \midrule
-\textbf{Quick Win Demonstration} & Tunjukkan hasil nyata dalam 2 minggu pertama pada 1 proses sederhana & Pilot 1 GI: tunjukkan retrieval 20 detik vs 30 menit \\
+\textbf{Quick Win Demonstration} & Tunjukkan hasil nyata dalam 2 minggu pertama pada 1 proses sederhana & Pilot 1 GI: tunjukkan waktu temu kembali 20 detik vs 30 menit \\
 \textbf{Champion Network} & Rekrut 2--3 early adopter per unit sebagai agen perubahan informal & Supervisor muda yang antusias teknologi digital \\
 \textbf{Pendampingan 1-on-1} & Fasilitasi personal bagi personel senior dengan resistensi tinggi & Sesi 30 menit/minggu selama bulan pertama \\
 \textbf{Edukasi Regulasi} & Sosialisasikan bahwa tanda tangan elektronik tersertifikasi memiliki kekuatan hukum setara (UU ITE \& PP 71/2019) & Workshop mini 1 jam dengan Legal/GCG \\

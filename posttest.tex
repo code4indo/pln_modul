@@ -221,7 +221,7 @@ D. Studi Kasus Analitis & 2 soal & 15 poin & 30 poin \\
 \end{enumerate}
 
 % Soal 9 -- Kriteria 4.3.4 (Bab 5: KPI)
-\item KPI ``\textit{Retrieval Accuracy Rate}'' dalam pengukuran kinerja kearsipan mengukur:
+\item KPI ``\textit{Tingkat Ketepatan Temu Kembali (Retrieval Accuracy Rate)}'' dalam pengukuran kinerja kearsipan mengukur:
 \begin{enumerate}[label=\Alph*., nosep]
     \item Kecepatan koneksi internet saat mengunduh arsip
     \item Persentase arsip yang berhasil ditemukan pada pencarian pertama tanpa revisi kueri
@@ -300,7 +300,7 @@ Koreksi (jika Salah): \ansline[12cm]
 \noindent\rule{\textwidth}{0.3pt}
 
 % Soal C3 -- Kriteria 4.3.2
-\item Jelaskan perbedaan antara pola integrasi \textbf{\textit{Trigger-Based Auto-Capture}} dan \textbf{\textit{SLA-Driven Escalation}} dalam konteks alur kerja kearsipan PLN.
+\item Jelaskan perbedaan antara pola integrasi \textbf{\textit{Penangkapan Data Otomatis Berbasis Pemicu}} dan \textbf{\textit{SLA-Driven Escalation}} dalam konteks alur kerja kearsipan PLN.
 
 \vspace{0.2cm}
 \noindent\rule{\textwidth}{0.3pt}
@@ -356,7 +356,7 @@ Unit Transmisi PLN Regional X mengelola arsip laporan inspeksi rutin untuk 32 me
     \item Dokumen yang sudah ditandatangani di-scan, lalu diupload ke folder bersama di server lokal.
     \item Metadata (nama menara, tanggal inspeksi, kategori temuan) diisi manual oleh admin -- sering terjadi inkonsistensi penamaan file.
 \end{enumerate}
-Rata-rata \textit{cycle time} dari inspeksi hingga arsip tersimpan: \textbf{5--7 hari kerja}. Dalam 12 bulan terakhir, 23\% arsip inspeksi tidak dapat ditemukan saat dibutuhkan untuk audit BPK.
+Rata-rata \textit{waktu siklus} dari inspeksi hingga arsip tersimpan: \textbf{5--7 hari kerja}. Dalam 12 bulan terakhir, 23\% arsip inspeksi tidak dapat ditemukan saat dibutuhkan untuk audit BPK.
 \end{plnbox}
 
 \vspace{0.3cm}
@@ -375,7 +375,7 @@ Rata-rata \textit{cycle time} dari inspeksi hingga arsip tersimpan: \textbf{5--7
 \vspace{0.5cm}
 \noindent\rule{\textwidth}{0.3pt}
 
-    \item \textbf{(5 poin)} Rancang alur kerja \textit{To-Be} yang mengeliminasi titik gesekan tersebut. Gunakan konsep \textit{Trigger-Based Auto-Capture} dan \textit{Digital Validation}. Jelaskan alurnya dalam format naratif atau diagram sederhana.
+    \item \textbf{(5 poin)} Rancang alur kerja \textit{To-Be} yang mengeliminasi titik gesekan tersebut. Gunakan konsep \textit{Penangkapan Data Otomatis Berbasis Pemicu} dan \textit{Digital Validation}. Jelaskan alurnya dalam format naratif atau diagram sederhana.
 
 \vspace{0.2cm}
 \noindent\rule{\textwidth}{0.3pt}
@@ -390,7 +390,7 @@ Rata-rata \textit{cycle time} dari inspeksi hingga arsip tersimpan: \textbf{5--7
 \vspace{0.5cm}
 \noindent\rule{\textwidth}{0.3pt}
 
-    \item \textbf{(5 poin)} Jika \textit{cycle time} berhasil direduksi dari 6 hari menjadi 1 hari, dan setiap hari keterlambatan menyebabkan potensi denda ketidakpatuhan Rp 500.000/dokumen, hitung estimasi penghematan tahunan untuk 384 laporan inspeksi/tahun (32 menara $\times$ 12 bulan).
+    \item \textbf{(5 poin)} Jika \textit{waktu siklus} berhasil direduksi dari 6 hari menjadi 1 hari, dan setiap hari keterlambatan menyebabkan potensi denda ketidakpatuhan Rp 500.000/dokumen, hitung estimasi penghematan tahunan untuk 384 laporan inspeksi/tahun (32 menara $\times$ 12 bulan).
 
 \vspace{0.2cm}
 \noindent\rule{\textwidth}{0.3pt}
@@ -532,9 +532,9 @@ Setelah pilot implementasi alur kerja digital di Unit Distribusi PLN Regional Y,
 \item \textbf{2 Domain Checklist Diagnostik (6 poin):}\\
 Peserta boleh menyebutkan 2 domain apa saja dari 7 domain yang ada (contoh valid: Kebijakan, Tata Kelola, SDM/Budaya, Teknologi, Proses, Keamanan, Preservasi), dengan masing-masing satu contoh pertanyaan yang relevan dengan domain tersebut (masing-masing 3 poin per pasang domain \& pertanyaan).
 
-\item \textbf{Perbedaan Trigger-Based vs SLA-Driven (6 poin):}
+\item \textbf{Perbedaan Penangkapan Berbasis Pemicu vs SLA-Driven (6 poin):}
 \begin{itemize}[nosep]
-    \item \textbf{\textit{Trigger-Based Auto-Capture}} (3 poin): Status tertentu di sistem operasional \textbf{secara otomatis memicu} pembuatan draft arsip + metadata. Inisiasi oleh \textit{event sistem}.
+    \item \textbf{\textit{Penangkapan Data Otomatis Berbasis Pemicu}} (3 poin): Status tertentu di sistem operasional \textbf{secara otomatis memicu} pembuatan draft arsip + metadata. Inisiasi oleh \textit{event sistem}.
     \item \textbf{\textit{SLA-Driven Escalation}} (3 poin): Jika validasi \textbf{melampaui batas waktu}, sistem otomatis mengeskalasi ke atasan berikutnya. Dipicu oleh \textit{pelanggaran tenggat waktu}.
 \end{itemize}
 
@@ -546,7 +546,7 @@ Peserta boleh menyebutkan 2 domain apa saja dari 7 domain yang ada (contoh valid
 
 \item \textbf{3 Komponen Time-Cost-Risk Saving (6 poin):}
 \begin{itemize}[nosep]
-    \item (2 poin) \textbf{Penghematan Waktu Siklus:} Reduksi \textit{cycle time} proses kearsipan (hari $\rightarrow$ jam).
+    \item (2 poin) \textbf{Penghematan Waktu Siklus:} Reduksi \textit{waktu siklus} proses kearsipan (hari $\rightarrow$ jam).
     \item (2 poin) \textbf{Reduksi Biaya Kesalahan:} Penghematan dari penurunan revisi, pencetakan ulang, denda keterlambatan.
     \item (2 poin) \textbf{Mitigasi Risiko:} Pengurangan temuan audit, sanksi ketidakpatuhan, dan biaya litigasi.
 \end{itemize}
@@ -569,21 +569,21 @@ Minimal 3 dari yang berikut (poin proporsional):
     \item Pengantaran formulir fisik 1--2 hari (non-value-added \textit{delay})
     \item Pengetikan ulang data dari kertas ke Excel (duplikasi input manual)
     \item Siklus cetak $\rightarrow$ TTD basah $\rightarrow$ scan (konversi bolak-balik yang sia-sia)
-    \item Pengisian metadata manual yang inkonsisten (risiko \textit{retrieval failure})
+    \item Pengisian metadata manual yang inkonsisten (risiko kegagalan temu kembali / \textit{retrieval failure})
     \item Upload manual ke folder bersama tanpa indeks terstruktur
 \end{itemize}
 
 \item \textbf{Alur To-Be (5 poin):}\\
 Jawaban berkualitas harus memuat elemen berikut:
 \begin{itemize}[nosep]
-    \item (2 poin) \textbf{Trigger}: Input inspeksi langsung di lapangan via perangkat mobile/tablet $\rightarrow$ status ``Selesai'' memicu auto-generate draft arsip + metadata otomatis (nama menara, tanggal, teknisi, kategori temuan)
+    \item (2 poin) \textbf{Pemicu}: Input inspeksi langsung di lapangan via perangkat mobile/tablet $\rightarrow$ status ``Selesai'' memicu auto-generate draft arsip + metadata otomatis (nama menara, tanggal, teknisi, kategori temuan)
     \item (2 poin) \textbf{Validasi Digital}: Routing otomatis ke Supervisor untuk validasi digital dengan SLA 1$\times$24 jam; eskalasi otomatis jika lewat
     \item (1 poin) \textbf{Penyimpanan}: Arsip tervalidasi langsung masuk repositori digital terindeks dengan \textit{hash integrity}
 \end{itemize}
 
 \item \textbf{Perhitungan ROI (5 poin):}
 \begin{itemize}[nosep]
-    \item Reduksi \textit{cycle time}: 6 hari $\rightarrow$ 1 hari = penghematan 5 hari/dokumen
+    \item Reduksi \textit{waktu siklus}: 6 hari $\rightarrow$ 1 hari = penghematan 5 hari/dokumen
     \item Potensi denda per dokumen: 5 hari $\times$ Rp 500.000 = Rp 2.500.000/dokumen
     \item Volume tahunan: 384 laporan
     \item \textbf{Estimasi penghematan:} 384 $\times$ Rp 2.500.000 = \textbf{Rp 960.000.000/tahun}
@@ -609,7 +609,7 @@ Jawaban berkualitas harus memuat elemen berikut:
 \begin{itemize}[nosep]
     \item (2 poin) \textbf{Jenis:} Resistensi Kepercayaan (\textit{Trust-Based}) -- ketidakpercayaan terhadap validitas dokumen digital dan keamanan sistem.
     \item (2--3 poin) \textbf{Strategi 1:} Pendampingan 1-on-1 (\textit{hands-on coaching}) -- demonstrasi langsung bahwa jejak audit digital lebih kuat secara hukum, menunjukkan bukti konkret \textit{hash integrity} pada dokumen nyata.
-    \item (2--3 poin) \textbf{Strategi 2:} Pilot terbatas (\textit{small win demonstration}) -- jalankan di satu sub-unit selama 30 hari, tunjukkan hasil reduksi \textit{cycle time} dan temuan zero-error ke Manajer Senior sebagai bukti empiris.
+    \item (2--3 poin) \textbf{Strategi 2:} Pilot terbatas (\textit{small win demonstration}) -- jalankan di satu sub-unit selama 30 hari, tunjukkan hasil reduksi \textit{waktu siklus} dan temuan zero-error ke Manajer Senior sebagai bukti empiris.
 \end{itemize}
 
 \end{enumerate}

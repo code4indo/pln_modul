@@ -43,7 +43,7 @@
     Setiap aset informasi menentukan \textbf{kecepatan keputusan} dan \textbf{mitigasi risiko}.
     \vspace{0.3cm}
     \begin{alertblock}{Tantangan Kondisi \textit{As-Is}}
-        Prosedur masih dihambat proses manual, input data berulang, persetujuan lambat, serta hilangnya konsistensi metadata -- menyebabkan compliance risk dan inefisiensi.
+        Prosedur masih dihambat proses manual, input data berulang, persetujuan lambat, serta hilangnya konsistensi metadata -- menyebabkan risiko ketidakpatuhan (\textit{compliance risk}) dan inefisiensi.
     \end{alertblock}
     \vspace{0.3cm}
     \textbf{Tujuan Pelatihan:}
@@ -130,7 +130,7 @@
 
 % SLIDE 7
 \begin{frame}{Tahap 3: Pembuatan Desain Terintegrasi (To-Be)}
-    Matriks \textit{As-Is} kini dikonversi menjadi alur BPMN terotomasi menggunakan parameter \textit{Trigger}:
+    Matriks \textit{As-Is} kini dikonversi menjadi alur BPMN terotomasi menggunakan parameter \textbf{Pemicu Otomatis} (\textit{Trigger}):
     \vspace{0.3cm}
     \begin{columns}
         \column{0.5\textwidth}
@@ -164,7 +164,7 @@
     \vspace{0.1cm}
     \begin{enumerate}
         \small
-        \item \textbf{Pemicu Penciptaan (\textit{Trigger Point}):} Aksi sistemik mana yang memulai \textit{log} arsip.
+        \item \textbf{Pemicu Penciptaan (\textit{Trigger Point}):} Aksi sistemik mana yang memulai \textit{penarikan data} arsip.
         \item \textbf{Mapping Metadata Mandatory:} Atribut ID (mis. No Aset, Tanggal) dikunci.
         \item \textbf{Peran Digital (\textit{Digital Custodian}):} Penanggungjawab persetujuan sistem.
         \item \textbf{Aturan SLA Validasi:} Batas Waktu \& Eskalasi Bypass Otomatis.
@@ -183,9 +183,9 @@
         \textbf{Pengukuran (Tracker Metric):}
         \small
         \begin{itemize}
-            \item \textbf{Cycle Time:} Hari tunggu proses.
-            \item \textbf{Compliance Rate:} Tingkat tertib kepatuhan mengisi log arsip SPK.
-            \item \textbf{Retrieval Speed:} Hitungan menit mencari bukti persetujuan saat di-audit.
+            \item \textbf{Waktu Siklus (\textit{Cycle Time}):} Hari tunggu proses.
+            \item \textbf{Tingkat Kepatuhan Prosedur (\textit{Compliance Rate}):} Tingkat tertib kepatuhan mengisi log arsip SPK.
+            \item \textbf{Waktu Temu Kembali (\textit{Retrieval Speed}):} Hitungan menit mencari bukti persetujuan saat di-audit.
         \end{itemize}
         
         \column{0.5\textwidth}
@@ -202,10 +202,10 @@
 % SLIDE 10
 \begin{frame}{Rencana Tindak Lanjut: Action Plan 30 Hari}
     \begin{tcolorbox}[colback=white, colframe=plnorange, title={Quick Win: Integrasi Tingkat Unit}]
-        \textbf{Minggu 1:} Konfigurasi API trigger persetujuan dan sosialisasi kepada teknisi lini depan.\\[0.1cm]
+        \textbf{Minggu 1:} Konfigurasi API pemicu otomatis persetujuan dan sosialisasi kepada teknisi lini depan.\\[0.1cm]
         \textbf{Minggu 2:} Parallel Run (sistem baru dan lama beriringan), awasi kelengkapan dokumen.\\[0.1cm]
         \textbf{Minggu 3:} Cut-off cetak kertas fisik. Seluruh arsip beralih ke digital draft routing otomatis.\\[0.1cm]
-        \textbf{Minggu 4:} Review SLA \& Compliance mingguan guna pelaporan ke Manajemen Unit Induk.
+        \textbf{Minggu 4:} Review SLA \& Tingkat Kepatuhan Mingguan guna pelaporan ke Manajemen Unit Induk.
     \end{tcolorbox}
 \end{frame}
 

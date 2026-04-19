@@ -185,7 +185,7 @@ Modul 4.3 merupakan bagian integral dari Mata Pelajaran 4: \textit{Integrated Sy
 \textbf{Modul} & \textbf{Fokus Utama} & \textbf{Output yang Menghubungkan ke 4.3} \\
 \midrule
 \textbf{4.1} & Analisis sistem/prosedur yang ada & Matriks kondisi \textit{As-Is} $\rightarrow$ input evaluasi 4.3.1 \\
-\textbf{4.2} & Desain arsitektur teknis terintegrasi & Blueprint integrasi $\rightarrow$ acuan trigger di 4.3.2 \\
+\textbf{4.2} & Desain arsitektur teknis terintegrasi & Blueprint integrasi $\rightarrow$ acuan pemicu di 4.3.2 \\
 \textbf{4.3} & \textbf{Optimalisasi prosedur \& alur kerja} & \textbf{SOP Digital, BPMN To-Be, KPI Tracker} \\
 \textbf{4.4} & Keamanan \& keterlacakan terintegrasi & Matriks RBAC, Audit Trail $\rightarrow$ klausul keamanan SOP 4.3 \\
 \bottomrule
@@ -207,7 +207,7 @@ Modul ini dialokasikan \textbf{60 menit} dengan distribusi sebagai berikut:
 \midrule
 Bab 1 & Pendahuluan: konteks strategis, tujuan \& ruang lingkup & 10 menit & Pemahaman konteks \& kesiapan \\
 Bab 2 & Evaluasi prosedur \& identifikasi area optimasi & 15 menit & Matriks Identifikasi Area Optimasi \\
-Bab 3 & Perancangan alur kerja terintegrasi (To-Be) & 20 menit & Diagram BPMN 2.0 + Peta Trigger \\
+Bab 3 & Perancangan alur kerja terintegrasi (To-Be) & 20 menit & Diagram BPMN 2.0 + Peta Pemicu \\
 Bab 4 & Penyusunan SOP digital terintegrasi & 15 menit & Draft SOP Digital Terintegrasi \\
 Bab 5 & Analisis efektivitas \& business case & 15 menit & KPI Tracker + Action Plan 30 Hari \\
 Bab 6 & Penutup, refleksi, evaluasi mandiri & 5 menit & Komitmen tindak lanjut \\
@@ -228,7 +228,7 @@ Peserta dinyatakan lulus modul ini jika memenuhi:
     \item Mengumpulkan ke-4 dokumen portofolio berikut:
     \begin{itemize}[nosep]
         \item Matriks Identifikasi Area Optimasi (Bab 2)
-        \item Diagram BPMN 2.0 (To-Be) + Peta Trigger (Bab 3)
+        \item Diagram BPMN 2.0 (To-Be) + Peta Pemicu (Bab 3)
         \item Draft SOP Digital Terintegrasi (Bab 4)
         \item KPI Tracker + Action Plan 30 Hari (Bab 5)
     \end{itemize}
@@ -298,7 +298,7 @@ Untuk memastikan fokus pembelajaran dan menghindari tumpang-tindih dengan modul 
 \midrule
 Evaluasi \textbf{alur kerja \& prosedur bisnis} kearsipan & Evaluasi kondisi awal sistem/infrastruktur (Modul 4.1) \\
 Identifikasi \textbf{titik integrasi konseptual} antar proses & Desain arsitektur teknis, skema API, atau database (Modul 4.2) \\
-Perancangan \textbf{trigger otomasi \& routing digital} & Pemilihan platform EDMS atau spesifikasi teknis server \\
+Perancangan \textbf{pemicu otomatis \& routing digital} & Pemilihan platform EDMS atau spesifikasi teknis server \\
 Penyusunan \textbf{SOP digital, SLA, \& exception handling} & Audit keamanan jaringan atau konfigurasi firewall \\
 Penghitungan \textbf{KPI proses \& ROI efisiensi waktu/biaya} & Analisis risiko korporasi tingkat enterprise (Level 3) \\
 \bottomrule
@@ -375,7 +375,7 @@ Untuk mengimplementasikan prinsip-prinsip tersebut secara terukur, Modul ini men
 1.1 & Apakah telah ada kebijakan eksplisit yang mewajibkan penciptaan arsip digital di titik transaksi bisnis? & Kebijakan & $\square$ \\
 2.1 & Apakah peran pengelola arsip telah didokumentasikan dalam RACI Chart resmi? & Tata Kelola & $\square$ \\
 3.2 & Apakah ada KPI yang mengaitkan akurasi pengarsipan dengan penilaian kinerja? & SDM/Budaya & $\square$ \\
-4.1 & Apakah sistem operasional memiliki kemampuan trigger otomatis ke repositori arsip? & Teknologi & $\square$ \\
+4.1 & Apakah sistem operasional memiliki kemampuan tarik data otomatis ke repositori arsip? & Teknologi & $\square$ \\
 5.1 & Apakah informasi diketik lebih dari satu kali di aplikasi berbeda? & Proses & $\square$ \\
 5.3 & Berapa lama rata-rata dokumen menunggu untuk divalidasi? & Proses & $\square$ \\
 6.1 & Apakah setiap modifikasi arsip terekam dalam audit trail immutable? & Keamanan & $\square$ \\
@@ -387,7 +387,7 @@ Untuk mengimplementasikan prinsip-prinsip tersebut secara terukur, Modul ini men
 \textbf{Sistem Skoring (Interpretasi PLN):}
 \begin{itemize}[leftmargin=*]
     \item \textbf{Skor $\leq$ 2 (Belum Siap):} Perlu intervensi kebijakan, pelatihan, atau desain ulang alur kerja segera. Menjadi kandidat \textbf{prioritas utama} di Bab 3.
-    \item \textbf{Skor 3 (Siap Parsial):} Dapat dioptimalkan melalui perumusan \textit{trigger} digital, SLA, dan \textit{exception handling}.
+    \item \textbf{Skor 3 (Siap Parsial):} Dapat dioptimalkan melalui perumusan \textit{pemicu digital}, SLA, dan \textit{exception handling}.
     \item \textbf{Skor $\geq$ 4 (Siap Integrasi):} Layak menjadi percontohan (\textit{pilot project}) alur kerja terintegrasi dan SOP digital.
 \end{itemize}
 
@@ -469,8 +469,8 @@ Teknik yang paling efektif untuk mengidentifikasi area optimasi adalah \textbf{V
 \node[lbl, above=0.15cm of s3] {Non-digital};
 \node[lbl, above=0.15cm of s4] {Duplikasi};
 \node[lbl, above=0.15cm of s5] {Input ulang};
-% Total cycle time
-\node[below=1.4cm of s4, font=\small\bfseries, text=red!70!black] {Total Cycle Time: 3--5 Hari Kerja};
+% Total waktu siklus
+\node[below=1.4cm of s4, font=\small\bfseries, text=red!70!black] {Total Waktu Siklus: 3--5 Hari Kerja};
 % Legend
 \node[procstep, scale=0.7, right=0.3cm of s7, yshift=0.4cm] (leg1) {};
 \node[right=0.1cm of leg1, font=\tiny] {Proses Digital};
@@ -483,7 +483,7 @@ Teknik yang paling efektif untuk mengidentifikasi area optimasi adalah \textbf{V
 \end{figure}
 
 \begin{plnbox}[PLN Context Box]
-\textbf{Ilustrasi Alur Target:} \textit{Sistem Operasional (ERP)} melahirkan status persetujuan final $\rightarrow$ Trigger otomatis generate draft arsip arsip perintah kerja (SPK) + metadata aset (ID GI, tanggal, teknisi, sparepart) $\rightarrow$ Routing ke Supervisor via \textit{Sistem Tata Persuratan} untuk validasi digital $\rightarrow$ Arsip masuk ke repositori dengan status \texttt{Approved} \& hash integrity tercatat. \textbf{Tidak ada langkah cetak/scan/input ulang.}
+\textbf{Ilustrasi Alur Target:} \textit{Sistem Operasional (ERP)} melahirkan status persetujuan final $\rightarrow$ Pemicu otomatis generate draft arsip arsip perintah kerja (SPK) + metadata aset (ID GI, tanggal, teknisi, sparepart) $\rightarrow$ Routing ke Supervisor via \textit{Sistem Tata Persuratan} untuk validasi digital $\rightarrow$ Arsip masuk ke repositori dengan status \texttt{Approved} \& hash integrity tercatat. \textbf{Tidak ada langkah cetak/scan/input ulang.}
 \end{plnbox}
 
 \section{Kerangka Identifikasi Area Optimasi}
@@ -497,7 +497,7 @@ Untuk memastikan output terstruktur dan siap ditindaklanjuti, gunakan \textbf{Ma
 \toprule
 \textbf{No} & \textbf{Tahapan Proses} & \textbf{Jenis Hambatan} & \textbf{Potensi Integrasi} & \textbf{Prioritas} \\
 \midrule
-1 & Input data arsip & Duplikasi input manual dari 2 sistem & Trigger otomatis dari Sistem ERP & Tinggi \\
+1 & Input data arsip & Duplikasi input manual dari 2 sistem & Tarik data otomatis dari Sistem ERP & Tinggi \\
 2 & Approval verifikasi & Routing email berjenjang tanpa SLA & Digital routing + notifikasi otomatis & Sedang \\
 3 & Klasifikasi \& Metadata & Tidak konsisten antar unit & Template metadata terstandar + auto-populate & Tinggi \\
 4 & Penyimpanan & Konversi cetak $\rightarrow$ scan $\rightarrow$ upload & Direct capture dari sistem sumber & Rendah \\

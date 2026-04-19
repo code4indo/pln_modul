@@ -169,7 +169,7 @@
     \item Gunakan area kosong di bawah untuk menggambar diagram alur kerja To-Be.
     \item Gunakan notasi BPMN sederhana: $\bullet$ (Start), $\square$ (Task), $\diamond$ (Gateway), $\blacksquare$ (End).
     \item Tentukan minimal 3 swimlane (Pool/Lane) untuk peran atau sistem yang berbeda.
-    \item Tandai setiap trigger otomatis dengan warna/arsir berbeda.
+    \item Tandai setiap pemicu otomatis dengan warna/arsir berbeda.
     \item Durasi pengerjaan: \textbf{20 menit}.
 \end{enumerate}
 \end{instruksi}
@@ -197,7 +197,7 @@
 \end{tikzpicture}
 
 \vspace{0.3cm}
-\noindent\textbf{Daftar Trigger Otomatis:}
+\noindent\textbf{Daftar Pemicu Otomatis:}
 
 \begin{table}[htbp]
 \centering
@@ -205,7 +205,7 @@
 \renewcommand{\arraystretch}{2.0}
 \begin{tabularx}{\textwidth}{@{} c X X X @{}}
 \toprule
-\textbf{No} & \textbf{Trigger Event / Status} & \textbf{Aksi Otomatis} & \textbf{Sistem Sumber} \\
+\textbf{No} & \textbf{Pemicu / Status} & \textbf{Aksi Otomatis} & \textbf{Sistem Sumber} \\
 \midrule
 1 & & & \\
 \hline
@@ -269,8 +269,8 @@ Approver & & \\
 \end{tcolorbox}
 
 % Komponen 4
-\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 4: System Trigger \& Metadata Wajib}]
-\noindent\textbf{Trigger Event:} \fillline[10cm]\\[0.3cm]
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 4: Pemicu Sistem \& Metadata Wajib}]
+\noindent\textbf{Pemicu:} \fillline[10cm]\\[0.3cm]
 \textbf{Sistem Sumber:} \fillline[10cm]\\[0.3cm]
 \textbf{Metadata Wajib (min. 8 field):}\\[0.2cm]
 \begin{tabularx}{\textwidth}{@{} X X X X @{}}
@@ -375,13 +375,13 @@ Approval Final & & jam & \\
 \toprule
 \textbf{Indikator} & \textbf{Baseline (Saat Ini)} & \textbf{Target (30 Hari)} \\
 \midrule
-Cycle Time & & \\
+Waktu Siklus & & \\
 \hline
-First-Time Accuracy & & \\
+Ketepatan Awal & & \\
 \hline
-Compliance Rate & & \\
+Tingkat Kepatuhan Prosedur & & \\
 \hline
-Retrieval Speed & & \\
+Waktu Temu Kembali & & \\
 \bottomrule
 \end{tabularx}
 \renewcommand{\arraystretch}{1.0}
@@ -389,7 +389,7 @@ Retrieval Speed & & \\
 
 \noindent\textbf{4. Estimasi Manfaat Finansial:}\\[0.2cm]
 \begin{tabularx}{\textwidth}{@{} X r @{}}
-Penghematan cycle time: & Rp \fillline[4cm] /tahun \\[0.3cm]
+Penghematan waktu siklus: & Rp \fillline[4cm] /tahun \\[0.3cm]
 Reduksi biaya error/revisi: & Rp \fillline[4cm] /tahun \\[0.3cm]
 Mitigasi risiko kepatuhan: & Rp \fillline[4cm] /tahun \\[0.3cm]
 \textbf{Total Estimasi Manfaat:} & \textbf{Rp \fillline[4cm] /tahun} \\

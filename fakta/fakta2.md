@@ -46,7 +46,7 @@ Berikut adalah **Checklist Diagnostik Kesiapan Digital & Optimalisasi Proses** y
 ### 🗂️ Domain 4: Teknologi & Interoperabilitas Sistem *(Anti-Overlap: Fokus pada Kemampuan Fungsional, Bukan Arsitektur)*
 | No | Pertanyaan Diagnostik | Target Evaluasi | Skala (1-5) |
 |----|----------------------|----------------|-------------|
-| 4.1 | Apakah sistem operasional (SAP, E-Proc, AMS) memiliki kemampuan trigger otomatis ke repositori arsip tanpa input ulang? | Eliminasi redundansi | |
+| 4.1 | Apakah sistem operasional (SAP, E-Proc, AMS) memiliki kemampuan tarik data otomatis ke repositori arsip tanpa input ulang? | Eliminasi redundansi | |
 | 4.2 | Apakah metadata inti dapat di-capture otomatis dari sistem sumber ke format arsip baku (XML/PDF-A)? | Interoperabilitas data | |
 | 4.3 | Apakah sistem kearsipan mendukung digital routing approval dengan SLA terukur & escalasi otomatis? | Efisiensi persetujuan | |
 
@@ -80,7 +80,7 @@ Berikut adalah **Checklist Diagnostik Kesiapan Digital & Optimalisasi Proses** y
 | Skor | Kategori | Interpretasi untuk PLN |
 |------|----------|------------------------|
 | **1–2** | 🔴 Belum Siap | Perlu intervensi kebijakan, pelatihan, atau desain ulang alur kerja segera |
-| **3** | 🟡 Siap Parsial | Dapat dioptimalkan melalui trigger digital, SLA, dan exception handling |
+| **3** | 🟡 Siap Parsial | Dapat dioptimalkan melalui pemicu digital, SLA, dan exception handling |
 | **4–5** | 🟢 Siap Integrası | Layak menjadi pilot project alur kerja terintegrasi & SOP digital |
 
 ### 🛠️ Cara Penggunaan dalam Bab 2 Modul 4.3
@@ -115,7 +115,7 @@ Berikut adalah **Checklist Diagnostik Kesiapan Digital & Optimalisasi Proses** y
 1.1 & Apakah telah ada kebijakan eksplisit yang mewajibkan penciptaan arsip digital di titik transaksi bisnis? & Kebijakan & \text{\textsquare} \\
 2.1 & Apakah peran pengelola arsip telah didokumentasikan dalam RACI Chart resmi? & Tata Kelola & \text{\textsquare} \\
 3.2 & Apakah ada KPI yang mengaitkan akurasi pengarsipan dengan penilaian kinerja? & SDM/Budaya & \text{\textsquare} \\
-4.1 & Apakah sistem operasional memiliki kemampuan trigger otomatis ke repositori arsip? & Teknologi & \text{\textsquare} \\
+4.1 & Apakah sistem operasional memiliki kemampuan tarik data otomatis ke repositori arsip? & Teknologi & \text{\textsquare} \\
 5.1 & Apakah informasi diketik lebih dari satu kali di aplikasi berbeda? & Proses & \text{\textsquare} \\
 5.3 & Berapa lama dokumen menunggu untuk divalidasi? & Proses & \text{\textsquare} \\
 6.1 & Apakah setiap modifikasi arsip terekam dalam audit trail immutable? & Keamanan & \text{\textsquare} \\

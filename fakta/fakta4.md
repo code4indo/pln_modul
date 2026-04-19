@@ -90,7 +90,7 @@ Berikut adalah **12 Field Metadata Inti** yang direkomendasikan untuk integrasi 
 ```
 SAP-PM Status: "TECO" (Technically Complete)
        ↓
-Trigger → Generate Draft Arsip + Auto-Populate 12 Field Metadata
+Pemicu → Generate Draft Arsip + Auto-Populate 12 Field Metadata
        ↓
 Routing Digital → Validasi Supervisor → Validasi Unit Kearsipan
        ↓
