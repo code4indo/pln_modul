@@ -228,7 +228,7 @@ Gunakan pendekatan di atas untuk mengonversi efektivitas operasional ke dalam ni
 
 Bagi jajaran Manajemen Atas, studi kasus ini bukan sekadar contoh pelengkap, melainkan sebuah \textbf{Simulasi Implementasi Nyata} yang merangkum seluruh materi dari Bab 1 hingga Bab 5. Relevansinya adalah memberikan \textbf{Cetak Biru (\textit{Blueprint})} operasional tentang bagaimana sebuah ide optimasi diubah menjadi hasil finansial yang terukur. 
 
-Melalui studi kasus pada proses Perintah Kerja (\textit{Work Order}) pemeliharaan Gardu Induk (GI) 150 kV ini, peserta dapat melihat siklus transformasi secara utuh: mulai dari identifikasi kerugian finansial pada \textbf{Kondisi Awal (\textit{As-Is})}, langkah intervensi teknis yang dilakukan, hingga pembuktian hasil pada \textbf{Kondisi Target (\textit{To-Be})}. Bagian ini adalah "Bukti Nyata" (\textit{Hard Evidence}) yang dibutuhkan untuk meyakinkan seluruh pemangku kepentingan bahwa metodologi ini aplikabel di medan tugas PLN yang kompleks.
+Melalui studi kasus pada proses \textbf{Laporan BA Penormalan Jaringan (\textit{Energizing}) Gardu Induk 150 kV} ini, peserta dapat melihat siklus transformasi secara utuh: mulai dari identifikasi kerugian finansial pada \textbf{Kondisi Awal (\textit{As-Is})}, langkah intervensi teknis (termasuk \textit{Parallel Routing}) yang dilakukan, hingga pembuktian hasil pada \textbf{Kondisi Target (\textit{To-Be})}. Bagian ini adalah "Bukti Nyata" (\textit{Hard Evidence}) yang dibutuhkan untuk meyakinkan seluruh pemangku kepentingan bahwa metodologi ini aplikabel di medan tugas PLN yang sesungguhnya.
 
 Studi kasus berikut menyajikan simulasi lengkap penerapan optimalisasi alur kerja kearsipan dari kondisi awal hingga hasil implementasi pilot selama 90 hari:
 
@@ -284,17 +284,18 @@ Begitu akar masalah dan potensi kerugian teridentifikasi (sebagaimana dipaparkan
 
 \begin{warnbox}[Demarkasi Intervensi: Mengubah Administrasi, Bukan Kelistrikan]
 \small
-\textbf{Pertanyaan Kritis:} Bagaimana tata kelola kearsipan berani mengintervensi proses bisnis pemeliharaan Gardu Induk (GI) yang sifatnya mutlak dan sangat teknis?
-\\ \textbf{Jawaban:} Intervensi kearsipan \textbf{sama sekali tidak mengubah cara insinyur memelihara trafo} (\textit{engineering process}). Intervensi secara eksklusif hanya membedah \textbf{lapisan birokrasi dan rekam jejak (\textit{audit trail})} yang menyelimuti pekerjaan teknis tersebut. \textit{Records management} tidak mendikte insinyur bekerja, melainkan membebaskan mereka dari beban klerikal (mencetak kertas, memburu tanda tangan basah, merapikan map). Melalui orkestrasi sistem (\textit{embedded recordkeeping}), mesin mengambil alih beban administratif sehingga pegawai operasional dapat sepenuhnya berfokus pada keandalan listrik tanpa melanggar kepatuhan hukum.
+\textbf{Pertanyaan Kritis:} Bagaimana tata kelola kearsipan berani mengintervensi proses bisnis manuver Laporan Penormalan (\textit{Energizing}) Gardu Induk (GI) yang sifatnya mutlak dan sangat teknis?
+\\ \textbf{Jawaban:} Intervensi kearsipan \textbf{sama sekali tidak mengubah cara insinyur menyalakan trafo} (\textit{engineering process}). Intervensi secara eksklusif hanya membedah \textbf{lapisan birokrasi, ego persetujuan sektoral, dan rekam jejak (\textit{audit trail})} yang menyelimuti pekerjaan teknis tersebut. \textit{Records management} tidak mendikte insinyur bekerja, melainkan membebaskan mereka dari beban administrasi manual (mencetak kertas, memburu tanda tangan basah paralel, merapikan map). Melalui orkestrasi sistem (\textit{embedded recordkeeping}), mesin mengambil alih beban administratif sehingga pegawai operasional dapat sepenuhnya berfokus pada keandalan listrik tanpa melanggar kepatuhan hukum.
 \end{warnbox}
 
 Setiap langkah intervensi dirancang untuk memutus mata rantai inefisiensi yang telah membenani anggaran perusahaan. Dengan mengintegrasikan otomasi dan penegakan SLA, MA memastikan bahwa proses kearsipan tidak lagi menjadi "beban tambahan" bagi tim teknis, melainkan menjadi bagian otonom dari alur kerja harian yang menjamin keabsahan hukum setiap laporan pemeliharaan.
 
 \begin{enumerate}[leftmargin=*, nosep]
-    \item \textbf{Pemicu Otomatis:} Status \textit{Selesai} di Sistem Operasional memicu pembuatan draf arsip secara otomatis beserta 12 komponen metadata wajib (ID GI, tanggal, teknisi, dll.).
-    \item \textbf{Validasi Digital:} Supervisor melakukan validasi via Sistem Tata Persuratan Digital dengan SLA maksimal 1$\times$24 jam; eskalasi otomatis ke Manajer Area jika terlampaui.
-    \item \textbf{Penyimpanan Langsung:} Arsip tervalidasi langsung tersimpan di repositori digital dengan \textit{Hash Integrity} dan jejak audit yang \textit{immutable}.
-    \item \textbf{Pembaruan SOP Pemeliharaan Gardu Induk:} Penulisan ulang pendokumentasian "SOP Pemeliharaan Preventif GI 150 kV" agar selaras dengan kerangka terintegrasi (8 komponen standar kearsipan). SOP operasional yang baru ini kini mewajibkan \textit{auto-capture} data teknis dari sistem \textit{Enterprise Resource Planning} (ERP) aset, mengikat Manajer Area pada SLA validasi maksimal 24 jam kerja, dan menyertakan prosedur darurat jika jaringan operasional sedang anjlok (\textit{downtime}).
+    \item \textbf{Trigger-Based Auto Capture:} Status \textit{Selesai} di Sistem SCADA/Pembangkitan memicu pembuatan draf BA Penormalan secara otomatis beserta 12 komponen metadata wajib.
+    \item \textbf{Parallel Digital Routing:} Draf dikirim paksa secara \textbf{paralel dan serentak} ke Manajer Pemeliharaan (\textit{Asset Owner}) dan Manajer Operasi Sistem (\textit{Dispatcher}) menembus sekat departemen.
+    \item \textbf{SLA-Driven Escalation:} Validasi digital dibatasi komitmen super ketat (\textit{timeout} maksimal 1 Jam). Jika salah satu pihak abai, sistem mengambil alih kendali dan mengeskalasi tunggakan persetujuan ini ke Manajer UPT.
+    \item \textbf{Penyimpanan Langsung:} Arsip tervalidasi (\textit{Golden Record}) langsung tersimpan di repositori digital dengan \textit{Hash Integrity} yang \textit{immutable}.
+    \item \textbf{Pembaruan SOP Penormalan Gardu Induk:} Penulisan ulang pendokumentasian "SOP Penormalan Energizing GI 150 kV" agar selaras dengan \textbf{Pola Ke-2 (Rute Paralel)}. SOP baru ini menggantikan persetujuan berjenjang tradisional dan memanfaatkan otomasi sistem untuk mempercepat waktu tunggu menjadi hitungan menit.
 \end{enumerate}
 
 \begin{plnbox}[Analisis: Mengapa 4 Langkah Ini Sangat Berdampak?]
