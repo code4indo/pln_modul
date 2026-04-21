@@ -265,15 +265,15 @@ Modul ini dirancang khusus untuk \textbf{Manajemen Atas PLN} agar mampu mengeval
 \section{Makna "Optimalisasi" dan "Integrasi"}
 Judul modul ini mengusung dua kata kunci utama yang wajib disepakati di awal:
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Optimalisasi Prosedur:} Upaya sistematis menerapkan prinsip manajemen ramping (\textit{Lean Management}) untuk mengeliminasi pemborosan (\textit{waste}) dalam siklus kearsipan. Optimasi memfokuskan energi pada tugas bernilai tambah dengan memangkas repetisi, lalu mentransformasikannya menjadi siklus alur kerja utuh (\textit{single-flow}) berbasis \textit{approval} digital. \textbf{Catatan Realitas:} Karena PLN masih berada pada masa transisi \textbf{Arsip Hibrida (Hybrid Records)}, optimalisasi bukan berarti memaksakan 100\% \textit{paperless} seketika. Jika sebuah dokumen diwajibkan fisik oleh regulasi audit, maka yang diotomasi adalah \textit{metadata tracking} dan sinkronisasi antara gudang fisik dengan \textit{Finding Aid} digital.
-    \item \textbf{Alur Kerja Terintegrasi:} Arsitektur operasional di mana ``pulau-pulau sistem'' (seperti aplikasi ERP, Sistem Tata Persuratan Digital, dan Repositori Kearsipan Nasional) dihubungkan lewat pemicu otomatis (\textit{system triggers}). Dokumen diciptakan murni di unit transaksi/lapangan, dan sistem "menarik" data dan metadata secara otonom melintasi ranah unit kerja, memastikan kelancaran layanan serentak menjamin orisinalitas tanpa modifikasi ganda.
+    \item \textbf{Optimalisasi Prosedur:} Upaya sistematis menerapkan prinsip manajemen ramping (\textit{Lean Management}) untuk mengeliminasi pemborosan (\textit{waste}) dalam siklus kearsipan. Optimasi memfokuskan sumber daya pada tugas bernilai tambah dengan mengurangi repetisi, lalu mentransformasikannya menjadi siklus alur kerja utuh (\textit{single-flow}) berbasis \textit{approval} digital. \textbf{Catatan Realitas:} Karena PLN masih berada pada masa transisi \textbf{Arsip Hibrida (Hybrid Records)}, optimalisasi bukan berarti memaksakan 100\% \textit{paperless} seketika. Jika sebuah dokumen diwajibkan fisik oleh regulasi audit, maka yang diotomasi adalah \textit{metadata tracking} dan sinkronisasi antara gudang fisik dengan \textit{Finding Aid} digital.
+    \item \textbf{Alur Kerja Terintegrasi:} Arsitektur operasional di mana berbagai sistem yang terfragmentasi (seperti aplikasi ERP, Sistem Tata Persuratan Digital, dan Repositori Kearsipan Nasional) dihubungkan lewat pemicu otomatis (\textit{system triggers}). Dokumen diciptakan murni di unit transaksi/lapangan, dan sistem "menentukan" pengambilan data dan metadata secara otonom melintasi ranah unit kerja, memastikan kelancaran layanan serentak menjamin orisinalitas tanpa modifikasi ganda.
 \end{itemize}
 
 \begin{plnbox}[Kacamata Arsiparis: Integrasi Bukan Sekadar ''Koneksi API'']
 \small
 \textbf{Kesesatan Logika (Logical Fallacy):} Pihak pengembang IT sering menganggap bahwa jika dua aplikasi sukses mentransfer \textit{file} PDF dari \textit{Server A} ke \textit{Server B} menggunakan API (\textit{Application Programming Interface}), maka sistem tersebut sudah "terintegrasi".
 
-\textbf{Faktanya bagi Arsiparis:} Memindahkan data secara teknis hanyalah "interkoneksi". \textbf{Integrasi Kearsipan (\textit{Archival Integration})} menuntut bahwa arsip harus bergerak utuh bersama \textit{Content} (isi), \textit{Structure} (format), dan \textit{Context} (metadata pencipta dan kronologi). Jika sebuah surat pindah sistem secara mulus tapi jejak persetujuan (\textit{audit trail log}) direkayasa atau hilang selama masa transit lintas server, maka statusnya bukan lagi arsip, melainkan cuma \textit{file yatim piatu} yang cacat hukum. 
+\textbf{Faktanya bagi Arsiparis:} Memindahkan data secara teknis hanyalah "interkoneksi". \textbf{Integrasi Kearsipan (\textit{Archival Integration})} menuntut bahwa arsip harus bergerak utuh bersama \textit{Content} (isi), \textit{Structure} (format), dan \textit{Context} (metadata pencipta dan kronologi). Jika sebuah surat pindah sistem secara mulus tapi jejak persetujuan (\textit{audit trail log}) direkayasa atau hilang selama masa transit lintas server, maka statusnya bukan lagi arsip, melainkan cuma \textit{file tanpa konteks metadata} yang cacat hukum. 
 \end{plnbox}
 
 \section{Tujuan \& Hasil Belajar Modul}
@@ -320,7 +320,7 @@ Penghitungan \textbf{KPI proses \& ROI efisiensi waktu/biaya} & Analisis risiko 
 \textit{Durasi Fasilitasi: 15 Menit} \quad \textit{Kriteria Penilaian: 4.3.1}
 
 \section{Prinsip Evaluasi Proses Bisnis Kearsipan (Adopsi Standar PARBICA)}
-Tahap awal dalam mentransformasi tata kelola kearsipan adalah melakukan evaluasi yang mendalam terhadap prosedur yang berjalan saat ini (\textit{as-is}). Tanpa pemahaman yang objektif mengenai titik lemah dan inefisiensi pada proses yang ada, upaya digitalisasi hanya akan memindahkan kerumitan manual ke dalam sistem elektronik. Oleh karena itu, bagian ini akan memaparkan kerangka metodologis yang kokoh untuk membedah alur kerja, mengidentifikasi hambatan (\textit{friction points}), dan menentukan area prioritas yang memberikan nilai tambah tertinggi bagi organisasi melalui adopsi standar internasional PARBICA yang telah dikontekstualisasikan untuk kebutuhan PLN.
+Tahap awal dalam mentransformasi tata kelola kearsipan adalah melakukan evaluasi yang mendalam terhadap prosedur yang berjalan saat ini (\textit{as-is}). Tanpa pemahaman yang objektif mengenai titik lemah dan inefisiensi pada proses yang ada, upaya digitalisasi hanya akan memindahkan kerumitan manual ke dalam sistem elektronik. Oleh karena itu, bagian ini akan memaparkan kerangka metodologis yang kokoh untuk menganalisis alur kerja, mengidentifikasi kendala operasional (\textit{friction points}), dan menentukan area prioritas yang memberikan nilai tambah tertinggi bagi organisasi melalui adopsi standar internasional PARBICA yang telah dikontekstualisasikan untuk kebutuhan PLN.
 
 
 \subsection{Mengenal PARBICA: Mengapa Menjadi Rujukan Modul Ini?}
@@ -400,7 +400,7 @@ Sebelum memetakan prosedur untuk dievaluasi, SDM PLN diwajibkan menggali fakta r
 \begin{enumerate}[leftmargin=*]
     \item \textbf{\textit{Document Shadowing} (Penelusuran Fisik/Digital):} Jadikan satu dokumen nyata sebagai objek pelacakan (contoh: melacak nomor tiket arsip perintah kerja (SPK) 1445 dari sejak tiket dibuka, dicetak, ditandatangani, hingga masuk di \textit{folder} arsip). Catat setiap hambatan maupun waktu transisinya.
     \item \textbf{Ekstraksi \textit{Log} Sistem:} Menarik data riil \textit{time-stamp} dari log \textit{Aplikasi Operasional} atau \textit{Log Tata Persuratan} untuk membuktikan durasi asli (\textit{actual vs SLA}) dari suatu alur persetujuan.
-    \item \textbf{\textit{Gemba Walk} (Wawancara Aktor Lapangan):} Mengamati dan bertanya langsung kepada staf operasional pembuat arsip (seperti manajer atau petugas admin unit) mengenai kendala manual harian. Contoh pertanyaan operasional: \textit{"Berapa kali Anda harus meng-input ulang nama pelanggan yang sama ke dalam sistem yang berbeda?"}.
+    \item \textbf{\textit{Gemba Walk} (Wawancara Personel Lapangan):} Mengamati dan bertanya langsung kepada staf operasional pembuat arsip (seperti manajer atau petugas admin unit) mengenai kendala manual harian. Contoh pertanyaan operasional: \textit{"Berapa kali Anda harus meng-input ulang nama pelanggan yang sama ke dalam sistem yang berbeda?"}.
 \end{enumerate}
 
 \section{Teknik Pemetaan Alur \& Integrasi}
@@ -414,7 +414,7 @@ Teknik yang paling efektif untuk mengidentifikasi area optimasi adalah \textbf{V
         \item Input/Trigger \quad Proses/Verifikasi \quad Handoff/Approval
         \item Penyimpanan Arsip \quad Waktu Tunda/Delay
     \end{itemize}
-    \item \textbf{Tandai Titik Gesekan (\textit{Friction Points}):}
+    \item \textbf{Tandai Hambatan Operasional (\textit{Friction Points}):}
     \begin{itemize}[nosep]
         \item Duplikasi input data \quad Approval berjenjang tanpa SLA
         \item Konversi format manual (cetak $\rightarrow$ scan $\rightarrow$ upload)

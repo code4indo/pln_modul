@@ -6,6 +6,7 @@
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{graphicx}
+\usepackage{tcolorbox}
 
 % Warna Korporat PLN
 \definecolor{plnblue}{RGB}{0,75,135}
@@ -77,7 +78,7 @@
         \item[\textcolor{plnblue}{1. Value-Added Focus}] \hfill \\ Setiap tahapan memegang memori (\textit{capture}), index, atau routing wajib dipertimbangkan nilai tambahnya bagi kecepatan layanan/kepatuhan.
         
         \vspace{0.2cm}
-        \item[\textcolor{plnblue}{2. Single Source of Truth}] \hfill \\ Data dientri \textbf{satu kali} pada sistem hulu dan disalurkan secara otonom melintasi repositori arsip.
+        \item[\textcolor{plnblue}{2. Single Source of Truth}] \hfill \\ Data dientri \textbf{satu kali} pada sistem sumber dan disalurkan secara otonom melintasi repositori arsip.
         
         \vspace{0.2cm}
         \item[\textcolor{plnorange}{3. Process-System Alignment}] \hfill \\ Prosedur dibuat untuk memanfaatkan kekuatan maksimal aplikasi yang ada (bukan sekadar membuat ``solusi alternatif manual'').
@@ -92,7 +93,7 @@
     \begin{columns}[T]
         \column{0.33\textwidth}
         \textbf{1. Document Shadowing}\\
-        \small Melacak posisi absolut dari sebuah dokumen dari ia terbit, disetujui, hingga diletakkan pada repositori (Cari \textit{titik buntu/bottle-neck}).
+        \small Melacak posisi absolut dari sebuah dokumen dari ia dibuat, disahkan, hingga diletakkan pada repositori (Cari \textit{hambatan proses/bottle-neck}).
         
         \column{0.33\textwidth}
         \textbf{2. Ekstraksi Log Sistem}\\
@@ -100,7 +101,7 @@
         
         \column{0.33\textwidth}
         \textbf{3. Gemba Walk}\\
-        \small Lakukan interview acak pada \textit{user} garis tepi untuk menemukan anomali lapangan (seperti koneksi yang memaksa cetak-scan kertas).
+        \small Lakukan interview acak pada \textit{user} lini depan untuk menemukan anomali lapangan (seperti koneksi yang mengharuskan proses cetak-scan kertas).
     \end{columns}
 \end{frame}
 

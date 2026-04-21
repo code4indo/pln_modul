@@ -151,7 +151,7 @@ D. Studi Kasus Analitis & 2 soal & 15 poin & 30 poin \\
 % Soal 1 -- Kriteria 4.3.1 (Bab 1-2: Definisi Optimalisasi)
 \item Dalam konteks modul ini, ``optimalisasi prosedur'' kearsipan pada lingkungan \textit{Arsip Hibrida} berarti:
 \begin{enumerate}[label=\Alph*., nosep]
-    \item Menghapus seluruh dokumen fisik dan memaksa 100\% \textit{paperless}
+    \item Menghapus seluruh dokumen fisik dan mewajibkan transisi total ke 100\% \textit{paperless}
     \item Mengeliminasi langkah non-nilai tambah dan mengotomasi \textit{metadata tracking}, meskipun sebagian dokumen tetap fisik
     \item Membeli perangkat lunak manajemen dokumen terbaru dari vendor ternama
     \item Menambah jumlah staf kearsipan untuk mempercepat pemrosesan manual
@@ -362,7 +362,7 @@ Rata-rata \textit{waktu siklus} dari inspeksi hingga arsip tersimpan: \textbf{5-
 \vspace{0.3cm}
 
 \begin{enumerate}[leftmargin=*, label=\textbf{D1.\alph*}]
-    \item \textbf{(5 poin)} Identifikasi minimal \textbf{3 titik gesekan (\textit{friction points})} dari prosedur di atas menggunakan prinsip \textit{Value-Added Focus}.
+    \item \textbf{(5 poin)} Identifikasi minimal \textbf{3 hambatan operasional (\textit{friction points})} dari prosedur di atas menggunakan prinsip \textit{Value-Added Focus}.
 
 \vspace{0.2cm}
 \noindent\rule{\textwidth}{0.3pt}
@@ -375,7 +375,7 @@ Rata-rata \textit{waktu siklus} dari inspeksi hingga arsip tersimpan: \textbf{5-
 \vspace{0.5cm}
 \noindent\rule{\textwidth}{0.3pt}
 
-    \item \textbf{(5 poin)} Rancang alur kerja \textit{To-Be} yang mengeliminasi titik gesekan tersebut. Gunakan konsep \textit{Penangkapan Data Otomatis Berbasis Pemicu} dan \textit{Digital Validation}. Jelaskan alurnya dalam format naratif atau diagram sederhana.
+    \item \textbf{(5 poin)} Rancang alur kerja \textit{To-Be} yang mengeliminasi hambatan operasional tersebut. Gunakan konsep \textit{Penangkapan Data Otomatis Berbasis Pemicu} dan \textit{Digital Validation}. Jelaskan alurnya dalam format naratif atau diagram sederhana.
 
 \vspace{0.2cm}
 \noindent\rule{\textwidth}{0.3pt}
@@ -478,7 +478,7 @@ Setelah pilot implementasi alur kerja digital di Unit Distribusi PLN Regional Y,
 \midrule
 1 & \textbf{B} & Optimalisasi di lingkungan hibrida = eliminasi \textit{waste} + otomasi metadata, bukan 100\% \textit{paperless} & 4.3.1 \\
 2 & \textbf{B} & Data tercipta sekali di titik transaksi, mengalir tanpa duplikasi input & 4.3.1 \\
-3 & \textbf{B} & Melacak satu dokumen nyata dari hulu ke hilir, mencatat hambatan & 4.3.1 \\
+3 & \textbf{B} & Melacak satu dokumen nyata dari awal hingga akhir proses, mencatat hambatan & 4.3.1 \\
 4 & \textbf{A} & Routing otomatis berdasarkan aturan (hierarki, nilai, risiko) & 4.3.2 \\
 5 & \textbf{B} & Tanpa \textit{Immutability Lock}, konflik versi menyebabkan hilangnya \textit{Golden Record} & 4.3.2 \\
 6 & \textbf{B} & SOP Kearsipan wajib mencakup Klasifikasi, Retensi, RBAC & 4.3.3 \\
@@ -524,7 +524,7 @@ Setelah pilot implementasi alur kerja digital di Unit Distribusi PLN Regional Y,
 
 \item \textbf{3 Teknik Fact-Finding (6 poin):}
 \begin{itemize}[nosep]
-    \item \textbf{\textit{Document Shadowing}} (2 poin): Menjadikan satu dokumen nyata sebagai objek pelacakan dari hulu ke hilir, mencatat hambatan dan durasi transisi.
+    \item \textbf{\textit{Document Shadowing}} (2 poin): Menjadikan satu dokumen nyata sebagai objek pelacakan dari awal hingga akhir proses, mencatat hambatan dan durasi transisi.
     \item \textbf{Ekstraksi \textit{Log} Sistem} (2 poin): Menarik \textit{time-stamp} dari log aplikasi operasional untuk membuktikan durasi aktual vs SLA.
     \item \textbf{\textit{Gemba Walk}} (2 poin): Wawancara langsung kepada staf lapangan mengenai kendala manual harian.
 \end{itemize}
@@ -540,7 +540,7 @@ Peserta boleh menyebutkan 2 domain apa saja dari 7 domain yang ada (contoh valid
 
 \item \textbf{Mengapa Klasifikasi, Retensi \& Akses wajib (6 poin):}
 \begin{itemize}[nosep]
-    \item (3 poin) Komponen ini memastikan sistem tahu: ke laci virtual mana arsip dikunci, siapa yang dilarang membacanya (RBAC), dan kapan arsip boleh dimusnahkan sesuai JRA.
+    \item (3 poin) Komponen ini memastikan sistem tahu: ke folder penyimpanan digital mana arsip dikunci, siapa yang dilarang membacanya (RBAC), dan kapan arsip boleh dimusnahkan sesuai JRA.
     \item (3 poin) Tanpa komponen ini, pencarian arsip mungkin cepat, tetapi keamanan informasi bocor, retensi tidak terkontrol, dan arsip tidak memiliki dasar hukum pemusnahan yang sah.
 \end{itemize}
 
@@ -563,7 +563,7 @@ Peserta boleh menyebutkan 2 domain apa saja dari 7 domain yang ada (contoh valid
 
 \begin{enumerate}[leftmargin=*, label=\textbf{D1.\alph*}]
 
-\item \textbf{3 Titik Gesekan (5 poin):}\\
+\item \textbf{3 Hambatan Operasional (5 poin):}\\
 Minimal 3 dari yang berikut (poin proporsional):
 \begin{itemize}[nosep]
     \item Pengantaran formulir fisik 1--2 hari (non-value-added \textit{delay})
