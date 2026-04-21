@@ -6,217 +6,569 @@
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{graphicx}
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric, backgrounds, fit, calc}
 
-% Warna Korporat PLN
+% Warna Korporat PLN + Premium Accents
 \definecolor{plnblue}{RGB}{0,75,135}
 \definecolor{plnorange}{RGB}{255,107,53}
+\definecolor{plncyan}{RGB}{0,163,224}
+\definecolor{plngreen}{RGB}{0,150,136}
+\definecolor{lightgrey}{RGB}{248,249,250}
+\definecolor{darkgrey}{RGB}{50,50,50}
 
-% Konfigurasi Tema Beamer yang Profesional
+% TikZ BPMN Styles
+\tikzset{
+    startstyle/.style={circle, draw=red!70!black, fill=red!15, minimum size=0.9cm, align=center, font=\tiny\bfseries, line width=1pt},
+    endstyle/.style={circle, draw=red!70!black, fill=red!25, minimum size=0.9cm, align=center, font=\tiny\bfseries, line width=1.5pt},
+    startstyle_tobe/.style={circle, draw=green!60!black, fill=green!15, minimum size=0.9cm, align=center, font=\tiny\bfseries, line width=1pt},
+    endstyle_tobe/.style={circle, draw=plnblue!80!black, fill=plnblue!25, minimum size=0.9cm, align=center, font=\tiny\bfseries, line width=1.5pt},
+    manual/.style={rectangle, rounded corners=2pt, draw=gray!70, fill=gray!8, text width=2.4cm, minimum height=1.2cm, align=center, font=\tiny, line width=0.6pt},
+    waiting/.style={rectangle, rounded corners=2pt, draw=red!50, fill=red!5, text width=2.4cm, minimum height=1.2cm, align=center, font=\tiny\itshape, line width=0.6pt},
+    autostep/.style={rectangle, rounded corners=2pt, draw=plnblue!80, fill=plnblue!12, text width=2.4cm, minimum height=1.2cm, align=center, font=\tiny\bfseries, line width=0.6pt},
+    humanstep/.style={rectangle, rounded corners=2pt, draw=plnorange, fill=plnorange!10, text width=2.4cm, minimum height=1.2cm, align=center, font=\tiny, line width=0.6pt},
+    gateway/.style={diamond, draw=gray!70, fill=yellow!8, minimum width=1.1cm, minimum height=1.1cm, align=center, font=\tiny\bfseries, inner sep=1pt, aspect=1},
+    gateway_tobe/.style={diamond, draw=plnorange!80, fill=plnorange!8, minimum width=1.1cm, minimum height=1.1cm, align=center, font=\tiny\bfseries, inner sep=1pt, aspect=1},
+    arr/.style={-{Stealth[length=5pt]}, thick, color=gray!60},
+    arr_tobe/.style={-{Stealth[length=5pt]}, thick, color=plnblue!70},
+    arrok/.style={-{Stealth[length=5pt]}, thick, color=green!60!black},
+    arrno/.style={-{Stealth[length=5pt]}, thick, color=red!50, dashed},
+    timelbl/.style={font=\tiny\bfseries, text=red!60!black},
+    timelbl_tobe/.style={font=\tiny\bfseries, text=green!50!black},
+    lanelab/.style={font=\tiny\bfseries, text=gray!70!black, rotate=90}
+}
+
+
+% Konfigurasi Tema Beamer Premium
 \mode<presentation>{
-    \usetheme{Madrid} % Clean, professional format
+    \usetheme{Madrid}
     \usecolortheme[named=plnblue]{structure}
     \setbeamercolor{palette primary}{bg=plnblue,fg=white}
     \setbeamercolor{palette secondary}{bg=plnorange,fg=white}
-    \setbeamercolor{palette tertiary}{bg=plnblue!80!black,fg=white}
     \setbeamercolor{title}{bg=plnblue,fg=white}
     \setbeamercolor{frametitle}{bg=plnblue,fg=white}
-    \setbeamercolor{block title}{bg=plnblue,fg=white}
-    \setbeamercolor{block body}{bg=plnblue!5,fg=black}
-    \setbeamertemplate{navigation symbols}{} % Hide navigation buttons
+    \setbeamerfont{frametitle}{series=\bfseries, size=\large}
+    \setbeamercolor{background canvas}{bg=white}
+    \setbeamertemplate{navigation symbols}{}
+    \setbeamertemplate{items}[circle]
 }
 
-\title[Transformasi Kearsipan Digital]{\Large Optimalisasi \& Integrasi Prosedur Kearsipan Digital}
-\subtitle{Modul Pelatihan Level 4 -- Tata Kelola Kearsipan\\ PT PLN (Persero)}
+% Custom Boxes
+\newtcolorbox{premiumbox}[1][]{%
+  colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries\small,
+  sharp corners, boxrule=1pt, left=4pt, right=4pt, top=4pt, bottom=4pt,
+  title={#1}, before skip=4pt, after skip=10pt, breakable
+}
+
+\newtcolorbox{orangebox}[1][]{%
+  colback=plnorange!5!white, colframe=plnorange, fonttitle=\bfseries\small,
+  sharp corners, boxrule=1pt, left=4pt, right=4pt, top=4pt, bottom=4pt,
+  title={#1}, before skip=4pt, after skip=10pt, breakable
+}
+
+\newtcolorbox{greenbox}[1][]{%
+  colback=plngreen!5!white, colframe=plngreen, fonttitle=\bfseries\small,
+  sharp corners, boxrule=1pt, left=4pt, right=4pt, top=4pt, bottom=4pt,
+  title={#1}, before skip=4pt, after skip=10pt, breakable
+}
+
+\title{\LARGE Optimalisasi Prosedur \& Alur Kerja Terintegrasi}
+\subtitle{Modul Pelatihan Level 4 (Mastery) -- Transformasi Tata Kelola Kearsipan\\ \textbf{PT PLN (Persero)}}
 \author{Fasilitator Utama}
-\institute[PT PLN (Persero)]{PT PLN (Persero)}
-\date{\today}
+\institute[PLN]{Center of Excellence Records Management}
+\date{April 2026}
+
+% Makro untuk Icon Sederhana
+\newcommand{\stepicon}[2]{
+    \begin{tikzpicture}
+        \node[circle, fill=#1, text=white, minimum size=0.6cm, inner sep=0, font=\tiny\bfseries] {#2};
+    \end{tikzpicture}
+}
 
 \begin{document}
 
-% SLIDE 1
-\begin{frame}
+% SLIDE 1: TITLE PAGE
+{
+\beamertemplatenavigationsymbolsempty
+\begin{frame}[plain]
     \titlepage
 \end{frame}
+}
 
-% SLIDE 2
-\begin{frame}{Latar Belakang \& Konteks Strategis}
-    Setiap aset informasi menentukan \textbf{kecepatan keputusan} dan \textbf{mitigasi risiko}.
-    \vspace{0.3cm}
-    \begin{alertblock}{Tantangan Kondisi \textit{As-Is}}
-        Prosedur masih dihambat proses manual, input data berulang, persetujuan lambat, serta hilangnya konsistensi metadata -- menyebabkan risiko ketidakpatuhan (\textit{compliance risk}) dan inefisiensi.
-    \end{alertblock}
-    \vspace{0.3cm}
-    \textbf{Tujuan Pelatihan:}
-    \begin{enumerate}
-        \item \textbf{Mengevaluasi} prosedur yang ada dengan metrik yang objektif (Kriteria 4.3.1).
-        \item \textbf{Merancang} alur kerja baru yang integratif (\textit{To-Be}).
-        \item \textbf{Merumuskan} rancangan SOP Digital berorientasi sistem.
-    \end{enumerate}
+% SLIDE 2: VISION & CONCEPT
+\begin{frame}{Visi Masa Depan: Ekosistem Kearsipan Digital PLN}
+    \begin{columns}
+        \column{0.55\textwidth}
+        \begin{premiumbox}[Transformasi Budaya \& Teknologi]
+            \small
+            \textit{"Archiving is no longer a post-action task, but an embedded engine of business reliability."}
+            \vspace{0.3cm}
+            \begin{itemize}
+                \item \textbf{Embedded:} Menyatu dalam transaksi operasional.
+                \item \textbf{Autonomous:} Tarik data (\textit{auto-capture}) tanpa manual.
+                \item \textbf{Authentic:} Menjamin bukti legal yang tak terbantahkan.
+            \end{itemize}
+        \end{premiumbox}
+        \centering
+        \stepicon{plnblue}{1} Diagnosa \quad \stepicon{plncyan}{2} Desain \quad \stepicon{plnorange}{3} Deliver
+        
+        \column{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/home/lambda_one/.gemini/antigravity/brain/ef68cde3-b0c3-4a08-91b5-b3462ac425ba/pln_digital_archive_concept_1776762781196.png}
+    \end{columns}
 \end{frame}
 
-% SLIDE 3
-\begin{frame}{Mengapa Mengadopsi Standar PARBICA (Guideline 13)?}
-    Untuk membangun kerangka evaluasi, modul PLN menggunakan alat ukur dari panduan internasional \textbf{PARBICA Toolkit} (afisiliasi resmi \textit{International Council on Archives}).
-    \vspace{0.4cm}
-    \begin{itemize}
-        \item \textbf{Konteks Relevan:} Fokus pada "Masa Transisi" dari kertas analog ke lingkungan kerja digital, sangat spesifik dengan tantangan BUMN.
-        \item \textbf{Praktis:} Memberikan diagnosis kesiapan organisasi melalui \textit{Checklist Diagnostik} skala 1-5, tidak sekadar kerangka filosofis.
-    \end{itemize}
-    \vspace{0.3cm}
-    \begin{block}{Pedoman Kunci \textit{Good Governance}}
-        Sistem tata kelola kearsipan bukanlah tahap \textit{post-action} administratif, melainkan aktivitas \textbf{By Design} yang tertanam otomatis dalam alur transaksi bisnis.
-    \end{block}
+% SLIDE 3: PROBLEM QUANTIFICATION
+\begin{frame}{Biaya Tersembunyi dari Prosedur Manual (As-Is)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{orangebox}[Analisis Inefisiensi SPK/Kontrak]
+            \small
+            \begin{description}
+                \item[\textcolor{red}{Waktu Tunggu}] 3--5 Hari Kerja.
+                \item[\textcolor{red}{Human Error}] 35\% Metadata Salah Input.
+                \item[\textcolor{red}{Risiko Audit}] Dokumen tercecer/sulit dicari.
+                \item[\textcolor{red}{Biaya Fisik}] Kertas, Kurir, \& Ruang Simpan.
+            \end{description}
+        \end{orangebox}
+        
+        \column{0.5\textwidth}
+        \centering
+        \textbf{Kerugian Simulasi (UIT GI 150kV)}
+        \vspace{0.3cm}
+        \begin{tikzpicture}
+            \draw[lightgrey, fill=lightgrey] (0,0) rectangle (4,2.5);
+            \node at (2,1.8) {\small \textbf{Potensi Kerugian}};
+            \node at (2,1.2) {\huge \textcolor{red}{\textbf{Rp 1,04 M}}};
+            \node at (2,0.5) {\tiny \textbf{Per Tahun / Unit Kerja}};
+            \draw[red, line width=1pt] (0.5,0.8) -- (3.5,0.8);
+        \end{tikzpicture}
+    \end{columns}
 \end{frame}
 
-% SLIDE 4
-\begin{frame}{3 Prinsip Utama Evaluasi Prosedur}
-    Kami menggunakan pijakan operasional berikut pada setiap titik evaluasi:
+% SLIDE 4: THE GAP (Friction Points)
+\begin{frame}{Mengapa Proses Kita Terasa Lambat?}
+    \centering
+    \begin{tikzpicture}[node distance=1.2cm]
+        \node[draw, fill=plnblue!10, text width=2.5cm, align=center, font=\tiny] (s1) {Penciptaan\\(Sistem A)};
+        \node[draw, red, fill=red!10, right=of s1, text width=2.5cm, align=center, font=\tiny] (f1) {CETAK FISIK\\(Friction 1)};
+        \node[draw, red, fill=red!10, right=of f1, text width=2.5cm, align=center, font=\tiny] (f2) {TTD MANUAL\\(Friction 2)};
+        \node[draw, red, fill=red!10, right=of f2, text width=2.5cm, align=center, font=\tiny] (f3) {SCAN \& UPLOAD\\(Friction 3)};
+        \node[draw, fill=plnblue!10, right=of f3, text width=2.5cm, align=center, font=\tiny] (s2) {Penyimpanan\\(Sistem B)};
+        \draw[->, thick] (s1) -- (f1); \draw[->, thick] (f1) -- (f2); \draw[->, thick] (f2) -- (f3); \draw[->, thick] (f3) -- (s2);
+    \end{tikzpicture}
+    \vspace{0.6cm}
+    \begin{premiumbox}[Diagnosis]
+        \small Masalah utama pada \textbf{Gap Prosedur} yang mewajibkan konversi digital-analog-digital secara berulang.
+    \end{premiumbox}
+\end{frame}
+
+% SLIDE 5: METHODOLOGY (PARBICA)
+\begin{frame}{Metodologi: Standar Internasional PARBICA}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{premiumbox}[PARBICA Toolkit Guideline 13]
+            \small
+            Acuan resmi \textit{International Council on Archives} (ICA) untuk organisasi dalam \textbf{Masa Transisi} menuju digital.
+            \begin{itemize}
+                \item Fokus pada Kesiapan (\textit{Readiness}).
+                \item Diagnosis 7 Domain Kunci.
+            \end{itemize}
+        \end{premiumbox}
+        
+        \column{0.5\textwidth}
+        \textbf{7 Domain Evaluasi (Skala 1--5)}
+        \vspace{0.2cm}
+        \tiny
+        \begin{enumerate}
+            \item \textbf{Kebijakan:} Dasar hukum di titik transaksi.
+            \item \textbf{Tata Kelola:} Otoritas \& RACI Chart.
+            \item \textbf{SDM:} Kapasitas \& Budaya kerja.
+            \item \textbf{Interoperabilitas:} Komunikasi antar sistem.
+            \item \textbf{Proses Bisnis:} Alur tanpa hambatan.
+            \item \textbf{Keamanan:} Integritas data.
+            \item \textbf{Preservasi:} Kelangsungan jangka panjang.
+        \end{enumerate}
+    \end{columns}
+\end{frame}
+
+% SLIDE 6: THEORY - CONTINUUM MODEL
+\begin{frame}{Landasan Teori Kearsipan: \textit{Records Continuum Model}}
+    \begin{columns}
+        \column{0.55\textwidth}
+        \begin{premiumbox}[Pergeseran Paradigma (Frank Upward, 1996)]
+            \small
+            Meninggalkan \textbf{Life-Cycle Theory} yang menganggap pelestarian sebagai tahap akhir, menuju pendekatan \textbf{Continuum}.
+            \vspace{0.2cm}
+            \begin{itemize}
+                \item \textbf{Create \& Capture:} Penciptaan dan penangkapan arsip terintegrasi secara proaktif saat transaksi \textit{real-time}.
+                \item \textbf{Organize:} Integritas dan interoperabilitas sistem terjamin sejak rancangan awal (\textit{by design}).
+                \item \textbf{Pluralize:} Bukti akuntabilitas institusional yang dapat diakses lintas batas secara \textit{scalable}.
+            \end{itemize}
+        \end{premiumbox}
+        
+        \column{0.45\textwidth}
+        \begin{orangebox}[Relevansi Kritis bagi PLN]
+            \small Tata kelola asrip PLN tidak lagi beroperasi secara pasif di "gudang belakang" (\textit{back-end}), melainkan ditanamkan langsung (\textit{embedded}) layaknya sebuah organ pada aplikasi operasional lini depan (\textit{front-end}).
+        \end{orangebox}
+    \end{columns}
+\end{frame}
+
+% SLIDE 7: THEORY - GOVERNANCE & ISO
+\begin{frame}{Landasan Tata Kelola Hukum \& Internasional: ISO 15489}
+    \begin{columns}
+        \column{0.6\textwidth}
+        \begin{premiumbox}[\textit{Information Governance} (Tata Kelola Informasi)]
+            \small
+            \textit{"Information is a formalized asset that requires executive accountability."} (ARMA International)
+            \vspace{0.2cm}
+            \begin{itemize}
+                \item Memastikan data tidak hanya sekadar "Tersimpan", tapi juga terjamin \textbf{Keabsahan}, \textbf{Perlindungan Hak Akses}, dan \textbf{Nilai Guna Audit}.
+            \end{itemize}
+        \end{premiumbox}
+        \vspace{0.2cm}
+        \begin{greenbox}[ISO 15489-1:2016 (Records Management)]
+            \small
+            \textbf{4 Karakteristik Konstruksi Arsip Digital:}
+            \vspace{0.1cm}
+            \begin{description}
+                \tiny
+                \item[Authenticity] Terbukti keaslian pencipta \& otoritas rilis.
+                \item[Reliability] Akurat merepresentasikan peristiwa transaksi riil.
+                \item[Integrity] Bebas dari alterasi (\textit{Hash-lock} Anti-Tamper).
+                \item[Usability] Terstruktur \& mudah didiscoveri.
+            \end{description}
+        \end{greenbox}
+        
+        \column{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \node[circle, fill=plnblue!10, draw=plnblue, text width=2cm, align=center, font=\tiny\bfseries] (c1) {Accountability};
+            \node[circle, fill=plnorange!10, draw=plnorange, text width=2cm, align=center, font=\tiny\bfseries, below left=0.5cm and -0.8cm of c1] (c2) {Integrity};
+            \node[circle, fill=plngreen!10, draw=plngreen, text width=2cm, align=center, font=\tiny\bfseries, below right=0.5cm and -0.8cm of c1] (c3) {Compliance};
+            \draw[thick, gray, -] (c1) -- (c2) -- (c3) -- (c1);
+            \node[font=\bfseries, text=plnblue, align=center] at ($(c1)!0.5!(c2)!0.5!(c3)$) {\tiny TRUST};
+        \end{tikzpicture}
+    \end{columns}
+\end{frame}
+
+% SLIDE 8: STRATEGIC PILLARS
+\begin{frame}{3 Pilar Strategis Optimalisasi Prosedur}
     \vspace{0.4cm}
+    \begin{columns}[T]
+        \column{0.31\textwidth}
+        \centering
+        \stepicon{plnblue}{1} \\ \textbf{Value-Added Focus} \\
+        \vspace{0.2cm}
+        \tiny Mengeliminasi aktivitas non-produktif (seperti bongkar gudang fisik).
+        
+        \column{0.31\textwidth}
+        \centering
+        \stepicon{plncyan}{2} \\ \textbf{Single Source of Truth} \\
+        \vspace{0.2cm}
+        \tiny Satu kali input di sistem operasional, mengalir otomatis ke arsip.
+        
+        \column{0.31\textwidth}
+        \centering
+        \stepicon{plnorange}{3} \\ \textbf{Rule-Based Routing} \\
+        \vspace{0.2cm}
+        \tiny Distribusi persetujuan otomatis berdasarkan kategori risiko.
+    \end{columns}
+\end{frame}
+
+% SLIDE 7: INVESTIGATIVE PHASE
+\begin{frame}{Proses Diagnosa: Mencari Fakta Lapangan}
+    \vspace{0.3cm}
+    \begin{columns}
+        \column{0.33\textwidth}
+        \centering
+        \stepicon{darkgrey}{A} \\ \textbf{Document Shadowing} \\
+        \tiny Membuntuti satu dokumen fisik hingga tiba di repositori pusat.
+        
+        \column{0.33\textwidth}
+        \centering
+        \stepicon{darkgrey}{B} \\ \textbf{Log Analysis} \\
+        \tiny Membandingkan \textbf{Durasi SLA} vs \textbf{Fakta Riil} jam persetujuan manajer.
+        
+        \column{0.33\textwidth}
+        \centering
+        \stepicon{darkgrey}{C} \\ \textbf{Gemba Walk} \\
+        \tiny Bertanya langsung kepada personel operasional mengenai hambatan nyata.
+    \end{columns}
+\end{frame}
+
+% SLIDE 8: AS-IS BPMN (FULL)
+\begin{frame}{Model BPMN Kondisi Saat Ini (As-Is)}
+    \centering
+    \resizebox{0.95\textwidth}{!}{%
+    \begin{tikzpicture}[node distance=1.2cm and 0.8cm]
+    % Lane backgrounds
+    \fill[gray!5] (0.2, 2.5) rectangle (18, 0.6);
+    \fill[yellow!4] (0.2, 0.4) rectangle (18, -2.3);
+    \fill[gray!5] (0.2, -2.5) rectangle (18, -5.4);
+    % Lane Dividers
+    \draw[gray!30, thick] (0.2, 0.5) -- (18, 0.5);
+    \draw[gray!30, thick] (0.2, -2.4) -- (18, -2.4);
+    % Lane labels
+    \node[lanelab] at (0.4, 1.6) {Staf Cabang};
+    \node[lanelab] at (0.4, -1.0) {Manajer UPT};
+    \node[lanelab] at (0.4, -4.0) {Kearsipan};
+
+    \node[startstyle] at (1.5, 1.6) (s1) {Start};
+    \node[manual, right=of s1] (m1) {Cetak\\Kontrak\\Rangkap 3};
+    \node[manual, right=of m1] (m2) {Isi Form\\Pengantar};
+    \node[manual, right=of m2] (m3) {Kirim Kurir\\Internal};
     
-    \begin{description}[Process-System]
-        \item[\textcolor{plnblue}{1. Value-Added Focus}] \hfill \\ Setiap tahapan memegang memori (\textit{capture}), index, atau routing wajib dipertimbangkan nilai tambahnya bagi kecepatan layanan/kepatuhan.
-        
-        \vspace{0.2cm}
-        \item[\textcolor{plnblue}{2. Single Source of Truth}] \hfill \\ Data dientri \textbf{satu kali} pada sistem sumber dan disalurkan secara otonom melintasi repositori arsip.
-        
-        \vspace{0.2cm}
-        \item[\textcolor{plnorange}{3. Process-System Alignment}] \hfill \\ Prosedur dibuat untuk memanfaatkan kekuatan maksimal aplikasi yang ada (bukan sekadar membuat ``solusi alternatif manual'').
+    \node[waiting] at (8.5, -1.0) (w1) {Antrian\\Meja};
+    \node[manual, right=of w1] (m4) {Review\\\& TTD\\Basah};
+    \node[gateway, right=of m4] (g1) {$\times$};
+    \node[manual, right=of g1] (m5) {Stempel\\Basah};
+    
+    \node[manual] at (12.5, -4.0) (m6) {Terima\\Fisik};
+    \node[manual, right=of m6] (m7) {Catat Buku\\Induk};
+    \node[endstyle, right=of m7] (e1) {End};
+
+    \draw[arr] (s1) -- (m1); \draw[arr] (m1) -- (m2); \draw[arr] (m2) -- (m3);
+    \draw[arr] (m3.south) -- ++(0,-0.4) -| (w1.north);
+    \draw[arr] (w1) -- (m4); \draw[arr] (m4) -- (g1);
+    \draw[arrno] (g1.north) -- ++(0,0.8) -| node[above, font=\tiny\itshape, text=red] {Revisi} (m2.north);
+    \draw[arr] (g1) -- node[above, font=\tiny\itshape] {OK} (m5);
+    \draw[arr] (m5.south) -- ++(0,-0.4) -| (m6.north);
+    \draw[arr] (m6) -- (m7); \draw[arr] (m7) -- (e1);
+
+    \node[timelbl, below=0.15cm of w1] {1--3 hari!};
+    \node[font=\small\bfseries, text=red!70!black] at (9, -6.5) {SIKLUS MANUAL: 3--5 HARI KERJA};
+    \end{tikzpicture}
+    }
+\end{frame}
+
+% SLIDE 9: TO-BE BPMN (FULL)
+\begin{frame}{Model BPMN Kondisi Target (To-Be)}
+    \centering
+    \resizebox{0.95\textwidth}{!}{%
+    \begin{tikzpicture}[node distance=1.2cm and 0.8cm]
+    % Lane backgrounds
+    \fill[plnblue!4] (0.2, 2.5) rectangle (18, 0.6);
+    \fill[plnorange!4] (0.2, 0.4) rectangle (18, -2.3);
+    \fill[plnblue!4] (0.2, -2.5) rectangle (18, -5.4);
+    % Lane Dividers
+    \draw[plnblue!20, thick] (0.2, 0.5) -- (18, 0.5);
+    \draw[plnblue!20, thick] (0.2, -2.4) -- (18, -2.4);
+    % Lane labels
+    \node[lanelab, text=plnblue!80!black] at (0.4, 1.6) {ERP / SAP};
+    \node[lanelab, text=plnblue!80!black] at (0.4, -1.0) {Pimpinan};
+    \node[lanelab, text=plnblue!80!black] at (0.4, -4.0) {Repositori};
+
+    \node[startstyle_tobe] at (1.5, 1.6) (s2) {Event};
+    \node[autostep, right=of s2] (a1) {Auto-Capture\\Metadata\\ERP};
+    \node[autostep, right=of a1] (a2) {Generate\\Draft Digital\\(PDF/A)};
+    
+    \node[humanstep] at (7.5, -1.0) (h1) {Digital Review\\via E-Office};
+    \node[gateway_tobe, right=of h1] (g2) {$\times$};
+    \node[humanstep, right=of g2] (h2) {Otorisasi\\TTE};
+    
+    \node[autostep] at (12.5, -4.0) (a3) {Hash-Lock\\Immutable};
+    \node[autostep, right=of a3] (a4) {Log Audit\\Trail};
+    \node[endstyle_tobe, right=of a4] (e2) {Arsip};
+
+    \draw[arr_tobe] (s2) -- (a1); \draw[arr_tobe] (a1) -- (a2);
+    \draw[arr_tobe] (a2.south) -- ++(0,-0.4) -| (h1.north);
+    \draw[arr_tobe] (h1) -- (g2);
+    \draw[arrno] (g2.north) -- ++(0,0.8) -| node[above, font=\tiny\itshape, text=red] {Batal} (a2.north);
+    \draw[arrok] (g2) -- node[above, font=\tiny\itshape] {Setuju} (h2);
+    \draw[arr_tobe] (h2.south) -- ++(0,-0.4) -| (a3.north);
+    \draw[arr_tobe] (a3) -- (a4); \draw[arr_tobe] (a4) -- (e2);
+
+    \node[timelbl_tobe, below=0.15cm of h1] {SLA: 16 Jam};
+    \node[font=\small\bfseries, text=green!50!black] at (9, -6.5) {SIKLUS DIGITAL: < 24 JAM};
+    \end{tikzpicture}
+    }
+\end{frame}
+
+% SLIDE 10: PATTERNS OF INTEGRATION
+\begin{frame}{3 Pola Integrasi: "Bumbu Rahasia" Otomasi}
+    \small
+    \begin{description}
+        \item[\textcolor{plnblue}{1. Trigger-Based Auto-Capture}] \hfill \\
+        Begitu status di ERP menjadi \texttt{TECO} (Technical Complete), arsip langsung tercipta otomatis.
+        \item[\textcolor{plncyan}{2. Parallel Digital Routing}] \hfill \\
+        Persetujuan dikirim serentak ke banyak manajer. Tidak menunggu "Map" fisik berpindah.
+        \item[\textcolor{plnorange}{3. SLA-Driven Escalation}] \hfill \\
+        Jika manajer abai $>16$ jam, sistem otomatis mengeskalasi ke atasan langsung.
     \end{description}
 \end{frame}
 
-% SLIDE 5
-\begin{frame}{Tahap 1: Pengumpulan Fakta Lapangan (\textit{Fact-Finding})}
-    Menghindari \textit{redesign} prosedur kearsipan dari teori semata. Gunakan 3 teknik praktis di lapangan:
-    \vspace{0.4cm}
-    
-    \begin{columns}[T]
-        \column{0.33\textwidth}
-        \textbf{1. Document Shadowing}\\
-        \small Melacak posisi absolut dari sebuah dokumen dari ia dibuat, disahkan, hingga diletakkan pada repositori (Cari \textit{hambatan proses/bottle-neck}).
-        
-        \column{0.33\textwidth}
-        \textbf{2. Ekstraksi Log Sistem}\\
-        \small Unduh riwayat persetujuan dari aplikasi, ukur kapan SLA meleset pada jam riil. Data empiris berdasar \textit{time-stamp}.
-        
-        \column{0.33\textwidth}
-        \textbf{3. Gemba Walk}\\
-        \small Lakukan interview acak pada \textit{user} lini depan untuk menemukan anomali lapangan (seperti koneksi yang mengharuskan proses cetak-scan kertas).
-    \end{columns}
-\end{frame}
-
-% SLIDE 6
-\begin{frame}{Tahap 2: Checklist Diagnostik PARBICA}
-    Setiap Unit Kerja akan dinilai kesiapannya melalui 22 Parameter Ukur terhadap 7 Domain Kunci Kearsipan:
-    \vspace{0.3cm}
-    
-    \begin{table}[]
+% SLIDE 11: SOP EVOLUTION
+\begin{frame}[fragile]{Evolusi Paradigma SOP PLN}
+    \begin{table}
         \centering
-        \small
-        \begin{tabular}{ll|cl}
+        \scriptsize
+        \begin{tabularx}{\textwidth}{@{} X X @{}}
             \toprule
-            \textbf{No} & \textbf{Domain} & \textbf{Item} & \textbf{Konsekuensi Peningkatan} \\
+            \textbf{SOP Konvensional (Legacy)} & \textbf{SOP Digital Terintegrasi (Future)} \\
             \midrule
-            1 & Kebijakan \& Strategi     & 3 & Kepatuhan pada \textit{road-map} IT\\
-            2 & Tata Kelola \& Peran      & 3 & Validitas \textit{RACI Chart} Otoritas\\
-            3 & Kapasitas SDM \& Budaya   & 3 & Minimalisir \textit{Human-Error}\\
-            4 & Interoperabilitas Sistem  & 3 & Adopsi API dan \textit{Auto-Routing}\\
-            5 & Proses \& Alur Kerja      & \textbf{4} & Eliminasi redundansi \& \textit{cetak ulang}\\
-            6 & Risiko \& Keamanan        & 3 & Tanggap \textit{Fallback} Sistem\\
-            7 & Preservasi Jangka Panjang & 3 & Standarisasi PDF/A berkelanjutan\\
+            Fokus pada interaksi fisik manusia. & Orkestrasi sistem dan manusia. \\
+            Inisiatif manual oleh staf. & \textbf{System-Event Trigger} otomatis. \\
+            Validasi tanda tangan basah & Validasi \textbf{Audit Trail} \& \textbf{TTE}. \\
+            Risiko: Dokumen tercecer/hilang. & Risiko: Terproteksi dalam \textbf{Immutable Cloud}. \\
+            Audit: Tahunan / Sampling. & Audit: Real-time via Dashboard. \\
             \bottomrule
-        \end{tabular}
+        \end{tabularx}
     \end{table}
+    \begin{orangebox}[Insight Pimpinan]
+        SOP Digital bukan buku manual sistem, tapi \textbf{Protokol Korporat} untuk mengamankan aset informasi.
+    \end{orangebox}
 \end{frame}
 
-% SLIDE 7
-\begin{frame}{Tahap 3: Pembuatan Desain Terintegrasi (To-Be)}
-    Matriks \textit{As-Is} kini dikonversi menjadi alur BPMN terotomasi menggunakan parameter \textbf{Pemicu Otomatis} (\textit{Trigger}):
-    \vspace{0.3cm}
+% SLIDE 12: ANATOMY OF DIGITAL SOP
+\begin{frame}{Anatomi SOP Digital Terintegrasi}
+    \vspace{0.2cm}
     \begin{columns}
         \column{0.5\textwidth}
-        \textbf{Alur Manual (\textit{Push}):}
+        \scriptsize
         \begin{itemize}
-            \small
-            \item Aktivitas diisi teknisi.
-            \item Selesai, teknisi cetak log PDF.
-            \item Manajer menandatangani.
-            \item Sekretariat unggah manual ke \textit{Folder Bersama}.
+            \item \textbf{Scope Interoperabilitas:} Batasan sistem penarik data.
+            \item \textbf{Dasar Hukum:} UU ITE \& PP 71/2019.
+            \item \textbf{Definisi Digital:} Token, Hash, RBAC, Metadata.
+            \item \textbf{System Custodian:} Entitas penanggung jawab mesin.
         \end{itemize}
-        
         \column{0.5\textwidth}
-        \textbf{Alur Terintegrasi (\textit{Event-Pull}):}
+        \scriptsize
         \begin{itemize}
-            \small
-            \item Transaksi berstatus \texttt{TECO} (Selesai).
-            \item Sistem otomatis \textit{Auto-Capture} draft arsip.
-            \item Routing \& Validasi 1x24 jam by E-Office.
-            \item Arsip final menempati \textit{Storage} dgn metadata valid.
+            \item \textbf{System Trigger Points:} Peristiwa sistemik pemicu arsip.
+            \item \textbf{The Validation Route (SLA):} Jalur persetujuan \& eskalasi.
+            \item \textbf{Exception \& Fallback:} Protokol saat sistem \textit{down}.
+            \item \textbf{Immutable Logic:} Jaminan anti-rekayasa.
         \end{itemize}
     \end{columns}
 \end{frame}
 
-% SLIDE 8
-\begin{frame}{Tahap 4: Merumuskan SOP Digital PLN Terpadu}
-    SOP Konvensional perlu dirubah. SOP Kearsipan Modern mengikat \textbf{Integrasi Manusia + Sistem IT}.
+% SLIDE 13: METADATA EVIDENCE FRAMEWORK
+\begin{frame}{14 Field Metadata: Kerangka Bukti Hukum}
     \vspace{0.3cm}
-
-    \textbf{Komponen Konstruksi SOP Digital:}
-    \vspace{0.1cm}
-    \begin{enumerate}
-        \small
-        \item \textbf{Pemicu Penciptaan (\textit{Trigger Point}):} Aksi sistemik mana yang memulai \textit{penarikan data} arsip.
-        \item \textbf{Mapping Metadata Mandatory:} Atribut ID (mis. No Aset, Tanggal) dikunci.
-        \item \textbf{Peran Digital (\textit{Digital Custodian}):} Penanggungjawab persetujuan sistem.
-        \item \textbf{Aturan SLA Validasi:} Batas Waktu \& Eskalasi Bypass Otomatis.
-        \item \textbf{Exception Handling \& Fallback:} Bila Server/API Kearsipan terputus (>4 jam).
-        \item \textbf{Siklus Retensi Otomatis:} Durasi penyimpanan sebelum JRA diberlakukan.
-    \end{enumerate}
-\end{frame}
-
-% SLIDE 9
-\begin{frame}{Tahap 5: Kalkulasi KPI \& ROI Implementasi}
-    Evaluasi akhir dari perombakan prosedur direkam lewat Key Performance Indicators (KPI):
-    \vspace{0.3cm}
-    
     \begin{columns}
         \column{0.5\textwidth}
-        \textbf{Pengukuran (Tracker Metric):}
-        \small
-        \begin{itemize}
-            \item \textbf{Waktu Siklus (\textit{Cycle Time}):} Hari tunggu proses.
-            \item \textbf{Tingkat Kepatuhan Prosedur (\textit{Compliance Rate}):} Tingkat tertib kepatuhan mengisi log arsip SPK.
-            \item \textbf{Waktu Temu Kembali (\textit{Retrieval Speed}):} Hitungan menit mencari bukti persetujuan saat di-audit.
-        \end{itemize}
+        \begin{premiumbox}[Evidence \& Compliance (Otentisitas)]
+            \tiny
+            \begin{itemize}
+                \item \texttt{DOC\_ID}: ID Unik.
+                \item \texttt{TIMESTAMP}: Waktu mutlak (ISO 8601).
+                \item \texttt{HASH}: Segel digital.
+                \item \texttt{ROLE}: Jabatan penandatangan.
+                \item \texttt{AUDIT\_LOG\_ID}: Jejak sistem.
+            \end{itemize}
+        \end{premiumbox}
         
         \column{0.5\textwidth}
-        \textbf{Financial Business-Case:}
-        \small
-        \begin{itemize}
-            \item \textbf{Biaya Operasional Kertas:} Nihil.
-            \item \textbf{Manajemen Waktu Man-Hours:} Bisa di-salurkan pada mitigasi lain.
-            \item \textbf{Penurunan Penalti Audit:} Rekaman 100\% ada, dan otentik (\textit{hash} aman).
-        \end{itemize}
+        \begin{orangebox}[Discovery \& Retrieve (Nilai Guna)]
+            \tiny
+            \begin{itemize}
+                \item \texttt{ASSET\_ID}: Referensi aset.
+                \item \texttt{LOCATION}: Kode GIS.
+                \item \texttt{SEARCH\_TAGS}: Kata kunci.
+                \item \texttt{RETENTION}: Jadwal JRA.
+            \end{itemize}
+        \end{orangebox}
     \end{columns}
 \end{frame}
 
-% SLIDE 10
-\begin{frame}{Rencana Tindak Lanjut: Action Plan 30 Hari}
-    \begin{tcolorbox}[colback=white, colframe=plnorange, title={Quick Win: Integrasi Tingkat Unit}]
-        \textbf{Minggu 1:} Konfigurasi API pemicu otomatis persetujuan dan sosialisasi kepada teknisi lini depan.\\[0.1cm]
-        \textbf{Minggu 2:} Parallel Run (sistem baru dan lama beriringan), awasi kelengkapan dokumen.\\[0.1cm]
-        \textbf{Minggu 3:} Cut-off cetak kertas fisik. Seluruh arsip beralih ke digital draft routing otomatis.\\[0.1cm]
-        \textbf{Minggu 4:} Review SLA \& Tingkat Kepatuhan Mingguan guna pelaporan ke Manajemen Unit Induk.
-    \end{tcolorbox}
+% SLIDE 14: LEGAL STANDING
+\begin{frame}{Keabsahan Hukum: TTE vs TTD Basah}
+    \begin{columns}
+        \column{0.6\textwidth}
+        \begin{premiumbox}[PP No. 71 Tahun 2019]
+            \small
+            \textbf{TTE Tersertifikasi} memiliki kekuatan hukum yang setara dengan tanda tangan basah secara absolut.
+            \begin{itemize}
+                \scriptsize
+                \item \textbf{Autentisitas:} Terhubung hanya ke pemilik.
+                \item \textbf{Integritas:} Setiap perubahan terdeteksi.
+                \item \textbf{Nirkali:} Tidak bisa disangkal.
+            \end{itemize}
+        \end{premiumbox}
+        
+        \column{0.4\textwidth}
+        \centering
+        \stepicon{plngreen}{\checkmark} \\[0.2cm]
+        \tiny \textbf{VALID \& SECURE}
+    \end{columns}
 \end{frame}
 
-% SLIDE 11
+% SLIDE 15: KPI & DASHBOARD
+\begin{frame}{Dashboard Monitoring: Mengukur Kesuksesan}
+    \begin{columns}
+        \column{0.25\textwidth}
+        \centering
+        \stepicon{plnblue}{1} \\ \textbf{Cycle Time} \\ \tiny $\downarrow$ 80\%
+        
+        \column{0.25\textwidth}
+        \centering
+        \stepicon{plncyan}{2} \\ \textbf{First-Acc.} \\ \tiny $\uparrow$ 95\%
+        
+        \column{0.25\textwidth}
+        \centering
+        \stepicon{plnorange}{3} \\ \textbf{Retrieve} \\ \tiny < 30 Detik
+        
+        \column{0.25\textwidth}
+        \centering
+        \stepicon{plngreen}{4} \\ \textbf{Compliance} \\ \tiny 100\%
+    \end{columns}
+\end{frame}
+
+% SLIDE 16: FINANCIAL ROI
+\begin{frame}{Analisis ROI: Investasi vs Manfaat}
+    \begin{table}
+        \centering
+        \scriptsize
+        \begin{tabularx}{\textwidth}{@{} X r X r @{}}
+            \toprule
+            \textbf{Investasi} & \textbf{Biaya} & \textbf{Manfaat} & \textbf{Nilai} \\
+            \midrule
+            Konfigurasi & Rp 75 Jt & Productivity & Rp 756 Jt \\
+            SDM & Rp 36 Jt & Cost Avoidance & Rp 52 Jt \\
+            Pilot & Rp 50 Jt & Risk Mitigation & Rp 200 Jt \\
+            \midrule
+            \textbf{Total} & \textbf{Rp 161 Jt} & \textbf{Total} & \textbf{Rp 1,04 M} \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+    \centering
+    \begin{premiumbox}
+        \centering
+        \small \textbf{ROI: 550\%} \quad | \quad \textbf{PAYBACK: < 2 BULAN}
+    \end{premiumbox}
+\end{frame}
+
+% SLIDE 17: ROADMAP & CHANGE MANAGEMENT
+\begin{frame}{Rencana Aksi \& Budaya Kerja}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{premiumbox}[30-Day Roadmap]
+            \tiny
+            \begin{itemize}
+                \item \textbf{M1:} API Integration \& Training.
+                \item \textbf{M2:} Parallel Run.
+                \item \textbf{M3:} Cut-Off Physical Docs.
+                \item \textbf{M4:} Standardize SOP.
+            \end{itemize}
+        \end{premiumbox}
+        
+        \column{0.5\textwidth}
+        \begin{orangebox}[Program "Duta Kearsipan"]
+            \small Mendukung \textbf{Budaya Digital} di tiap unit melalui pelatihan dan pendampingan sebaya.
+        \end{orangebox}
+    \end{columns}
+\end{frame}
+
+% SLIDE 18: CLOSING
 \begin{frame}
-    \vspace{1cm}
+    \vspace{1.5cm}
     \begin{center}
         \huge \textcolor{plnblue}{\textbf{TERIMA KASIH}}\\[0.5cm]
-        \large Mari Bertransformasi dari Tumpukan Kertas Fisik\\ Menuju Ekosistem Informasi yang Adaptif \& Otentik! \\[1cm]
-        \normalsize \textit{Waktunya untuk sesi Diskusi \& Tanya Jawab}
+        \large Mari Menuju Ekosistem Informasi yang Adaptif dan Otentik! \\[1.5cm]
+        \normalsize \textit{Optimalisasi hari ini untuk Keandalan hari esok.}
     \end{center}
 \end{frame}
 
