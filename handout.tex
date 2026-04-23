@@ -1,0 +1,326 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.2cm, top=2.5cm, bottom=2.5cm}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage[expansion=false]{microtype}
+
+% Warna PLN
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+\definecolor{plngreen}{RGB}{0,150,136}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=plnblue,
+    urlcolor=plnblue,
+    citecolor=plnblue
+}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Handout Diklat Modul 4.3}}
+\fancyhead[R]{\small PT PLN (Persero)}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Box styles
+\newtcolorbox{plnbox}[1][]{%
+  colback=plnblue!5!white,
+  colframe=plnblue,
+  fonttitle=\bfseries,
+  title=#1,
+  sharp corners,
+  boxrule=0.8pt,
+  breakable
+}
+
+\newtcolorbox{warnbox}[1][]{%
+  colback=plnorange!10,
+  colframe=plnorange,
+  fonttitle=\bfseries,
+  title=#1,
+  sharp corners,
+  boxrule=0.8pt,
+  breakable
+}
+
+\newtcolorbox{outputbox}[1][]{%
+  colback=plngreen!10,
+  colframe=plngreen!70!black,
+  fonttitle=\bfseries,
+  title=#1,
+  sharp corners,
+  boxrule=0.8pt,
+  breakable
+}
+
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
+\setlist[enumerate]{leftmargin=*, topsep=2pt, itemsep=2pt}
+
+\begin{document}
+
+% ================= COVER =================
+\begin{titlepage}
+\centering
+\vspace*{1.2cm}
+{\Large\bfseries\color{plnblue} PROGRAM PENGUATAN KOMPETENSI}\\[0.2cm]
+{\Large\bfseries\color{plnblue} TATA KELOLA KEARSIPAN}\\[0.8cm]
+
+{\Huge\bfseries\color{plnblue} HANDOUT DIKLAT}\\[0.3cm]
+{\LARGE\bfseries Modul 4.3}\\[0.3cm]
+{\Large Optimalisasi Prosedur dan Alur Kerja Terintegrasi}\\[0.8cm]
+\rule{0.82\linewidth}{0.6pt}\\[0.6cm]
+
+{\large Level 4 (Mastery)}\\
+{\large Target Peserta: Manajemen Atas (MA)}\\[0.4cm]
+{\large PT PLN (Persero)}
+
+\vfill
+\begin{plnbox}[Tujuan Handout]
+Handout ini merangkum materi inti Bab 1 sampai Bab 6 sebagai panduan cepat saat pembelajaran, diskusi, dan tindak lanjut implementasi di unit kerja.
+\end{plnbox}
+
+\vfill
+{\small \today}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ================= BAGIAN AWAL =================
+\section{Ringkasan Modul}
+\begin{plnbox}[Fokus Strategis]
+Modul ini menempatkan kearsipan sebagai \textit{value center}, bukan sekadar \textit{cost center}. Tujuan akhirnya adalah proses kearsipan yang cepat, patuh regulasi, teraudit, dan siap mendukung keputusan bisnis PLN.
+\end{plnbox}
+
+\subsection{Kompetensi Akhir Peserta}
+Peserta ditargetkan mampu:
+\begin{enumerate}
+    \item Mengevaluasi proses \textit{as-is} dan menemukan area optimasi.
+    \item Merancang workflow \textit{to-be} berbasis integrasi digital.
+    \item Menyusun SOP digital terintegrasi yang sah dan operasional.
+    \item Menghitung efisiensi dan ROI sebagai justifikasi bisnis.
+\end{enumerate}
+
+\subsection{Output Portofolio Wajib}
+\begin{outputbox}[Empat Dokumen Hasil Diklat]
+\begin{enumerate}
+    \item Matriks Identifikasi Area Optimasi.
+    \item Diagram BPMN 2.0 To-Be + peta pemicu integrasi.
+    \item Draft SOP Digital Terintegrasi.
+    \item KPI Tracker + Action Plan 30 Hari.
+\end{enumerate}
+\end{outputbox}
+
+\subsection{Alokasi Waktu Pembelajaran}
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{} l X c @{} }
+\toprule
+\textbf{Bagian} & \textbf{Aktivitas} & \textbf{Durasi} \\
+\midrule
+Fondasi dan Diagnosa & Pengantar, teori, evaluasi proses, pemetaan masalah & 25 menit \\
+Desain dan Implementasi & Rancang To-Be, SOP digital, KPI-ROI, workshop & 50 menit \\
+\midrule
+\textbf{Total} & \textbf{Materi dan praktik} & \textbf{80 menit} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\newpage
+
+% ================= BAB 1 =================
+\section{Bab 1 - Pendahuluan}
+\subsection{Inti Materi}
+\begin{itemize}
+    \item Kearsipan PLN bersifat strategis untuk keandalan operasional, kepatuhan, dan tata kelola.
+    \item Tantangan utama saat ini: proses manual, duplikasi input, metadata tidak konsisten, dan bottleneck persetujuan.
+    \item Arah perbaikan: prosedur terintegrasi yang mendukung \textit{single source of truth}.
+\end{itemize}
+
+\subsection{Pesan Kunci Manajerial}
+\begin{plnbox}[Kenapa Ini Urgen]
+Setiap keterlambatan dan ketidakakuratan arsip berpotensi menjadi risiko bisnis, risiko audit, dan risiko hukum. Karena itu, optimalisasi prosedur adalah agenda kepemimpinan, bukan sekadar agenda administrasi.
+\end{plnbox}
+
+% ================= BAB 2 =================
+\section{Bab 2 - Evaluasi Prosedur dan Identifikasi Area Optimasi}
+\subsection{Inti Materi}
+\begin{itemize}
+    \item Evaluasi dilakukan dengan basis fakta lapangan, bukan asumsi.
+    \item Teknik utama: \textit{document shadowing}, \textit{log analysis}, dan \textit{gemba walk}.
+    \item Hasil evaluasi harus dituangkan ke Matriks Identifikasi Area Optimasi.
+\end{itemize}
+
+\subsection{Kerangka Diagnosa 7 Domain}
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{} c X X @{} }
+\toprule
+\textbf{No} & \textbf{Domain} & \textbf{Pertanyaan Kendali} \\
+\midrule
+1 & Kebijakan & Apakah kebijakan internal selaras dengan regulasi? \\
+2 & Tata Kelola & Apakah peran dan akuntabilitas jelas? \\
+3 & SDM & Apakah kompetensi digital arsip memadai? \\
+4 & Interoperabilitas & Apakah data mengalir lintas sistem tanpa input ulang? \\
+5 & Proses Bisnis & Apakah ada langkah non-value added? \\
+6 & Keamanan & Apakah akses, jejak audit, dan integritas terjaga? \\
+7 & Preservasi & Apakah retensi, disposisi, dan keberlanjutan arsip terkelola? \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ================= BAB 3 =================
+\section{Bab 3 - Perancangan Alur Kerja Terintegrasi (To-Be)}
+\subsection{Prinsip Desain}
+\begin{enumerate}
+    \item \textbf{Single Entry, Multiple Use}: data dimasukkan sekali, dipakai lintas proses.
+    \item \textbf{Rule-Based Routing}: jalur persetujuan dikunci aturan sistem.
+    \item \textbf{Explicit Exception Handling}: ada mekanisme fallback dan eskalasi.
+\end{enumerate}
+
+\subsection{BPMN untuk Manajemen}
+Gunakan BPMN 2.0 untuk memvalidasi alur lintas fungsi. Fokus simbol manajerial:
+\begin{itemize}
+    \item \textbf{Start Event}: pemicu proses.
+    \item \textbf{Task}: pekerjaan sistem/manusia.
+    \item \textbf{Gateway}: keputusan dan percabangan.
+    \item \textbf{Sequence/Message Flow}: urutan dan komunikasi lintas sistem.
+    \item \textbf{End Event}: titik akhir proses dan status arsip.
+\end{itemize}
+
+\begin{warnbox}[Batasan]
+Bab ini tidak membahas detail teknis API, database, atau middleware. Fokus pada logika bisnis, otorisasi, dan titik kontrol arsip.
+\end{warnbox}
+
+% ================= BAB 4 =================
+\section{Bab 4 - Penyusunan SOP Digital Terintegrasi}
+\subsection{Inti Materi}
+SOP digital harus mengikat tiga unsur: proses bisnis, kontrol kepatuhan, dan kontrol sistem.
+
+\subsection{Komponen Minimal SOP}
+\begin{enumerate}
+    \item Tujuan dan ruang lingkup.
+    \item Definisi dan istilah kerja.
+    \item Peran, kewenangan, dan otorisasi.
+    \item Alur proses (rujukan BPMN To-Be).
+    \item Standar metadata dan validasi.
+    \item Ketentuan TTE tersertifikasi.
+    \item Ketentuan audit trail dan log aktivitas.
+    \item SLA, eskalasi, dan penanganan pengecualian.
+\end{enumerate}
+
+\subsection{Checklist Kepatuhan Dokumen Digital}
+\begin{itemize}
+    \item Dokumen memiliki identitas unik, waktu, dan sumber penciptaan.
+    \item Dokumen disahkan melalui mekanisme TTE tersertifikasi.
+    \item Riwayat akses/perubahan terekam dan dapat ditelusuri.
+    \item Integritas dokumen dapat diverifikasi (misal hash).
+    \item Retensi dan disposisi mengacu jadwal retensi arsip.
+\end{itemize}
+
+% ================= BAB 5 =================
+\section{Bab 5 - Penghitungan Efisiensi dan ROI}
+\subsection{KPI Utama}
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{} X X @{} }
+\toprule
+\textbf{Indikator} & \textbf{Target Pasca Optimasi} \\
+\midrule
+Waktu Siklus Proses & turun 40--60\% \\
+First-Time Accuracy Metadata & minimal 90\% \\
+Waktu Temu Kembali Arsip Digital & kurang dari 30 detik \\
+Kepatuhan SLA dan Jejak Audit & minimal 95\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Rumus Dasar ROI Waktu}
+\[
+\text{ROI Waktu} = (\text{Waktu Lama} - \text{Waktu Baru}) \times \text{Volume Tahunan} \times \text{Biaya per Jam/Hari}
+\]
+
+\subsection{Kerangka Nilai Time-Cost-Risk}
+\begin{itemize}
+    \item \textbf{Time Saving}: pemangkasan durasi proses.
+    \item \textbf{Cost Saving}: penurunan biaya cetak, kirim, simpan, rework.
+    \item \textbf{Risk Saving}: penghindaran risiko audit, sanksi, dan sengketa.
+\end{itemize}
+
+\begin{plnbox}[Catatan Implementasi]
+Gunakan data riil unit kerja saat menyusun business case. Angka simulasi di modul berfungsi sebagai contoh pembelajaran, bukan angka audit resmi.
+\end{plnbox}
+
+% ================= BAB 6 =================
+\section{Bab 6 - Penutup dan Refleksi}
+\subsection{Ringkasan Capaian}
+Pada akhir modul, peserta diharapkan siap memimpin pilot implementasi optimalisasi prosedur kearsipan di unitnya masing-masing.
+
+\subsection{Rencana Tindak Lanjut 30 Hari}
+\begin{enumerate}
+    \item Minggu 1: validasi proses \textit{as-is} dan tetapkan prioritas area optimasi.
+    \item Minggu 2: finalisasi BPMN To-Be dan aturan routing persetujuan.
+    \item Minggu 3: selesaikan draft SOP digital + checklist kepatuhan.
+    \item Minggu 4: presentasi business case (KPI dan ROI) untuk persetujuan pilot.
+\end{enumerate}
+
+\begin{outputbox}[Komitmen Eksekusi]
+Keberhasilan modul diukur dari implementasi nyata di unit kerja: proses lebih cepat, kepatuhan lebih kuat, dan bukti arsip lebih dapat dipertanggungjawabkan.
+\end{outputbox}
+
+\newpage
+\section{Lampiran Ringkas}
+\subsection{Template Cepat Matriks Area Optimasi}
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{} p{0.7cm} X X X p{2.2cm} @{} }
+\toprule
+\textbf{No} & \textbf{Temuan As-Is} & \textbf{Dampak} & \textbf{Akar Masalah} & \textbf{Prioritas} \\
+\midrule
+1 & & & & \\
+2 & & & & \\
+3 & & & & \\
+4 & & & & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Template Cepat KPI Tracker}
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{} X c c c @{} }
+\toprule
+\textbf{Indikator} & \textbf{Baseline} & \textbf{Target} & \textbf{Realisasi} \\
+\midrule
+Waktu Siklus & & & \\
+First-Time Accuracy & & & \\
+Waktu Temu Kembali & & & \\
+Kepatuhan SLA/Trail & & & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{0.4cm}
+\begin{center}
+\small\textit{Selesai. Gunakan handout ini bersama modul bab, slide presentasi, dan narasi fasilitator untuk implementasi terarah.}
+\end{center}
+
+\end{document}
