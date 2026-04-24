@@ -88,7 +88,7 @@
 
 \section{Metodologi Pengukuran Kinerja Kearsipan}
 
-Bagi jajaran Manajemen Atas, tata kelola kearsipan tidak boleh lagi dipandang sebagai pusat biaya (\textit{cost center}) yang kinerjanya semata-mata diukur dari volume dokumen yang digudangkan. Di era ekosistem kelistrikan terintegrasi, unit kearsipan harus bertransformasi menjadi pusat penciptaan nilai (\textit{value center}). Oleh karena itu, efektivitas dari inisiatif optimalisasi prosedur tidak diukur dari tingginya anggaran IT atau kerumitan teknologi yang dibeli, melainkan dari \textbf{perubahan nyata pada efisiensi proses bisnis dan mitigasi risiko kepatuhan}.
+Bagi jajaran Manajemen Atas, tata kelola kearsipan tidak boleh lagi dipandang sebagai pusat biaya (\textit{cost center}) yang kinerjanya semata-mata diukur dari volume dokumen yang disimpan di depo arsip. Di era ekosistem kelistrikan terintegrasi, unit kearsipan harus bertransformasi menjadi pusat penciptaan nilai (\textit{value center}). Oleh karena itu, efektivitas dari inisiatif optimalisasi prosedur tidak diukur dari tingginya anggaran IT atau kerumitan teknologi yang dibeli, melainkan dari \textbf{perubahan nyata pada efisiensi proses bisnis dan mitigasi risiko kepatuhan}.
 
 Dalam konteks ini, \textbf{mitigasi risiko kepatuhan} (atau mitigasi risiko bisnis) adalah langkah evaluasi secara kualitatif dan kuantitatif untuk menekan potensi ancaman kerugian operasional dan finansial akibat ketidakpatuhan terhadap regulasi kearsipan.
 
@@ -140,7 +140,7 @@ Sementara itu, untuk indikator \textbf{Ketepatan Awal (\textit{First-Time Accura
 
 Selanjutnya, untuk indikator \textbf{Waktu Temu Kembali (\textit{Retrieval Speed})}, metode pengukurannya bergantung secara spesifik pada ekosistem penyimpanan itu sendiri:
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Di lingkungan arsip fisik:} Waktu dihitung dari mulai staf menerima \textit{request} pencarian hingga menemukan kertasnya di gudang letak \textit{filing cabinet}.
+    \item \textbf{Di lingkungan arsip fisik:} Waktu dihitung dari mulai staf menerima \textit{request} pencarian hingga menemukan kertasnya di depo arsip (\textit{filing cabinet}).
     \item \textbf{Di lingkungan arsip digital:} Waktu dihitung berdasarkan kecepatan sistem komputer dalam menampilkan dokumen (\textit{query speed}) dan akurasi hasil navigasi dari \textit{search engine} kearsipan.
 \end{itemize}
 
@@ -155,11 +155,11 @@ Sebagai indikator pemungkas, \textbf{Tingkat Kepatuhan Prosedur (\textit{Complia
 
 Sedangkan untuk dokumen yang diciptakan dalam bentuk fisik (\textbf{Arsip Hibrida}), kriteria kepatuhannya diukur berdasarkan:
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Sinkronisasi Lokasi Fisik \& Digital (\textit{Finding Aid Consistency}):} Kepatuhan diukur dari apakah lokasi fisik dokumen (Gedung, Ruang, Rak, Boks, hingga Folder) sudah tercatat secara presisi di database sistem kearsipan sesaat setelah dokumen tercipta. Tanpa sinkronisasi ini, dokumen fisik dianggap tidak patuh karena tidak dapat ditemukan kembali dalam SLA yang ditentukan.
+    \item \textbf{Sinkronisasi Lokasi Fisik \& Digital (\textit{Finding Aid Consistency}):} Kepatuhan diukur dari apakah lokasi fisik dokumen (Gedung, Ruang, Rak, Boks, hingga Berkas) sudah tercatat secara presisi di database sistem kearsipan sesaat setelah dokumen tercipta. Tanpa sinkronisasi ini, dokumen fisik dianggap tidak patuh karena tidak dapat ditemukan kembali dalam SLA yang ditentukan.
     \item \textbf{Otentisitas Otoritas Basah \& Cap Unit:} Meskipun fisik, dokumen harus memenuhi unsur keabsahan tradisional: tanda tangan basah pejabat berwenang dan stempel unit asli. Kepatuhan prosedur mewajibkan adanya verifikasi visual atas kelengkapan "atribut sah" ini sebelum dokumen masuk ke tahap penyimpanan.
     \item \textbf{Keberadaan Metadata Penanda (\textit{Proxy Metadata}):} Dokumen fisik wajib memiliki "kembaran digital" berupa lembar metadata di sistem yang mencatat minimal: Tanggal Cipta, Nomor Dokumen, dan Ringkasan Isi. Kriteria patuh terpenuhi jika petugas tidak perlu lagi membaca isi dokumen fisik hanya untuk mengetahui apa isinya.
-    \item \textbf{Kepatuhan Pelabelan Retensi (\textit{Physical Retention Labeling}):} Setiap boks atau folder fisik harus memiliki label retensi yang selaras dengan database JRA (Jadwal Retensi Arsip). Prosedur dianggap patuh jika tanggal pemusnahan/pemindahan yang tertera pada boks fisik sama persis dengan yang tercatat di sistem digital.
-    \item \textbf{Integritas Log Mutasi Fisik:} Setiap perpindahan dokumen fisik (dari meja kerja ke rak aktif, atau dipinjam unit lain) wajib terekam dalam log mutasi. Kepatuhan prosedur diukur dari kesesuaian antara "posisi riil" dokumen di gudang dengan "status posisi" dokumen di sistem.
+    \item \textbf{Kepatuhan Pelabelan Retensi (\textit{Physical Retention Labeling}):} Setiap boks atau berkas fisik harus memiliki label retensi yang selaras dengan database JRA (Jadwal Retensi Arsip). Prosedur dianggap patuh jika tanggal pemusnahan/pemindahan yang tertera pada boks fisik sama persis dengan yang tercatat di sistem digital.
+    \item \textbf{Integritas Log Mutasi Fisik:} Setiap perpindahan dokumen fisik (dari meja kerja ke rak aktif, atau dipinjam unit lain) wajib terekam dalam log mutasi. Kepatuhan prosedur diukur dari kesesuaian antara "posisi riil" dokumen di depo arsip dengan "status posisi" dokumen di sistem.
 \end{itemize}
 \begin{plnbox}[Kacamata Arsiparis: Keseimbangan Kecepatan \& Integritas]
 \small
@@ -196,7 +196,7 @@ Gunakan pendekatan di atas untuk mengonversi efektivitas operasional ke dalam ni
 \begin{enumerate}[leftmargin=*]
     \item \textbf{Penghematan Waktu $\times$ Biaya (\textit{Productivity Gain}):} Kuantifikasi waktu yang berhasil dikurangi dari \textit{Cycle Time} dikalikan dengan biaya tenaga kerja rata-rata. 
     \begin{itemize}[label=$\rightarrow$, nosep]
-        \item \textit{Contoh:} Dari sebelumnya staf membutuhkan \textbf{30 menit} untuk mencari dokumen di gudang fisik, kini menjadi \textbf{1 menit} via pencarian digital. Selisih 29 menit inilah yang dikonversi menjadi rupiah sebagai kapasitas kerja baru.
+        \item \textit{Contoh:} Dari sebelumnya staf membutuhkan \textbf{30 menit} untuk mencari dokumen di depo arsip fisik, kini menjadi \textbf{1 menit} via pencarian digital. Selisih 29 menit inilah yang dikonversi menjadi rupiah sebagai kapasitas kerja baru.
     \end{itemize}
     \begin{multline*}
     \text{ROI Waktu} = (\text{Waktu Siklus Lama} - \text{Waktu Siklus Baru}) \\
@@ -204,7 +204,7 @@ Gunakan pendekatan di atas untuk mengonversi efektivitas operasional ke dalam ni
     \end{multline*}
     \item \textbf{Reduksi Biaya Kesalahan (\textit{Cost Avoidance}):} Estimasi penghematan dari hilangnya aktivitas non-produktif akibat kesalahan manual.
     \begin{itemize}[label=$\rightarrow$, nosep]
-        \item \textit{Contoh:} Mencegah biaya cetak ulang dan pengiriman kembali dokumen akibat \textbf{salah input nomor kontrak} secara manual, atau menghindari biaya sewa gudang fisik tambahan karena peralihan ke digital.
+        \item \textit{Contoh:} Mencegah biaya cetak ulang dan pengiriman kembali dokumen akibat \textbf{salah input nomor kontrak} secara manual, atau menghindari biaya sewa depo arsip fisik tambahan karena peralihan ke digital.
     \end{itemize}
     \item \textbf{Mitigasi Risiko Kepatuhan (\textit{Compliance Risk Reduction}):} Nilai yang dihitung dari potensi kerugian yang berhasil dicegah akibat tidak tersedianya arsip vital yang patuh regulasi.
     \begin{itemize}[label=$\rightarrow$, nosep]
@@ -304,7 +304,7 @@ Keempat intervensi di atas dirancang berdasarkan \textbf{Prinsip Pareto (80/20)}
 
 \textbf{Apakah hanya 4 langkah ini yang bisa dilakukan?} Tidak. Keempat langkah tersebut merupakan \textbf{Dasar Penataan Ulang (Tahap 1)}. Untuk pematangan tingkat lanjut (\textit{Advanced Roadmap}), MA dapat menambahkan intervensi lapis kedua seperti:
 \begin{itemize}[nosep, leftmargin=*]
-    \item \textbf{Pemrosesan Dokumen Warisan (\textit{Legacy OCR/AI}):} Mengekstraksi metadata ribuan arsip kertas lama di gudang secara otomatis untuk digitasi massal.
+    \item \textbf{Pemrosesan Dokumen Warisan (\textit{Legacy OCR/AI}):} Mengekstraksi metadata ribuan arsip kertas lama di depo arsip secara otomatis untuk digitasi massal.
     \item \textbf{Klasifikasi \& Jadwal Retensi Otonom:} Memanfaatkan AI untuk mengeliminasi "sampah digital" (*ROT - Redundant, Obsolete, Trivial*) secara berkala.
     \item \textbf{Integrasi Blok Rantai (\textit{Blockchain}) \& \textit{e-Meterai}:} Menjalin otomasi validasi dokumen hukum (seperti kontrak vendor bernilai tinggi) secara lintas-BUMN (\textit{machine-to-machine}).
 \end{itemize}

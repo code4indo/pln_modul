@@ -8,7 +8,7 @@
 
 ### Slide 1 — Halaman Judul
 
-"Selamat pagi, Bapak dan Ibu. Terima kasih sudah meluangkan waktu di tengah kesibukan operasional. Saya tahu jadwal Bapak-Ibu padat, jadi saya pastikan 80 menit ke depan ini benar-benar bermanfaat.
+"Selamat pagi, Bapak dan Ibu. Terima kasih sudah meluangkan waktu di tengah kesibukan operasional. Saya tahu jadwal Bapak-Ibu padat, jadi saya pastikan 45 menit ke depan ini benar-benar bermanfaat.
 
 Hari ini kita akan bicara tentang sesuatu yang sering dianggap sepele — kearsipan. [jeda] Tapi izinkan saya mengubah cara pandang kita. Kita tidak sedang belajar cara merapikan map dan lemari. Kita sedang belajar bagaimana memastikan setiap keputusan bisnis PLN punya bukti yang sah, cepat ditemukan, dan tidak bisa dimanipulasi.
 
@@ -48,9 +48,9 @@ Jadi Bapak-Ibu pulang dari sini bukan hanya dengan sertifikat, tapi dengan empat
 
 "Supaya Bapak-Ibu tahu ke mana arah pembicaraan kita — [tunjuk layar] — perjalanan kita terbagi dua.
 
-Paruh pertama, sekitar 25 menit, kita akan 'membongkar' kondisi saat ini. Kita cari tahu di mana prosedur kita bocor, kenapa prosesnya lambat, dan apa standar yang seharusnya kita penuhi. Paruh kedua, sekitar 50 menit, kita mulai 'membangun' — merancang alur baru, menulis SOP, menghitung ROI, dan ada dua sesi workshop praktik.
+Paruh pertama, sekitar 15 menit, kita akan 'membongkar' kondisi saat ini. Kita cari tahu di mana prosedur kita bocor, kenapa prosesnya lambat, dan apa standar yang seharusnya kita penuhi. Paruh kedua, sekitar 30 menit, kita mulai 'membangun' — merancang alur baru, menulis SOP, menghitung ROI, dan ada dua sesi workshop praktik.
 
-Total sekitar 80 menit. 60 menit materi, 20 menit praktik. [jeda] Tapi sebelum kita mulai membongkar apa pun, kita perlu menyamakan bahasa dulu."
+Total sekitar 45 menit. 30 menit materi, 15 menit praktik. [jeda] Tapi sebelum kita mulai membongkar apa pun, kita perlu menyamakan bahasa dulu."
 
 ---
 
@@ -64,7 +64,13 @@ Ada beberapa istilah lagi di slide — silakan dicatat. Kita akan sering menggun
 
 ---
 
-### Slide 7 — Visi Masa Depan: Ekosistem Kearsipan Digital PLN
+### Slide 7 — Section Divider: Fondasi & Diagnosa
+
+"Kita masuk ke Bagian Pertama: Fondasi dan Diagnosa. [jeda] Di bagian ini, kita akan membongkar kondisi saat ini, memahami landasan teoritis, dan mengidentifikasi di mana prosedur kita bocor."
+
+---
+
+### Slide 8 — Visi Masa Depan: Ekosistem Kearsipan Digital PLN
 
 "Coba Bapak-Ibu bayangkan situasi ideal ini: seorang teknisi menyelesaikan pemeliharaan gardu induk, menekan tombol 'Selesai' di tablet, dan dalam hitungan detik seluruh dokumen laporan sudah tercipta, tervalidasi, dan tersimpan secara permanen — tanpa ada satu lembar kertas pun yang perlu dicetak.
 
@@ -74,7 +80,7 @@ Kedengarannya ideal? Memang. [jeda] Tapi kenyataan kita hari ini masih sangat ja
 
 ---
 
-### Slide 8 — Biaya Tersembunyi dari Prosedur Manual (As-Is)
+### Slide 9 — Biaya Tersembunyi dari Prosedur Manual (As-Is)
 
 "Berapa harga yang kita bayar untuk prosedur manual? [jeda]
 
@@ -84,7 +90,7 @@ Total potensi kerugian menurut model ini mencapai Rp 1,04 Miliar per tahun. [jed
 
 ---
 
-### Slide 9 — Mengapa Proses Kita Terasa Lambat?
+### Slide 10 — Mengapa Proses Kita Terasa Lambat?
 
 "Jawabannya ada di slide ini. [tunjuk layar] Coba perhatikan alurnya.
 
@@ -96,7 +102,7 @@ Nah, untuk memperbaiki ini, kita tidak bisa cuma menambal sana-sini. Kita butuh 
 
 ---
 
-### Slide 10 — Landasan Teori: Records Continuum Model
+### Slide 11 — Landasan Teori: Records Continuum Model
 
 "Di sinilah teori membantu kita. [tunjuk layar]
 
@@ -110,7 +116,7 @@ Dengan cara pandang ini, kita butuh alat diagnosa yang bisa memeriksa kesiapan u
 
 ---
 
-### Slide 11 — Kerangka Evaluasi 7 Domain Terintegrasi
+### Slide 12 — Kerangka Evaluasi 7 Domain Terintegrasi
 
 "Nah, untuk mendiagnosa kesiapan unit kerja, kita gunakan kerangka 7 Domain. [tunjuk layar]
 
@@ -122,7 +128,7 @@ Pertanyaannya untuk Bapak-Ibu: [jeda] kalau diminta jujur, di domain mana unit k
 
 ---
 
-### Slide 12 — Refleksi Cepat: Diagnosa Awal Unit Anda
+### Slide 13 — Refleksi Cepat: Diagnosa Awal Unit Anda
 
 "[interaksi] Saya minta Bapak-Ibu ambil waktu sebentar. Lihat tujuh domain di layar, dan tandai di lembar refleksi: mana yang menurut Anda paling bermasalah?
 
@@ -134,7 +140,7 @@ Sekarang, kenapa saya begitu menekankan pentingnya diagnosa ini? Karena ada stan
 
 ---
 
-### Slide 13 — Landasan Tata Kelola: ISO 15489
+### Slide 14 — Landasan Tata Kelola: ISO 15489
 
 "ISO 15489 itu sederhana tapi tegas. [tunjuk layar] Standar ini mengatakan bahwa arsip yang sah harus memenuhi empat syarat: Authentic — keasliannya bisa dibuktikan. Reliable — akurat merepresentasikan transaksi. Integrity — tidak pernah diubah tanpa izin. Dan Usable — bisa ditemukan kembali saat dibutuhkan.
 
@@ -144,7 +150,7 @@ Tiga pilar di bawahnya — Accountability, Integrity, Compliance — ini yang me
 
 ---
 
-### Slide 14 — 3 Pilar Strategis Optimalisasi Prosedur
+### Slide 15 — 3 Pilar Strategis Optimalisasi Prosedur
 
 "Strateginya saya sederhanakan menjadi tiga prinsip. [tunjuk layar]
 
@@ -158,7 +164,7 @@ Tiga prinsip ini masih di level konsep. [jeda] Untuk menerapkannya, kita harus t
 
 ---
 
-### Slide 15 — Proses Diagnosa: Mencari Fakta Lapangan
+### Slide 16 — Proses Diagnosa: Mencari Fakta Lapangan
 
 "Ada tiga cara kita mencari fakta. [tunjuk layar]
 
@@ -172,7 +178,7 @@ Dari ketiga teknik ini, kita akan mendapat peta masalah yang jelas. Dan cara ter
 
 ---
 
-### Slide 16 — Model BPMN Kondisi Saat Ini (As-Is)
+### Slide 17 — Model BPMN Kondisi Saat Ini (As-Is)
 
 "[tunjuk layar] Ini dia potret kondisi kita. Diagram BPMN As-Is.
 
@@ -186,7 +192,7 @@ Nah, masalah-masalah yang terlihat di diagram ini harus kita dokumentasikan seca
 
 ---
 
-### Slide 17 — Output Wajib: Matriks Identifikasi Area Optimasi
+### Slide 18 — Output Wajib: Matriks Identifikasi Area Optimasi
 
 "Di sinilah jembatan antara diagnosa dan solusi. [tunjuk layar]
 
@@ -201,9 +207,15 @@ Isi minimal empat baris dari proses riil unit kerja Anda. Area yang bertanda 'Ti
 
 ---
 
-## BAGIAN II: DESAIN & IMPLEMENTASI (50 Menit)
+### Slide 19 — Section Divider: Desain & Implementasi
 
-### Slide 18 — Prinsip Desain Workflow Terintegrasi
+"Kita resmi selesai dengan fase diagnosa. Sekarang kita masuk ke Bagian Kedua: Desain dan Implementasi. [jeda] Di bagian ini, kita akan merancang alur kerja baru, menyusun SOP digital, dan memastikan keabsahan hukumnya."
+
+---
+
+## BAGIAN II: DESAIN & IMPLEMENTASI (30 Menit)
+
+### Slide 20 — Prinsip Desain Workflow Terintegrasi
 
 "Kita masuk ke bagian yang paling saya suka — mendesain masa depan. [jeda]
 
@@ -217,7 +229,7 @@ Nah, seperti apa wujudnya kalau prinsip ini diterapkan?"
 
 ---
 
-### Slide 19 — Model BPMN Kondisi Target (To-Be)
+### Slide 21 — Model BPMN Kondisi Target (To-Be)
 
 "[tunjuk layar] Bandingkan diagram ini dengan As-Is tadi. Perbedaannya drastis.
 
@@ -231,7 +243,7 @@ Transformasi sebesar ini dimungkinkan oleh tiga pola teknis yang bekerja di bali
 
 ---
 
-### Slide 20 — 3 Pola Integrasi: Elemen Kunci Otomasi
+### Slide 22 — 3 Pola Integrasi: Elemen Kunci Otomasi
 
 "Ada tiga mesin utama yang menggerakkan alur To-Be tadi. [tunjuk layar]
 
@@ -247,7 +259,7 @@ Bagaimana ketiga pola ini bekerja dalam kasus nyata? Mari kita lihat."
 
 ---
 
-### Slide 21 — Studi Kasus: Arsip BAST E-Procurement
+### Slide 23 — Studi Kasus: Arsip BAST E-Procurement
 
 "Contoh yang sangat relevan: proses BAST di E-Procurement. [tunjuk layar]
 
@@ -259,7 +271,7 @@ Tapi sebelum kita mengesahkan desain seperti ini, ada gerbang pemeriksaan yang h
 
 ---
 
-### Slide 22 — Validasi Alur: Executive Tollgate
+### Slide 24 — Validasi Alur: Executive Tollgate
 
 "Ini alat kendali mutu untuk Bapak-Ibu sebagai pengambil keputusan. [tunjuk layar]
 
@@ -271,7 +283,7 @@ Sekarang, saya ingin Bapak-Ibu mempraktikkan semua ini."
 
 ---
 
-### Slide 23 — Workshop 1: Perancangan Alur Kerja (20 Menit)
+### Slide 25 — Workshop 1: Perancangan Alur Kerja (20 Menit)
 
 "Ini sesi praktik pertama kita. [jeda] Dalam 20 menit, saya minta Bapak-Ibu melakukan empat hal.
 
@@ -287,7 +299,7 @@ Silakan mulai.
 
 ---
 
-### Slide 24 — Evolusi Paradigma SOP PLN
+### Slide 26 — Evolusi Paradigma SOP PLN
 
 "SOP yang kita kenal selama ini dirancang untuk era kertas. [jeda] Sekarang kita harus merancang SOP untuk era digital.
 
@@ -299,7 +311,7 @@ Satu hal yang harus saya tekankan: SOP Digital bukan User Guide aplikasi. [jeda]
 
 ---
 
-### Slide 25 — Anatomi SOP Digital: 8 Komponen Wajib
+### Slide 27 — Anatomi SOP Digital: 8 Komponen Wajib
 
 "Ada 8 komponen wajib. [tunjuk layar]
 
@@ -311,7 +323,7 @@ Dari semua komponen, ada satu yang sering dianggap teknis tapi sebenarnya sangat
 
 ---
 
-### Slide 26 — 14 Field Metadata: Kerangka Bukti Hukum
+### Slide 28 — 14 Field Metadata: Kerangka Bukti Hukum
 
 "Kalau ada yang bertanya 'Apa bedanya file digital dengan arsip digital?' — jawabannya ada di slide ini. [tunjuk layar]
 
@@ -325,7 +337,7 @@ Untuk memahami bagaimana semua field ini saling melindungi, lihat visualisasi be
 
 ---
 
-### Slide 27 — The Metadata Journey: Struktur Berlapis
+### Slide 29 — The Metadata Journey: Struktur Berlapis
 
 "[tunjuk layar] Bayangkan arsip digital kita seperti bawang — berlapis-lapis.
 
@@ -337,7 +349,7 @@ Bicara soal keabsahan di pengadilan — ini pertanyaan yang sering saya dengar: 
 
 ---
 
-### Slide 28 — Keabsahan Hukum: TTE vs TTD Basah
+### Slide 30 — Keabsahan Hukum: TTE vs TTD Basah
 
 "Jawabannya tegas: [jeda] sah. Bahkan secara hukum setara.
 
@@ -349,7 +361,7 @@ Implikasinya dalam SOP kita: setiap persetujuan digital bersifat final. Lalu bag
 
 ---
 
-### Slide 29 — Mekanisme Keamanan: Digital Signature Trust-Chain
+### Slide 31 — Mekanisme Keamanan: Digital Signature Trust-Chain
 
 "[tunjuk layar] Keamanan kita bukan hanya soal password atau firewall. Kita menggunakan Trust-Chain — rantai kepercayaan digital.
 
@@ -361,7 +373,7 @@ Dan untuk perlindungan jangka panjang, kita menggunakan mekanisme yang lebih can
 
 ---
 
-### Slide 30 — Blockchain Hash Chain & Immutability
+### Slide 32 — Blockchain Hash Chain & Immutability
 
 "Ini konsep yang mungkin terdengar rumit, tapi prinsipnya sederhana. [tunjuk layar]
 
@@ -376,9 +388,15 @@ Inilah yang disebut Immutable — tidak bisa diubah, tidak bisa dihapus, tidak b
 
 ---
 
+### Slide 33 — Section Divider: Analisis ROI & Tindak Lanjut
+
+"Kita masuk ke Bagian Terakhir: Analisis ROI dan Tindak Lanjut. [jeda] Di bagian ini, kita akan menghitung nilai ekonomis dari transformasi, menyusun rencana aksi, dan mempersiapkan organisasi untuk perubahan."
+
+---
+
 ## BAGIAN III: ANALISIS ROI & TINDAK LANJUT
 
-### Slide 31 — Metodologi Pengukuran: Time-Cost-Risk Saving
+### Slide 34 — Metodologi Pengukuran: Time-Cost-Risk Saving
 
 "Kita masuk ke bahasa yang paling dipahami manajemen: angka. [jeda]
 
@@ -390,7 +408,7 @@ Time dan Cost mengukur efisiensi hari ini. Risk menjamin keamanan kita di masa d
 
 ---
 
-### Slide 32 — 4 Indikator Kinerja Utama (KPI)
+### Slide 35 — 4 Indikator Kinerja Utama (KPI)
 
 "Ada empat KPI yang akan menjadi 'speedometer' transformasi kita. [tunjuk layar]
 
@@ -402,7 +420,7 @@ Bagaimana keempat KPI ini berubah setelah transformasi? Visualisasinya sangat dr
 
 ---
 
-### Slide 33 — Efficiency Heatmap
+### Slide 36 — Efficiency Heatmap
 
 "[tunjuk layar] Perhatikan Heatmap ini. Baris atas adalah proses Manual — perhatikan betapa panjang dan merahnya. Merah berarti Non-Value Added — aktivitas yang hanya menghabiskan waktu tanpa menambah nilai. Cetak, kurir, antrean tanda tangan — semua merah.
 
@@ -412,7 +430,7 @@ Baris bawah adalah proses Digital — singkat dan hijau. Hijau berarti Value Add
 
 ---
 
-### Slide 34 — Balanced Scorecard (BSC)
+### Slide 37 — Balanced Scorecard (BSC)
 
 "Di sinilah kearsipan terhubung dengan visi korporat. [tunjuk layar]
 
@@ -422,7 +440,7 @@ Jadi ketika Bapak-Ibu melaporkan efisiensi kearsipan ke direksi, Anda sedang bic
 
 ---
 
-### Slide 35 — Dashboard Executive
+### Slide 38 — Dashboard Executive
 
 "[tunjuk layar] Inilah tampilan Dashboard Executive.
 
@@ -436,7 +454,7 @@ Sekarang mari kita lihat dari mana angka-angka simulasi ini berasal — melalui 
 
 ---
 
-### Slide 36 — Studi Kasus GI 150 kV: Kondisi Awal
+### Slide 39 — Studi Kasus GI 150 kV: Kondisi Awal
 
 "Mari kita gunakan skenario simulasi sebagai latihan. [tunjuk layar] Anggaplah kita di UIT Jawa Tengah, Area Gardu Induk 150 kV. Sekali lagi, data ini adalah **proxy pemodelan** untuk diagnosis.
 
@@ -444,7 +462,7 @@ Masalahnya? Waktu siklus 5 hari, kesalahan metadata 35 persen, dan kehilangan do
 
 ---
 
-### Slide 37 — Asumsi & Basis Kalkulasi
+### Slide 40 — Asumsi & Basis Kalkulasi
 
 "Bapak-Ibu, saya tegaskan kembali: angka 1 Miliar tadi adalah **ilustrasi pemodelan pedagogis**. [jeda] Ini sangat penting untuk integritas akademis modul ini.
 
@@ -452,7 +470,7 @@ Masalahnya? Waktu siklus 5 hari, kesalahan metadata 35 persen, dan kehilangan do
 
 ---
 
-### Slide 38 — Hasil 90 Hari Pilot
+### Slide 41 — Hasil 90 Hari Pilot
 
 "[tunjuk layar] Hasilnya — saya tidak melebih-lebihkan — sangat signifikan.
 
@@ -466,7 +484,7 @@ Sekarang, apa nilai ekonomis dari semua ini?"
 
 ---
 
-### Slide 39 — Analisis ROI: Investasi vs Manfaat
+### Slide 42 — Analisis ROI: Investasi vs Manfaat
 
 "[tunjuk layar] Mari kita lihat hasil akhir dari **model proyeksi** kita.
 
@@ -476,7 +494,7 @@ Alasan saya menunjukkan angka spektakuler ini bukan untuk memberikan janji manis
 
 ---
 
-### Slide 40 — Workshop 2: Business Case & Action Plan (15 Menit)
+### Slide 43 — Workshop 2: Business Case & Action Plan (15 Menit)
 
 "Ini sesi paling penting hari ini. [jeda] Kenapa? Karena tanpa Business Case yang solid, semua yang kita pelajari hanya akan jadi catatan yang dilupakan.
 
@@ -492,7 +510,7 @@ Silakan mulai.
 
 ---
 
-### Slide 41 — Manajemen Perubahan: Mengantisipasi Resistensi
+### Slide 44 — Manajemen Perubahan: Mengantisipasi Resistensi
 
 "Musuh terbesarnya adalah kebiasaan. [jeda]
 
@@ -504,7 +522,7 @@ Tapi bagaimana cara mengelola keempat resistensi ini secara sistematis? Kita but
 
 ---
 
-### Slide 42 — Metodologi ADKAR
+### Slide 45 — Metodologi ADKAR
 
 "Jawabannya ada di framework ADKAR dari Hiatt, 2006. [tunjuk layar]
 
@@ -516,7 +534,7 @@ Coba perhatikan: Awareness dan Desire menjawab resistensi Kebiasaan dan Kepercay
 
 ---
 
-### Slide 43 — Leading Change: Model Kotter
+### Slide 46 — Leading Change: Model Kotter
 
 "Kotter, 1996, memberikan kita 8 langkah kepemimpinan transformasi. Tapi saya akan fokuskan pada tiga yang paling relevan. [tunjuk layar]
 
@@ -528,7 +546,7 @@ Untuk melakukan semua ini, kita perlu tahu siapa saja yang harus kita libatkan."
 
 ---
 
-### Slide 44 — Peta Pemangku Kepentingan
+### Slide 47 — Peta Pemangku Kepentingan
 
 "[tunjuk layar] Transformasi ini melibatkan banyak pihak dengan kepentingan berbeda.
 
@@ -542,7 +560,7 @@ Untuk membantu prioritasi stakeholder, kita gunakan satu alat lagi."
 
 ---
 
-### Slide 45 — Power vs Interest Grid (Matriks Mendelow)
+### Slide 48 — Power vs Interest Grid (Matriks Mendelow)
 
 "[tunjuk layar] Matriks Mendelow membantu kita memprioritasi pendekatan.
 
@@ -558,7 +576,7 @@ Nah, kita sudah punya strategi stakeholder. Sekarang mari kita susun timeline im
 
 ---
 
-### Slide 46 — Rencana Aksi 30 Hari
+### Slide 49 — Rencana Aksi 30 Hari
 
 "[tunjuk layar] Rencana aksinya terstruktur dalam empat minggu.
 
@@ -572,7 +590,7 @@ Sekarang kita hampir selesai. Mari kita pastikan Bapak-Ibu membawa pulang semua 
 
 ---
 
-### Slide 47 — 4 Dokumen Portofolio Wajib
+### Slide 50 — 4 Dokumen Portofolio Wajib
 
 "[tunjuk layar] Ini rangkuman dari apa yang harus Bapak-Ibu kumpulkan.
 
@@ -584,7 +602,7 @@ Kriteria kelulusan: empat dokumen lengkap, skor rubrik minimal 70, post-test min
 
 ---
 
-### Slide 48 — Executive Tollgate Final
+### Slide 51 — Executive Tollgate Final
 
 "[tunjuk layar] Empat gerbang keputusan terakhir.
 
@@ -596,7 +614,7 @@ Sekarang, izinkan saya menutup sesi ini dengan hal yang paling personal."
 
 ---
 
-### Slide 49 — Refleksi & Komitmen Tindak Lanjut
+### Slide 52 — Refleksi & Komitmen Tindak Lanjut
 
 "[jeda] Bapak-Ibu, kita sudah membahas banyak hal hari ini — dari teori Continuum sampai ROI 550 persen. Tapi yang menentukan apakah semua ini berdampak atau tidak, ada di tangan masing-masing dari Anda.
 
@@ -608,7 +626,7 @@ Lalu isi Lembar Komitmen 30 Hari. Tuliskan nama Anda, proses yang akan Anda opti
 
 ---
 
-### Slide 50 — Terima Kasih & Dukungan Pasca Pelatihan
+### Slide 53 — Terima Kasih & Dukungan Pasca Pelatihan
 
 "Bapak dan Ibu yang saya hormati, kita sudah sampai di akhir modul 4.3. [jeda]
 

@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{geometry}
-\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, headheight=14.5pt}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, headheight=25pt}
 \usepackage{xcolor}
 \usepackage[most]{tcolorbox}
 \usepackage{graphicx}
@@ -16,11 +16,20 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tikz}
-\usetikzlibrary{positioning, arrows.meta, shapes.geometric, calc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric, calc, backgrounds}
 
-% Warna Korporat PLN
+% ============================================================
+%   WARNA KORPORAT PLN
+% ============================================================
 \definecolor{plnblue}{RGB}{0,75,135}
 \definecolor{plnorange}{RGB}{255,107,53}
+\definecolor{plncyan}{RGB}{0,163,224}
+\definecolor{plngreen}{RGB}{0,150,136}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{medgray}{RGB}{150,150,150}
+\definecolor{darkgray}{RGB}{60,60,60}
 \definecolor{fillgreen}{RGB}{230,245,230}
 
 \usepackage{hyperref}
@@ -28,91 +37,277 @@
     colorlinks=true,
     linkcolor=plnblue,
     urlcolor=plnblue,
-    citecolor=plnblue
+    citecolor=plnblue,
+    pdftitle={Contoh Pengisian Lembar Kerja Modul 4.3 - PLN},
+    pdfauthor={PT PLN (Persero)}
 }
 
-% Header & Footer
+% ============================================================
+%   HEADER & FOOTER
+% ============================================================
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textbf{CONTOH Pengisian Lembar Kerja -- Modul 4.3}}
-\fancyhead[R]{\small Level 4 (Mastery) -- PLN}
-\fancyfoot[C]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\color{darkgray}\textbf{Contoh Pengisian} -- Modul 4.3}
+\fancyhead[R]{\small\color{darkgray}Level 4 (Mastery) -- \textbf{PLN}}
+\fancyfoot[C]{\small\color{darkgray}\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{plnblue}\leaders\hrule height \headrulewidth\hfill}}
 
-% Format Heading
+% ============================================================
+%   HEADING FORMAT
+% ============================================================
 \titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{plnblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
 \titleformat{\section}{\Large\bfseries\color{plnblue}}{\thesection}{1em}{}
 \titleformat{\subsection}{\large\bfseries\color{plnblue}}{\thesubsection}{1em}{}
 \titlespacing*{\chapter}{0pt}{-30pt}{20pt}
-\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\section}{0pt}{14pt}{10pt}
 \titlespacing*{\subsection}{0pt}{10pt}{6pt}
 
-% Custom Boxes
-\newtcolorbox{plnbox}[1][]{%
-  colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries,
-  title=#1, sharp corners, boxrule=0.8pt, breakable
+% ============================================================
+%   CUSTOM BOXES (MODERN UI)
+% ============================================================
+\newtcolorbox{infobox}[1][]{%
+  enhanced,
+  colback=plnblue!5!white,
+  colframe=plnblue,
+  fonttitle=\bfseries\color{white},
+  coltitle=white,
+  attach boxed title to top left={yshift=-3mm, xshift=5mm},
+  boxed title style={colback=plnblue, sharp corners, boxrule=0pt},
+  sharp corners,
+  boxrule=0.8pt,
+  left=8pt, right=8pt, top=10pt, bottom=8pt,
+  breakable,
+  title={#1}
 }
-\newtcolorbox{instruksi}{%
-  colback=gray!8, colframe=gray!50!black, fonttitle=\bfseries,
-  title=Instruksi Pengisian, sharp corners, breakable
+
+\newtcolorbox{instruksibox}{%
+  enhanced,
+  colback=plncyan!5!white,
+  colframe=plncyan,
+  fonttitle=\bfseries\color{white},
+  coltitle=white,
+  attach boxed title to top left={yshift=-3mm, xshift=5mm},
+  boxed title style={colback=plncyan, sharp corners, boxrule=0pt},
+  sharp corners,
+  boxrule=0.8pt,
+  left=8pt, right=8pt, top=10pt, bottom=8pt,
+  breakable,
+  title={Instruksi Penggunaan Contoh}
 }
+
+\newtcolorbox{tipbox}{%
+  enhanced,
+  colback=plngreen!5!white,
+  colframe=plngreen,
+  fonttitle=\bfseries\color{white},
+  coltitle=white,
+  attach boxed title to top left={yshift=-3mm, xshift=5mm},
+  boxed title style={colback=plngreen, sharp corners, boxrule=0pt},
+  sharp corners,
+  boxrule=0.8pt,
+  left=8pt, right=8pt, top=10pt, bottom=8pt,
+  breakable,
+  title={Tips \& Trik}
+}
+
+\newtcolorbox{warnbox}{%
+  enhanced,
+  colback=plnorange!5!white,
+  colframe=plnorange,
+  fonttitle=\bfseries\color{white},
+  coltitle=white,
+  attach boxed title to top left={yshift=-3mm, xshift=5mm},
+  boxed title style={colback=plnorange, sharp corners, boxrule=0pt},
+  sharp corners,
+  boxrule=0.8pt,
+  left=8pt, right=8pt, top=10pt, bottom=8pt,
+  breakable,
+  title={Perhatian}
+}
+
 \newtcolorbox{contohbox}{%
-  colback=green!5, colframe=green!50!black, fonttitle=\bfseries,
-  title=Ini Adalah Contoh Pengisian -- Bukan Lembar Kerja Kosong, 
-  sharp corners, breakable
+  enhanced,
+  colback=plngreen!5!white,
+  colframe=plngreen!70!black,
+  fonttitle=\bfseries\color{white},
+  coltitle=white,
+  attach boxed title to top left={yshift=-3mm, xshift=5mm},
+  boxed title style={colback=plngreen!70!black, sharp corners, boxrule=0pt},
+  sharp corners,
+  boxrule=1pt,
+  left=8pt, right=8pt, top=10pt, bottom=8pt,
+  breakable,
+  title={Ini Adalah Contoh Pengisian -- Bukan Lembar Kerja Kosong}
 }
 
 % List styling
-\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
-\setlist[enumerate]{leftmargin=*, topsep=2pt, itemsep=2pt}
+\setlist[itemize]{leftmargin=*, topsep=3pt, itemsep=3pt}
+\setlist[enumerate]{leftmargin=*, topsep=3pt, itemsep=3pt}
 
 \begin{document}
 
-% ================= COVER =================
+% ============================================================
+%   COVER PAGE
+% ============================================================
 \begin{titlepage}
+\begin{tikzpicture}[remember picture, overlay]
+  % Top brand bar
+  \fill[plnblue] (current page.north west) rectangle ([yshift=-1.8cm]current page.north east);
+  \node[anchor=east, white, font=\small\bfseries] at ([xshift=-1cm, yshift=-0.9cm]current page.north east) {PT PLN (PERSERO)};
+  % Bottom accent bar
+  \fill[plnorange] ([yshift=0.6cm]current page.south west) rectangle ([yshift=0.3cm]current page.south east);
+  \fill[plncyan] ([yshift=0.3cm]current page.south west) rectangle (current page.south east);
+\end{tikzpicture}
+
 \centering
-\vspace*{1.5cm}
-{\Huge\bfseries\color{plnblue} CONTOH PENGISIAN}\\[0.4cm]
-{\LARGE\bfseries Lembar Kerja Praktek (Worksheet)}\\[0.3cm]
-{\Large\bfseries Modul 4.3: Optimalisasi Prosedur dan Alur Kerja Terintegrasi}\\[0.8cm]
-\rule{0.8\linewidth}{0.6pt}\\[0.6cm]
-{\large Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
-{\large Level 4 (Mastery)}\\[1.2cm]
-{\large Disusun Khusus untuk: \textbf{PT PLN (Persero)}}\\
-{\large Target Peserta: Manajemen Atas (MA)}\\[1.5cm]
+\vspace*{2.5cm}
+
+{\Huge\bfseries\color{plnblue} CONTOH PENGISIAN}
+
+\vspace{0.3cm}
+
+{\LARGE\bfseries Lembar Kerja Praktek}
+
+\vspace{0.15cm}
+
+\parbox{0.85\textwidth}{\centering\Large\color{darkgray} Modul 4.3:\\Optimalisasi Prosedur dan Alur Kerja Terintegrasi}
+
+\vspace{0.8cm}
+
+\rule{0.75\linewidth}{1pt}
+
+\vspace{0.6cm}
+
+{\large Program Penguatan Kompetensi Tata Kelola Kearsipan}
+
+\vspace{0.1cm}
+
+{\large\bfseries Level 4 (Mastery)}
+
+\vspace{1.5cm}
+
+\begin{tikzpicture}
+\node[draw=plngreen!70!black, line width=1.2pt, rounded corners=5pt, inner sep=12pt, fill=plngreen!5] {
+\begin{minipage}{0.75\textwidth}
+\centering
+\textbf{\color{plngreen!70!black}Skenario Contoh}
+
+\vspace{0.2cm}
+
+Arsip Work Order Pemeliharaan Gardu Induk 150 kV\\
+UIT Jawa Bagian Tengah -- Area Pemeliharaan GI
+\end{minipage}
+};
+\end{tikzpicture}
+
+\vfill
+
+{\small\color{medgray} Dicetak sebagai bagian dari paket modul pelatihan}
+
+\vspace{0.1cm}
+
+{\small\color{medgray} \today}
+
+\end{titlepage}
+
+% ============================================================
+%   HALAMAN PANDUAN MENGGUNAKAN CONTOH
+% ============================================================
+\newpage
+\thispagestyle{fancy}
+
+\section*{\color{plnblue}Panduan Menggunakan Contoh Jawaban}
+\addcontentsline{toc}{section}{Panduan Menggunakan Contoh Jawaban}
 
 \begin{contohbox}
 \begin{center}
-\textbf{PERHATIAN}
+\textbf{DOKUMEN INI ADALAH KUNCI JAWABAN / REFERENSI}
 \end{center}
 Dokumen ini berisi \textbf{contoh pengisian terbaik} untuk seluruh lembar kerja Modul 4.3. Gunakan sebagai referensi saat mengerjakan worksheet kosong Anda.
 
-\begin{itemize}[nosep, leftmargin=*]
+\begin{itemize}
     \item Skenario yang digunakan: \textbf{Arsip Work Order Pemeliharaan Gardu Induk 150 kV}
     \item Unit contoh: \textbf{UIT Jawa Bagian Tengah -- Area Pemeliharaan GI}
-    \item Semua data bersifat ilustratif namun realistis
-    \item Sesuaikan dengan konteks proses dan unit kerja Anda masing-masing
+    \item Semua data bersifat \textbf{ilustratif namun realistis}
+    \item \textbf{Sesuaikan} dengan konteks proses dan unit kerja Anda masing-masing
 \end{itemize}
 \end{contohbox}
 
-\vfill
-{\small Dicetak sebagai bagian dari paket modul pelatihan}\\
-{\small\today}
-\end{titlepage}
+\vspace{0.4cm}
+
+\begin{instruksibox}
+\textbf{Cara Memanfaatkan Contoh Ini dengan Efektif:}
+\begin{enumerate}
+    \item \textbf{Pelajari struktur pengisian} -- perhatikan bagaimana setiap komponen dihubungkan satu sama lain.
+    \item \textbf{Amati level detail} -- contoh ini menunjukkan kedalaman analisis yang diharapkan.
+    \item \textbf{Perhatikan terminologi} -- gunakan istilah standar PLN dan kearsipan secara konsisten.
+    \item \textbf{Jangan menyalin mentah-mentah} -- contoh ini adalah \textit{referensi gaya}, bukan jawaban mutlak.
+    \item \textbf{Diskusikan dengan kelompok} -- bandingkan konteks unit Anda dengan skenario contoh.
+\end{enumerate}
+\end{instruksibox}
+
+\vspace{0.3cm}
+
+\noindent{\large\bfseries\color{plnblue}Struktur Contoh Pengisian}
+
+\vspace{0.2cm}
+
+{\small
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\textwidth}{@{} c p{3.5cm} X @{}}
+\toprule
+\textbf{No} & \textbf{Lampiran} & \textbf{Apa yang Dicontohkan} \\
+\midrule
+A & Matriks Area Optimasi & 6 area hambatan + rekomendasi dengan prioritas T/S/R \\
+B & Diagram BPMN To-Be & Diagram TikZ 3-lane + daftar pemicu otomatis \\
+C & Draft SOP Digital & 7 komponen lengkap + catatan peer review \\
+D & Business Case & Estimasi ROI 522\%, payback $<$2 bulan + action plan \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+}
+
+\vspace{0.3cm}
+
+\begin{tipbox}
+\begin{itemize}
+    \item Perhatikan bagaimana Lampiran B (BPMN) mewujudkan solusi dari Lampiran A (Matriks).
+    \item Lampiran C (SOP) kemudian mengatur bagaimana alur kerja di Lampiran B dijalankan.
+    \item Lampiran D (Business Case) menghitung nilai finansial dari seluruh optimasi tersebut.
+\end{itemize}
+\end{tipbox}
+
+\vspace{0.3cm}
+
+\begin{warnbox}
+\begin{itemize}
+    \item Data finansial (ROI, manfaat, biaya) bersifat \textbf{ilustratif} -- selalu gunakan data aktual unit Anda.
+    \item Jumlah metadata (12 field) dapat disesuaikan dengan kompleksitas proses unit Anda.
+    \item Nama peran (Inisiator, Validator, dll) dapat diadaptasi sesuai struktur organisasi unit.
+\end{itemize}
+\end{warnbox}
+
 
 % ============================================================
 %   CONTOH LAMPIRAN A: Matriks Identifikasi Area Optimasi
 % ============================================================
 \newpage
 \section*{\color{plnblue} CONTOH LAMPIRAN A}
-{\Large\bfseries Matriks Identifikasi Area Optimasi}\\[0.2cm]
-{\normalsize\textit{Output Wajib Bab 2 -- Kriteria Penilaian 4.3.1}}\\[0.5cm]
+{\Large\bfseries Matriks Identifikasi Area Optimasi}\\[0.15cm]
+{\normalsize\color{medgray}\textit{Output Wajib Bab 2 -- Kriteria Penilaian 4.3.1}}\\[0.4cm]
 
-\noindent\textbf{Nama Kelompok:} \underline{\textit{~Kelompok 3 -- Gardu Induk~}} \quad \textbf{Tanggal:} \underline{\textit{~11 April 2026~}}\\[0.3cm]
-\textbf{Proses yang Dievaluasi:} \underline{\textit{~Arsip arsip perintah kerja (SPK) Pemeliharaan GI 150 kV~}}\\[0.3cm]
-\textbf{Unit Kerja:} \underline{\textit{~UIT Jawa Tengah~}} \quad \textbf{Volume:} \underline{\textit{~1.200 arsip perintah kerja (SPK)/tahun~}}
+\noindent\textbf{Nama Kelompok:} \underline{\textit{~Kelompok 3 -- Gardu Induk~}} \quad \textbf{Tanggal:} \underline{\textit{~11 April 2026~}}\\[0.25cm]
+\textbf{Proses yang Dievaluasi:} \underline{\textit{~Arsip Work Order Pemeliharaan GI 150 kV~}}\\[0.25cm]
+\textbf{Unit Kerja:} \underline{\textit{~UIT Jawa Tengah~}} \quad \textbf{Volume:} \underline{\textit{~1.200 SPK/tahun~}}
 
-\vspace{0.4cm}
+\vspace{0.3cm}
+
+\begin{contohbox}
+Contoh pengisian berikut menunjukkan identifikasi 6 area hambatan pada proses pengelolaan arsip Work Order pemeliharaan GI 150 kV. Perhatikan bagaimana setiap hambatan dihubungkan dengan potensi solusi teknis.
+\end{contohbox}
+
+\vspace{0.3cm}
 
 \noindent
 \resizebox{\textwidth}{!}{%
@@ -122,38 +317,48 @@ Dokumen ini berisi \textbf{contoh pengisian terbaik} untuk seluruh lembar kerja 
 \toprule
 \textbf{No} & \textbf{Tahapan Proses} & \textbf{Jenis Hambatan / Titik Gesekan} & \textbf{Potensi Integrasi / Solusi} & \textbf{Prior.} \\
 \midrule
-1 & Input data arsip perintah kerja (SPK) ke Sistem Operasional & Data arsip perintah kerja (SPK) diinput manual oleh teknisi, sering terlambat 1--2 hari setelah pekerjaan selesai & Sistem mobile input langsung di lapangan saat arsip perintah kerja (SPK) ditutup & \textbf{T} \\
+1 & Input data SPK ke Sistem Operasional & Data SPK diinput manual oleh teknisi, sering terlambat 1--2 hari setelah pekerjaan selesai & Sistem mobile input langsung di lapangan saat SPK ditutup & \textbf{T} \\
 \hline
-2 & Pencetakan dokumen fisik arsip perintah kerja (SPK) & Setiap arsip perintah kerja (SPK) dicetak rangkap 3 (teknisi, supervisor, arsip); pemborosan kertas \& waktu & Eliminasi cetak; gunakan dokumen digital dengan tanda tangan elektronik & \textbf{T} \\
+2 & Pencetakan dokumen fisik SPK & Setiap SPK dicetak rangkap 3 (teknisi, supervisor, arsip); pemborosan kertas \& waktu & Eliminasi cetak; gunakan dokumen digital dengan tanda tangan elektronik & \textbf{T} \\
 \hline
 3 & Proses tanda tangan basah & Supervisor \& Manajer harus TTD fisik; sering tertunda karena dinas luar/cuti & Validasi digital via Tata Persuratan dengan SLA 1$\times$24 jam \& eskalasi otomatis & \textbf{T} \\
-4 & Scan \& upload dokumen & Dokumen yang sudah di-TTD harus di-scan lalu diupload manual ke folder bersama & Auto-capture: status operasi memicu \textit{draft} arsip otomatis & \textbf{T} \\
+\hline
+4 & Scan \& upload dokumen & Dokumen yang sudah di-TTD harus di-scan lalu diupload manual ke berkas bersama & Auto-capture: status operasi memicu \textit{draft} arsip otomatis & \textbf{T} \\
+\hline
 5 & Pelabelan \& klasifikasi arsip & Metadata arsip diisi manual; inkonsistensi penamaan file antar teknisi berbeda & Template metadata standar 12 field wajib; auto-populate dari Sistem Operasional & \textbf{S} \\
 \hline
-6 & Pencarian arsip saat audit & Arsip tersebar di folder bersama tanpa indeks; rata-rata 15--30 menit per pencarian & Repositori digital terindeks dengan search by metadata \& full-text & \textbf{S} \\
+6 & Pencarian arsip saat audit & Arsip tersebar di berkas bersama tanpa indeks; rata-rata 15--30 menit per pencarian & Repositori digital terindeks dengan search by metadata \& full-text & \textbf{S} \\
 \bottomrule
 \end{tabularx}
 \renewcommand{\arraystretch}{1.0}
 }
 
-\noindent\textit{Keterangan Prioritas: T = Tinggi, S = Sedang, R = Rendah}
+\vspace{0.3cm}
+\noindent{\small\color{medgray}\textit{Keterangan Prioritas: T = Tinggi, S = Sedang, R = Rendah}}
 
 \vspace{0.4cm}
-\noindent\textbf{Kesimpulan \& Rekomendasi Utama:}\\
+\noindent\textbf{Kesimpulan \& Rekomendasi Utama:}\\[0.2cm]
 \noindent\textit{Dari 6 area yang diidentifikasi, 4 termasuk prioritas Tinggi dan semuanya terkait dengan proses manual yang dapat dieliminasi melalui integrasi sistem. Quick win terbesar adalah pada tahapan cetak-TTD-scan-upload (tahapan 2--4) yang secara kumulatif menyumbang 3--4 hari dari total waktu siklus 5 hari. Rekomendasi: fokuskan pilot project pada integrasi Sistem ERP $\rightarrow$ auto-generate arsip digital $\rightarrow$ validasi via Sistem Tata Persuratan.}
+
 
 % ============================================================
 %   CONTOH LAMPIRAN B: Diagram BPMN To-Be
 % ============================================================
 \newpage
 \section*{\color{plnblue} CONTOH LAMPIRAN B}
-{\Large\bfseries Lembar Kerja Diagram BPMN To-Be}\\[0.2cm]
-{\normalsize\textit{Output Wajib Bab 3 -- Kriteria Penilaian 4.3.2}}\\[0.5cm]
+{\Large\bfseries Lembar Kerja Diagram BPMN To-Be}\\[0.15cm]
+{\normalsize\color{medgray}\textit{Output Wajib Bab 3 -- Kriteria Penilaian 4.3.2}}\\[0.4cm]
 
-\noindent\textbf{Nama Kelompok:} \underline{\textit{~Kelompok 3 -- Gardu Induk~}} \quad \textbf{Tanggal:} \underline{\textit{~11 April 2026~}}\\[0.3cm]
-\textbf{Proses yang Dirancang Ulang:} \underline{\textit{~Arsip arsip perintah kerja (SPK) Pemeliharaan GI 150 kV (To-Be)~}}
+\noindent\textbf{Nama Kelompok:} \underline{\textit{~Kelompok 3 -- Gardu Induk~}} \quad \textbf{Tanggal:} \underline{\textit{~11 April 2026~}}\\[0.25cm]
+\textbf{Proses yang Dirancang Ulang:} \underline{\textit{~Arsip Work Order Pemeliharaan GI 150 kV (To-Be)~}}
 
-\vspace{0.4cm}
+\vspace{0.3cm}
+
+\begin{contohbox}
+Contoh berikut menampilkan diagram BPMN To-Be dengan 3 swimlane. Perhatikan bagaimana pemicu otomatis dari sistem ERP memulai seluruh alur, mengurangi intervensi manual secara signifikan.
+\end{contohbox}
+
+\vspace{0.3cm}
 
 \noindent\textbf{Diagram Alur Kerja To-Be:}
 
@@ -237,7 +442,7 @@ Dokumen ini berisi \textbf{contoh pengisian terbaik} untuk seluruh lembar kerja 
 \toprule
 \textbf{No} & \textbf{Pemicu / Status} & \textbf{Aksi Otomatis} & \textbf{Sistem Sumber} \\
 \midrule
-1 & Status arsip perintah kerja (SPK) berubah ke Selesai di operasional & Generate draft arsip arsip perintah kerja (SPK) + auto-populate 12 field metadata wajib & Sistem ERP \\
+1 & Status SPK berubah ke Selesai di operasional & Generate draft arsip SPK + auto-populate 12 field metadata wajib & Sistem ERP \\
 \hline
 2 & Draft arsip ter-generate & Kirim notifikasi validasi ke Supervisor via E-Office; mulai timer SLA 1$\times$24 jam & E-Office \\
 \hline
@@ -247,32 +452,40 @@ Dokumen ini berisi \textbf{contoh pengisian terbaik} untuk seluruh lembar kerja 
 \renewcommand{\arraystretch}{1.0}
 }
 
+
 % ============================================================
 %   CONTOH LAMPIRAN C: Template Draft SOP Digital
 % ============================================================
 \newpage
 \section*{\color{plnblue} CONTOH LAMPIRAN C}
-{\Large\bfseries Template Draft SOP Digital Terintegrasi}\\[0.2cm]
-{\normalsize\textit{Output Wajib Bab 4 -- Kriteria Penilaian 4.3.3}}\\[0.5cm]
+{\Large\bfseries Template Draft SOP Digital Terintegrasi}\\[0.15cm]
+{\normalsize\color{medgray}\textit{Output Wajib Bab 4 -- Kriteria Penilaian 4.3.3}}\\[0.4cm]
 
 \noindent\textbf{Nama Kelompok:} \underline{\textit{~Kelompok 3 -- Gardu Induk~}} \quad \textbf{Tanggal:} \underline{\textit{~11 April 2026~}}
 
-\vspace{0.4cm}
+\vspace{0.3cm}
+
+\begin{contohbox}
+Contoh berikut menampilkan SOP digital 7 komponen lengkap untuk proses pengelolaan arsip Work Order GI 150 kV. Perhatikan bagaimana setiap komponen saling melengkapi.
+\end{contohbox}
+
+\vspace{0.3cm}
 
 % Komponen 1
 \begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 1: Tujuan \& Ruang Lingkup}]
 \small
 \textbf{Tujuan:} Mengatur alur kerja pengelolaan arsip Work Order pemeliharaan Gardu Induk 150 kV secara digital terintegrasi, dari penciptaan otomatis melalui trigger SAP-PM hingga penyimpanan final di repositori kearsipan, dengan menjamin kelengkapan metadata, keterlacakan audit, dan kepatuhan terhadap PP 71/2019 serta Perka ANRI.
 
-\textbf{Ruang Lingkup:} Berlaku untuk seluruh arsip perintah kerja (SPK) pemeliharaan preventif dan korektif pada 48 Gardu Induk 150 kV di lingkungan UIT Jawa Bagian Tengah. Mencakup proses dari status TECO hingga arsip berstatus \texttt{Final \& Auditable}.
+\vspace{0.2cm}
+\textbf{Ruang Lingkup:} Berlaku untuk seluruh arsip Work Order pemeliharaan preventif dan korektif pada 48 Gardu Induk 150 kV di lingkungan UIT Jawa Bagian Tengah. Mencakup proses dari status TECO hingga arsip berstatus \texttt{Final \& Auditable}.
 \end{tcolorbox}
 
 % Komponen 2
 \begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 2: Definisi \& Akronim}]
 \small
-\begin{itemize}[nosep, leftmargin=*]
-    \item \textbf{arsip perintah kerja (SPK)} -- Work Order: dokumen perintah kerja pemeliharaan aset
-    \item \textbf{Status Selesai ERP:} Status di Sistem Operasional yang menandakan pekerjaan fisik sudah final.
+\begin{itemize}
+    \item \textbf{SPK} -- Work Order: dokumen perintah kerja pemeliharaan aset
+    \item \textbf{Status TECO:} Status di SAP-PM yang menandakan pekerjaan fisik sudah final.
     \item \textbf{GI} -- Gardu Induk: fasilitas distribusi tenaga listrik tegangan tinggi
     \item \textbf{SLA} -- Service Level Agreement: batas waktu layanan yang disepakati
     \item \textbf{RBAC} -- Role-Based Access Control: pemberian akses berdasarkan peran
@@ -288,23 +501,24 @@ Dokumen ini berisi \textbf{contoh pengisian terbaik} untuk seluruh lembar kerja 
 \toprule
 \textbf{Peran} & \textbf{Jabatan/Fungsi} & \textbf{Tanggung Jawab Utama} \\
 \midrule
-Inisiator & Teknisi Pemeliharaan GI & Menyelesaikan arsip perintah kerja (SPK) di SAP-PM; memastikan status TECO diinput tepat waktu \\
+Inisiator & Teknisi Pemeliharaan GI & Menyelesaikan SPK di SAP-PM; memastikan status TECO diinput tepat waktu \\
 \hline
-Validator & Supervisor Pemeliharaan & Mereview kelengkapan metadata \& kesesuaian dokumen; melakukan validasi digital dalam SLA 1$\times$24 jam \\
+Validator & Supervisor Pemeliharaan & Mereview kelengkapan metadata \& kesesuaian dokumen; validasi digital dalam SLA 1$\times$24 jam \\
 \hline
 Custodian & Staf Unit Kearsipan UIT & Memastikan arsip tersimpan di repositori; menjalankan backup berkala; menyediakan akses saat audit \\
 \hline
 Approver & Manajer Area Pemeliharaan & Eskalasi otomatis jika SLA terlampaui; menyetujui exception handling; review KPI bulanan \\
 \bottomrule
 \end{tabularx}
-\renewcommand{\arraystretch}{1.0}
 \end{tcolorbox}
+
+\newpage
 
 % Komponen 4
 \begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 4: Pemicu Sistem \& Metadata Wajib}]
 \small
-\noindent\textbf{Pemicu:} \textit{Status arsip perintah kerja (SPK) berubah ke Selesai di Sistem Operasi}\\[0.2cm]
-\textbf{Sistem Sumber:} \textit{Sistem Operasi (ERP Module)}\\[0.2cm]
+\noindent\textbf{Pemicu:} \textit{Status SPK berubah ke Selesai di SAP-PM}\\[0.2cm]
+\textbf{Sistem Sumber:} \textit{SAP-PM (ERP Module)}\\[0.2cm]
 \textbf{Metadata Wajib (12 field):}\\[0.2cm]
 \begin{tabularx}{\textwidth}{@{} X X X @{}}
 1. ID Work Order & 2. Nama Gardu Induk & 3. Kode Aset (FLOC) \\[0.2cm]
@@ -313,8 +527,6 @@ Approver & Manajer Area Pemeliharaan & Eskalasi otomatis jika SLA terlampaui; me
 10. Supervisor Validator & 11. Klasifikasi Arsip & 12. Hash Integrity \\
 \end{tabularx}
 \end{tcolorbox}
-
-\newpage
 
 % Komponen 5
 \begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 5: Alur Validasi \& SLA}]
@@ -326,17 +538,16 @@ Approver & Manajer Area Pemeliharaan & Eskalasi otomatis jika SLA terlampaui; me
 \midrule
 Validasi Level 1 (Kelengkapan Metadata) & Supervisor Pemeliharaan & 8 jam & Notifikasi pengingat otomatis setiap 4 jam \\
 \hline
-Validasi Level 2 (Kesesuaian Dokumen) & Supervisor Pemeliharaan & 16 jam & Eskalasi ke Manajer Area via Sistem Persuratan \\
+Validasi Level 2 (Kesesuaian Dokumen) & Supervisor Pemeliharaan & 16 jam & Eskalasi ke Manajer Area via E-Office \\
 \bottomrule
 \end{tabularx}
-\renewcommand{\arraystretch}{1.0}
 \end{tcolorbox}
 
 % Komponen 6
 \begin{tcolorbox}[colback=plnorange!5, colframe=plnorange!50, sharp corners, title={\small\bfseries Komponen 6: Exception Handling \& Fallback}]
 \small
 \noindent\textbf{Skenario 1 -- Sistem SAP-PM Down ($>$4 jam):}\\
-Teknisi mengisi Formulir arsip perintah kerja (SPK) Digital Darurat (template Excel standar yang tersedia offline). Setelah sistem pulih, data diinput ulang ke SAP-PM dalam waktu 1$\times$24 jam. Supervisor memvalidasi kesamaan data offline vs online.
+Teknisi mengisi Formulir SPK Digital Darurat (template Excel standar yang tersedia offline). Setelah sistem pulih, data diinput ulang ke SAP-PM dalam waktu 1$\times$24 jam. Supervisor memvalidasi kesamaan data offline vs online.
 
 \vspace{0.3cm}
 \noindent\textbf{Skenario 2 -- Validasi Ditolak oleh Supervisor:}\\
@@ -350,7 +561,7 @@ Sistem memblokir penyimpanan jika $<$10 dari 12 field terisi. Notifikasi otomati
 % Komponen 7
 \begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 7: Referensi Regulasi \& Standar}]
 \small
-\begin{enumerate}[nosep, leftmargin=*]
+\begin{enumerate}
     \item PP No. 71 Tahun 2019 tentang Penyelenggaraan Sistem dan Transaksi Elektronik (Pasal 14--16: Tanda Tangan Elektronik)
     \item Peraturan Kepala ANRI No. 6 Tahun 2021 tentang Pedoman Pengelolaan Arsip Elektronik (Pasal 8--12: Metadata \& Prosedur)
     \item ISO 15489-1:2016 -- Records Management: Principles (Clause 7.2: Process Design)
@@ -358,21 +569,28 @@ Sistem memblokir penyimpanan jika $<$10 dari 12 field terisi. Notifikasi otomati
 \end{enumerate}
 \end{tcolorbox}
 
-\vspace{0.4cm}
+\vspace{0.3cm}
 \noindent\textbf{Catatan Peer Review (diisi oleh Kelompok 1):}\\
-\textit{``SOP sudah sangat komprehensif. Saran: (1) Tambahkan prosedur untuk arsip perintah kerja (SPK) darurat/emergency yang tidak melalui perencanaan normal. (2) Pertimbangkan integrasi dengan sistem K3 (E-HSE) untuk arsip perintah kerja (SPK) yang melibatkan area berbahaya. (3) Perjelas siapa yang bertanggung jawab melakukan backup harian repositori.''}
+\textit{``SOP sudah sangat komprehensif. Saran: (1) Tambahkan prosedur untuk SPK darurat/emergency yang tidak melalui perencanaan normal. (2) Pertimbangkan integrasi dengan sistem K3 (E-HSE) untuk SPK yang melibatkan area berbahaya. (3) Perjelas siapa yang bertanggung jawab melakukan backup harian repositori.''}
+
 
 % ============================================================
 %   CONTOH LAMPIRAN D: Business Case & Action Plan 30 Hari
 % ============================================================
 \newpage
 \section*{\color{plnblue} CONTOH LAMPIRAN D}
-{\Large\bfseries Business Case \& Action Plan 30 Hari}\\[0.2cm]
-{\normalsize\textit{Output Wajib Bab 5 -- Kriteria Penilaian 4.3.4}}\\[0.5cm]
+{\Large\bfseries Business Case \& Action Plan 30 Hari}\\[0.15cm]
+{\normalsize\color{medgray}\textit{Output Wajib Bab 5 -- Kriteria Penilaian 4.3.4}}\\[0.4cm]
 
-\noindent\textbf{Nama Kelompok:} \underline{\textit{~Kelompok 3 -- Gardu Induk~}} \quad \textbf{Tanggal:} \underline{\textit{~11 April 2026~}}\\[0.3cm]
-\textbf{Proses yang Dioptimalkan:} \underline{\textit{~Arsip arsip perintah kerja (SPK) Pemeliharaan GI 150 kV~}}\\[0.3cm]
+\noindent\textbf{Nama Kelompok:} \underline{\textit{~Kelompok 3 -- Gardu Induk~}} \quad \textbf{Tanggal:} \underline{\textit{~11 April 2026~}}\\[0.25cm]
+\textbf{Proses yang Dioptimalkan:} \underline{\textit{~Arsip Work Order Pemeliharaan GI 150 kV~}}\\[0.25cm]
 \textbf{Unit Kerja Target Pilot:} \underline{\textit{~UIT Jawa Tengah -- GI Cibinong 150 kV (pilot 90 hari)~}}
+
+\vspace{0.3cm}
+
+\begin{contohbox}
+Contoh berikut menampilkan business case lengkap dengan estimasi finansial dan action plan 30 hari. Perhatikan bagaimana data baseline, target, dan perhitungan ROI saling mendukung.
+\end{contohbox}
 
 \vspace{0.3cm}
 
@@ -381,7 +599,7 @@ Sistem memblokir penyimpanan jika $<$10 dari 12 field terisi. Notifikasi otomati
 \small
 
 \noindent\textbf{1. Latar Belakang \& Masalah:}\\
-Proses kearsipan arsip perintah kerja (SPK) pemeliharaan GI saat ini memerlukan rata-rata 5 hari kerja per siklus, dengan 4 langkah manual (cetak, TTD basah, scan, upload) yang menyumbang 80\% dari total waktu. Error metadata mencapai 35\% yang mengakibatkan 420 arsip perintah kerja (SPK)/tahun perlu revisi. Dalam 2 tahun terakhir, unit kehilangan 8 dokumen arsip dan mendapat 3 temuan audit BPK terkait ketidaklengkapan jejak audit. Estimasi kerugian tahunan: Rp 1,01 miliar.
+Proses kearsipan arsip Work Order pemeliharaan GI saat ini memerlukan rata-rata 5 hari kerja per siklus, dengan 4 langkah manual (cetak, TTD basah, scan, upload) yang menyumbang 80\% dari total waktu. Error metadata mencapai 35\% yang mengakibatkan 420 SPK/tahun perlu revisi. Dalam 2 tahun terakhir, unit kehilangan 8 dokumen arsip dan mendapat 3 temuan audit BPK terkait ketidaklengkapan jejak audit. Estimasi kerugian tahunan: Rp 1,01 miliar.
 
 \vspace{0.2cm}
 \noindent\textbf{2. Solusi yang Diusulkan:}\\
@@ -412,7 +630,7 @@ Waktu Temu Kembali & 15--30 menit & $<$ 30 detik \\
 \vspace{0.2cm}
 \noindent\textbf{4. Estimasi Manfaat Finansial:}\\[0.2cm]
 \begin{tabularx}{\textwidth}{@{} X r @{}}
-Penghematan waktu siklus (1.200 arsip perintah kerja (SPK) $\times$ 4,2 hari $\times$ Rp 150.000): & Rp 756.000.000 /tahun \\[0.2cm]
+Penghematan waktu siklus (1.200 SPK $\times$ 4,2 hari $\times$ Rp 150.000): & Rp 756.000.000 /tahun \\[0.2cm]
 Reduksi biaya error/revisi ($\downarrow$ 85\%): & Rp 44.625.000 /tahun \\[0.2cm]
 Mitigasi risiko kepatuhan (eliminasi temuan audit): & Rp 200.000.000 /tahun \\[0.2cm]
 \textbf{Total Estimasi Manfaat:} & \textbf{Rp 1.000.625.000 /tahun} \\
@@ -423,6 +641,16 @@ Mitigasi risiko kepatuhan (eliminasi temuan audit): & Rp 200.000.000 /tahun \\[0
 \noindent\textbf{6. ROI Proyeksi:} \textbf{522\%} \quad \textbf{Payback Period:} \textbf{$<$ 2 bulan}
 
 \end{tcolorbox}
+
+\vspace{0.3cm}
+
+\begin{tipbox}
+\textbf{Rumus Perhitungan yang Digunakan:}
+\begin{itemize}
+    \item \textbf{ROI} = $\dfrac{1.000.625.000 - 161.000.000}{161.000.000} \times 100\% = 522\%$
+    \item \textbf{Payback Period} = $\dfrac{161.000.000}{1.000.625.000 / 12} = 1,9$ bulan
+\end{itemize}
+\end{tipbox}
 
 \vspace{0.3cm}
 
@@ -455,7 +683,7 @@ Mitigasi risiko kepatuhan (eliminasi temuan audit): & Rp 200.000.000 /tahun \\[0
 \vspace{0.5cm}
 
 \begin{center}
-\begin{tcolorbox}[colback=green!5, colframe=green!50!black, width=0.85\textwidth, sharp corners]
+\begin{tcolorbox}[colback=plngreen!5, colframe=plngreen!70!black, width=0.88\textwidth, sharp corners, boxrule=1pt]
 \centering
 \textbf{Tanda Tangan Kelompok}\\[0.4cm]
 \begin{tabularx}{0.9\textwidth}{@{} X X X @{}}

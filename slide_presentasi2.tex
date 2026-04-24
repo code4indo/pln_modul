@@ -11,6 +11,16 @@
 \usepackage{amssymb}
 \usetikzlibrary{positioning, arrows.meta, shapes.geometric, shapes.misc, backgrounds, fit, calc, shadows}
 
+% Font profesional: Source Sans Pro (fallback ke helvet jika tidak tersedia)
+\IfFileExists{sourcesanspro.sty}{%
+    \usepackage[default]{sourcesanspro}%
+}{%
+    \usepackage[scaled]{helvet}%
+    \renewcommand{\familydefault}{\sfdefault}%
+}
+\usepackage{sfmath}
+\usefonttheme{professionalfonts}
+
 % Warna Korporat PLN + Premium Accents
 \definecolor{plnblue}{RGB}{0,75,135}
 \definecolor{plnorange}{RGB}{255,107,53}
@@ -66,22 +76,26 @@
     \setbeamercolor{palette primary}{bg=plnblue,fg=white}
     \setbeamercolor{palette secondary}{bg=plnorange,fg=white}
     \setbeamercolor{title}{bg=plnblue,fg=white}
-    \setbeamercolor{frametitle}{bg=plnblue,fg=white}
+    \setbeamercolor{frametitle}{bg=,fg=plnblue}
     \setbeamerfont{frametitle}{series=\bfseries, size=\large}
     \setbeamercolor{background canvas}{bg=white}
     \setbeamertemplate{navigation symbols}{}
     \setbeamertemplate{items}[circle]
-    % Footer bersih: hanya Institute kiri + nomor halaman kanan
+    
+    % Background default untuk slide isi (content)
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{assets/content.png}}
+    
+    % Footer minimalis: hanya nomor halaman kanan bawah tanpa background
     \setbeamertemplate{footline}{%
-        \leavevmode%
-        \hbox{%
-            \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,leftskip=1em]{palette primary}%
-                \usebeamerfont{author in head/foot}\insertshortinstitute
-            \end{beamercolorbox}%
-            \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,rightskip=1em,right]{palette primary}%
-                \usebeamerfont{date in head/foot}\insertframenumber{} / \inserttotalframenumber
-            \end{beamercolorbox}%
-        }%
+        \hfill\textcolor{plnblue}{\insertframenumber{} / \inserttotalframenumber}\hspace{1em}\vspace{0.5em}%
+    }
+    
+    % Frametitle center alignment tanpa background, posisi lebih turun
+    \setbeamertemplate{frametitle}{%
+        \vspace{0.3cm}%
+        \centering%
+        \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle\par%
+        \vspace{0.05cm}%
     }
 }
 
@@ -117,6 +131,21 @@
     \end{tikzpicture}
 }
 
+% Section divider dengan background section.png
+\AtBeginSection[]{
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{assets/section.png}}
+    \begin{frame}[plain]
+      \vfill
+      \centering
+      {\Huge\bfseries\textcolor{white}{\insertsectionhead}\par}
+      \vspace{0.5cm}
+      {\large\textcolor{white!80}{Modul 4.3: Optimalisasi Prosedur \& Alur Kerja Terintegrasi}\par}
+      \vfill
+    \end{frame}
+  }
+}
+
 \begin{document}
 
 % ================================================================
@@ -125,6 +154,11 @@
 
 % SLIDE 1: TITLE PAGE
 {
+\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{assets/section.png}}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{author}{fg=white}
+\setbeamercolor{institute}{fg=white}
+\setbeamercolor{date}{fg=white}
 \beamertemplatenavigationsymbolsempty
 \begin{frame}[plain]
     \titlepage
@@ -223,33 +257,42 @@
 
 % SLIDE 5: AGENDA PEMBELAJARAN (FIX #9: Alokasi Waktu)
 \begin{frame}{Agenda Pembelajaran (Outline Materi)}
-    \vspace{0.2cm}
+    \vspace{0.1cm}
     \begin{columns}[T]
         \column{0.48\textwidth}
-        \begin{premiumbox}[Bagian I: Fondasi \& Diagnosa --- \textcolor{white}{\fbox{\textcolor{plnblue}{25 menit}}}]
+        \begin{premiumbox}[Bagian I: Fondasi \& Diagnosa]
+            \makebox[\linewidth][r]{%
+                \tcbox[on line, colback=plnblue!15, colframe=plnblue, boxrule=0.6pt, arc=2pt, boxsep=1pt, left=4pt, right=4pt, top=1pt, bottom=1pt, fontupper=\bfseries\tiny\color{plnblue}]{15 menit}%
+            }
+            \vspace{0.1cm}
+            
             \scriptsize
             \stepicon{plnblue}{1} \textbf{Pendahuluan \& Urgensi}\\
-            Visi Ekosistem Kearsipan Digital \& Biaya Tersembunyi Proses Manual.\\[0.15cm]
+            {\scriptsize Visi Ekosistem Kearsipan Digital \& Biaya Tersembunyi Proses Manual.}\\[0.2cm]
             \stepicon{plnblue}{2} \textbf{Landasan Internasional}\\
-            Metodologi PARBICA, Teori \textit{Continuum}, \& Tata Kelola ISO 15489.\\[0.15cm]
+            {\scriptsize Metodologi PARBICA, Teori \textit{Continuum}, \& Tata Kelola ISO 15489.}\\[0.2cm]
             \stepicon{plnblue}{3} \textbf{Evaluasi Prosedur Lapangan}\\
-            Identifikasi Titik Gesekan (\textit{Friction}) \& Pemodelan BPMN Saat Ini.
+            {\scriptsize Identifikasi Titik Gesekan (\textit{Friction}) \& Pemodelan BPMN Saat Ini.}
         \end{premiumbox}
         
         \column{0.48\textwidth}
-        \begin{orangebox}[Bagian II: Desain \& Implementasi --- \textcolor{white}{\fbox{\textcolor{plnorange}{50 menit}}}]
+        \begin{orangebox}[Bagian II: Desain \& Implementasi]
+            \makebox[\linewidth][r]{%
+                \tcbox[on line, colback=plnorange!15, colframe=plnorange, boxrule=0.6pt, arc=2pt, boxsep=1pt, left=4pt, right=4pt, top=1pt, bottom=1pt, fontupper=\bfseries\tiny\color{plnorange}]{30 menit}%
+            }
+            \vspace{0.1cm}
+            
             \scriptsize
             \stepicon{plnorange}{4} \textbf{Perancangan Alur Terintegrasi}\\
-            Model Target (\textit{To-Be}), Pola Otomasi, \& Workshop BPMN.\\[0.15cm]
+            {\scriptsize Model Target (\textit{To-Be}), Pola Otomasi, \& Workshop BPMN.}\\[0.2cm]
             \stepicon{plnorange}{5} \textbf{Penyusunan SOP Digital}\\
-            Anatomi SOP 8 Komponen, 14 Field Metadata, \& Legalitas TTE.\\[0.15cm]
+            {\scriptsize Struktur SOP 8 Komponen, 14 Field Metadata, \& Legalitas TTE.}\\[0.2cm]
             \stepicon{plnorange}{6} \textbf{Analisis ROI \& Tindak Lanjut}\\
-            KPI, Studi Kasus GI 150kV, Workshop Business Case, \& Refleksi.
+            {\scriptsize KPI, Studi Kasus GI 150kV, Workshop Business Case, \& Refleksi.}
         \end{orangebox}
     \end{columns}
-    \vspace{0.15cm}
     \centering
-    \scriptsize \textit{Total durasi fasilitasi: $\pm$80 menit (60 menit materi + 20 menit workshop praktik)}
+    \textcolor{darkgrey}{\scriptsize \textit{Total durasi fasilitasi: $\pm$45 menit (30 menit materi + 15 menit workshop praktik)}}
 \end{frame}
 
 % SLIDE 6: GLOSARIUM RINGKAS (FIX #7: Istilah Teknis)
@@ -279,6 +322,8 @@
 % ================================================================
 %  BAGIAN I: FONDASI & DIAGNOSA (BAB 1--2) --- 25 Menit
 % ================================================================
+
+\section{Fondasi \& Diagnosa}
 
 % SLIDE 7: VISION & CONCEPT
 \begin{frame}{Visi Masa Depan: Ekosistem Kearsipan Digital PLN}
@@ -366,11 +411,7 @@
             \centering
             \includegraphics[width=0.95\linewidth, keepaspectratio]{assets/rc3.png}
         \end{tcolorbox}
-        \vspace{0.2cm}
-        \flushleft
-        \fontsize{4}{5}\selectfont \color{gray} 
-        Upward, F. (1996). Structuring the Records Continuum. Monash University.
-        
+
         \column{0.48\textwidth}
         \begin{premiumbox}[Prinsip Kesatuan]
             \tiny \textbf{Beyond Life Cycle:} Berbeda dengan teori klasik, Continuum Model menegaskan bahwa arsip digital adalah satu kesatuan sejak diciptakan hingga memori korporat.
@@ -386,6 +427,8 @@
             \tiny Model ini menjamin bahwa setiap data yang divalidasi di awal (\textit{D-1}) akan tetap sah secara hukum hingga puluhan tahun mendatang (\textit{D-4}).
         \end{orangebox}
     \end{columns}
+    \vfill
+    \hfill{\fontsize{4}{5}\selectfont\color{gray}Upward, F. (1996). Structuring the Records Continuum. Monash University.}\hspace{1em}
 \end{frame}
 
 % SLIDE 11: METODOLOGI (7 DOMAIN)
@@ -444,10 +487,7 @@
             \item[$\square$] \textbf{7. Preservasi} --- Arsip lama terancam rusak/hilang
         \end{itemize}
     \end{columns}
-    \vspace{0.3cm}
-    \begin{orangebox}
-        \scriptsize \textbf{Catatan Fasilitator:} Jawaban peserta dapat dijadikan basis diskusi kelompok dan penentuan proses prioritas untuk workshop nanti.
-    \end{orangebox}
+
 \end{frame}
 
 % SLIDE 13: THEORY - GOVERNANCE & ISO
@@ -465,46 +505,102 @@
         \vspace{-0.4cm}
         \begin{greenbox}[ISO 15489-1:2016 --- 4 Karakteristik Arsip Digital]
             \tiny
-            \textbf{Authenticity:} Keaslian pencipta terbukti. \quad
-            \textbf{Reliability:} Akurat merepresentasikan transaksi. \quad
-            \textbf{Integrity:} Bebas alterasi (\textit{Hash-lock}). \quad
-            \textbf{Usability:} Terstruktur \& mudah ditemukan.
+            \begin{enumerate}
+                \item \textbf{Authenticity:} Keaslian pencipta terbukti.
+                \item \textbf{Reliability:} Akurat merepresentasikan transaksi.
+                \item \textbf{Integrity:} Bebas alterasi (\textit{Hash-lock}).
+                \item \textbf{Usability:} Terstruktur \& mudah ditemukan.
+            \end{enumerate}
         \end{greenbox}
         
         \column{0.4\textwidth}
         \centering
-        \begin{tikzpicture}
-            \node[circle, fill=plnblue!10, draw=plnblue, text width=2cm, align=center, font=\tiny\bfseries] (c1) {Accountability};
-            \node[circle, fill=plnorange!10, draw=plnorange, text width=2cm, align=center, font=\tiny\bfseries, below left=0.5cm and -0.8cm of c1] (c2) {Integrity};
-            \node[circle, fill=plngreen!10, draw=plngreen, text width=2cm, align=center, font=\tiny\bfseries, below right=0.5cm and -0.8cm of c1] (c3) {Compliance};
-            \draw[thick, gray, -] (c1) -- (c2) -- (c3) -- (c1);
-            \node[font=\bfseries, text=plnblue, align=center] at ($(c1)!0.5!(c2)!0.5!(c3)$) {\tiny TRUST};
+        \begin{tikzpicture}[scale=0.95]
+            % Soft triangle background
+            \fill[plnblue!5] (0,2.2) -- (-2,-0.9) -- (2,-0.9) -- cycle;
+            \draw[plnblue!20, thick, dashed] (0,2.2) -- (-2,-0.9) -- (2,-0.9) -- cycle;
+            
+            % Thick colored edges
+            \draw[plnblue, line width=2pt] (0, 1.7) -- (-1.5, -0.4);
+            \draw[plnorange, line width=2pt] (-1.5, -0.4) -- (1.5, -0.4);
+            \draw[plngreen, line width=2pt] (1.5, -0.4) -- (0, 1.7);
+            
+            % Corner nodes
+            \node[circle, fill=plnblue!15, draw=plnblue, line width=1.2pt, minimum size=1.6cm, align=center, font=\scriptsize\bfseries, text=plnblue!80!black] at (0, 1.7) {Accountability};
+            \node[circle, fill=plnorange!15, draw=plnorange, line width=1.2pt, minimum size=1.6cm, align=center, font=\scriptsize\bfseries, text=plnorange!80!black] at (-1.5, -0.4) {Integrity};
+            \node[circle, fill=plngreen!15, draw=plngreen, line width=1.2pt, minimum size=1.6cm, align=center, font=\scriptsize\bfseries, text=plngreen!80!black] at (1.5, -0.4) {Compliance};
+            
+            % Prominent TRUST badge in center
+            \node[circle, fill=white, draw=plnblue, line width=2pt, inner sep=5pt, font=\bfseries\small, text=plnblue] at (0, 0.5) {TRUST};
         \end{tikzpicture}
     \end{columns}
 \end{frame}
 
 % SLIDE 14: STRATEGIC PILLARS
 \begin{frame}{3 Pilar Strategis Optimalisasi Prosedur}
-    \vspace{0.4cm}
+    \vspace{0.2cm}
     \begin{columns}[T]
         \column{0.31\textwidth}
         \centering
         \stepicon{plnblue}{1} \\ \textbf{Value-Added Focus} \\
-        \vspace{0.2cm}
-        \tiny Mengeliminasi aktivitas non-produktif (seperti pencarian arsip inaktif secara manual).
+        \vspace{0.1cm}
+        \scriptsize Mengeliminasi aktivitas non-produktif.
         
         \column{0.31\textwidth}
         \centering
         \stepicon{plncyan}{2} \\ \textbf{Single Source of Truth} \\
-        \vspace{0.2cm}
-        \tiny Satu kali input di sistem operasional, mengalir otomatis ke arsip.
+        \vspace{0.1cm}
+        \scriptsize Satu input, mengalir otomatis ke seluruh sistem.
         
         \column{0.31\textwidth}
         \centering
         \stepicon{plnorange}{3} \\ \textbf{Rule-Based Routing} \\
-        \vspace{0.2cm}
-        \tiny Distribusi persetujuan otomatis berdasarkan kategori risiko.
+        \vspace{0.1cm}
+        \scriptsize Persetujuan otomatis berdasarkan kategori risiko.
     \end{columns}
+    
+    \vspace{0.3cm}
+    \centering
+    \begin{tikzpicture}[scale=1.0]
+        % === Stage 1: Value-Added Focus ===
+        \node[rectangle, rounded corners=4pt, draw=plnblue, fill=plnblue!8, minimum width=3cm, minimum height=1.6cm, align=center] (b1) at (0,0) {};
+        \node[font=\scriptsize\bfseries, text=plnblue] at (0,0.5) {Value-Added Focus};
+        \node[font=\tiny, text=darkgrey] at (0,0.2) {Hapus yang tidak perlu};
+        % Mini icon: crossed = waste, plain = value
+        \node[fill=red!25, draw=red, minimum size=0.25cm, inner sep=0pt] at (-0.6,-0.2) {};
+        \draw[red, very thin] (-0.7,-0.1) -- (-0.5,-0.3);
+        \draw[red, very thin] (-0.7,-0.3) -- (-0.5,-0.1);
+        \node[fill=plngreen!25, draw=plngreen, minimum size=0.25cm, inner sep=0pt] at (0,-0.2) {};
+        \node[fill=red!25, draw=red, minimum size=0.25cm, inner sep=0pt] at (0.6,-0.2) {};
+        \draw[red, very thin] (0.5,-0.1) -- (0.7,-0.3);
+        \draw[red, very thin] (0.5,-0.3) -- (0.7,-0.1);
+        
+        \draw[-{Stealth[length=5pt]}, thick, gray!50] (1.6,0) -- (2.2,0);
+        
+        % === Stage 2: Single Source of Truth ===
+        \node[rectangle, rounded corners=4pt, draw=plncyan, fill=plncyan!8, minimum width=3cm, minimum height=1.6cm, align=center] (b2) at (4,0) {};
+        \node[font=\scriptsize\bfseries, text=plncyan] at (4,0.5) {Single Source of Truth};
+        \node[font=\tiny, text=darkgrey] at (4,0.2) {Input 1×, pakai banyak};
+        % Mini icon: hub
+        \fill[plncyan!50] (4,-0.15) circle (0.1cm);
+        \draw[plncyan, thin] (4,-0.15) -- (3.65,-0.35);
+        \draw[plncyan, thin] (4,-0.15) -- (4,-0.4);
+        \draw[plncyan, thin] (4,-0.15) -- (4.35,-0.35);
+        \fill[plncyan!30] (3.65,-0.35) circle (0.05cm);
+        \fill[plncyan!30] (4,-0.4) circle (0.05cm);
+        \fill[plncyan!30] (4.35,-0.35) circle (0.05cm);
+        
+        \draw[-{Stealth[length=5pt]}, thick, gray!50] (5.6,0) -- (6.2,0);
+        
+        % === Stage 3: Rule-Based Routing ===
+        \node[rectangle, rounded corners=4pt, draw=plnorange, fill=plnorange!8, minimum width=3cm, minimum height=1.6cm, align=center] (b3) at (8,0) {};
+        \node[font=\scriptsize\bfseries, text=plnorange] at (8,0.5) {Rule-Based Routing};
+        \node[font=\tiny, text=darkgrey] at (8,0.2) {Otomatis berdasarkan aturan};
+        % Mini icon: decision diamond
+        \node[diamond, fill=plnorange!25, draw=plnorange, aspect=1, minimum size=0.35cm, inner sep=0pt] at (8,-0.15) {};
+        \draw[-{Stealth[length=4pt]}, plngreen, thin] (8.2,-0.1) -- ++(0.25,0.12);
+        \draw[-{Stealth[length=4pt]}, red, thin] (8.2,-0.2) -- ++(0.25,-0.12);
+    \end{tikzpicture}
 \end{frame}
 
 % SLIDE 15: INVESTIGATIVE PHASE
@@ -644,6 +740,8 @@
 % ================================================================
 %  BAGIAN II: DESAIN \& IMPLEMENTASI (BAB 3--4) --- 50 Menit
 % ================================================================
+
+\section{Desain \& Implementasi}
 
 % SLIDE 18: DESIGN PRINCIPLES
 \begin{frame}{Prinsip Desain Workflow Terintegrasi}
@@ -819,7 +917,7 @@
 \end{frame}
 
 % SLIDE 23: SOP EVOLUTION
-\begin{frame}{Evolusi Paradigma SOP PLN}
+\begin{frame}{Evolusi Paradigma SOP}
     \centering
     \begin{tikzpicture}[
         scale=0.58, every node/.style={transform shape},
@@ -886,13 +984,13 @@
 \end{frame}
 
 % SLIDE 24: 8 KOMPONEN WAJIB SOP
-\begin{frame}{Anatomi SOP Digital Terintegrasi: 8 Komponen Wajib}
+\begin{frame}{Struktur SOP Digital Terintegrasi: 8 Komponen Wajib}
     \vspace{0.2cm}
     \begin{columns}[T]
         \column{0.48\textwidth}
         \scriptsize
         \begin{enumerate}
-            \item \textbf{Tujuan \& Scope Interoperabilitas:}\\Batasan penarikan data antar-sistem.
+            \item \textbf{Tujuan \& Lingkup Interoperabilitas:}\\Batasan penarikan data antar-sistem.
             \item \textbf{Dasar Hukum:}\\UU ITE, PP 71/2019, Perka ANRI.
             \item \textbf{Definisi Digital:}\\Token, Hash, RBAC, Metadata.
             \item \textbf{Peran + System Custodian:}\\Mengakui \textbf{Sistem} sebagai entitas pengawasan.
@@ -1039,12 +1137,7 @@
         \column{0.55\textwidth}
         \centering
         \includegraphics[width=0.85\textwidth,keepaspectratio]{trust_chain.png}
-        \vspace{0.05cm}
-        \flushleft
-        \fontsize{4}{5}\selectfont \color{gray}
-        Ref: PP No. 71/2019 tentang PSTE; UU ITE.
-        Adaptasi visual untuk PT PLN (Persero).
-        
+
         \column{0.45\textwidth}
         \begin{premiumbox}[Kekuatan Hukum Digital]
             \scriptsize
@@ -1060,6 +1153,8 @@
             \tiny Menghilangkan keraguan legalitas arsip digital dalam proses audit eksternal BPK/BPKP.
         \end{orangebox}
     \end{columns}
+    \vfill
+    \hfill{\fontsize{4}{5}\selectfont\color{gray}Ref: PP No. 71/2019 tentang PSTE; UU ITE. Adaptasi visual untuk PT PLN (Persero).}\hspace{1em}
 \end{frame}
 % SLIDE 29: BLOCKCHAIN HASH CHAIN
 \begin{frame}{Menjamin Integritas:\\Blockchain Hash Chain \& Immutability}
@@ -1070,12 +1165,7 @@
             \centering
             \includegraphics[width=0.9\linewidth,keepaspectratio]{assets/Blockchain_Hash_Chain.png}
         \end{tcolorbox}
-        \vspace{0.05cm}
-        \flushleft
-        \fontsize{4}{5}\selectfont \color{gray}
-        Konsep Kriptografi: Rantai Hash untuk Audit Trail yang Tidak Dapat Dimanipulasi.\\
-        Ref: Nakamoto, S. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System.
-        
+
         \column{0.45\textwidth}
         \begin{premiumbox}[Mekanisme Immutability]
             \scriptsize
@@ -1091,12 +1181,16 @@
             \tiny Menjamin bahwa arsip yang tercipta hari ini akan tetap memiliki bukti otentisitas yang sama hingga puluhan tahun mendatang.
         \end{greenbox}
     \end{columns}
+    \vfill
+    \hfill{\fontsize{4}{5}\selectfont\color{gray}Konsep Kriptografi: Rantai Hash untuk Audit Trail yang Tidak Dapat Dimanipulasi. Ref: Nakamoto, S. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System.}\hspace{1em}
 \end{frame}
 
 
 % ================================================================
 %  BAGIAN III: ANALISIS ROI \& TINDAK LANJUT (BAB 5--6) --- 20 Menit
 % ================================================================
+
+\section{Analisis ROI \& Tindak Lanjut}
 
 % SLIDE 29: KPI FRAMEWORK
 \begin{frame}{Metodologi Pengukuran: \textit{Time-Cost-Risk Saving}}
@@ -1107,7 +1201,7 @@
             \scriptsize
             \begin{itemize}
                 \item \textcolor{plnblue}{\textbf{Time Saving:}} Pemangkasan waktu tunggu \& durasi proses.
-                \item \textcolor{plnorange}{\textbf{Cost Saving:}} Reduksi pengeluaran riil (cetak, gudang).
+                \item \textcolor{plnorange}{\textbf{Cost Saving:}} Reduksi pengeluaran riil (cetak, depo arsip).
                 \item \textcolor{plngreen}{\textbf{Risk Saving:}} Perlindungan sanksi hukum \& kehilangan data.
             \end{itemize}
         \end{premiumbox}
@@ -1118,7 +1212,7 @@
             \textbf{Productivity Gain:}\\
             $\Delta$Waktu $\times$ Volume $\times$ Biaya/Jam\\[0.1cm]
             \textbf{Cost Avoidance:}\\
-            Eliminasi cetak ulang, kurir, sewa gudang.\\[0.1cm]
+            Eliminasi cetak ulang, kurir, sewa depo arsip.\\[0.1cm]
             \textbf{Risk Reduction:}\\
             Denda litigasi \& temuan audit (BPK/BPKP).
             \vfill
@@ -1228,11 +1322,7 @@
             \centering
             \includegraphics[width=0.9\linewidth,keepaspectratio]{assets/Balanced_Scorecard.png}
         \end{tcolorbox}
-        \vspace{0.05cm}
-        \flushleft
-        \fontsize{4}{5}\selectfont \color{gray}
-        Ref: Kaplan, R.S. \& Norton, D.P. (2004). Strategy Maps: Converting Intangible Assets into Tangible Outcomes.
-        
+
         \column{0.45\textwidth}
         \begin{premiumbox}[Penjabaran Metrik Kearsipan]
             \scriptsize
@@ -1249,10 +1339,12 @@
             \tiny Menjamin bahwa setiap angka yang dipantau oleh eksekutif memiliki korelasi langsung dengan pencapaian visi strategis korporat.
         \end{orangebox}
     \end{columns}
+    \vfill
+    \hfill{\fontsize{4}{5}\selectfont\color{gray}Ref: Kaplan, R.S. \& Norton, D.P. (2004). Strategy Maps: Converting Intangible Assets into Tangible Outcomes.}\hspace{1em}
 \end{frame}
 
 % SLIDE 32: DASHBOARD MOCKUP (Real-Time KPI Tracker)
-\begin{frame}{Dashboard Executive: Real-Time KPI Tracker (Model Simulasi)}
+\begin{frame}{Dashboard Executive: Real-Time KPI Tracker}
     \centering
     \fontsize{5}{6}\selectfont \color{gray} *Seluruh data di bawah ini adalah data simulasi untuk kepentingan diklat
     \vspace{0.1cm}
@@ -1450,7 +1542,7 @@
 \end{frame}
 
 % SLIDE 32: WORKSHOP 2 (FIX #3: Aktivitas Workshop)
-\begin{frame}{Workshop 2: Penyusunan Business Case \& Action Plan (15 Menit)}
+\begin{frame}{Workshop 2: Penyusunan Business Case \& Action Plan}
     \vspace{0.1cm}
     \begin{premiumbox}[Instruksi Aktivitas Kelompok]
         \small
@@ -1458,7 +1550,7 @@
             \item Hitung potensi efisiensi dari proses yang telah dirancang di Workshop 1.
             \item Isi \textbf{Business Case 1 Halaman} dengan komponen:\\
             {\scriptsize Latar Belakang $\rightarrow$ Solusi Usulan $\rightarrow$ Target KPI $\rightarrow$ Estimasi ROI $\rightarrow$ Timeline 30 Hari $\rightarrow$ PIC}
-            \item Susun \textbf{Action Plan 30 Hari} dengan tonggak mingguan \& penanggung jawab.
+            \item Susun \textbf{Action Plan 30 Hari} dengan Target mingguan \& penanggung jawab.
             \item Presentasi singkat (3 menit) untuk validasi kelayakan implementasi.
         \end{enumerate}
     \end{premiumbox}
@@ -1510,19 +1602,15 @@
 \end{frame}
 
 % SLIDE 38: ADKAR MODEL
-\begin{frame}{Metodologi ADKAR: Framework Transformasi SDM (Skenario Simulasi)}
+\begin{frame}{Metodologi ADKAR: Framework Transformasi SDM}
     \begin{columns}
         \column{0.55\textwidth}
         \centering
         \begin{tcolorbox}[colback=white, colframe=plnblue!15, boxrule=0.5pt, arc=2pt, outer arc=2pt, left=2pt, right=2pt, top=2pt, bottom=2pt, boxsep=0pt, width=0.95\linewidth, drop shadow]
             \centering
-            \includegraphics[width=0.9\linewidth,keepaspectratio]{assets/ADKAR_Model.png}
+            \includegraphics[width=0.9\linewidth,keepaspectratio]{assets/adkar.png}
         \end{tcolorbox}
-        \vspace{0.05cm}
-        \flushleft
-        \fontsize{4}{5}\selectfont \color{gray}
-        Ref: Hiatt, J. (2006). ADKAR: A Model for Change in Business, Government and our Community. Prosci.
-        
+
         \column{0.45\textwidth}
         \begin{premiumbox}[Mitigasi 4 Pola Resistensi]
             \scriptsize
@@ -1538,6 +1626,8 @@
             \tiny Keberhasilan digitalisasi arsip di PLN ditentukan 20\% oleh teknologi dan 80\% oleh kesiapan manusia dalam mengadopsinya.
         \end{orangebox}
     \end{columns}
+    \vfill
+    \hfill{\fontsize{4}{5}\selectfont\color{gray}Ref: Hiatt, J. (2006). ADKAR: A Model for Change in Business, Government and our Community. Prosci.}\hspace{1em}
 \end{frame}
 
 % SLIDE 39: KOTTER'S 8-STEP MODEL
@@ -1549,11 +1639,7 @@
             \centering
             \includegraphics[width=0.9\linewidth,keepaspectratio]{assets/Kotters_8_Step.png}
         \end{tcolorbox}
-        \vspace{0.05cm}
-        \flushleft
-        \fontsize{4}{5}\selectfont \color{gray}
-        Ref: Kotter, J.P. (1996). Leading Change. Harvard Business School Press.
-        
+
         \column{0.45\textwidth}
         \begin{premiumbox}[Justifikasi 5 Strategi Mitigasi]
             \scriptsize
@@ -1569,6 +1655,8 @@
             \tiny Transformasi digital yang sukses membutuhkan struktur kepemimpinan yang mampu mengawal perubahan dari tahap urgensi hingga menjadi budaya korporat baru.
         \end{greenbox}
     \end{columns}
+    \vfill
+    \hfill{\fontsize{4}{5}\selectfont\color{gray}Ref: Kotter, J.P. (1996). Leading Change. Harvard Business School Press.}\hspace{1em}
 \end{frame}
 
 % SLIDE 40: STAKEHOLDER MAP
@@ -1605,11 +1693,7 @@
             \centering
             \includegraphics[width=0.9\linewidth,keepaspectratio]{assets/Power-Interest_Grid.png}
         \end{tcolorbox}
-        \vspace{0.05cm}
-        \flushleft
-        \fontsize{4}{5}\selectfont \color{gray}
-        Ref: Mendelow, A.L. (1991). "Environmental Scanning: The Impact of the Stakeholder Concept". ICIS Proceedings.
-        
+
         \column{0.45\textwidth}
         \begin{premiumbox}[Klasifikasi Strategi Engagement]
             \scriptsize
@@ -1625,13 +1709,15 @@
             \tiny Strategi komunikasi harus disesuaikan dengan posisi tiap kelompok di dalam matriks untuk meminimalkan friksi dan memaksimalkan adopsi.
         \end{orangebox}
     \end{columns}
+    \vfill
+    \hfill{\fontsize{4}{5}\selectfont\color{gray}Ref: Mendelow, A.L. (1991). ``Environmental Scanning: The Impact of the Stakeholder Concept''. ICIS Proceedings.}\hspace{1em}
 \end{frame}
 
 % SLIDE 42: ROADMAP & ACTION PLAN
 \begin{frame}{Rencana Aksi 30 Hari \& Budaya Kerja}
     \begin{columns}[T]
         \column{0.5\textwidth}
-        \begin{premiumbox}[Tonggak Capaian Mingguan]
+        \begin{premiumbox}[Target Capaian Mingguan]
             \scriptsize
             \begin{description}
                 \item[\textbf{M1}] \textit{Pilot Launch:} Integrasi API \& pelatihan personel unit percontohan.
@@ -1770,10 +1856,10 @@
             \begin{greenbox}[Langkah Selanjutnya]
                 \scriptsize
                 \begin{itemize}
-                    \item Kerjakan \textbf{Post-Test} (10 soal) via LMS PLN
+                    \item Kerjakan \textbf{Post-Test} (10 soal)
                     \item Kumpulkan \textbf{4 portofolio} ke Unit Kearsipan
                     \item Jadwalkan \textbf{Peer Review Session} antar unit
-                    \item Gunakan modul sebagai acuan \textbf{Annual RM Improvement Plan}
+                    \item Gunakan modul sebagai acuan \textbf{Rencana Peningkatan Tahunan}
                 \end{itemize}
             \end{greenbox}
         \end{minipage}
