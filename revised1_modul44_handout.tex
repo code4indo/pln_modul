@@ -472,6 +472,65 @@ Dua konsep teknis kunci yang menjadi fondasi mekanisme audit trail perlu dipaham
 \textit{Hash Chain} adalah mekanisme yang menghubungkan setiap entri log audit secara kriptografis, sedemikian sehingga setiap entri berisi jejak (hash) dari entri sebelumnya. Praktisnya, jika satu byte data dalam log diubah secara tidak sah, hash entri tersebut akan berubah dan menyebabkan seluruh rantai hash berikutnya gagal verifikasi -- sehingga manipulasi langsung terdeteksi. Bagi Manajemen Atas, hash chain menjamin bahwa log audit tidak dapat dimanipulasi oleh pihak mana pun -- termasuk administrator sistem -- sehingga catatan audit tetap kredibel sebagai bukti hukum di mata regulator.
 
 %% ============================================================
+%% GAMBAR 2.2 — Hash Chain / Blockchain Immutability (Custom Diagram)
+%% Desain mandiri dengan label Bahasa Indonesia
+%% ============================================================
+
+\begin{figure}[H]
+\centering
+\resizebox{0.70\textwidth}{!}{%
+\begin{tikzpicture}[
+  ok/.style={draw=plnblue, fill=plnblue!5, rounded corners=2pt,
+    line width=0.5pt, minimum width=1.2cm, minimum height=1.3cm,
+    align=center, font=\tiny, inner sep=2pt},
+  fail/.style={draw=red!70!black, fill=red!5, rounded corners=2pt,
+    line width=0.5pt, minimum width=1.2cm, minimum height=1.3cm,
+    align=center, font=\tiny, inner sep=2pt},
+  warn/.style={draw=orange!80!black, fill=orange!5, rounded corners=2pt,
+    line width=0.5pt, minimum width=1.2cm, minimum height=1.3cm,
+    align=center, font=\tiny, inner sep=2pt},
+  arr/.style={-{Stealth[length=2pt]}, line width=0.5pt}
+]
+% Title
+\node[font=\tiny\bfseries, text=plnblue] at (5,3.8)
+  {Hash Chain: Immutability Log Audit};
+\node[font=\tiny, text=gray] at (5,3.4)
+  {Modifikasi 1 byte merusak rantai};
+% Log blocks
+\node[ok] (L1) at (0,1.5) {\textbf{Log 1}\\[-1pt]{\tiny a4f8c2}\\
+  {\tiny 08:30}\\[-1pt]{\tiny\color{green!60!black}$\checkmark$}};
+\node[ok] (L2) at (2.5,1.5) {\textbf{Log 2}\\[-1pt]{\tiny 7d3e91}\\
+  {\tiny 09:15}\\[-1pt]{\tiny\color{green!60!black}$\checkmark$}};
+\node[fail] (L3) at (5,1.5) {\textbf{Log 3}\\[-1pt]{\tiny\color{red!70!black}3b6c45}\\
+  {\tiny 23:45}\\[-1pt]{\tiny\color{red!70!black}$\times$}};
+\node[warn] (L4) at (7.5,1.5) {\textbf{Log 4}\\[-1pt]{\tiny b1c7f3}\\
+  {\tiny 10:00}\\[-1pt]{\tiny\color{orange!80!black}$\times$}};
+\node[warn] (L5) at (10,1.5) {\textbf{Log 5}\\[-1pt]{\tiny e9d4a6}\\
+  {\tiny 14:30}\\[-1pt]{\tiny\color{orange!80!black}$\times$}};
+% Arrows
+\draw[arr, plnblue] (L1) -- (L2);
+\draw[arr, red!70!black] (L2) -- (L3);
+\draw[arr, orange!80!black] (L3) -- (L4);
+\draw[arr, orange!80!black] (L4) -- (L5);
+% Alert
+\node[font=\tiny\bfseries, text=red!70!black] at (5,-0.3)
+  {INTEGRITAS TERDETEKSI};
+\end{tikzpicture}%
+}
+\caption{Konsep Hash Chain untuk Immutability Audit Log -- Ilustrasi Efek Berantai akibat Manipulasi Log \#3\\
+\scriptsize Sumber: PT PLN (Persero).}
+\label{fig:hash-chain}
+\end{figure}
+
+\small Gambar \ref{fig:hash-chain} mengilustrasikan skenario deteksi integritas pada log audit. Log \#3 menunjukkan manipulasi tidak sah: hash asli diganti, sehingga hash referensi pada Log \#4 dan Log \#5 gagal verifikasi. Sistem SIEM secara otomatis memicu peringatan \textit{Pelanggaran Integritas Terdeteksi} agar Manajemen Atas dapat segera menindaklanjuti.
+
+\begin{itemize}[leftmargin=*]
+    \item Log audit disimpan terpisah dari sistem produksi dengan kebijakan Write-Once-Read-Many (WORM).
+    \item Hash SHA-256 menjamin deteksi perubahan 1 byte seketika.
+    \item Setiap approval wajib menggunakan Tanda Tangan Elektronik Tersertifikasi (TTE) untuk kekuatan hukum \textit{non-repudiation}.
+\end{itemize}
+
+%% ============================================================
 %% GAMBAR 2.1 — Alur Audit Trail (Custom Diagram)
 %% Desain mandiri untuk konteks PLN
 %% ============================================================
@@ -594,65 +653,6 @@ Perancangan audit trail tingkat tata kelola bagi Manajemen Atas berfokus pada ap
 
 Pertanyaan kunci untuk Manajemen Atas: ``Jika hari ini terjadi kebocoran arsip vital, apakah kita bisa menunjukkan siapa yang mengakses, mengubah, atau mengekspor arsip tersebut dalam 6 bulan terakhir -- lengkap dengan waktu, peran, dan alasan aksesnya?''
 
-%% ============================================================
-%% GAMBAR 2.2 — Hash Chain / Blockchain Immutability (Custom Diagram)
-%% Desain mandiri dengan label Bahasa Indonesia
-%% ============================================================
-
-\begin{figure}[H]
-\centering
-\resizebox{0.70\textwidth}{!}{%
-\begin{tikzpicture}[
-  ok/.style={draw=plnblue, fill=plnblue!5, rounded corners=2pt,
-    line width=0.5pt, minimum width=1.2cm, minimum height=1.3cm,
-    align=center, font=\tiny, inner sep=2pt},
-  fail/.style={draw=red!70!black, fill=red!5, rounded corners=2pt,
-    line width=0.5pt, minimum width=1.2cm, minimum height=1.3cm,
-    align=center, font=\tiny, inner sep=2pt},
-  warn/.style={draw=orange!80!black, fill=orange!5, rounded corners=2pt,
-    line width=0.5pt, minimum width=1.2cm, minimum height=1.3cm,
-    align=center, font=\tiny, inner sep=2pt},
-  arr/.style={-{Stealth[length=2pt]}, line width=0.5pt}
-]
-% Title
-\node[font=\tiny\bfseries, text=plnblue] at (5,3.8)
-  {Hash Chain: Immutability Log Audit};
-\node[font=\tiny, text=gray] at (5,3.4)
-  {Modifikasi 1 byte merusak rantai};
-% Log blocks
-\node[ok] (L1) at (0,1.5) {\textbf{Log 1}\\[-1pt]{\tiny a4f8c2}\\
-  {\tiny 08:30}\\[-1pt]{\tiny\color{green!60!black}$\checkmark$}};
-\node[ok] (L2) at (2.5,1.5) {\textbf{Log 2}\\[-1pt]{\tiny 7d3e91}\\
-  {\tiny 09:15}\\[-1pt]{\tiny\color{green!60!black}$\checkmark$}};
-\node[fail] (L3) at (5,1.5) {\textbf{Log 3}\\[-1pt]{\tiny\color{red!70!black}3b6c45}\\
-  {\tiny 23:45}\\[-1pt]{\tiny\color{red!70!black}$\times$}};
-\node[warn] (L4) at (7.5,1.5) {\textbf{Log 4}\\[-1pt]{\tiny b1c7f3}\\
-  {\tiny 10:00}\\[-1pt]{\tiny\color{orange!80!black}$\times$}};
-\node[warn] (L5) at (10,1.5) {\textbf{Log 5}\\[-1pt]{\tiny e9d4a6}\\
-  {\tiny 14:30}\\[-1pt]{\tiny\color{orange!80!black}$\times$}};
-% Arrows
-\draw[arr, plnblue] (L1) -- (L2);
-\draw[arr, red!70!black] (L2) -- (L3);
-\draw[arr, orange!80!black] (L3) -- (L4);
-\draw[arr, orange!80!black] (L4) -- (L5);
-% Alert
-\node[font=\tiny\bfseries, text=red!70!black] at (5,-0.3)
-  {INTEGRITAS TERDETEKSI};
-\end{tikzpicture}%
-}
-\caption{Konsep Hash Chain untuk Immutability Audit Log -- Ilustrasi Efek Berantai akibat Manipulasi Log \#3\\
-\scriptsize Sumber: PT PLN (Persero).}
-\label{fig:hash-chain}
-\end{figure}
-
-\small Gambar \ref{fig:hash-chain} mengilustrasikan skenario deteksi integritas pada log audit. Log \#3 menunjukkan manipulasi tidak sah: hash asli diganti, sehingga hash referensi pada Log \#4 dan Log \#5 gagal verifikasi. Sistem SIEM secara otomatis memicu peringatan \textit{Pelanggaran Integritas Terdeteksi} agar Manajemen Atas dapat segera menindaklanjuti.
-
-\begin{itemize}[leftmargin=*]
-    \item Log audit disimpan terpisah dari sistem produksi dengan kebijakan Write-Once-Read-Many (WORM).
-    \item Hash SHA-256 menjamin deteksi perubahan 1 byte seketika.
-    \item Setiap approval wajib menggunakan Tanda Tangan Elektronik Tersertifikasi (TTE) untuk kekuatan hukum \textit{non-repudiation}.
-\end{itemize}
-
 \begin{plnbox}[Ringkasan untuk Manajemen Atas -- Bab 2]
 Audit trail mewujudkan keterlacakan (traceability) -- yaitu kemampuan untuk merekonstruksi secara lengkap siapa yang mengakses, mengubah, atau mengekspor arsip tertentu pada waktu tertentu. Tiga pesan kunci dari bab ini: (1) audit trail bukan log teknis semata, melainkan bukti hukum yang sah di mata regulator (PP 71/2019, Perka ANRI 6/2021); (2) kekekalan log (immutability) melalui hash chain menjamin bahwa tidak ada pihak -- termasuk admin sistem -- yang dapat memanipulasi catatan tanpa terdeteksi; dan (3) deteksi anomali secara waktu nyata oleh SIEM lebih bernilai daripada investigasi pascakejadian setelah kerusakan sudah terjadi.
 \end{plnbox}
@@ -680,6 +680,8 @@ Bab ini mendukung pencapaian Pilar 3: Kebijakan Keamanan -- peserta mampu merumu
 Dua kerangka standar internasional menjadi rujukan utama dalam bab ini. Pertama, ISO/IEC 27001:2022 yang diterbitkan oleh International Organization for Standardization (ISO) merupakan kerangka manajemen keamanan informasi yang paling banyak diadopsi secara global, mencakup siklus PDCA dan 93 kontrol keamanan. Kedua, standar dan panduan yang diterbitkan oleh NIST (National Institute of Standards and Technology) -- sebuah lembaga riset dan standar di bawah Departemen Perdagangan Amerika Serikat yang menghasilkan kerangka keamanan siber praktikal seperti Cybersecurity Framework, SP 800-53 (kontrol keamanan), dan SP 800-207 (\textit{Zero Trust Architecture}). Panduan NIST bersifat tidak wajib tetapi secara luas diakui sebagai referensi terbaik dalam perancangan kebijakan keamanan informasi.
 
 \section{Integrasi dengan ISO/IEC 27001:2022}
+
+ISO/IEC 27001:2022 mewajibkan organisasi menerapkan siklus perbaikan berkelanjutan yang dikenal sebagai PDCA (Plan-Do-Check-Act). Siklus ini memastikan bahwa kebijakan keamanan arsip bukan sekadar dokumen statis, melainkan kerangka kerja yang terus berevolusi mengikuti perubahan ancaman, regulasi, dan kebutuhan organisasi. Gambar \ref{fig:pdca-cycle} menunjukkan penerapan siklus PDCA dalam konteks keamanan arsip digital PLN.
 
 %% ============================================================
 %% GAMBAR 3.1 — Siklus PDCA
@@ -746,7 +748,7 @@ Gambar \ref{fig:iso27001-controls} menyorot sub-kategori bertanda {\color{orange
 
 \section{Tiga Prinsip Fundamental Kebijakan}
 
-Sebelum membahas detail kontrol ISO 27001:2022 pada Gambar \ref{fig:iso27001-controls}, Manajemen Atas perlu memahami tiga prinsip fundamental yang menjadi landasan filosofis seluruh kebijakan keamanan arsip digital. Ketiga prinsip ini bukan konsep teknis, melainkan keputusan strategis yang harus diinternalisasi oleh Manajemen Atas sebagai basis pengambilan keputusan tata kelola keamanan informasi.
+Kebijakan keamanan arsip digital dibangun di atas tiga prinsip fundamental yang bukan konsep teknis, melainkan keputusan strategis yang harus diinternalisasi oleh Manajemen Atas sebagai basis pengambilan keputusan tata kelola keamanan informasi.
 
 \begin{enumerate}[leftmargin=*]
     \item \textit{Least Privilege:} Hak akses minimum yang diperlukan untuk menyelesaikan tugas -- lihat penjelasan detail dan skenario kearsipan PLN pada Bab~1.
@@ -780,7 +782,7 @@ Sebelum membahas detail kontrol ISO 27001:2022 pada Gambar \ref{fig:iso27001-con
 \centering
 \includegraphics[width=0.85\textwidth,height=0.35\textheight,keepaspectratio]{gambar/NIST_Zero_Trust_Architecture.png}
 \caption{Arsitektur \textit{Zero Trust} Referensi NIST\\
-\small Sumber: NIST SP 1800-35, Figure 1 (Public Domain). Untuk adaptasi konteks PLN, lihat Gambar~\ref{fig:zero-trust-pln}.}
+\small Sumber: NIST SP 1800-35, Figure 1 (Public Domain).}
 \label{fig:zero-trust}
 
 \vspace{1em}
@@ -900,6 +902,8 @@ Bab ini mendukung pencapaian Pilar 4: Pemulihan Data -- peserta mampu merancang 
 Mengapa bab ini berurutan setelah Kebijakan Keamanan? Kebijakan keamanan (Pilar 3) menetapkan apa yang harus dilindungi dan bagaimana standar perlindungannya. Namun, kebijakan tanpa mekanisme pemulihan (backup/DR) hanya mengelola risiko secara parsial -- arsip yang sangat aman tetapi tidak dapat dipulihkan saat terjadi bencana sama buruknya dengan arsip yang tidak aman. ISO 27001:2022 secara eksplisit mengklasifikasikan backup sebagai kontrol wajib (A.8.13 Information Backup)\footnote{ISO/IEC 27001:2022, cl. A.8.13.}, dan ISO 22301:2019\footnote{ISO 22301:2019, \textit{Business Continuity Management Systems -- Requirements}, 2nd ed. (Geneva: ISO, 2019).} mewajibkan organisasi memiliki rencana kelangsungan bisnis. Backup dan Disaster Recovery (Pilar 4) melengkapi tiga pilar sebelumnya dengan menjamin bahwa arsip yang dilindungi oleh RBAC (Pilar 1), dicatat oleh audit trail (Pilar 2), dan diatur oleh kebijakan (Pilar 3) juga tersedia saat dibutuhkan -- bahkan dalam kondisi terburuk sekalipun.
 
 \section{Strategi Backup 3-2-1 untuk Arsip PLN}
+
+Strategi 3-2-1 adalah standar minimum industri yang direkomendasikan oleh US-CERT/CISA untuk melindungi data dari kehilangan. Angka ``3-2-1'' merujuk pada tiga aturan: minimal 3 salinan data, tersimpan pada sedikitnya 2 jenis media yang berbeda, dan sedikitnya 1 salinan disimpan di lokasi terpisah (offsite). Dalam konteks PLN, strategi ini diterapkan untuk menjamin bahwa kehilangan data akibat kegagalan perangkat, bencana lokasi, atau serangan siber dapat diminimalkan, karena tidak ada satu pun titik kegagalan tunggal yang dapat mengkompromikan seluruh salinan secara bersamaan. Gambar \ref{fig:backup-diagram} mengilustrasikan penerapan strategi ini di lingkungan PLN.
 
 %% ============================================================
 %% GAMBAR 4.1 — Diagram Strategi Backup 3-2-1 (Custom Image)
