@@ -34,7 +34,6 @@
 \usepackage{array}
 \usepackage{colortbl}
 \usepackage{float}
-\usepackage{placeins}
 \usepackage{wrapfig}
 \usepackage{caption}
 \usepackage{amssymb}
@@ -178,7 +177,7 @@ Modul ini dirancang untuk menjawab kebutuhan tersebut dengan pendekatan empat pi
 \section{Target Kompetensi}
 Setelah menyelesaikan modul ini, peserta diharapkan mampu mencapai empat kompetensi utama yang dipetakan terhadap kriteria penilaian sebagai berikut:
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Pemetaan Target Kompetensi terhadap Kriteria Penilaian}
@@ -205,7 +204,7 @@ Keempat target kompetensi di atas bersifat kumulatif dan terintegrasi: keberhasi
 
 \noindent Modul 4.4 berdiri di atas fondasi yang dibangun oleh tiga modul sebelumnya dalam Level 4. Tabel \ref{tab:ringkasan-modul} merangkum cakupan masing-masing modul dan kaitannya dengan Modul 4.4:
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Ringkasan Modul 4.1--4.3 dan Kaitannya dengan Modul 4.4}
@@ -230,7 +229,7 @@ Keempat target kompetensi di atas bersifat kumulatif dan terintegrasi: keberhasi
 \section{Arsitektur Keamanan Terintegrasi}
 Keempat target kompetensi dalam modul ini tidak berdiri sendiri, melainkan membentuk satu sistem tata kelola keamanan arsip yang saling terkait. Pemahaman terhadap hubungan antar-TK menjadi kunci bagi Manajemen Atas untuk mengarahkan tim secara koheren dan menghindari solusi parsial yang tidak saling mendukung.
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Hubungan Terintegrasi antar Target Kompetensi}
@@ -337,7 +336,7 @@ Untuk memastikan integrasi ini benar-benar bernilai bagi organisasi, Manajemen A
   \item \textbf{Akuntabilitas lintas fungsi.} Tetapkan pembagian tanggung jawab jelas antara HR, Unit Kearsipan, IT Governance, dan Atasan Langsung agar tidak ada area abu-abu saat terjadi insiden.
 \end{enumerate}
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Indikator Kendali Integrasi RBAC--Kepegawaian untuk Dashboard Manajemen}
@@ -505,7 +504,7 @@ Dalam kerangka regulasi nasional, keempat elemen 4W ini bukan pilihan melainkan 
 
 Untuk memastikan implementasi 4W tidak hanya bersifat deklaratif, Modul ini mewajibkan penerapan \textbf{14 Field Metadata Audit} pada setiap entri log. Tabel berikut memperinci field tersebut, bersama dengan sumber data dan status kepatuhannya:
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{14 Field Metadata Audit Trail (12 Wajib + 2 Semi-Mandatory)}
@@ -810,7 +809,7 @@ Seluruh aktivitas dicatat dalam Audit Trail immutable dengan hash chain SHA-256,
 
 TARIF adalah akronim dari lima prinsip tata kelola yang menjadi tolok ukur kinerja BUMN sebagaimana diatur dalam Permen BUMN PER-2/MBU/03/2023 tentang Pedoman GCG Signifikan BUMN. Kelima prinsip ini memiliki implikasi langsung terhadap kebijakan keamanan arsip digital. Tabel \ref{tab:pemetaan-gcg} merangkum implementasi setiap prinsip TARIF dalam konteks kebijakan keamanan arsip:
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Pemetaan Prinsip GCG ke Kebijakan Keamanan Arsip}
@@ -1012,7 +1011,7 @@ Bagian ini membahas konsep RTO dan RPO secara visual melalui diagram timeline (G
 
 Mengapa Manajemen Atas perlu memahami RTO dan RPO? Kedua metrik ini bukan sekadar parameter teknis -- melainkan keputusan bisnis strategis yang memiliki implikasi langsung terhadap biaya operasional dan manajemen risiko PLN. Menetapkan RTO 1 jam dan RPO 15 menit untuk seluruh arsip akan sangat mahal dan tidak efisien, karena tidak semua arsip memiliki tingkat kepentingan yang sama. Oleh karena itu, penetapan RTO/RPO harus proporsional dengan klasifikasi keamanan arsip sebagaimana diatur dalam Perdir 0037.P/DIR/2022. Tabel \ref{tab:rto-rpo} merangkum target pemulihan yang direkomendasikan berdasarkan tingkat kepentingan:
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Target Pemulihan (RTO/RPO) Berdasarkan Klasifikasi Arsip}
@@ -1065,7 +1064,7 @@ Kebijakan DR harus mencakup:
 \subsection{Analisis Dampak Bisnis (BIA) untuk Arsip Digital}
 BIA adalah tahap paling kritis dalam perancangan BCP/DR -- dan merupakan kegiatan yang secara langsung menjadi tanggung jawab Manajemen Atas. BIA menjawab pertanyaan strategis: ``Jika arsip X tidak dapat diakses selama Y jam, apa dampaknya terhadap operasional, keuangan, reputasi, dan kepatuhan regulasi?'' Tanpa BIA, penetapan RTO/RPO hanyalah tebakan tanpa dasar bisnis. Tabel \ref{tab:bia} menyajikan template BIA ringkas yang memetakan empat kategori klasifikasi arsip terhadap contoh arsip di PLN serta dampak operasional dan regulasinya masing-masing.
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Template BIA Ringkas untuk Arsip Digital PLN}
@@ -1164,7 +1163,7 @@ Refleksi Integrasi (Pilar 1 s.d. Pilar 4): Dengan merujuk studi kasus di atas, i
 % ============================================================
 
 \section{Ringkasan Kriteria Penilaian}
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \footnotesize
 \caption{Pemetaan Target Kompetensi $\rightarrow$ Kriteria Penilaian $\rightarrow$ Portofolio}
@@ -1188,7 +1187,7 @@ Kelulusan: Skor portofolio $\geq 70$, post-test $\geq 65$, submit komitmen tinda
 \section{Rubrik Penilaian Terukur}
 Tabel \ref{tab:rubrik-1} hingga Tabel \ref{tab:rubrik-4} memberikan indikator penilaian terukur untuk masing-masing portofolio, agar Manajemen Atas memiliki alat evaluasi yang objektif dan konsisten. Secara berurutan: Tabel \ref{tab:rubrik-1} menilai Matriks RBAC (Pilar 1), Tabel \ref{tab:rubrik-2} menilai Mekanisme Audit Trail (Pilar 2), Tabel \ref{tab:rubrik-3} menilai Kebijakan Keamanan ISMS (Pilar 3), dan Tabel \ref{tab:rubrik-4} menilai Sistem Backup \& DR (Pilar 4).
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Rubrik Penilaian Portofolio 1 -- Pilar 1: Kontrol Akses: Matriks RBAC Terintegrasi}
@@ -1205,7 +1204,7 @@ Tabel \ref{tab:rubrik-1} hingga Tabel \ref{tab:rubrik-4} memberikan indikator pe
 \end{tabularx}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Rubrik Penilaian Portofolio 2 -- Pilar 2: Audit Trail: Mekanisme Audit Trail Otomatis}
@@ -1222,7 +1221,7 @@ Tabel \ref{tab:rubrik-1} hingga Tabel \ref{tab:rubrik-4} memberikan indikator pe
 \end{tabularx}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Rubrik Penilaian Portofolio 3 -- Pilar 3: Kebijakan Keamanan: Kebijakan Keamanan Terintegrasi ISMS}
@@ -1239,7 +1238,7 @@ Tabel \ref{tab:rubrik-1} hingga Tabel \ref{tab:rubrik-4} memberikan indikator pe
 \end{tabularx}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Rubrik Penilaian Portofolio 4 -- Pilar 4: Pemulihan Data: Sistem Backup dan Disaster Recovery}
@@ -1256,7 +1255,6 @@ Tabel \ref{tab:rubrik-1} hingga Tabel \ref{tab:rubrik-4} memberikan indikator pe
 \end{tabularx}
 \end{table}
 
-\FloatBarrier
 \section{Tinjauan Akhir: 4 Prasyarat Pengesahan}
 Sebelum disahkan dan diimplementasikan, setiap rancangan kebijakan keamanan arsip wajib lolos pemeriksaan 4 prasyarat berikut. Jika salah satu prasyarat belum terpenuhi, rancangan harus diperbaiki terlebih dahulu sebelum diajukan ke Komite Tata Kelola.
 
