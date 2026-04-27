@@ -1,0 +1,144 @@
+<mxfile host="app.diagrams.net" modified="2026-04-26T00:00:00.000Z" agent="Kimi-Code-CLI" version="24.0.0" etag="etag_defense" type="device">
+  <diagram name="Defense-in-Depth" id="defense-diagram">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- === DROP SHADOW (Layer 1 duplicate, offset) === -->
+        <mxCell id="shadow" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B8CFE0;strokeColor=none;arcSize=6;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="118" y="68" width="580" height="380" as="geometry" />
+        </mxCell>
+
+        <!-- === LAYER 1: KEBIJAKAN & GOVERNANCE === -->
+        <mxCell id="layer1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D2E6F5;strokeColor=#7BA3C4;strokeWidth=2;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="110" y="60" width="580" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="label1" value="1. KEBIJAKAN &amp;amp; GOVERNANCE" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#004B87;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+          <mxGeometry x="125" y="70" width="180" height="22" as="geometry" />
+        </mxCell>
+        <!-- Icon: balance -->
+        <mxCell id="icon1" value="⚖" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontColor=#5B8DB8;" vertex="1" parent="1">
+          <mxGeometry x="145" y="100" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- === LAYER 2: KEAMANAN FISIK === -->
+        <mxCell id="layer2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#AFD2EB;strokeColor=#6A9CC2;strokeWidth=2;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="145" y="95" width="510" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="label2" value="2. KEAMANAN FISIK" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#004B87;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+          <mxGeometry x="160" y="105" width="130" height="22" as="geometry" />
+        </mxCell>
+        <!-- Icon: CCTV -->
+        <mxCell id="icon2" value="📷" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontColor=#6A9CC2;" vertex="1" parent="1">
+          <mxGeometry x="180" y="135" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- === LAYER 3: KEAMANAN JARINGAN === -->
+        <mxCell id="layer3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#87BEE1;strokeColor=#5B8DB8;strokeWidth=2;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="180" y="130" width="440" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="label3" value="3. KEAMANAN JARINGAN" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#004B87;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+          <mxGeometry x="195" y="140" width="150" height="22" as="geometry" />
+        </mxCell>
+        <!-- Icon: globe -->
+        <mxCell id="icon3" value="🌐" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontColor=#5B8DB8;" vertex="1" parent="1">
+          <mxGeometry x="215" y="170" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- === LAYER 4: KEAMANAN APLIKASI === -->
+        <mxCell id="layer4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5FAAD7;strokeColor=#4A8BB5;strokeWidth=2;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="215" y="165" width="370" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="label4" value="4. KEAMANAN APLIKASI" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#004B87;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+          <mxGeometry x="230" y="175" width="150" height="22" as="geometry" />
+        </mxCell>
+        <!-- Icon: shield -->
+        <mxCell id="icon4" value="🛡" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontColor=#4A8BB5;" vertex="1" parent="1">
+          <mxGeometry x="250" y="205" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- === LAYER 5: KEAMANAN DATA === -->
+        <mxCell id="layer5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3791C8;strokeColor=#2E7DB0;strokeWidth=2;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="250" y="200" width="300" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="label5" value="5. KEAMANAN DATA" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#004B87;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+          <mxGeometry x="265" y="210" width="130" height="22" as="geometry" />
+        </mxCell>
+        <!-- Icon: database -->
+        <mxCell id="icon5" value="🗄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontColor=#2E7DB0;" vertex="1" parent="1">
+          <mxGeometry x="285" y="240" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- === GLOW EFFECT (behind core) === -->
+        <mxCell id="glow3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6B35;strokeColor=none;arcSize=8;opacity=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="220" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="glow2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6B35;strokeColor=none;arcSize=8;opacity=15;" vertex="1" parent="1">
+          <mxGeometry x="320" y="225" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="glow1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6B35;strokeColor=none;arcSize=8;opacity=20;" vertex="1" parent="1">
+          <mxGeometry x="330" y="230" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- === CORE: ARSIP DIGITAL PLN === -->
+        <mxCell id="core" value="ARSIP DIGITAL&amp;lt;br&amp;gt;PLN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE8DF;strokeColor=#CC4A1A;strokeWidth=3;arcSize=8;fontSize=13;fontStyle=1;fontColor=#003B6B;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="340" y="235" width="120" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- === ATTACK ARROWS (immersive narrative) === -->
+        <!-- Arrow 1: top-left -->
+        <mxCell id="arrow1" value="Ancaman" style="endArrow=classic;dashed=1;html=1;strokeWidth=2;strokeColor=#C00000;fontColor=#C00000;fontSize=10;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="130" as="sourcePoint" />
+            <mxPoint x="105" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow 2: bottom-left -->
+        <mxCell id="arrow2" value="" style="endArrow=classic;dashed=1;html=1;strokeWidth=2;strokeColor=#C00000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="360" as="sourcePoint" />
+            <mxPoint x="105" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow 3: top-right -->
+        <mxCell id="arrow3" value="" style="endArrow=classic;dashed=1;html=1;strokeWidth=2;strokeColor=#C00000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="160" as="sourcePoint" />
+            <mxPoint x="695" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow 4: bottom-right -->
+        <mxCell id="arrow4" value="" style="endArrow=classic;dashed=1;html=1;strokeWidth=2;strokeColor=#C00000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="340" as="sourcePoint" />
+            <mxPoint x="695" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- === CROSS MARK (blocked attack) === -->
+        <mxCell id="cross1" value="" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#B00000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="95" y="145" as="sourcePoint" />
+            <mxPoint x="115" y="155" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cross2" value="" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#B00000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="95" y="155" as="sourcePoint" />
+            <mxPoint x="115" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- === PRINCIPLE NOTE BOX === -->
+        <mxCell id="noteBox" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0F8;strokeColor=#B0C4DE;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="150" y="465" width="500" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="noteText" value="Tidak ada lapisan tunggal yang cukup untuk melindungi arsip secara mandiri." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#004B87;" vertex="1" parent="1">
+          <mxGeometry x="150" y="465" width="500" height="35" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

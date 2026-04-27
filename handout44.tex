@@ -1,0 +1,326 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+%\usepackage{microtype}  % Nonaktifkan sementara untuk menghindari font expansion error
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+
+\pagestyle{fancy}
+\setlength{\headheight}{13.6pt}  % Fix headheight warning
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Handout Modul 4.4: Keamanan \& Keterlacakan Terintegrasi}}
+\fancyhead[R]{\small Level 4 (Mastery) -- PT PLN (Persero)}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{plnblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries\color{plnblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{plnblue}}{\thesubsection}{1em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+\newtcolorbox{plnbox}[1][]{colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries, title=#1, sharp corners, boxrule=0.8pt, breakable}
+\newtcolorbox{warnbox}{colback=plnorange!10, colframe=plnorange, fonttitle=\bfseries, title=Batas Cakupan (Anti-Overlap), sharp corners, breakable}
+\newtcolorbox{outputbox}{colback=green!10, colframe=green!50!black, fonttitle=\bfseries, title=Output Portofolio, sharp corners, breakable}
+
+\setlist[itemize]{leftmargin=*, topsep=3pt, itemsep=3pt}
+\setlist[enumerate]{leftmargin=*, topsep=3pt, itemsep=3pt}
+
+\hypersetup{colorlinks=true, linkcolor=plnblue, urlcolor=plnblue, citecolor=plnblue}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\Huge\bfseries\color{plnblue} HANDOUT PESERTA DIKLAT}\\[0.5cm]
+{\LARGE\bfseries Modul 4.4: Perancangan Sistem Keamanan \& Keterlacakan Terintegrasi}\\[1cm]
+\rule{0.8\linewidth}{0.6pt}\\[0.5cm]
+{\large Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
+{\large Level 4 (Mastery) -- Manajemen Atas}\\[1.5cm]
+{\large PT PLN (Persero) \textbar{} Pusat Pendidikan dan Pelatihan}\\[3cm]
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=3.5cm]{example-image}
+% \end{figure}
+\vfill
+{\small Dokumen ini dirancang sebagai panduan mandiri \& workshop. Kompilasi dengan pdflatex/xelatex.}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\chapter*{Pendahuluan}
+Modul 4.4 merupakan mata pelajaran penutup dalam Level 4 (Mastery) yang berfokus pada perancangan tata kelola keamanan, integritas, dan keterlacakan arsip digital. Sasaran utamanya adalah membekali Manajemen Atas PLN dengan kemampuan merancang sistem keamanan yang terintegrasi penuh dengan kebijakan korporasi, regulasi nasional, dan prinsip GCG BUMN.
+
+\section*{Sasaran \& Prasyarat Peserta}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target:} Manajemen Atas (Unit Kearsipan, IT Governance, GCG, Risk Management)
+    \item \textbf{Prasyarat:} Lulus Modul 4.3, memahami klasifikasi arsip dasar, familiar dengan SAP/SSO organisasi
+    \item \textbf{Output:} 4 dokumen portofolio kebijakan/prosedur siap validasi manajemen
+\end{itemize}
+
+\begin{warnbox}
+\textbf{Fokus Modul 4.4:} Kebijakan kontrol akses, mekanisme audit trail, integrasi ISMS, strategi backup/DR.\\
+\textbf{Bukan Ranah 4.4:} Desain arsitektur teknis/API (4.2), optimasi alur kerja bisnis (4.3), evaluasi infrastruktur eksisting (4.1).
+\end{warnbox}
+
+\newpage
+\chapter{Kontrol Akses Berbasis Peran (RBAC) Terintegrasi}
+\textit{(Kriteria Penilaian 4.4.1)}
+
+RBAC bukan sekadar matriks izin, melainkan \textbf{kerangka tata kelola} yang menghubungkan identitas kepegawaian dengan hak akses arsip secara otomatis. Prinsip dasarnya adalah \textit{least privilege} dan \textit{segregation of duties}.
+
+\section{Integrasi Konseptual dengan Sistem Kepegawaian}
+Hak akses tidak diberikan kepada individu, melainkan kepada \textbf{peran (role)} yang terikat pada:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Jabatan/Fungsi:} Otomatis provisioning saat mutasi/promosi, de-provisioning saat pensiun/resign.
+    \item \textbf{Single Sign-On (SSO):} Autentikasi terpusat mengurangi risiko password sharing dan celah akses manual.
+    \item \textbf{Lifecycle Management:} Review hak akses berkala (minimal tahunan) untuk memastikan relevansi dengan tugas aktual.
+\end{itemize}
+
+\section{Matriks Role $\times$ Klasifikasi Arsip PLN}
+Skema akses ditentukan oleh perpotongan peran organisasi dan tingkat sensitivitas arsip:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Matriks RBAC Standar untuk Arsip Digital PLN}
+\begin{tabularx}{\textwidth}{@{} l c c c c @{}}
+\toprule
+\textbf{Peran (Role)} & \textbf{Publik/Internal} & \textbf{Terbatas} & \textbf{Rahasia} & \textbf{Vital} \\
+\midrule
+\textbf{Inisiator/Staf} & C, R & R & -- & -- \\
+\textbf{Validator/Manajer Unit} & C, R, U & C, R, U & R & R \\
+\textbf{Auditor Internal} & R & R, E & R, E & R, E \\
+\textbf{Manajemen Atas} & R & R, U & R, U, A & R, U, A \\
+\textbf{Sistem/Service Account} & Auto-capture, Indexing & Auto-classify & -- & -- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\textit{Keterangan: C=Create, R=Read, U=Update, A=Approve, E=Export/Review}
+
+\section*{[WORKSHOP] Aktivitas Workshop (30 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Identifikasi 3 peran kunci di unit Anda yang bersentuhan dengan arsip.
+    \item Tentukan hak akses (CRU) untuk 3 klasifikasi arsip operasional.
+    \item Rancang mekanisme review & revokasi akses tahunan.
+\end{enumerate}
+
+\begin{outputbox}
+[DONE] \textbf{Portofolio 1:} \textit{Matriks RBAC Terintegrasi} + \textit{Prosedur Provisioning/De-provisioning}. Dinilai berdasarkan kejelasan role, prinsip least privilege, dan keterkaitan dengan sistem kepegawaian.
+\end{outputbox}
+
+\newpage
+\chapter{Mekanisme Audit Trail Otomatis \& Keterlacakan}
+\textit{(Kriteria Penilaian 4.4.2)}
+
+Audit trail adalah \textbf{jejak digital immutable} yang merekam setiap interaksi dengan arsip. Tanpa audit trail yang terdesain sejak awal, arsip digital kehilangan kekuatan hukum dan akuntabilitasnya.
+
+\section{Kerangka 4W \& Field Metadata Wajib}
+Setiap log audit wajib mencatat: \textbf{WHO} (ID+Role), \textbf{WHAT} (aksi/view/edit/approve), \textbf{WHEN} (timestamp ISO 8601 presisi tinggi), \textbf{WHERE} (sumber/IP/lokasi sistem).
+
+Untuk memenuhi standar PP 71/2019 \& Perka ANRI 6/2021, terapkan \textbf{14 Field Metadata Audit}:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{14 Field Metadata Audit Trail (12 Wajib + 2 Semi-Mandatory)}
+\begin{tabularx}{\textwidth}{@{} c l l c @{}}
+\toprule
+\textbf{Kode} & \textbf{Nama Field} & \textbf{Sumber Data} & \textbf{Status} \\
+\midrule
+DOC\_ID & ID Dokumen Unik & Sistem Nomor & [OK] Wajib \\
+TIMESTAMP & Waktu Aksi (ISO 8601) & System Clock & [OK] Wajib \\
+HASH\_SHA256 & Nilai Hash Integritas & Cryptographic Module & [OK] Wajib \\
+CREATOR\_ROLE & Peran Pengguna & IAM/SSO & [OK] Wajib \\
+AUDIT\_LOG\_ID & ID Log Immutable & SIEM/Audit Engine & [OK] Wajib \\
+CLASSIFICATION & Tingkat Keamanan & Policy Engine & [OK] Wajib \\
+RETENTION\_RULE & Aturan Retensi & Schedule DB & [OK] Wajib \\
+ASSET\_ID & Referensi Aset PLN & SAP-PM/AMS & [OK] Wajib \\
+CONTRACT\_REF & Referensi Kontrak & E-Proc/Legal & [OK] Wajib \\
+LOCATION\_GIS & Lokasi Operasional & Master Data & [OK] Wajib \\
+INTEGRITY\_HASH & Verifikasi Perubahan & Hash Module & [OK] Wajib \\
+AUDIT\_TRAIL\_REF & Log Terkait & Chain Log & [OK] Wajib \\
+CONTENT\\_DESC & Ringkasan Isi & NLP/Input & [WARN] Semi \\\\
+SEARCH\\_TAGS & Kata Kunci Terkontrol & Thesaurus & [WARN] Semi \\\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Prinsip Immutable \& Trust-Chain}
+- Log audit disimpan terpisah dari sistem produksi dengan kebijakan \textit{Write-Once-Read-Many (WORM)}.
+- Hash SHA-256 menjamin deteksi perubahan 1 byte seketika.
+- Setiap approval wajib menggunakan Tanda Tangan Elektronik Tersertifikasi (TTE) untuk kekuatan hukum \textit{non-repudiation}.
+
+\section*{[WORKSHOP] Aktivitas Workshop (30 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Gambar alur audit trail dari penciptaan $\rightarrow$ validasi $\rightarrow$ penyimpanan.
+    \item Lengkapi template 14 field untuk 1 jenis arsip kritis unit Anda.
+    \item Tentukan mekanisme eskalasi jika hash integrity gagal verifikasi.
+\end{enumerate}
+
+\begin{outputbox}
+[DONE] \textbf{Portofolio 2:} \textit{Diagram Alur Audit Trail} + \textit{Template Log 14 Field}. Dinilai berdasarkan kelengkapan 4W, kejelasan immutability, dan keselarasan dengan regulasi PSTE.
+\end{outputbox}
+
+\newpage
+\chapter{Kebijakan Keamanan Terintegrasi dengan ISMS}
+\textit{(Kriteria Penilaian 4.4.3)}
+
+Kebijakan keamanan arsip tidak boleh berdiri sendiri. Ia harus menjadi bagian tak terpisahkan dari \textbf{Sistem Manajemen Keamanan Informasi (ISMS)} organisasi dan mendukung prinsip GCG BUMN (TARAK).
+
+\section{Integrasi dengan ISO/IEC 27001:2022}
+Arsip digital dikategorikan sebagai \textbf{Aset Informasi Kritis}. Integrasi dilakukan melalui:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{A.8 Asset Management:} Inventarisasi, klasifikasi, dan penentuan \textit{owner} arsip.
+    \item \textbf{A.5 Information Security Policies:} Penyelarasan kebijakan induk kearsipan dengan kebijakan keamanan informasi korporasi.
+    \item \textbf{A.12 Operations Security:} Prosedur operasional backup, monitoring log, dan penanganan insiden kebocoran.
+\end{itemize}
+
+\section{Tiga Prinsip Fundamental Kebijakan}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Least Privilege:} Hak akses minimum yang diperlukan untuk menyelesaikan tugas.
+    \item \textbf{Defense in Depth:} Lapisan pengamanan berlapis (fisik, jaringan, aplikasi, data, kebijakan).
+    \item \textbf{Zero Trust:} Tidak ada akses default. Setiap permintaan diverifikasi secara eksplisit berdasarkan konteks (role, device, lokasi, waktu).
+\end{enumerate}
+
+\section*{[GCG] Integrasi GCG BUMN (TARAK)}
+\begin{table}[htbp]
+\centering
+\small
+\caption{Pemetaan Prinsip GCG ke Kebijakan Keamanan Arsip}
+\begin{tabularx}{\textwidth}{@{} l X @{}}
+\toprule
+\textbf{Prinsip TARAK} & \textbf{Implementasi dalam Kebijakan Arsip} \\
+\midrule
+\textbf{Transparansi} & Audit trail dapat diakses Auditor Internal/Eksternal sesuai kewenangan \\
+\textbf{Akuntabilitas} & RACI digital jelas; setiap aksi terikat identitas & TTE \\
+\textbf{Responsibilitas} & Kepatuhan PP 71/2019 \& Perka ANRI 6/2021 wajib diuji berkala \\
+\textbf{Independensi} & Unit Kearsipan berwenang tolak arsip tidak memenuhi standar metadata \\
+\textbf{Kewajaran} & Akses berbasis need-to-know, tidak diskriminatif, ada mekanisme banding \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section*{[WORKSHOP] Aktivitas Workshop (30 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Susun draf klausul kebijakan keamanan arsip (maks. 2 halaman).
+    \item Petakan minimal 3 kontrol ISO 27001 yang relevan dengan unit Anda.
+    \item Integrasikan 1 klausul pendukung prinsip TARAK.
+\end{enumerate}
+
+\begin{outputbox}
+[DONE] \textbf{Portofolio 3:} \textit{Draft Kebijakan Keamanan Arsip Terintegrasi ISMS}. Dinilai berdasarkan keselarasan ISO 27001, kejelasan prinsip Zero Trust/Least Privilege, dan integrasi GCG BUMN.
+\end{outputbox}
+
+\newpage
+\chapter{Sistem Backup \& Disaster Recovery Terintegrasi}
+\textit{(Kriteria Penilaian 4.4.4)}
+
+Keamanan arsip tidak lengkap tanpa jaminan ketersediaan pasca-gangguan. Fokus pada level kebijakan: strategi, target pemulihan, dan kesiapan organisasi.
+
+\section{Strategi Backup 3-2-1 untuk Arsip PLN}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{3} salinan data (produksi + 2 backup)
+    \item \textbf{2} media penyimpanan berbeda (misal: NAS lokal + Cloud/Offsite terenkripsi)
+    \item \textbf{1} salinan disimpan di lokasi geografis terpisah dari data center utama
+\end{itemize}
+Kebijakan wajib mencantumkan jadwal backup otomatis, enkripsi \textit{at-rest/in-transit}, dan verifikasi integritas pasca-backup.
+
+\section{Penetapan RTO \& RPO Berbasis Criticality}
+\begin{table}[htbp]
+\centering
+\small
+\caption{Target Pemulihan (RTO/RPO) Berdasarkan Klasifikasi Arsip}
+\begin{tabularx}{\textwidth}{@{} l c c X @{}}
+\toprule
+\textbf{Klasifikasi} & \textbf{RTO (Waktu Pemulihan)} & \textbf{RPO (Toleransi Kehilangan Data)} & \textbf{Strategi Prioritas} \\
+\midrule
+\textbf{Vital} & $< 4$ jam & $< 1$ jam & Mirror site aktif, failover otomatis \\
+\textbf{Rahasia} & $< 12$ jam & $< 4$ jam & Backup harian terenkripsi, restore manual teruji \\
+\textbf{Internal/Publik} & $< 24$ jam & $< 12$ jam & Backup mingguan, arsip dingin (cold storage) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Business Continuity Plan (BCP) Kearsipan}
+Kebijakan DR harus mencakup:
+\begin{enumerate}[leftmargin=*]
+    \item Prosedur fallback digital/manual saat sistem \textit{down} $>4$ jam.
+    \item Prioritas recovery: Vital $\rightarrow$ Rahasia $\rightarrow$ Internal.
+    \item Jadwal uji drill recovery minimal 6 bulan sekali dengan dokumentasi \textit{lesson learned}.
+    \item Mekanisme komunikasi krisis \& eskalasi ke manajemen puncak.
+\end{enumerate}
+
+\section*{[WORKSHOP] Aktivitas Workshop (30 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Tentukan klasifikasi arsip vital di unit Anda.
+    \item Tetapkan target RTO/RPO realistis.
+    \item Rancang jadwal backup \& skenario uji drill 6 bulanan.
+\end{enumerate}
+
+\begin{outputbox}
+[DONE] \textbf{Portofolio 4:} \textit{Matriks RTO/RPO + Rencana Backup \& DR}. Dinilai berdasarkan kesesuaian 3-2-1, realisme target RTO/RPO, dan kejelasan prosedur fallback/drill.
+\end{outputbox}
+
+\newpage
+\chapter{Validasi, Portofolio \& Executive Tollgate}
+\section{Ringkasan Kriteria Penilaian}
+\begin{table}[htbp]
+\centering
+\small
+\caption{Peta Kriteria $\rightarrow$ Portofolio $\rightarrow$ Bobot Penilaian}
+\begin{tabularx}{\textwidth}{@{} l X X c @{}}
+\toprule
+\textbf{Kriteria} & \textbf{Portofolio Wajib} & \textbf{Fokus Penilaian} & \textbf{Bobot} \\
+\midrule
+4.4.1 RBAC Terintegrasi & Matriks RBAC + Prosedur Akses & Least privilege, integrasi HR/SSO, review berkala & 25\% \\
+4.4.2 Audit Trail Otomatis & Alur Audit + Template 14 Field & Immutability, 4W, compliance PSTE/ANRI & 25\% \\
+4.4.3 Kebijakan ISMS & Draft Kebijakan Keamanan & ISO 27001 alignment, Zero Trust, TARAK GCG & 25\% \\
+4.4.4 Backup \& DR & Matriks RTO/RPO + Rencana DR & 3-2-1, target realistis, BCP integration & 25\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\textit{Kelulusan: Skor portofolio $\geq 70$, post-test $\geq 65$, submit komitmen tindak lanjut.}
+
+\section{Executive Tollgate Verifikasi}
+Sebelum implementasi, rancangan harus lolos 4 gate:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{GATE LEGAL:} Selaras PP 71/2019 \& Perka ANRI 6/2021?
+    \item \textbf{GATE INTEGRITY:} Jamin keaslian via Hash + TTE + Audit Immutable?
+    \item \textbf{GATE VALUE:} Mitigasi risiko terkuantifikasi (downtime $\downarrow$, temuan audit $\rightarrow 0$)?
+    \item \textbf{GATE SCALE:} Infrastruktur \& prosedur siap diskalakan jangka panjang?
+\end{enumerate}
+Jika 1 gate bernilai \textbf{No}, lakukan re-design sebelum diajukan ke Komite Tata Kelola.
+
+\section*{Daftar Pustaka Terseleksi}
+\begin{enumerate}[leftmargin=*, nosep]
+    \item PP No. 71/2019 tentang PSTE \& Perka ANRI No. 6/2021 tentang Keamanan Arsip Elektronik
+    \item ISO/IEC 27001:2022 \& ISO 22301:2019 (Business Continuity)
+    \item NIST Cybersecurity Framework 2.0 \& NIST SP 800-53 (Access Control \& Audit)
+    \item PER-2/MBU/03/2023 tentang Pedoman Tata Kelola \& GCG BUMN
+    \item World Bank RM Roadmap Part 8 (Resources) \& Part 9 (Implementation)
+    \item The National Archives (UK). Security Guidance for Archives \& Records (2023)
+\end{enumerate}
+
+\vspace{1cm}
+\begin{plnbox}[NOTE] Penutup]
+Keamanan \& keterlacakan bukan hambatan operasional, melainkan \textbf{enabler akuntabilitas korporasi}. Rancangan yang Anda susun dalam modul ini menjadi fondasi tata kelola arsip PLN yang tahan audit, patuh regulasi, dan siap mendukung transformasi digital kelas dunia.
+\end{plnbox}
+
+\end{document}

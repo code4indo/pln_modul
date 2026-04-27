@@ -261,7 +261,7 @@ Dokumen ini berisi \textbf{contoh pengisian terbaik} untuk seluruh lembar kerja 
 \midrule
 A & Matriks Area Optimasi & 6 area hambatan + rekomendasi dengan prioritas T/S/R \\
 B & Diagram BPMN To-Be & Diagram TikZ 3-lane + daftar pemicu otomatis \\
-C & Draft SOP Digital & 7 komponen lengkap + catatan peer review \\
+C & Draft SOP Digital & 8 komponen lengkap + catatan peer review \\
 D & Business Case & Estimasi ROI 522\%, payback $<$2 bulan + action plan \\
 \bottomrule
 \end{tabularx}
@@ -466,7 +466,7 @@ Contoh berikut menampilkan diagram BPMN To-Be dengan 3 swimlane. Perhatikan baga
 \vspace{0.3cm}
 
 \begin{contohbox}
-Contoh berikut menampilkan SOP digital 7 komponen lengkap untuk proses pengelolaan arsip Work Order GI 150 kV. Perhatikan bagaimana setiap komponen saling melengkapi.
+Contoh berikut menampilkan SOP digital 8 komponen lengkap untuk proses pengelolaan arsip Work Order GI 150 kV. Perhatikan bagaimana setiap komponen saling melengkapi.
 \end{contohbox}
 
 \vspace{0.3cm}
@@ -569,6 +569,58 @@ Sistem memblokir penyimpanan jika $<$10 dari 12 field terisi. Notifikasi otomati
 \end{enumerate}
 \end{tcolorbox}
 
+\vspace{0.2cm}
+
+% Komponen 8
+\begin{tcolorbox}[colback=fillgreen, colframe=plnblue!50, sharp corners, title={\small\bfseries Komponen 8: Lampiran Teknis (Matriks Metadata, Peta DB, \& Audit Trail)}]
+\small
+\noindent\textbf{8.1 Matriks Metadata Terintegrasi (14 field wajib):}\\[0.15cm]
+\scriptsize
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{} c X X @{}}
+\toprule
+\textbf{No} & \textbf{Field} & \textbf{Contoh Nilai / Sumber} \\
+\midrule
+1 & \texttt{DOC\_ID} & \texttt{UIT-JBT/GI150/WO/2026/00421} \\
+2 & \texttt{ASSET\_ID} & SAP-PM FLOC: \texttt{GI-150-CBN-001} \\
+3 & \texttt{WO\_REF} & SPK No. \texttt{WO-2026-00421} \\
+4 & \texttt{CONTRACT\_REF} & --- (N/A untuk pemeliharaan rutin) \\
+5 & \texttt{LOCATION\_CODE} & GIS: \texttt{-6.7812, 107.6374} \\
+6 & \texttt{CREATOR\_UNIT} & \texttt{UIT Jawa Bagian Tengah} \\
+7 & \texttt{CREATOR\_ROLE} & \texttt{Teknisi Pemeliharaan (RBAC: TEC)} \\
+8 & \texttt{TIMESTAMP\_CREATE} & \texttt{2026-04-25T09:14:32+07:00} (ISO 8601) \\
+9 & \texttt{CLASSIFICATION} & \texttt{INTERNAL} \\
+10 & \texttt{RETENTION\_RULE} & JRA Kelas II: \texttt{10 tahun} (otomatis) \\
+11 & \texttt{INTEGRITY\_HASH} & SHA-256: \texttt{a3f7...9e2d} \\
+12 & \texttt{AUDIT\_TRAIL\_REF} & Log ID: \texttt{AUD-2026-00421-001} \\
+13 & \texttt{CONTENT\_DESC} & ``Pemeliharaan preventif trafo GI 150 kV Cibinong'' \\
+14 & \texttt{SEARCH\_TAGS} & \texttt{trafo, preventive, GI-150, Cibinong} \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.3cm}
+\normalsize
+\noindent\textbf{8.2 Peta Kodifikasi Database / Skema Relasi Tabel:}\\
+\small
+Tabel utama \texttt{tb\_workorder} terhubung ke \texttt{tb\_asset} (FLOC), \texttt{tb\_audit\_log} (jejak aktivitas), dan \texttt{tb\_retention} (jadral JRA). Auto-capture dari SAP-PM mengisi \texttt{tb\_workorder} melalui API REST; E-Office mengisi kolom \texttt{approval\_tte} dan \texttt{approval\_timestamp}. Hash SHA-256 dihitung otomatis saat status berubah menjadi \texttt{Final}.
+
+\vspace{0.3cm}
+\noindent\textbf{8.3 Draf Log Rekaman Mesin (Audit Trail):}\\
+\small
+\begin{tabularx}{\textwidth}{@{} l X l X @{}}
+\toprule
+\textbf{Waktu} & \textbf{Aktivitas} & \textbf{User/Sistem} & \textbf{Hash Snapshot} \\
+\midrule
+\texttt{09:14:32} & Dokumen diciptakan (trigger TECO) & \texttt{SYSTEM} & \texttt{a3f7...} \\
+\texttt{09:15:01} & Metadata auto-capture selesai & \texttt{SYSTEM} & \texttt{a3f7...} \\
+\texttt{11:30:15} & Validasi Level 1 disetujui & \texttt{SPV-001} & \texttt{b8e2...} \\
+\texttt{16:45:08} & Approval final + TTE diterapkan & \texttt{MGR-007} & \texttt{c1d4...} \\
+\texttt{16:45:09} & Status: Final \& Immutable & \texttt{SYSTEM} & \texttt{c1d4...} \\
+\bottomrule
+\end{tabularx}
+\end{tcolorbox}
+
 \vspace{0.3cm}
 \noindent\textbf{Catatan Peer Review (diisi oleh Kelompok 1):}\\
 \textit{``SOP sudah sangat komprehensif. Saran: (1) Tambahkan prosedur untuk SPK darurat/emergency yang tidak melalui perencanaan normal. (2) Pertimbangkan integrasi dengan sistem K3 (E-HSE) untuk SPK yang melibatkan area berbahaya. (3) Perjelas siapa yang bertanggung jawab melakukan backup harian repositori.''}
@@ -603,7 +655,7 @@ Proses kearsipan arsip Work Order pemeliharaan GI saat ini memerlukan rata-rata 
 
 \vspace{0.2cm}
 \noindent\textbf{2. Solusi yang Diusulkan:}\\
-Implementasi alur kerja terintegrasi dengan tarik data otomatis dari SAP-PM (status TECO), auto-capture 12 field metadata, validasi digital via E-Office dengan SLA 1$\times$24 jam, dan penyimpanan langsung ke repositori dengan hash integrity \& audit trail immutable. Didukung SOP Digital 7 Komponen yang telah dirancang.
+Implementasi alur kerja terintegrasi dengan tarik data otomatis dari SAP-PM (status TECO), auto-capture 12 field metadata, validasi digital via E-Office dengan SLA 1$\times$24 jam, dan penyimpanan langsung ke repositori dengan hash integrity \& audit trail immutable. Didukung SOP Digital 8 Komponen yang telah dirancang.
 
 \vspace{0.2cm}
 \noindent\textbf{3. Target KPI:}
@@ -696,5 +748,38 @@ Mitigasi risiko kepatuhan (eliminasi temuan audit): & Rp 200.000.000 /tahun \\[0
 \end{tabularx}
 \end{tcolorbox}
 \end{center}
+
+\newpage
+\section*{Daftar Pustaka}
+\addcontentsline{toc}{section}{Daftar Pustaka}
+
+\begin{thebibliography}{99}
+\small
+
+\bibitem{uu43} Republik Indonesia. (2009). \textit{Undang-Undang Nomor 43 Tahun 2009 tentang Kearsipan}. Lembaran Negara RI Tahun 2009 No.~152.
+
+\bibitem{pp71} Republik Indonesia. (2019). \textit{Peraturan Pemerintah Nomor 71 Tahun 2019 tentang Penyelenggaraan Sistem dan Transaksi Elektronik}. Lembaran Negara RI Tahun 2019 No.~194.
+
+\bibitem{perka6} Arsip Nasional Republik Indonesia (ANRI). (2021). \textit{Peraturan Kepala ANRI Nomor 6 Tahun 2021 tentang Pedoman Pengelolaan Arsip Elektronik}. Jakarta: ANRI.
+
+\bibitem{iso15489} International Organization for Standardization (ISO). (2016). \textit{ISO 15489-1:2016 Information and documentation --- Records management --- Part 1: Concepts and principles}. Geneva: ISO.
+
+\bibitem{iso27001} International Organization for Standardization (ISO). (2022). \textit{ISO/IEC 27001:2022 Information security management systems --- Requirements}. Geneva: ISO.
+
+\bibitem{parbica} Pacific Regional Branch of the International Council on Archives (PARBICA). (2014). \textit{Recordkeeping for Good Governance Toolkit} (Open Access). PARBICA.
+
+\bibitem{worldbank} The World Bank. (2011). \textit{Records Management Roadmap for the World Bank Group Archives}. Washington, DC: The World Bank.
+
+\bibitem{upward1996} Upward, F. (1996). Structuring the Records Continuum --- Part One: Postcustodial Principles and Properties. \textit{Archives and Manuscripts}, 24(2), 268--285.
+
+\bibitem{hiatt2006} Hiatt, J. M. (2006). \textit{ADKAR: A Model for Change in Business, Government and Our Community}. Loveland, CO: Prosci Learning Center Publications.
+
+\bibitem{kotter1996} Kotter, J. P. (1996). \textit{Leading Change}. Boston, MA: Harvard Business School Press.
+
+\bibitem{kaplan1992} Kaplan, R. S., \& Norton, D. P. (1992). The Balanced Scorecard: Measures that Drive Performance. \textit{Harvard Business Review}, 70(1), 71--79.
+
+\bibitem{soppln} PT PLN (Persero). (2024). \textit{SOP Induk Tata Kelola Informasi PT PLN (Persero) --- Bab VII: Pengelolaan Arsip Digital}. Jakarta: Sekretaris Perusahaan PT PLN (Persero).
+
+\end{thebibliography}
 
 \end{document}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; background: transparent; }
+#container { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+svg { width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<div id="container">
+<script>
+fetch('defense.svg')
+  .then(r => r.text())
+  .then(svg => {
+    document.getElementById('container').innerHTML = svg;
+    const s = document.querySelector('svg');
+    s.setAttribute('width', '100%');
+    s.setAttribute('height', '100%');
+  });
+</script>
+</div>
+</body>
+</html>
