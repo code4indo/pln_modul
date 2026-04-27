@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <!-- Shadows -->
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+    <!-- Gradients -->
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#004B87"/>
+      <stop offset="100%" stop-color="#0066B3"/>
+    </linearGradient>
+    <linearGradient id="subHeaderGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E8F1F8"/>
+      <stop offset="100%" stop-color="#D6E6F3"/>
+    </linearGradient>
+    <linearGradient id="focusGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0E8"/>
+      <stop offset="100%" stop-color="#FFE4D6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1200" height="900" rx="12" ry="12" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+
+  <!-- ========== HEADER BAR ========== -->
+  <rect x="24" y="20" width="1152" height="64" rx="8" ry="8" fill="url(#headerGrad)"/>
+  <text x="52" y="58" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">
+    ISO/IEC 27001:2022 — Peta Prioritas Keamanan Arsip Digital PLN
+  </text>
+  <!-- 93 Controls badge -->
+  <rect x="1080" y="36" width="80" height="32" rx="6" ry="6" fill="#FFFFFF"/>
+  <text x="1120" y="58" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" fill="#004B87" text-anchor="middle">93 Kontrol</text>
+
+  <!-- ========== SUB-HEADER STRIP ========== -->
+  <rect x="24" y="96" width="1152" height="40" rx="6" ry="6" fill="url(#subHeaderGrad)" stroke="#B8D4E8" stroke-width="1"/>
+  <text x="48" y="122" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" fill="#004B87">
+    Empat Kelompok Kontrol → Delapan Sub-Kategori Prioritas (bertanda ★) → Fokus Investasi Keamanan Arsip
+  </text>
+
+  <!-- ========== CARD 1: ORGANIZATIONAL (top-left) ========== -->
+  <g filter="url(#cardShadow)">
+    <rect x="24" y="152" width="564" height="280" rx="10" ry="10" fill="#F0F7FF" stroke="#7FB3D5" stroke-width="1.5"/>
+    <!-- Header -->
+    <rect x="32" y="160" width="548" height="44" rx="6" ry="6" fill="#004B87"/>
+    <text x="52" y="188" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF">Organizational Controls</text>
+    <rect x="528" y="166" width="44" height="32" rx="5" ry="5" fill="#FFFFFF"/>
+    <text x="550" y="188" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" fill="#004B87" text-anchor="middle">37</text>
+  </g>
+  <!-- Items -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">
+    <!-- Policies -->
+    <rect x="48" y="220" width="32" height="22" rx="4" fill="#E2E8F0"/>
+    <text x="52" y="236" font-size="10" font-weight="bold" fill="#64748B">•</text>
+    <text x="88" y="236">Policies &amp; Governance (A.5.1–5.2)</text>
+    <!-- Roles -->
+    <rect x="48" y="252" width="32" height="22" rx="4" fill="#E2E8F0"/>
+    <text x="52" y="268" font-size="10" font-weight="bold" fill="#64748B">•</text>
+    <text x="88" y="268">Roles &amp; Responsibilities (A.5.3–5.5)</text>
+    <!-- Asset Management PRIORITY -->
+    <text x="67" y="301" font-size="20" fill="#FF6B35" text-anchor="middle">★</text>
+    <text x="96" y="301" font-weight="bold" fill="#004B87">Asset Management</text>
+    <text x="288" y="301" fill="#64748B">(A.5.11–5.16)</text>
+    <!-- Incident -->
+    <rect x="48" y="318" width="32" height="22" rx="4" fill="#E2E8F0"/>
+    <text x="52" y="334" font-size="10" font-weight="bold" fill="#64748B">•</text>
+    <text x="88" y="334">Incident Management (A.5.24–5.28)</text>
+    <!-- Business Continuity PRIORITY -->
+    <text x="67" y="367" font-size="20" fill="#FF6B35" text-anchor="middle">★</text>
+    <text x="96" y="367" font-weight="bold" fill="#004B87">Business Continuity</text>
+    <text x="282" y="367" fill="#64748B">(A.5.29–5.30)</text>
+    <!-- Compliance -->
+    <rect x="48" y="384" width="32" height="22" rx="4" fill="#E2E8F0"/>
+    <text x="52" y="400" font-size="10" font-weight="bold" fill="#64748B">•</text>
+    <text x="88" y="400">Compliance &amp; Legal (A.5.31–5.37)</text>
+  </g>
+
+  <!-- ========== CARD 2: TECHNOLOGICAL (top-right) ========== -->
+  <g filter="url(#cardShadow)">
+    <rect x="612" y="152" width="564" height="280" rx="10" ry="10" fill="#E8F9FF" stroke="#7FD1E8" stroke-width="1.5"/>
+    <!-- Header -->
+    <rect x="620" y="160" width="548" height="44" rx="6" ry="6" fill="#00A3E0"/>
+    <text x="640" y="188" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF">Technological Controls</text>
+    <rect x="1116" y="166" width="44" height="32" rx="5" ry="5" fill="#FFFFFF"/>
+    <text x="1138" y="188" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" fill="#00A3E0" text-anchor="middle">34</text>
+  </g>
+  <!-- Items -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">
+    <!-- Access Control PRIORITY -->
+    <text x="655" y="237" font-size="20" fill="#FF6B35" text-anchor="middle">★</text>
+    <text x="684" y="237" font-weight="bold" fill="#006B99">Access Control</text>
+    <text x="840" y="237" fill="#64748B">(A.8.1–8.11)</text>
+    <!-- Cryptography PRIORITY -->
+    <text x="655" y="271" font-size="20" fill="#FF6B35" text-anchor="middle">★</text>
+    <text x="684" y="271" font-weight="bold" fill="#006B99">Cryptography</text>
+    <text x="830" y="271" fill="#64748B">(A.8.12–8.13)</text>
+    <!-- Operations Security PRIORITY -->
+    <text x="655" y="305" font-size="20" fill="#FF6B35" text-anchor="middle">★</text>
+    <text x="684" y="305" font-weight="bold" fill="#006B99">Operations Security</text>
+    <text x="870" y="305" fill="#64748B">(A.8.14–8.17)</text>
+    <!-- Communications -->
+    <rect x="636" y="322" width="32" height="22" rx="4" fill="#B8E6F5"/>
+    <text x="640" y="338" font-size="10" font-weight="bold" fill="#4A90A4">•</text>
+    <text x="676" y="338">Communications Security (A.8.18–8.21)</text>
+    <!-- Systems Development -->
+    <rect x="636" y="354" width="32" height="22" rx="4" fill="#B8E6F5"/>
+    <text x="640" y="370" font-size="10" font-weight="bold" fill="#4A90A4">•</text>
+    <text x="676" y="370">Systems Development (A.8.22–8.25)</text>
+    <!-- Security Event Mgmt PRIORITY -->
+    <text x="655" y="403" font-size="20" fill="#FF6B35" text-anchor="middle">★</text>
+    <text x="684" y="403" font-weight="bold" fill="#006B99">Security Event Mgmt</text>
+    <text x="880" y="403" fill="#64748B">(A.8.31–8.34)</text>
+  </g>
+
+  <!-- ========== CARD 3: PEOPLE (bottom-left) ========== -->
+  <g filter="url(#cardShadow)">
+    <rect x="24" y="452" width="564" height="220" rx="10" ry="10" fill="#E8FAF7" stroke="#7FCFB8" stroke-width="1.5"/>
+    <!-- Header -->
+    <rect x="32" y="460" width="548" height="44" rx="6" ry="6" fill="#009688"/>
+    <text x="52" y="488" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF">People Controls</text>
+    <rect x="528" y="466" width="44" height="32" rx="5" ry="5" fill="#FFFFFF"/>
+    <text x="550" y="488" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" fill="#009688" text-anchor="middle">8</text>
+  </g>
+  <!-- Items -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">
+    <rect x="48" y="520" width="32" height="22" rx="4" fill="#B8E0D8"/>
+    <text x="52" y="536" font-size="10" font-weight="bold" fill="#4A8A7A">•</text>
+    <text x="88" y="536">Screening (A.6.1)</text>
+
+    <rect x="48" y="552" width="32" height="22" rx="4" fill="#B8E0D8"/>
+    <text x="52" y="568" font-size="10" font-weight="bold" fill="#4A8A7A">•</text>
+    <text x="88" y="568">Terms &amp; Conditions (A.6.2)</text>
+
+    <rect x="48" y="584" width="32" height="22" rx="4" fill="#B8E0D8"/>
+    <text x="52" y="600" font-size="10" font-weight="bold" fill="#4A8A7A">•</text>
+    <text x="88" y="600">Security Awareness (A.6.3)</text>
+
+    <rect x="48" y="616" width="32" height="22" rx="4" fill="#B8E0D8"/>
+    <text x="52" y="632" font-size="10" font-weight="bold" fill="#4A8A7A">•</text>
+    <text x="88" y="632">Confidentiality / NDA (A.6.6)</text>
+
+    <rect x="48" y="648" width="32" height="22" rx="4" fill="#B8E0D8"/>
+    <text x="52" y="664" font-size="10" font-weight="bold" fill="#4A8A7A">•</text>
+    <text x="88" y="664">Remote Work (A.6.7)</text>
+  </g>
+
+  <!-- ========== CARD 4: PHYSICAL (bottom-right) ========== -->
+  <g filter="url(#cardShadow)">
+    <rect x="612" y="452" width="564" height="220" rx="10" ry="10" fill="#FFF5F0" stroke="#FFB899" stroke-width="1.5"/>
+    <!-- Header -->
+    <rect x="620" y="460" width="548" height="44" rx="6" ry="6" fill="#FF6B35"/>
+    <text x="640" y="488" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF">Physical Controls</text>
+    <rect x="1116" y="466" width="44" height="32" rx="5" ry="5" fill="#FFFFFF"/>
+    <text x="1138" y="488" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" fill="#FF6B35" text-anchor="middle">14</text>
+  </g>
+  <!-- Items -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#334155">
+    <!-- Secure Areas PRIORITY -->
+    <text x="655" y="537" font-size="20" fill="#FF6B35" text-anchor="middle">★</text>
+    <text x="684" y="537" font-weight="bold" fill="#8B3A1A">Secure Areas</text>
+    <text x="830" y="537" fill="#64748B">(A.7.1–7.4)</text>
+
+    <rect x="636" y="554" width="32" height="22" rx="4" fill="#FFD4C2"/>
+    <text x="640" y="570" font-size="10" font-weight="bold" fill="#B86B4A">•</text>
+    <text x="676" y="570">Physical Entry Controls (A.7.5–7.6)</text>
+
+    <rect x="636" y="586" width="32" height="22" rx="4" fill="#FFD4C2"/>
+    <text x="640" y="602" font-size="10" font-weight="bold" fill="#B86B4A">•</text>
+    <text x="676" y="602">Physical Monitoring (A.7.9–7.10)</text>
+
+    <rect x="636" y="618" width="32" height="22" rx="4" fill="#FFD4C2"/>
+    <text x="640" y="634" font-size="10" font-weight="bold" fill="#B86B4A">•</text>
+    <text x="676" y="634">Environmental Controls (A.7.11)</text>
+
+    <rect x="636" y="650" width="32" height="22" rx="4" fill="#FFD4C2"/>
+    <text x="640" y="666" font-size="10" font-weight="bold" fill="#B86B4A">•</text>
+    <text x="676" y="666">Secure Disposal (A.7.14)</text>
+  </g>
+
+  <!-- ========== FOCUS STRIP: Prioritas Investasi Kearsipan ========== -->
+  <g filter="url(#cardShadow)">
+    <rect x="24" y="696" width="1152" height="160" rx="10" ry="10" fill="url(#focusGrad)" stroke="#FF6B35" stroke-width="2"/>
+    <!-- Strip title badge -->
+    <rect x="44" y="712" width="230" height="34" rx="6" fill="#FF6B35"/>
+    <text x="68" y="735" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF">FOKUS INVESTASI KEARSIPAN</text>
+    
+    <!-- Arrow down -->
+    <polygon points="159,748 169,764 149,764" fill="#FF6B35"/>
+  </g>
+
+  <!-- 4 Priority chips -->
+  <g font-family="Arial, Helvetica, sans-serif">
+    <!-- Chip 1: Asset + Business Continuity -->
+    <rect x="44" y="776" width="260" height="56" rx="8" fill="#FFFFFF" stroke="#FF6B35" stroke-width="1.5"/>
+    <text x="60" y="800" font-size="13" font-weight="bold" fill="#FF6B35">★ Asset Management</text>
+    <text x="60" y="820" font-size="11" fill="#64748B">(A.5.11–5.16) — Owner &amp; Klasifikasi Arsip</text>
+
+    <!-- Chip 2: Access + Crypto + Ops -->
+    <rect x="324" y="776" width="260" height="56" rx="8" fill="#FFFFFF" stroke="#FF6B35" stroke-width="1.5"/>
+    <text x="340" y="800" font-size="13" font-weight="bold" fill="#FF6B35">★ Access + Crypto + Ops Sec</text>
+    <text x="340" y="820" font-size="11" fill="#64748B">(A.8.1–8.17) — RBAC, Enkripsi, Monitoring</text>
+
+    <!-- Chip 3: Security Event + Secure Area -->
+    <rect x="604" y="776" width="260" height="56" rx="8" fill="#FFFFFF" stroke="#FF6B35" stroke-width="1.5"/>
+    <text x="620" y="800" font-size="13" font-weight="bold" fill="#FF6B35">★ Sec Event + Secure Area</text>
+    <text x="620" y="820" font-size="11" fill="#64748B">(A.8.31–8.34, A.7.1–7.4) — Insiden &amp; Fisik</text>
+
+    <!-- Chip 4: Business Continuity -->
+    <rect x="884" y="776" width="272" height="56" rx="8" fill="#FFFFFF" stroke="#FF6B35" stroke-width="1.5"/>
+    <text x="900" y="800" font-size="13" font-weight="bold" fill="#FF6B35">★ Business Continuity</text>
+    <text x="900" y="820" font-size="11" fill="#64748B">(A.5.29–5.30) — Kelangsungan Bisnis &amp; DR</text>
+  </g>
+
+  <!-- ========== LEGEND ========== -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="13">
+    <text x="63" y="886" font-size="20" fill="#FF6B35" text-anchor="middle">★</text>
+    <text x="92" y="886" font-weight="bold" fill="#004B87">Prioritas Kearsipan</text>
+    <text x="248" y="886" fill="#64748B">= relevansi langsung terhadap keamanan arsip digital PLN</text>
+
+    <rect x="640" y="870" width="28" height="22" rx="4" fill="#E2E8F0"/>
+    <text x="644" y="886" font-size="10" font-weight="bold" fill="#64748B">•</text>
+    <text x="678" y="886" fill="#64748B">Kontrol Pendukung = dampak tidak langsung bagi kearsipan</text>
+  </g>
+
+</svg>

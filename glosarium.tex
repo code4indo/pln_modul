@@ -1,0 +1,170 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, headheight=14.5pt}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[expansion=false]{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{calc}
+
+% Warna Korporat PLN
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=plnblue,
+    urlcolor=plnblue,
+    citecolor=plnblue
+}
+
+% Header & Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Glosarium Modul 4.3 \& 4.4}}
+\fancyhead[R]{\small Level 4 (Mastery) -- PLN}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Format Heading
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{plnblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries\color{plnblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{plnblue}}{\thesubsection}{1em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+% Custom Boxes
+\newtcolorbox{plnbox}[1][]{%
+  colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries,
+  title=#1, sharp corners, boxrule=0.8pt, breakable
+}
+\newtcolorbox{notebox}{%
+  colback=gray!10, colframe=gray!50!black, fonttitle=\bfseries,
+  title=Catatan Penggunaan, sharp corners, breakable
+}
+
+% List styling
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
+\setlist[enumerate]{leftmargin=*, topsep=2pt, itemsep=2pt}
+
+\begin{document}
+
+% ================= COVER GLOSARIUM =================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+{\Huge\bfseries\color{plnblue} GLOSARIUM}\\[0.4cm]
+{\LARGE\bfseries Modul 4.3 \& 4.4: Sistem Terintegrasi \& Optimalisasi Proses}\\[0.8cm]
+\rule{0.8\linewidth}{0.6pt}\\[0.6cm]
+{\large Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
+{\large Level 4 (Mastery)}\\[1.2cm]
+{\large Disusun Khusus untuk: \textbf{PT PLN (Persero)}}\\
+{\large Target Peserta: Manajemen Atas (MA)}\\[2.5cm]
+\begin{figure}[h]
+\centering
+\includegraphics[width=4cm]{example-image} 
+\end{figure}
+\vfill
+{\small Dokumen ini dapat dikompilasi secara terpisah dan digunakan sebagai referensi cepat selama workshop}
+\end{titlepage}
+
+\newpage
+\chapter*{Pengantar Glosarium}
+Glosarium ini disusun untuk memastikan keseragaman pemahaman istilah kunci yang digunakan dalam Modul 4.3 (Optimalisasi Prosedur dan Alur Kerja Terintegrasi) dan Modul 4.4 (Perancangan Sistem Keamanan dan Keterlacakan Terintegrasi). Seluruh definisi telah:
+\begin{itemize}[leftmargin=*]
+    \item Disesuaikan dengan terminologi resmi kearsipan Indonesia (UU 43/2009, PP 71/2019, Perka ANRI)
+    \item Dikontekstualisasikan untuk ekosistem tata kelola informasi PLN
+    \item Dibatasi pada level proses bisnis \& kebijakan (menghindari tumpang-tindih dengan spesifikasi teknis IT)
+    \item Disusun secara alfabetis untuk kemudahan pencarian selama sesi pelatihan
+\end{itemize}
+
+\begin{notebox}
+Peserta disarankan membaca glosarium ini sebelum memulai workshop, dan menjadikannya referensi saat menyusun output portofolio (BPMN, SOP, Matriks RBAC, DRP).
+\end{notebox}
+
+\newpage
+\chapter*{Daftar Istilah Kunci}
+
+\begin{description}[leftmargin=!, labelwidth=\widthof{\textbf{Penanganan Pengecualian}}, labelsep=1em, itemsep=8pt]
+
+\item[\textbf{Alur Persetujuan Digital}] Mekanisme pengarah dokumen ke pihak berwenang secara otomatis berdasarkan hierarki jabatan, klasifikasi arsip, atau aturan bisnis yang telah ditetapkan; menggantikan proses persetujuan manual untuk meningkatkan kecepatan, konsistensi, dan keterlacakan.
+
+\item[\textbf{Business Case}] Dokumen ringkas yang menyajikan latar belakang, analisis biaya-manfaat, target KPI, timeline, dan sumber daya yang diperlukan untuk mengusulkan optimalisasi alur kerja kearsipan kepada manajemen.
+
+\item[\textbf{Exception Handling \& Fallback}] Prosedur alternatif terdokumentasi yang diaktifkan ketika sistem digital mengalami gangguan, timeout, atau proses menyimpang dari alur normal, untuk menjaga kontinuitas tata kelola arsip tanpa melanggar prinsip akuntabilitas.
+
+\item[\textbf{Human-System Orchestration}] Pola tata kelola prosedur yang secara eksplisit mendefinisikan titik intervensi manusia (validasi, keputusan strategis) dan otomatisasi sistem (pemicu otomatis, routing, pencatatan metadata) dalam satu alur kerja terpadu.
+
+\item[\textbf{Jejak Audit (Audit Trail)}] Rekaman kronologis yang tidak dapat diubah (immutable) yang mencatat setiap akses, modifikasi, approval, atau perubahan status arsip, mencakup identitas pengguna, timestamp, alamat IP/sistem, dan jenis aktivitas; wajib memenuhi ketentuan PP 71/2019 dan Perka ANRI.
+
+\item[\textbf{Kebijakan Keamanan Terintegrasi}] Kerangka kebijakan yang menyelaraskan tata kelola arsip dengan sistem manajemen keamanan informasi (ISMS) organisasi, mencakup klasifikasi data, kontrol akses, enkripsi, pelaporan insiden, dan mekanisme review berkala.
+
+\item[\textbf{Klasifikasi Informasi Arsip}] Pengelompokan arsip berdasarkan tingkat sensitivitas, nilai bisnis, dan dampak apabila terjadi kebocoran atau kehilangan (misal: Publik, Internal, Terbatas, Rahasia, Vital), sebagai dasar penentuan kontrol akses dan strategi preservasi.
+
+\item[\textbf{Kontrol Akses Berbasis Peran (RBAC)}] Skema pemberian hak akses terhadap arsip yang didasarkan pada jabatan, fungsi kerja, dan tingkat otoritas, menerapkan prinsip \textit{least privilege} (hak minimal yang diperlukan) dan pemisahan tugas (\textit{segregation of duties}).
+
+\item[\textbf{Metadata Auto-Capture}] Mekanisme pengambilan field metadata wajib secara terprogram dari sistem sumber (sistem ERP, Pengadaan, Tata Persuratan, dll.) ke repositori arsip, tanpa memerlukan input ulang manual oleh pengguna.
+
+\item[\textbf{Penanganan Pengecualian}] \textit{Lihat Exception Handling \& Fallback.}
+
+\item[\textbf{Perjanjian Tingkat Layanan Digital (SLA Digital)}] Target waktu layanan yang terukur dan terpantau otomatis untuk setiap tahapan dalam alur kerja kearsipan (misal: validasi maksimal 1×24 jam kerja), dilengkapi mekanisme eskalasi jika terlampaui.
+
+\item[\textbf{Rencana Pemulihan Bencana Arsip (DRP - Disaster Recovery Plan)}] Dokumen prosedur yang menentukan strategi backup, prioritas pemulihan, RTO, dan RPO khusus untuk arsip vital perusahaan guna menjamin keberlanjutan operasional dan kepatuhan hukum pasca-gangguan sistem atau bencana.
+
+\item[\textbf{Recovery Point Objective (RPO)}] Batas maksimum kehilangan data yang dapat ditoleransi, dinyatakan dalam satuan waktu (misal: RPO = 1 jam berarti backup dilakukan setiap jam atau perubahan terekam setiap jam).
+
+\item[\textbf{Recovery Time Objective (RTO)}] Target waktu maksimum yang diizinkan untuk memulihkan akses ke arsip vital dan sistem kearsipan pasca-gangguan, sebelum berdampak signifikan pada operasional atau kepatuhan organisasi.
+
+\item[\textbf{Role-Based Access Control (RBAC)}] \textit{Lihat Kontrol Akses Berbasis Peran.}
+
+\item[\textbf{SOP Digital Terintegrasi}] Dokumen prosedur baku yang mengatur alur kerja pengelolaan arsip dengan mengintegrasikan peran manusia, pemicu sistem, standar metadata, SLA digital, dan mekanisme penanganan pengecualian; dirancang untuk memastikan kepatuhan regulasi, efisiensi proses, dan keterlacakan audit.
+
+\item[\textbf{Strategi Backup 3-2-1}] Standar penyimpanan cadangan arsip yang mengharuskan minimal 3 salinan data, disimpan pada 2 media berbeda, dengan 1 salinan disimpan di lokasi terpisah (\textit{offsite} atau cloud terenkripsi) untuk mitigasi risiko kehilangan data fisik maupun logis.
+
+\item[\textbf{Pemicu Sistem (System Trigger)}] Event atau perubahan status dalam sistem operasional (misal: status persetujuan akhir operasional, persetujuan di Sistem Pengadaan, pelaporan insiden di E-HSE) yang secara otomatis memulai proses penciptaan, validasi, atau routing arsip digital.
+
+\item[\textbf{Time-Cost-Risk Saving}] Pendekatan kuantifikasi sederhana untuk mengukur efektivitas optimalisasi prosedur, mencakup penghematan waktu siklus, reduksi biaya kesalahan/revisi, dan mitigasi risiko ketidakpatuhan atau temuan audit.
+
+\item[\textbf{Pemicu Sistem}] \textit{Lihat System Trigger.}
+
+\item[\textbf{Tingkat Ketepatan Awal (First-Time Accuracy)}] Persentase arsip yang lolos validasi metadata dan prosedur pada percobaan pertama tanpa memerlukan revisi, koreksi, atau pengembalian ke tahap sebelumnya.
+
+\item[\textbf{Tingkat Kepatuhan Prosedur (Compliance Rate)}] Persentase proses pengelolaan arsip yang memenuhi SLA, ketentuan retensi, klasifikasi keamanan, dan persyaratan jejak audit sesuai regulasi yang berlaku.
+
+\item[\textbf{Value Stream Mapping (VSM) Level Bisnis}] Teknik pemetaan visual aliran informasi, dokumen, dan keputusan dari titik penciptaan hingga penyimpanan akhir, digunakan untuk mengidentifikasi langkah non-nilai tambah, bottleneck, dan potensi otomasi pada level proses bisnis.
+
+\item[\textbf{Waktu Siklus Proses (Cycle Time)}] Total durasi yang diperlukan sejak arsip diciptakan/ditransaksikan hingga tervalidasi, terklasifikasi, dan tersimpan secara final dalam repositori kearsipan terintegrasi.
+
+\item[\textbf{Waktu Temu Kembali (Retrieval Speed)}] Rata-rata waktu yang diperlukan untuk menemukan, mengakses, dan mengekspor arsip berdasarkan query bisnis, audit, atau kebutuhan hukum pada sistem terdigitalisasi.
+
+\item[\textbf{Zero Trust Architecture (dalam Konteks Kearsipan)}] Prinsip keamanan informasi yang mengasumsikan bahwa tidak ada pengguna atau sistem yang secara default dapat dipercaya; setiap akses ke arsip harus diverifikasi secara eksplisit, dikontekstualisasikan dengan kebutuhan bisnis, dan dibatasi pada hak minimal yang diperlukan.
+
+\end{description}
+
+\newpage
+\chapter*{Referensi Standar \& Regulasi}
+Definisi dalam glosarium ini mengacu pada:
+\begin{enumerate}[leftmargin=*, nosep]
+    \item Undang-Undang RI Nomor 43 Tahun 2009 tentang Kearsipan
+    \item Peraturan Pemerintah Nomor 71 Tahun 2019 tentang Penyelenggaraan Sistem dan Transaksi Elektronik (PSTE)
+    \item Peraturan Kepala ANRI terkait Pedoman Tata Kelola Arsip Elektronik (berlaku)
+    \item ISO 15489-1:2016 (Records Management – Principles)
+    \item NIST SP 800-53 Rev.5 \& NIST Cybersecurity Framework 2.0 (Access Control \& Audit)
+    \item ARMA International – Generally Accepted Recordkeeping Principles® (GARP)
+    \item Pedoman GCG BUMN Terkini \& Roadmap Transformasi Digital PLN
+\end{enumerate}
+
+\begin{plnbox}[Catatan Akhir]
+Glosarium ini bersifat dinamis dan dapat diperbarui sesuai perkembangan regulasi kearsipan, kebijakan internal PLN, atau hasil validasi workshop. Peserta diharapkan menyertakan istilah baru yang muncul selama implementasi pilot project untuk disempurnakan secara berkala oleh Unit Kearsipan Holding.
+\end{plnbox}
+
+\end{document}

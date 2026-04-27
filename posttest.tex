@@ -1,0 +1,649 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, headheight=14.5pt}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[expansion=false]{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Warna Korporat PLN
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+\definecolor{fillgreen}{RGB}{240,255,240}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=plnblue,
+    urlcolor=plnblue,
+    citecolor=plnblue
+}
+
+% Header & Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Post-Test Modul 4.3}}
+\fancyhead[R]{\small Level 4 (Mastery) -- PLN}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Format Heading
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{plnblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries\color{plnblue}}{}{0em}{}
+\titleformat{\subsection}{\large\bfseries\color{plnblue}}{}{0em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+% Custom Boxes
+\newtcolorbox{plnbox}[1][]{%
+  colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries,
+  title=#1, sharp corners, boxrule=0.8pt, breakable
+}
+\newtcolorbox{warnbox}{%
+  colback=plnorange!10, colframe=plnorange, fonttitle=\bfseries,
+  title=Petunjuk Penting, sharp corners, breakable
+}
+\newtcolorbox{answerbox}{%
+  colback=fillgreen, colframe=green!50!black, fonttitle=\bfseries,
+  title=Kunci Jawaban (Khusus Fasilitator), sharp corners, breakable
+}
+
+% List styling
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
+\setlist[enumerate]{leftmargin=*, topsep=2pt, itemsep=2pt}
+
+% Helper: answer lines
+\newcommand{\ansline}[1][5.5cm]{\underline{\hspace{#1}}}
+
+\begin{document}
+
+% ================= COVER =================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+{\Huge\bfseries\color{plnblue} POST-TEST}\\[0.4cm]
+{\LARGE\bfseries Modul 4.3: Optimalisasi Prosedur dan}\\[0.2cm]
+{\LARGE\bfseries Alur Kerja Terintegrasi}\\[0.8cm]
+\rule{0.8\linewidth}{0.6pt}\\[0.6cm]
+{\large Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
+{\large Level 4 (Mastery)}\\[1.2cm]
+{\large Disusun Khusus untuk: \textbf{PT PLN (Persero)}}\\
+{\large Target Peserta: Manajemen Atas (MA)}\\[2.5cm]
+\begin{figure}[h]
+\centering
+\includegraphics[width=4cm]{example-image}
+\end{figure}
+\vfill
+{\small Waktu Pengerjaan: 30 Menit \quad|\quad Nilai Kelulusan Minimal: 65/100}
+\end{titlepage}
+
+% ================= IDENTITAS PESERTA =================
+\newpage
+\thispagestyle{fancy}
+
+\begin{center}
+{\LARGE\bfseries\color{plnblue} LEMBAR JAWABAN POST-TEST}\\[0.3cm]
+{\large Modul 4.3 -- Level 4 (Mastery)}
+\end{center}
+
+\vspace{0.6cm}
+
+\renewcommand{\arraystretch}{1.8}
+\noindent
+\begin{tabularx}{\textwidth}{@{} X X @{}}
+\textbf{Nama Peserta:} \ansline & \textbf{Unit Kerja:} \ansline \\
+\textbf{Jabatan:} \ansline & \textbf{Tanggal:} \ansline \\
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.4cm}
+
+\begin{warnbox}
+\begin{itemize}[nosep]
+    \item Waktu pengerjaan: \textbf{30 menit}. Kerjakan seluruh bagian (A--D).
+    \item Dilarang membuka modul atau catatan selama pengerjaan.
+    \item Untuk Bagian A \& B, lingkari atau beri tanda \textbf{X} pada jawaban yang dipilih.
+    \item Untuk Bagian C \& D, tulis jawaban pada ruang yang disediakan. Gunakan bahasa yang ringkas dan substansial.
+    \item Nilai kelulusan minimal: \textbf{65 dari 100}.
+\end{itemize}
+\end{warnbox}
+
+\vspace{0.3cm}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\small
+\begin{tabularx}{0.85\textwidth}{@{} X c c c @{}}
+\toprule
+\textbf{Bagian} & \textbf{Jumlah Soal} & \textbf{Bobot/Soal} & \textbf{Total Poin} \\
+\midrule
+A. Pilihan Ganda & 10 soal & 3 poin & 30 poin \\
+B. Benar/Salah & 5 soal & 2 poin & 10 poin \\
+C. Jawaban Singkat & 5 soal & 6 poin & 30 poin \\
+D. Studi Kasus Analitis & 2 soal & 15 poin & 30 poin \\
+\midrule
+\textbf{TOTAL} & \textbf{22 soal} & & \textbf{100 poin} \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+% ================= BAGIAN A: PILIHAN GANDA =================
+\newpage
+\section{BAGIAN A: Pilihan Ganda (10 soal $\times$ 3 poin = 30 poin)}
+\textit{Lingkari SATU jawaban yang paling tepat untuk setiap pertanyaan.}
+
+\vspace{0.3cm}
+
+\begin{enumerate}[leftmargin=*, itemsep=0.5cm]
+
+% Soal 1 -- Kriteria 4.3.1 (Bab 1-2: Definisi Optimalisasi)
+\item Dalam konteks modul ini, ``optimalisasi prosedur'' kearsipan pada lingkungan \textit{Arsip Hibrida} berarti:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Menghapus seluruh dokumen fisik dan mewajibkan transisi total ke 100\% \textit{paperless}
+    \item Mengeliminasi langkah non-nilai tambah dan mengotomasi \textit{metadata tracking}, meskipun sebagian dokumen tetap fisik
+    \item Membeli perangkat lunak manajemen dokumen terbaru dari vendor ternama
+    \item Menambah jumlah staf kearsipan untuk mempercepat pemrosesan manual
+\end{enumerate}
+
+% Soal 2 -- Kriteria 4.3.1 (Bab 2: Prinsip Evaluasi PARBICA)
+\item Prinsip \textit{Single Source of Truth} dalam evaluasi prosedur kearsipan mengharuskan bahwa:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Seluruh data arsip hanya boleh disimpan di satu server tunggal
+    \item Data arsip tercipta sekali di titik transaksi bisnis dan mengalir konsisten tanpa input ulang manual
+    \item Hanya satu orang yang boleh mengakses arsip pada satu waktu
+    \item Semua arsip harus memiliki satu format file yang seragam (PDF)
+\end{enumerate}
+
+% Soal 3 -- Kriteria 4.3.1 (Bab 2: Metode Fact-Finding)
+\item Teknik \textit{Document Shadowing} dalam pengumpulan fakta lapangan adalah:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Membuat salinan bayangan (\textit{shadow copy}) dari seluruh arsip digital
+    \item Melacak satu dokumen nyata dari penciptaan hingga penyimpanan final, mencatat setiap hambatan dan waktu transisi
+    \item Mengamati cara staf mengoperasikan komputer dari belakang bahu mereka
+    \item Membandingkan isi dokumen asli dengan salinannya untuk mendeteksi pemalsuan
+\end{enumerate}
+
+% Soal 4 -- Kriteria 4.3.2 (Bab 3: Prinsip Desain Workflow)
+\item Prinsip \textit{Rule-Based Routing} dalam desain alur kerja terintegrasi berarti:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Persetujuan dokumen diarahkan secara otomatis berdasarkan hierarki, nilai transaksi, atau klasifikasi risiko
+    \item Seluruh dokumen harus melewati semua tingkat manajer tanpa pengecualian
+    \item Routing dilakukan secara manual berdasarkan arahan lisan atasan
+    \item Dokumen dikirim ke seluruh karyawan secara \textit{broadcast} untuk transparansi
+\end{enumerate}
+
+% Soal 5 -- Kriteria 4.3.2 (Bab 3: Logical Fallacy Parallel Routing)
+\item Menurut perspektif arsiparis, risiko dari \textit{Parallel Digital Routing} tanpa mekanisme \textit{Immutability Lock} adalah:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Dokumen terlalu cepat disetujui sehingga tidak sempat diperiksa
+    \item Terjadi ``bencana \textit{Version Control}'' -- arsiparis tidak tahu revisi mana yang menjadi \textit{Golden Record}
+    \item Biaya bandwidth jaringan meningkat drastis
+    \item Supervisor kehilangan wewenang karena keputusan diambil secara paralel
+\end{enumerate}
+
+% Soal 6 -- Kriteria 4.3.3 (Bab 4: SOP Digital)
+\item Perbedaan mendasar antara ``SOP IT'' dan ``SOP Kearsipan'' menurut arsiparis adalah:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item SOP IT menggunakan bahasa Inggris, SOP Kearsipan menggunakan bahasa Indonesia
+    \item SOP Kearsipan wajib mencakup Klasifikasi, Retensi, dan Hak Akses (RBAC), bukan sekadar metadata teknis
+    \item SOP IT dirancang oleh Divisi IT, SOP Kearsipan dirancang oleh Divisi Umum
+    \item Keduanya sebenarnya identik, hanya berbeda nama
+\end{enumerate}
+
+% Soal 7 -- Kriteria 4.3.3 (Bab 4: Komponen SOP)
+\item Berapa jumlah komponen wajib minimum yang harus dimuat dalam SOP Digital Terintegrasi menurut modul ini?
+\begin{enumerate}[label=\Alph*., nosep]
+    \item 5 komponen
+    \item 6 komponen
+    \item 7 komponen
+    \item 8 komponen
+\end{enumerate}
+
+% Soal 8 -- Kriteria 4.3.3 (Bab 4: Exception Handling)
+\item Jika Sistem Tata Persuratan Digital mengalami gangguan (\textit{down}) lebih dari 4 jam, langkah \textit{Exception Handling} yang benar menurut SOP adalah:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Menunggu sistem pulih tanpa melakukan apa pun
+    \item Mengirim dokumen via WhatsApp sebagai pengganti sementara
+    \item Menggunakan prosedur input manual terstandar, lalu menyinkronkan data setelah sistem pulih
+    \item Mencetak seluruh dokumen dan memproses secara konvensional permanen
+\end{enumerate}
+
+% Soal 9 -- Kriteria 4.3.4 (Bab 5: KPI)
+\item KPI ``\textit{Tingkat Ketepatan Temu Kembali (Retrieval Accuracy Rate)}'' dalam pengukuran kinerja kearsipan mengukur:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Kecepatan koneksi internet saat mengunduh arsip
+    \item Persentase arsip yang berhasil ditemukan pada pencarian pertama tanpa revisi kueri
+    \item Jumlah total arsip yang tersimpan di repositori
+    \item Tingkat kepuasan pengguna terhadap tampilan antarmuka sistem
+\end{enumerate}
+
+% Soal 10 -- Kriteria 4.3.4 (Bab 5: Integrasi Kearsipan)
+\item Menurut perspektif arsiparis, ``Integrasi Kearsipan'' yang sesungguhnya menuntut arsip bergerak utuh bersama tiga elemen. Elemen-elemen tersebut adalah:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Hardware, Software, dan Brainware
+    \item Input, Proses, dan Output
+    \item \textit{Content} (isi), \textit{Structure} (format), dan \textit{Context} (metadata pencipta \& kronologi)
+    \item Kecepatan, Kapasitas, dan Keamanan
+\end{enumerate}
+
+\end{enumerate}
+
+% ================= BAGIAN B: BENAR/SALAH =================
+\newpage
+\section{BAGIAN B: Benar/Salah (5 soal $\times$ 2 poin = 10 poin)}
+\textit{Tulis \textbf{B} (Benar) atau \textbf{S} (Salah) pada kotak yang disediakan. Jika Salah, tuliskan koreksi singkat pada baris di bawahnya.}
+
+\vspace{0.3cm}
+
+\begin{enumerate}[leftmargin=*, itemsep=0.6cm]
+
+\item $\square$ \quad Jika dua aplikasi berhasil mentransfer file PDF dari Server A ke Server B melalui API, maka kedua sistem tersebut sudah ``terintegrasi'' secara kearsipan.\\[0.2cm]
+Koreksi (jika Salah): \ansline[12cm]
+
+\item $\square$ \quad Pada pendekatan Arsip Hibrida, dokumen kontrak yang diwajibkan fisik oleh regulasi audit tetap perlu diotomasi \textit{metadata tracking}-nya di sistem digital.\\[0.2cm]
+Koreksi (jika Salah): \ansline[12cm]
+
+\item $\square$ \quad Evaluasi prosedur kearsipan dalam modul ini bertujuan untuk mengaudit konfigurasi teknis server dan infrastruktur jaringan.\\[0.2cm]
+Koreksi (jika Salah): \ansline[12cm]
+
+\item $\square$ \quad Komponen ``Klasifikasi, Retensi, \& Akses'' adalah komponen opsional dalam SOP Digital Terintegrasi dan boleh diabaikan jika sistem IT sudah mencatat metadata.\\[0.2cm]
+Koreksi (jika Salah): \ansline[12cm]
+
+\item $\square$ \quad Teknik \textit{Gemba Walk} dalam pengumpulan fakta lapangan dilakukan dengan mengamati dan mewawancarai langsung staf operasional pembuat arsip mengenai kendala harian mereka.\\[0.2cm]
+Koreksi (jika Salah): \ansline[12cm]
+
+\end{enumerate}
+
+% ================= BAGIAN C: JAWABAN SINGKAT =================
+\newpage
+\section{BAGIAN C: Jawaban Singkat (5 soal $\times$ 6 poin = 30 poin)}
+\textit{Jawab dengan ringkas dan substansial (maksimal 3--4 kalimat per soal).}
+
+\vspace{0.3cm}
+
+\begin{enumerate}[leftmargin=*, itemsep=0.3cm]
+
+% Soal C1 -- Kriteria 4.3.1
+\item Sebutkan dan jelaskan secara singkat \textbf{3 teknik pengumpulan fakta lapangan (\textit{Fact-Finding})} yang diajarkan di modul ini untuk menggali data prosedur yang ada.
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+% Soal C2 -- Kriteria 4.3.1
+\item Dari 7 domain pada ``Checklist Diagnostik Kesiapan Digital'' yang diadaptasi dari PARBICA Guideline 13, sebutkan \textbf{2 domain} beserta masing-masing satu pertanyaan diagnostik yang paling relevan untuk unit kerja Anda.
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+% Soal C3 -- Kriteria 4.3.2
+\item Jelaskan perbedaan antara pola integrasi \textbf{\textit{Penangkapan Data Otomatis Berbasis Pemicu}} dan \textbf{\textit{SLA-Driven Escalation}} dalam konteks alur kerja kearsipan PLN.
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+% Soal C4 -- Kriteria 4.3.3
+\item Mengapa komponen ``Klasifikasi, Retensi, \& Akses'' dijadikan komponen wajib ke-5 dalam struktur SOP Digital Terintegrasi? Jelaskan dampaknya jika komponen ini tidak ada.
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+% Soal C5 -- Kriteria 4.3.4
+\item Sebutkan \textbf{3 komponen penghematan} dalam pendekatan \textit{Time-Cost-Risk Saving} untuk menghitung ROI optimalisasi prosedur kearsipan.
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+\end{enumerate}
+
+% ================= BAGIAN D: STUDI KASUS =================
+\newpage
+\section{BAGIAN D: Studi Kasus Analitis (2 soal $\times$ 15 poin = 30 poin)}
+\textit{Baca skenario dengan cermat, lalu jawab pertanyaan yang mengikutinya.}
+
+\vspace{0.3cm}
+
+% === STUDI KASUS 1 ===
+\begin{plnbox}[Skenario 1: Unit Transmisi PLN Regional X]
+\small
+Unit Transmisi PLN Regional X mengelola arsip laporan inspeksi rutin untuk 32 menara transmisi 150 kV. Saat ini prosedurnya sebagai berikut:
+\begin{enumerate}[nosep]
+    \item Teknisi lapangan mengisi formulir inspeksi \textbf{kertas} di lokasi menara.
+    \item Formulir diantar secara fisik ke kantor area (memakan waktu 1--2 hari).
+    \item Admin area mengetik ulang data inspeksi ke dalam \textit{spreadsheet} Excel.
+    \item Admin mencetak \textit{spreadsheet}, meminta tanda tangan basah Supervisor.
+    \item Dokumen yang sudah ditandatangani di-scan, lalu diupload ke berkas bersama di server lokal.
+    \item Metadata (nama menara, tanggal inspeksi, kategori temuan) diisi manual oleh admin -- sering terjadi inkonsistensi penamaan file.
+\end{enumerate}
+Rata-rata \textit{waktu siklus} dari inspeksi hingga arsip tersimpan: \textbf{5--7 hari kerja}. Dalam 12 bulan terakhir, 23\% arsip inspeksi tidak dapat ditemukan saat dibutuhkan untuk audit BPK.
+\end{plnbox}
+
+\vspace{0.3cm}
+
+\begin{enumerate}[leftmargin=*, label=\textbf{D1.\alph*}]
+    \item \textbf{(5 poin)} Identifikasi minimal \textbf{3 hambatan operasional (\textit{friction points})} dari prosedur di atas menggunakan prinsip \textit{Value-Added Focus}.
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+    \item \textbf{(5 poin)} Rancang alur kerja \textit{To-Be} yang mengeliminasi hambatan operasional tersebut. Gunakan konsep \textit{Penangkapan Data Otomatis Berbasis Pemicu} dan \textit{Digital Validation}. Jelaskan alurnya dalam format naratif atau diagram sederhana.
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+    \item \textbf{(5 poin)} Jika \textit{waktu siklus} berhasil direduksi dari 6 hari menjadi 1 hari, dan setiap hari keterlambatan menyebabkan potensi denda ketidakpatuhan Rp 500.000/dokumen, hitung estimasi penghematan tahunan untuk 384 laporan inspeksi/tahun (32 menara $\times$ 12 bulan).
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\end{enumerate}
+
+\vspace{0.5cm}
+
+% === STUDI KASUS 2 ===
+\begin{plnbox}[Skenario 2: Resistensi terhadap Validasi Digital]
+\small
+Setelah pilot implementasi alur kerja digital di Unit Distribusi PLN Regional Y, seorang Manajer Senior menolak menggunakan validasi digital dengan alasan:
+
+\begin{quote}
+\textit{``Tanda tangan basah lebih sah secara hukum dibandingkan tanda tangan elektronik. Saya tidak percaya sistem digital bisa menjamin keaslian dokumen. Lagipula, kalau server \textit{down}, semua proses berhenti total.''}
+\end{quote}
+\end{plnbox}
+
+\vspace{0.3cm}
+
+\begin{enumerate}[leftmargin=*, label=\textbf{D2.\alph*}]
+    \item \textbf{(8 poin)} Tanggapi ketiga keberatan Manajer tersebut secara berurutan, dengan merujuk pada: (1) regulasi yang relevan (PP 71/2019), (2) mekanisme \textit{hash integrity} \& \textit{audit trail}, dan (3) prosedur \textit{Exception Handling/Fallback} yang telah dirumuskan dalam SOP.
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+    \item \textbf{(7 poin)} Dari perspektif \textit{Change Management}, klasifikasikan jenis resistensi Manajer tersebut dan usulkan \textbf{2 strategi konkret} untuk mengatasinya berdasarkan materi Bab 6.
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\end{enumerate}
+
+% ================= KUNCI JAWABAN (FASILITATOR) =================
+\newpage
+\begin{center}
+{\LARGE\bfseries\color{red!70!black} KUNCI JAWABAN \& RUBRIK PENILAIAN}\\[0.2cm]
+{\large\color{red!70!black}\textit{(Dokumen Rahasia -- Khusus Fasilitator)}}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{answerbox}
+\textbf{PENTING:} Halaman ini dan selanjutnya \textbf{WAJIB DIPISAHKAN} dari lembar soal peserta sebelum distribusi. Fasilitator dapat mencetak bagian ini secara terpisah atau menyimpannya dalam amplop tersegel.
+\end{answerbox}
+
+\vspace{0.5cm}
+
+% --- Kunci Bagian A ---
+\subsection{Kunci Jawaban Bagian A: Pilihan Ganda (30 poin)}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabularx}{0.95\textwidth}{@{} c c X c @{}}
+\toprule
+\textbf{No} & \textbf{Jawaban} & \textbf{Dasar/Penjelasan Singkat} & \textbf{Kriteria} \\
+\midrule
+1 & \textbf{B} & Optimalisasi di lingkungan hibrida = eliminasi \textit{waste} + otomasi metadata, bukan 100\% \textit{paperless} & 4.3.1 \\
+2 & \textbf{B} & Data tercipta sekali di titik transaksi, mengalir tanpa duplikasi input & 4.3.1 \\
+3 & \textbf{B} & Melacak satu dokumen nyata dari awal hingga akhir proses, mencatat hambatan & 4.3.1 \\
+4 & \textbf{A} & Routing otomatis berdasarkan aturan (hierarki, nilai, risiko) & 4.3.2 \\
+5 & \textbf{B} & Tanpa \textit{Immutability Lock}, konflik versi menyebabkan hilangnya \textit{Golden Record} & 4.3.2 \\
+6 & \textbf{B} & SOP Kearsipan wajib mencakup Klasifikasi, Retensi, RBAC & 4.3.3 \\
+7 & \textbf{D} & 8 komponen (setelah penambahan Klasifikasi, Retensi \& Akses) & 4.3.3 \\
+8 & \textbf{C} & Gunakan prosedur manual terstandar, sinkronkan setelah pulih & 4.3.3 \\
+9 & \textbf{B} & Persentase arsip ditemukan pada pencarian pertama & 4.3.4 \\
+10 & \textbf{C} & \textit{Content}, \textit{Structure}, \textit{Context} -- trinitas integrasi kearsipan & 4.3.4 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.5cm}
+
+% --- Kunci Bagian B ---
+\subsection{Kunci Jawaban Bagian B: Benar/Salah (10 poin)}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabularx}{0.95\textwidth}{@{} c c X @{}}
+\toprule
+\textbf{No} & \textbf{Jawaban} & \textbf{Koreksi / Penjelasan} \\
+\midrule
+1 & \textbf{S (Salah)} & Transfer file via API hanyalah ``interkoneksi''. Integrasi kearsipan menuntut \textit{Content + Structure + Context} utuh, termasuk \textit{audit trail}. \\
+2 & \textbf{B (Benar)} & Pada arsip hibrida, yang diotomasi adalah \textit{metadata tracking} dan sinkronisasi \textit{Finding Aid} digital. \\
+3 & \textbf{S (Salah)} & Evaluasi bersifat deskriptif-analitis pada level prosedur bisnis, bukan audit teknis server/infrastruktur. \\
+4 & \textbf{S (Salah)} & Komponen ini WAJIB; tanpanya SOP hanyalah ``SOP IT'', bukan SOP Kearsipan yang menjamin keamanan informasi dan kepatuhan JRA. \\
+5 & \textbf{B (Benar)} & \textit{Gemba Walk} = observasi langsung + wawancara aktor lapangan tentang kendala harian. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.3cm}
+\textit{Catatan: Untuk soal yang dijawab Salah oleh peserta, koreksi bernilai +1 poin bonus jika substansial. Tanpa koreksi = hanya 1 poin.}
+
+\vspace{0.5cm}
+
+% --- Kunci Bagian C ---
+\subsection{Kunci Jawaban Bagian C: Jawaban Singkat (30 poin)}
+
+\begin{enumerate}[leftmargin=*, itemsep=0.4cm]
+
+\item \textbf{3 Teknik Fact-Finding (6 poin):}
+\begin{itemize}[nosep]
+    \item \textbf{\textit{Document Shadowing}} (2 poin): Menjadikan satu dokumen nyata sebagai objek pelacakan dari awal hingga akhir proses, mencatat hambatan dan durasi transisi.
+    \item \textbf{Ekstraksi \textit{Log} Sistem} (2 poin): Menarik \textit{time-stamp} dari log aplikasi operasional untuk membuktikan durasi aktual vs SLA.
+    \item \textbf{\textit{Gemba Walk}} (2 poin): Wawancara langsung kepada staf lapangan mengenai kendala manual harian.
+\end{itemize}
+
+\item \textbf{2 Domain Checklist Diagnostik (6 poin):}\\
+Peserta boleh menyebutkan 2 domain apa saja dari 7 domain yang ada (contoh valid: Kebijakan, Tata Kelola, SDM/Budaya, Teknologi, Proses, Keamanan, Preservasi), dengan masing-masing satu contoh pertanyaan yang relevan dengan domain tersebut (masing-masing 3 poin per pasang domain \& pertanyaan).
+
+\item \textbf{Perbedaan Penangkapan Berbasis Pemicu vs SLA-Driven (6 poin):}
+\begin{itemize}[nosep]
+    \item \textbf{\textit{Penangkapan Data Otomatis Berbasis Pemicu}} (3 poin): Status tertentu di sistem operasional \textbf{secara otomatis memicu} pembuatan draft arsip + metadata. Inisiasi oleh \textit{event sistem}.
+    \item \textbf{\textit{SLA-Driven Escalation}} (3 poin): Jika validasi \textbf{melampaui batas waktu}, sistem otomatis mengeskalasi ke atasan berikutnya. Dipicu oleh \textit{pelanggaran tenggat waktu}.
+\end{itemize}
+
+\item \textbf{Mengapa Klasifikasi, Retensi \& Akses wajib (6 poin):}
+\begin{itemize}[nosep]
+    \item (3 poin) Komponen ini memastikan sistem tahu: ke berkas penyimpanan digital mana arsip dikunci, siapa yang dilarang membacanya (RBAC), dan kapan arsip boleh dimusnahkan sesuai JRA.
+    \item (3 poin) Tanpa komponen ini, pencarian arsip mungkin cepat, tetapi keamanan informasi bocor, retensi tidak terkontrol, dan arsip tidak memiliki dasar hukum pemusnahan yang sah.
+\end{itemize}
+
+\item \textbf{3 Komponen Time-Cost-Risk Saving (6 poin):}
+\begin{itemize}[nosep]
+    \item (2 poin) \textbf{Penghematan Waktu Siklus:} Reduksi \textit{waktu siklus} proses kearsipan (hari $\rightarrow$ jam).
+    \item (2 poin) \textbf{Reduksi Biaya Kesalahan:} Penghematan dari penurunan revisi, pencetakan ulang, denda keterlambatan.
+    \item (2 poin) \textbf{Mitigasi Risiko:} Pengurangan temuan audit, sanksi ketidakpatuhan, dan biaya litigasi.
+\end{itemize}
+
+\end{enumerate}
+
+\vspace{0.5cm}
+
+% --- Kunci Bagian D ---
+\newpage
+\subsection{Kunci Jawaban Bagian D: Studi Kasus Analitis (30 poin)}
+
+\textbf{Studi Kasus 1 -- Unit Transmisi PLN Regional X}
+
+\begin{enumerate}[leftmargin=*, label=\textbf{D1.\alph*}]
+
+\item \textbf{3 Hambatan Operasional (5 poin):}\\
+Minimal 3 dari yang berikut (poin proporsional):
+\begin{itemize}[nosep]
+    \item Pengantaran formulir fisik 1--2 hari (non-value-added \textit{delay})
+    \item Pengetikan ulang data dari kertas ke Excel (duplikasi input manual)
+    \item Siklus cetak $\rightarrow$ TTD basah $\rightarrow$ scan (konversi bolak-balik yang sia-sia)
+    \item Pengisian metadata manual yang inkonsisten (risiko kegagalan temu kembali / \textit{retrieval failure})
+    \item Upload manual ke berkas bersama tanpa indeks terstruktur
+\end{itemize}
+
+\item \textbf{Alur To-Be (5 poin):}\\
+Jawaban berkualitas harus memuat elemen berikut:
+\begin{itemize}[nosep]
+    \item (2 poin) \textbf{Pemicu}: Input inspeksi langsung di lapangan via perangkat mobile/tablet $\rightarrow$ status ``Selesai'' memicu auto-generate draft arsip + metadata otomatis (nama menara, tanggal, teknisi, kategori temuan)
+    \item (2 poin) \textbf{Validasi Digital}: Routing otomatis ke Supervisor untuk validasi digital dengan SLA 1$\times$24 jam; eskalasi otomatis jika lewat
+    \item (1 poin) \textbf{Penyimpanan}: Arsip tervalidasi langsung masuk repositori digital terindeks dengan \textit{hash integrity}
+\end{itemize}
+
+\item \textbf{Perhitungan ROI (5 poin):}
+\begin{itemize}[nosep]
+    \item Reduksi \textit{waktu siklus}: 6 hari $\rightarrow$ 1 hari = penghematan 5 hari/dokumen
+    \item Potensi denda per dokumen: 5 hari $\times$ Rp 500.000 = Rp 2.500.000/dokumen
+    \item Volume tahunan: 384 laporan
+    \item \textbf{Estimasi penghematan:} 384 $\times$ Rp 2.500.000 = \textbf{Rp 960.000.000/tahun}
+    \item (Poin penuh jika logika perhitungan benar, meskipun angka sedikit berbeda karena interpretasi)
+\end{itemize}
+
+\end{enumerate}
+
+\vspace{0.4cm}
+
+\textbf{Studi Kasus 2 -- Resistensi terhadap Validasi Digital}
+
+\begin{enumerate}[leftmargin=*, label=\textbf{D2.\alph*}]
+
+\item \textbf{Tanggapan 3 Keberatan (8 poin):}
+\begin{itemize}[nosep]
+    \item (3 poin) \textbf{Keberatan 1 (TTD basah lebih sah):} PP 71/2019 Pasal 14--16 secara eksplisit mengakui keabsahan tanda tangan elektronik bersertifikat. Secara hukum, TTD elektronik yang tersertifikasi memiliki kekuatan hukum yang sama dengan TTD basah.
+    \item (3 poin) \textbf{Keberatan 2 (Keaslian dokumen):} Mekanisme \textit{hash integrity} + \textit{audit trail immutable} justru menjamin keaslian lebih kuat daripada TTD basah yang bisa di-fotokopi. Setiap perubahan tercatat permanen dan tidak dapat dihapus.
+    \item (2 poin) \textbf{Keberatan 3 (Server \textit{down}):} SOP sudah memuat Komponen 7 ``\textit{Exception Handling \& Fallback}'' -- prosedur input manual terstandar yang langsung aktif jika sistem \textit{down} $>$4 jam, dengan sinkronisasi data saat sistem pulih.
+\end{itemize}
+
+\item \textbf{Klasifikasi Resistensi \& 2 Strategi (7 poin):}
+\begin{itemize}[nosep]
+    \item (2 poin) \textbf{Jenis:} Resistensi Kepercayaan (\textit{Trust-Based}) -- ketidakpercayaan terhadap validitas dokumen digital dan keamanan sistem.
+    \item (2--3 poin) \textbf{Strategi 1:} Pendampingan 1-on-1 (\textit{hands-on coaching}) -- demonstrasi langsung bahwa jejak audit digital lebih kuat secara hukum, menunjukkan bukti konkret \textit{hash integrity} pada dokumen nyata.
+    \item (2--3 poin) \textbf{Strategi 2:} Pilot terbatas (\textit{small win demonstration}) -- jalankan di satu sub-unit selama 30 hari, tunjukkan hasil reduksi \textit{waktu siklus} dan temuan zero-error ke Manajer Senior sebagai bukti empiris.
+\end{itemize}
+
+\end{enumerate}
+
+\vspace{0.8cm}
+
+% --- Rubrik Penilaian Rekap ---
+\subsection{Rekap Rubrik Penilaian Akhir}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabularx}{0.9\textwidth}{@{} X c c @{}}
+\toprule
+\textbf{Rentang Nilai} & \textbf{Kategori} & \textbf{Status Kelulusan} \\
+\midrule
+90 -- 100 & Sangat Kompeten (\textit{Excellent}) & \textbf{LULUS} \\
+75 -- 89 & Kompeten (\textit{Proficient}) & \textbf{LULUS} \\
+65 -- 74 & Cukup Kompeten (\textit{Adequate}) & \textbf{LULUS (Batas Minimal)} \\
+50 -- 64 & Belum Kompeten (\textit{Developing}) & \textbf{TIDAK LULUS -- Remediasi} \\
+$<$ 50 & Perlu Pembinaan (\textit{Needs Improvement}) & \textbf{TIDAK LULUS -- Ulangi Modul} \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.3cm}
+\begin{plnbox}[Catatan untuk Fasilitator]
+\small
+\begin{itemize}[nosep]
+    \item Peserta yang memperoleh nilai 50--64 wajib mengikuti sesi remediasi (pembahasan soal + pendalaman materi) sebelum mengikuti re-test.
+    \item Peserta dengan nilai $<$50 disarankan untuk mengulang modul dari awal dengan pendampingan ekstra dari fasilitator.
+    \item Skor Bagian D bersifat \textit{holistic scoring} -- fasilitator menilai kedalaman analisis, bukan hanya ketepatan kata kunci. Berikan kredit parsial jika logika peserta benar meskipun terminologi kurang tepat.
+    \item Simpan lembar jawaban peserta sebagai bagian dari portofolio bukti pelatihan untuk keperluan audit kompetensi.
+\end{itemize}
+\end{plnbox}
+
+\end{document}

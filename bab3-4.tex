@@ -1,0 +1,849 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, headheight=14.5pt}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage[expansion=false]{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric, backgrounds, fit, calc}
+
+% Warna Korporat PLN (harus didefinisikan SEBELUM hypersetup)
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=plnblue,
+    urlcolor=plnblue,
+    citecolor=plnblue
+}
+
+% Header & Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Modul 4.3: Bab 3 \& 4}}
+\fancyhead[R]{\small Level 4 (Mastery) -- PLN}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Format Heading
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{plnblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries\color{plnblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{plnblue}}{\thesubsection}{1em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+% Custom Boxes
+\newtcolorbox{plnbox}[1][]{%
+  colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries,
+  title=#1, sharp corners, boxrule=0.8pt, breakable
+}
+\newtcolorbox{warnbox}{%
+  colback=plnorange!10, colframe=plnorange, fonttitle=\bfseries,
+  title=Catatan Batasan Materi, sharp corners, breakable
+}
+\newtcolorbox{outputbox}{%
+  colback=green!10, colframe=green!50!black, fonttitle=\bfseries,
+  title=Output Wajib, sharp corners, breakable
+}
+
+% List styling
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
+\setlist[enumerate]{leftmargin=*, topsep=2pt, itemsep=2pt}
+
+\begin{document}
+
+% ================= COVER STANDALONE =================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+{\Huge\bfseries\color{plnblue} MODUL 4.3 (Lanjutan)}\\[0.4cm]
+{\LARGE\bfseries Bab 3 \& 4: Perancangan Alur Kerja \& SOP Digital}\\[0.8cm]
+\rule{0.8\linewidth}{0.6pt}\\[0.6cm]
+{\large Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
+{\large Level 4 (Mastery)}\\[1.2cm]
+{\large Disusun Khusus untuk: \textbf{PT PLN (Persero)}}\\
+{\large Target Peserta: Manajemen Atas (MA)}\\[2.5cm]
+\begin{figure}[h]
+\centering
+\includegraphics[width=4cm]{example-image}
+\end{figure}
+\vfill
+{\small Dokumen ini dapat dikompilasi secara terpisah dari Bab 1 \& 2}
+\end{titlepage}
+
+\newpage
+% ================= BAB 3 =================
+\setcounter{chapter}{2}
+\chapter[Perancangan Alur Kerja Terintegrasi (To-Be)]{Perancangan Alur Kerja\\Terintegrasi (To-Be)}
+\textit{Durasi Fasilitasi: 20 Menit} \quad \textit{Kriteria Penilaian: 4.3.2}
+
+\begin{warnbox}[{{Catatan Metodologi: Penggunaan Istilah Workshop}}]
+\small
+Penggunaan istilah \textbf{Workshop} dalam modul ini merujuk pada metode pembelajaran aktif (\textit{active learning}) yang diwajibkan untuk mencapai kompetensi \textbf{Level 4 (Mastery)}. Berbeda dengan sosialisasi satu arah, format \textit{workshop} dipilih karena modul ini memuat aktivitas simulasi penyelarasan komponen SOP secara mandiri, yang bertujuan untuk menguji kemampuan pemecahan masalah (\textit{problem-solving}) peserta terhadap skenario operasional riil di PLN.
+\end{warnbox}
+
+
+\section{Prinsip Desain Workflow Berbasis Otomasi}
+Perancangan alur kerja terintegrasi berfokus pada transformasi prosedur manual menjadi alur digital yang mengalir secara otomatis dari titik transaksi bisnis ke repositori arsip. Prinsip dasarnya mengacu pada konsep \textit{event-triggered archival} (pengarsipan berbasis pemicu) dan \textit{metadata auto-capture}, di mana sistem tidak lagi menjadi tempat \textit{input ulang}, melainkan penerima dan pengolah data yang sudah tervalidasi.
+
+\begin{plnbox}[Relevansi Eksekutif: Nilai Strategis Desain Otomasi]
+\small
+\textbf{Sikap Skeptis:} "Desain alur kerja terdengar sangat operasional dan teknis IT. Apa urgensi level Manajemen Atas (MA) mengawal prinsip desain ini?"
+
+\textbf{Jawaban Strategis:} Bagi eksekutif, otomasi bukan sekadar alat untuk mempercepat ketik-mengetik surat. Otomasi adalah \textbf{instrumen pengamanan aset dan mitigasi risiko hukum}. Ketika MA mengamanatkan desain alur berbasis otomasi ini, mereka secara riil memusnahkan celah intervensi (\textit{tampering/fraud}) data, mengunci kepatuhan \textit{Good Corporate Governance} (GCG) secara \textit{real-time}, dan memastikan perusahaan selalu memiliki bukti legal yang kebal sanggahan auditor.
+\end{plnbox}
+
+Tiga prinsip kunci dalam desain workflow terintegrasi (berdasarkan kacamata manajerial):
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Single Entry, Multiple Use (Efisiensi Beban Anggaran):} memangkas jam kerja administratif (\textit{man-hours}) serta menekan probabilitas kecerobohan (\textit{human-error}) menjadi nihil. Mengeliminasi proses \textit{input} ulang berarti secara signifikan mengurangi jam kerja administratif (\textit{man-hours}) serta menekan probabilitas kecerobohan (\textit{human-error}) menjadi nihil.
+    \item \textbf{Rule-Based Routing (Anti-Intervensi Pendelagasian):} Rute validasi dieksekusi secara terprogram and mutlak oleh sistem (berdasarkan hierarki nilai finansial atau kategori risiko proyek). Dengan menihilkan penyerahan berkas secara informal melalui pesan singkat atau korespondensi luring lainnya, celah korupsi birokrasi dan nepotisme persetujuan dapat dieliminasi.
+    \item \textbf{Explicit Exception Handling (Jaminan Kelangsungan Audit):} Merumuskan prosedur cadangan operasional (\textit{fallback}) saat jaringan koneksi terputus. Tidak akan ada insiden dokumen disahkan melalui "proses luring tanpa pencatatan sistem", mengkonfirmasi bahwa rekam jejak kepatuhan (\textit{audit trail}) tetap terjaga dalam kondisi segregasi sistem sekalipun.
+\end{itemize}
+
+\begin{warnbox}
+\textbf{Catatan Batasan Materi:} Desain di level ini \textbf{tidak membahas} spesifikasi teknis API, konfigurasi database, atau pemilihan middleware. Fokus tetap pada \textbf{logika bisnis, pemicu peristiwa (trigger event), dan alur persetujuan} yang dapat dipetakan dalam notasi standar.
+\end{warnbox}
+
+\section{Pemodelan Alur Kerja dengan BPMN 2.0}
+\textit{Business Process Model and Notation (BPMN) 2.0} adalah bahasa visual standar internasional (ISO/IEC 19510) untuk memetakan alur kerja. Untuk kebutuhan manajemen kearsipan PLN, kita hanya menggunakan subset "BPMN Bisnis" agar tetap relevan dan tidak terlalu teknis.
+
+\begin{plnbox}[Relevansi Eksekutif: Mengapa MA Perlu Memodelkan BPMN?]
+\small
+\textbf{Sikap Skeptis:} "\textit{Mengapa level Manajer Atas (MA) harus repot mempelajari diagram teknis seperti BPMN? Bukankah itu pekerjaan vendor IT atau sistem analis?}"
+
+\textbf{Jawaban Strategis:} MA di PLN memang tidak diwajibkan menggambar diagram dari nol secara teknis, namun MA \textbf{wajib mampu membaca, memvalidasi, dan mengesahkannya}. Dalam transformasi digital bisnis rintisan maupun BUMN, diagram BPMN bertindak murni layaknya "Cetak Biru (\textit{Blueprint}) Bangunan Hukum". mendukung proses yang tidak transparan (\textit{black box}) buatan IT yang sangat lazim berujung pada pelanggaran wewenang persetujuan (\textit{approval}), kebocoran akses, atau hilangnya arsip vital korporat. BPMN adalah instrumen resolusi konflik lintas divisi yang mensyaratkan unit kerja IT, Bisnis, dan Kearsipan untuk menyepakati pertanggungjawaban dalam satu bahasa visual yang universal.
+\end{plnbox}
+
+\textbf{Mengapa Menggunakan BPMN 2.0?}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Bahasa Universal (Bridge):} Menjembatani kesenjangan komunikasi antara analis bisnis (manajemen operasional), pembuat kebijakan kearsipan, dan pengembang IT.
+    \item \textbf{Presisi Kepemilikan (Ownership):} Melalui penggunaan \textit{Pools} (lingkup unit/sistem) \& \textit{Lanes} (peran jabatan), tanggung jawab persetujuan di setiap tahapan terlihat sangat jelas.
+    \item \textbf{Kesiapan Otomasi:} Skema logika visual BPMN dapat dieksekusi secara langsung oleh mesin otomasi (\textit{workflow engine}) pada Sistem Bisnis tingkat lanjut di PLN.
+\end{itemize}
+
+\textbf{Alternatif Selain BPMN (Keunggulan \& Kekurangan):}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Flowchart Tradisional:} Sangat awam dan mudah digambar. \textit{Kekurangan:} Sulit mendeskripsikan secara presisi siapa yang bertanggung jawab (tidak ada \textit{Lanes}) dan sulit memvisualisasikan komunikasi lintas server/API.
+    \item \textbf{UML Activity Diagram:} Sangat presisi secara algoritma. \textit{Kekurangan:} Terlalu sentris secara IT (teknis perangkat lunak) sehingga sulit disepakati saat rapat direksi/manajemen bisnis.
+    \item \textbf{Value Stream Mapping (VSM):} Sangat dianjurkan di Bab 2 untuk mendiagnosis "waktu terbuang" (\textit{delay/waste}). \textit{Kekurangan:} Tidak ideal untuk memodelkan persyaratan logika bersyarat (\textit{if-then}) di IT.
+\end{itemize}
+
+\begin{table}[htbp]
+\centering
+\caption{Simbol Dasar BPMN Bisnis untuk Manajemen}
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Simbol} & \textbf{Nama} & \textbf{Fungsi dalam Konteks Kearsipan} \\
+\midrule
+\textbullet & Start Event & Pemicu alur (contoh: \texttt{arsip perintah kerja (SPK)\_Selesai}, \texttt{Kontrak\_Diunggah}) \\
+$\square$ & Task & Aktivitas bisnis/pemrosesan (contoh: \texttt{Cek Kelengkapan Metadata}) \\
+$\Diamond$ ($\times$) & Gateway (Exclusive) & Keputusan bercabang (\textit{Jika Disetujui / Jika Direvisi}) \\
+$\rightarrow$ & Sequence Flow & Urutan operasional tugas dalam satu sistem/unit \\
+$\cdots \rightarrow$ & Message Flow & Komunikasi inter-sistem (contoh: \texttt{Sistem A} kirim API ke \texttt{Sistem B}) \\
+$\blacksquare$ & End Event & Penyelesaian alur (contoh: \texttt{Arsip\_Otentik\_Disimpan}) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Alat Bantu (Tools) yang Direkomendasikan:}
+Fasilitator dan peserta pelatihan tidak perlu melakukan konversi gambar manual. Berikut rekomendasi aplikasi siap pakai untuk visualisasi:
+\begin{itemize}[leftmargin=*, nosep]
+    \item \textbf{Desktop/Enterprise:} Microsoft Visio (Umum untuk korporasi), Bizagi Modeler (Sangat intuitif dan ramah bisnis), Camunda Modeler.
+    \item \textbf{Web-Based/Gratis:} Draw.io / Diagrams.net, Lucidchart, Miro.
+\end{itemize}
+
+\begin{plnbox}[Contoh Pemetaan: Otomasi Dokumen BAST Pengadaan]
+\small
+Sebagai ilustrasi, desain BPMN dari sebuah integrasi diletakkan di atas dua \textit{Lanes}: \textbf{Lane 1 (Sistem E-Procurement)} dan \textbf{Lane 2 (Sistem Tata Persuratan / E-Office)}. Deskripsi alur:
+\begin{enumerate}[nosep, leftmargin=*]
+    \item \textbf{Start Event:} Vendor menekan tombol \textit{"Submit Pekerjaan"} \textit{(di Lane 1)}.
+    \item \textbf{Task Otomatis:} Sistem \textit{E-Procurement} secara otonom mengambil data vendor \& spesifikasi, lalu menyusun draf cetak biru BAST tanpa di-ketik manusia.
+    \item \textbf{Message Flow:} Draf mentah lengkap dengan \textit{Payload API} dikirimkan ke Sistem Tata Persuratan.
+    \item \textbf{Task Manusia:} Manajer Logistik membuka \textit{E-Office} \textit{(di Lane 2)}, memeriksa substansi draf, lalu melakukan \textbf{Persetujuan Digital (TTE)}.
+    \item \textbf{Gateway:} Jika Ditolak $\rightarrow$ kembali ke vendor. Jika Disetujui $\rightarrow$ Lanjut \textit{Task} berikutnya.
+    \item \textbf{Task Sistem:} Sistem memvalidasi \textit{Hash} sertifikat digital, mengunci arsip BAST permanen (\textit{Immutable}), dan mengirim salinan final ke \textit{Dashboard} Vendor.
+    \item \textbf{End Event:} Transaksi BAST tervalidasi murni secara digital tanpa satupun kertas dicetak.
+\end{enumerate}
+\end{plnbox}
+
+% --- DIAGRAM: Contoh Pemetaan BAST ---
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=1.0cm and 0.8cm,
+  startstyle/.style={circle, draw=green!60!black, fill=green!15, minimum size=1.1cm,
+    align=center, font=\scriptsize\bfseries, line width=1.2pt},
+  endstyle/.style={circle, draw=plnblue!80!black, fill=plnblue!25, minimum size=1.1cm,
+    align=center, font=\scriptsize\bfseries, line width=1.8pt},
+  autostep/.style={rectangle, rounded corners=3pt, draw=plnblue!80, fill=plnblue!12,
+    text width=2.6cm, minimum height=1.5cm, align=center, font=\scriptsize\bfseries, line width=0.8pt},
+  humanstep/.style={rectangle, rounded corners=3pt, draw=plnorange, fill=plnorange!10,
+    text width=2.6cm, minimum height=1.5cm, align=center, font=\scriptsize, line width=0.8pt},
+  gateway/.style={diamond, draw=plnorange!80, fill=plnorange!8,
+    minimum width=1.3cm, minimum height=1.3cm, align=center, font=\scriptsize\bfseries, inner sep=2pt, aspect=1},
+  arr/.style={-{Stealth[length=6pt]}, thick, color=plnblue!70},
+  arrok/.style={-{Stealth[length=6pt]}, thick, color=green!60!black},
+  arrno/.style={-{Stealth[length=6pt]}, thick, color=red!50, dashed},
+  apimsg/.style={-{Stealth[length=6pt]}, dashed, thick, color=gray!80!black},
+  lanelab/.style={font=\small\bfseries, text=plnblue!80!black, rotate=90},
+]
+
+% Lane backgrounds
+\fill[plnblue!4] (0.2, 3.0) rectangle (20.5, 0.4);
+\fill[plnorange!4] (0.2, 0.3) rectangle (20.5, -3.0);
+% Lane labels
+\node[lanelab] at (0.5, 1.7) {Lane 1: E-Procurement};
+\node[lanelab] at (0.5, -1.35) {Lane 2: E-Office};
+% Lane dividers
+\draw[plnblue!20, thick] (0.2, 0.35) -- (20.5, 0.35);
+
+% Lane 1: E-Procurement
+\node[startstyle] at (2.0, 1.7) (s1) {Vendor\\Submit};
+\node[autostep, right=of s1] (a1) {Auto-Generate\\Draft BAST};
+
+% Lane 2: E-Office
+\node[humanstep, below right=1.2cm and 1.0cm of a1] (h1) {Review Draft\\(Manajer Logistik)};
+\node[gateway, right=0.8cm of h1] (g1) {$\times$};
+\node[autostep, right=0.8cm of g1] (a2) {Sistem Kunci\\Immutable \& Hash};
+
+% Back to Lane 1
+\node[autostep, above right=1.2cm and 1.0cm of a2] (a3) {Kirim Salinan ke\\Dashboard Vendor};
+\node[endstyle, right=of a3] (e1) {Arsip\\Final BAST};
+
+% Arrows
+\draw[arr] (s1) -- (a1);
+\draw[apimsg] (a1.south) -- ++(0,-0.6) -| node[pos=0.25, above, font=\scriptsize\itshape, text=gray!80!black] {Payload API} (h1.north);
+\draw[arr] (h1) -- (g1);
+\draw[arrno] (g1.south) -- ++(0,-0.6) -| node[pos=0.25, below, font=\scriptsize\itshape, text=red!60] {Ditolak (Kembali ke Vendor)} (s1.south);
+\draw[arrok] (g1) -- node[above, font=\scriptsize\itshape] {Disetujui (TTE)} (a2);
+\draw[arr] (a2.north) -- ++(0,0.6) -| (a3.south);
+\draw[arr] (a3) -- (e1);
+
+\end{tikzpicture}%
+}
+\caption{Visualisasi BPMN: Integrasi Otomasi Pembuatan BAST antara E-Procurement dan E-Office}
+\label{fig:bpmn-bast-example}
+\end{figure}
+
+\section{Pola Integrasi Alur Kerja PLN}
+Berdasarkan ketiga \textbf{Prinsip Desain Workflow} yang telah dibahas pada Sub-bab 3.1 di atas, bagian ini akan memaparkan bagaimana teori manajerial tersebut dapat ditransformasikan ke arah eksekusi arsitektur. Terdapat tiga "Pola Integrasi (\textit{Pattern})" mutlak yang dapat dijadikan rujukan sebagai \textbf{Pengejawantahan Fisik} dari ketiga prinsip teoritis tersebut ke dalam wujud algoritma ekosistem digital PLN untuk mengatasi hambatan birokrasi.
+
+\begin{plnbox}[Relevansi Eksekutif: Mengeliminasi Kendala Birokrasi]
+\small
+\textbf{Mengapa MA perlu mengarahkan arsitektur (\textit{pattern}) alur kerja?}
+Bagi pimpinan korporat PLN, seluruh narasi integrasi sistem harus menjawab satu rasa frustrasi kolektif: \textbf{berkas vital yang tertunda di meja pejabat}. Dengan mengeksploitasi 3 tatanan pola integrasi canggih di bawah ini, MA memiliki otoritas pengendalian untuk secara sistematis mengeliminasi kelambatan (\textit{bottleneck}), meniadakan alasan klasik "dokumen terselip" atau "lupa tanda tangan", serta mengakselerasi eksekusi keputusan lintas divisi menjadi hanya dalam hitungan jam.
+\end{plnbox}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Trigger-Based Auto-Capture (Pengejawantahan prinsip \textit{Single Entry}):} Mengubah kultur pasif ("menunggu staf penyelia lapangan mencetak form") menjadi "algoritma mengambil data secara otomatis". Begitu petugas menekan status teknis \textit{Selesai} di aplikasi \textit{mobile} operasi, sedetik itu juga modul kearsipan otomatis menarik struktur datanya untuk dipatenkan sebagai draf laporan final otomatis.
+    \item \textbf{Parallel Digital Routing (Pengejawantahan prinsip \textit{Rule-Based Routing}):} Menghapus inefisiensi birokrasi berantai (\textit{serial approval}) di mana draf tertunda selama berhari-hari mencari tanda tangan berurutan. Rute persetujuan kini dikendalikan mesin yang sanggup menyebarkan naskah secara serentak (\textit{simultan}) kepada kelima Manajer Unit sekaligus, mengurangi durasi antrean persetujuan lintas unit secara masif.
+    \item \textbf{SLA-Driven Escalation (Pengejawantahan prinsip \textit{Exception Handling}):} Merupakan mekanisme pertahanan darurat (\textit{fallback}). Menjadi instrumen kepatuhan utama bagi \textit{Top Management} saat terjadi penundaan. Jika Manajer Area abai mengeksekusi validasi hingga batas $1 \times 24$ jam (\textit{Service Level Agreement}) terlampaui, sistem secara otomatis dan terukur akan mengeskalasi penundaan penyelesaian tunggakan ini kepada sang General Manager (GM) di tingkat atasnya, melahirkan transparansi rapor kedisiplinan administratif.
+\end{enumerate}
+
+\begin{plnbox}[Kacamata Arsiparis: Fallacy "Parallel Routing"]
+\small
+\textbf{Kesesatan Logika (Logical Fallacy):} Desainer alur kerja sering beranggapan \textit{Parallel Digital Routing} (poin no. 2) menghemat waktu drastis karena dokumen dikirim berbarengan ke multi-manajer. 
+
+\textbf{Faktanya:} Tanpa mekanisme penguncian naskah (\textit{Immutability Lock}), dokumen yang direvisi berbarengan oleh banyak pihak akan memicu "masalah \textit{Version Control}". Arsiparis tidak akan tahu revisi mana yang menjadi \textit{Golden Record} terakhir. Integrasi yang benar harus memastikan dokumen tetap dikunci \textit{read-only} saat dikirim paralel; revisi diajukan dalam bentuk metadata komentar yang dilacak secara terpusat, bukan mengubah konten dokumen asli secara sporadis.
+\end{plnbox}
+
+\textbf{Sintesis Visual: Pemodelan Alur SPK Gardu Induk} \par
+Bagaimana seluruh teori otomasi bisnis, arsitektur integrasi, dan standar BPMN di atas bersintesis dalam realitas kerja lapangan PLN? 
+
+Untuk mengontekstualisasikan instrumen \textbf{Trigger-Based Auto-Capture}, \textbf{Parallel Digital Routing}, dan kedisiplinan \textbf{SLA-Driven Escalation} sekaligus di dalam satu model utuh, mari kita analisis arsitektur \textit{To-Be} dari prosedur \textbf{Laporan Penormalan Jaringan (Energizing) Gardu Induk 150 kV} di bawah ini. Arsitektur krusial yang melibatkan persetujuan paralel lintas unit (\textit{Asset Owner} dan \textit{Dispatcher Ops}) inilah yang nantinya akan kita kalkulasikan Justifikasi Bisnis (\textit{Return on Investment}) dan penghematan anggarannya secara komprehensif pada \textbf{Bab 6}.
+
+% --- DIAGRAM: Alur Kerja To-Be Terintegrasi ---
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=0.6cm and 0.4cm,
+  trigger/.style={circle, draw=green!60!black, fill=green!15, 
+    minimum size=1.1cm, align=center, font=\tiny\bfseries, line width=0.8pt},
+  auto/.style={rectangle, rounded corners=3pt, draw=plnblue!80!black, fill=plnblue!12, 
+    text width=2.0cm, minimum height=1.2cm, align=center, 
+    font=\tiny\bfseries, line width=0.8pt},
+  human/.style={rectangle, rounded corners=3pt, draw=plnorange, fill=plnorange!10, 
+    text width=2.0cm, minimum height=1.2cm, align=center, 
+    font=\tiny\bfseries, line width=0.8pt},
+  endnode/.style={circle, draw=plnblue!80!black, fill=plnblue!20, 
+    minimum size=1.1cm, align=center, font=\tiny\bfseries, line width=1.2pt},
+  gateway/.style={diamond, draw=plnorange!80!black, fill=plnorange!8,
+    minimum width=1.1cm, minimum height=1.1cm, align=center, 
+    font=\small\bfseries, inner sep=1pt, aspect=1},
+  arr/.style={-{Stealth[length=6pt]}, thick, color=plnblue!70},
+  arrok/.style={-{Stealth[length=6pt]}, thick, color=green!60!black},
+  arrno/.style={-{Stealth[length=6pt]}, thick, color=red!60, dashed},
+  lbl/.style={font=\tiny\itshape, text=gray!60!black},
+  timelbl/.style={font=\tiny\bfseries, text=green!50!black, fill=white, inner sep=2pt, rounded corners=2pt},
+]
+% Main flow
+\node[trigger] (t1) {Draft\\Otomatis};
+\node[auto, right=of t1] (a1) {Auto-Generate\\Draft BA};
+\node[auto, right=of a1] (a2) {Auto-Capture\\Metadata};
+\node[gateway, right=0.6cm of a2] (gsplit) {$+$};
+
+\node[human, above right=0.3cm and 0.6cm of gsplit] (h1) {Validasi\\Pemeliharaan};
+\node[human, below right=0.3cm and 0.6cm of gsplit] (h2) {Validasi\\Operasi Sistem};
+
+\node[gateway, below right=0.3cm and 0.6cm of h1] (gmerge) {$+$};
+\node[gateway, right=0.6cm of gmerge] (gx) {$\times$};
+
+\node[auto, right=0.8cm of gx] (a3) {Simpan ke\\Repositori};
+\node[auto, right=of a3] (a4) {Log Audit\\Trail};
+\node[endnode, right=of a4] (e1) {Arsip\\Final};
+
+% Reject path
+\node[human, below=1.4cm of gx] (hrev) {Revisi\\\& Koreksi};
+
+% SLA Escalation Path (Explicit Exception Handling)
+\node[auto, draw=red!80, fill=red!10, text=black, above=1.0cm of h1] (esc) {Auto-Eskalasi\\Ke Manajer UPT};
+
+% Arrows
+\draw[arr] (t1) -- (a1);
+\draw[arr] (a1) -- (a2);
+\draw[arr] (a2) -- (gsplit);
+\draw[arr] (gsplit) |- (h1.west);
+\draw[arr] (gsplit) |- (h2.west);
+\draw[arr] (h1.east) -| (gmerge.north);
+\draw[arr] (h2.east) -| (gmerge.south);
+\draw[arr] (gmerge) -- (gx);
+
+\draw[arrok] (gx) -- node[above, timelbl] {Approved} (a3);
+\draw[arr] (a3) -- (a4);
+\draw[arr] (a4) -- (e1);
+
+\draw[arrno] (gx) -- node[right, timelbl, text=red!60, xshift=0.1cm] {Rejected} (hrev);
+\draw[arrno] (hrev.west) -| ($(a2.south)+(0,-1.0)$) -- (a2.south);
+
+% SLA Arrows
+\draw[arrno] (h1.north) -- node[left, timelbl, text=red!80] {Timeout $>1$ Jam} (esc.south);
+\draw[arr] (esc.east) -| (gx.north);
+
+% Visual Callouts for the 3 Patterns
+\node[rectangle, draw=purple, fill=purple!5, text=purple!80!black, font=\scriptsize\bfseries, align=center, rounded corners, above=0.8cm of a2, inner sep=3pt] (call1) {Pola 1: Trigger-Based\\Auto-Capture};
+\draw[->, purple, thick] (call1.south) -- (a2.north);
+
+\node[rectangle, draw=purple, fill=purple!5, text=purple!80!black, font=\scriptsize\bfseries, align=center, rounded corners, below=0.6cm of gsplit, inner sep=3pt] (call2) {Pola 2: Parallel\\Digital Routing};
+\draw[->, purple, thick] (call2.north) -- (gsplit.south);
+
+\node[rectangle, draw=purple, fill=purple!5, text=purple!80!black, font=\scriptsize\bfseries, align=center, rounded corners, above=0.4cm of esc, inner sep=3pt] (call3) {Pola 3: SLA-Driven\\Escalation};
+\draw[->, purple, thick] (call3.south) -- (esc.north);
+
+% Role labels (swimlane-like)
+\node[below=3.0cm of a1, font=\scriptsize\bfseries, text=plnblue] {Sistem Pembangkitan/SCADA};
+\node[below=3.0cm of gx, font=\scriptsize\bfseries, text=plnorange] {Otorisasi Lintas Departemen (\textit{Parallel})};
+\node[below=3.0cm of a4, font=\scriptsize\bfseries, text=plnblue] {Repositori Kearsipan};
+
+% Total waktu siklus
+\node[below=3.6cm of gmerge, font=\normalsize\bfseries, text=green!50!black] {Target Waktu Siklus: $<$ 2 Jam (Super Cepat)};
+\end{tikzpicture}%
+}
+\caption{Pengejawantahan Lengkap 3 Prinsip Integrasi: Dokumen BA Penormalan Gardu Induk Lintas Divisi}
+\label{fig:alur-tobe}
+\end{figure}
+
+\begin{plnbox}[Catatan Arsitektur: Mengapa Diagram Ini Menanggalkan \textit{Swimlane} Bergaris?]
+\small
+\textbf{Pendekatan \textit{Value-Stream} Manajerial} \\
+Secara sintaks teknis klasik, BPMN sangat lekat dengan penggunaan garis batas \textit{Pools} dan \textit{Lanes} (kolam dan lajur) pembatas kewenangan. Namun, khusus untuk presentasi level direksi/eksekutif (\textit{High-Level Architecture}), tembok sekat \textit{swimlane} pada model di atas sengaja dibuat melebur (\textit{borderless}) dan digantikan secara visual oleh \textbf{Label Zona Otoritas} di dasar kanvas.
+
+Eliminasi garis pembatas (batas antar unit) ini merupakan strategi persuasi taktis. Tujuannya adalah mereduksi ego sektoral dan memaksa \textit{Top Management} agar menaruh atensi tunggal pada evaluasi \textbf{Kecepatan Laju Operasional (\textit{Data Velocity})} dan \textbf{Rantai Otomasi}, bukan malah terjebak pada perdebatan politis mengenai "wilayah kekuasaan" departemen mana yang paling berat beban kerjanya.
+\end{plnbox}
+
+\section{Validasi Alur Terintegrasi}
+\begin{plnbox}[Relevansi Eksekutif: Fungsi Checklist Sebagai "Gerbang Tol" (Tollgate) Anggaran]
+\small
+\textbf{Mengapa MA tidak boleh mendelegasikan validasi akhir ini mutlak kepada bawahan teknis/vendor?}
+Daftar periksa ini bukanlah formulir sepele untuk tim \textit{Quality Assurance} (QA) pengujian perangkat lunak. Bagi fungsionaris manajemen, tabel di bawah ini \textbf{Gerbang Eksekutif (\textit{Executive Tollgate})} persetujuan terakhir sebelum anggaran besar dicairkan untuk membangun sistem. Dengan menyodorkan 4 pertanyaan kritis ini kepada Kepala Divisi IT / Pemimpin Proyek, MA sedang mengamankan garansi hukum bahwa algoritma otomasi yang akan di-\textit{coding} memiliki prosedur cadangan (\textit{fallback}) ketika peladen lumpuh, serta menaungi perusahaan dari ancaman sanksi pidana pelanggaran pengamanan data (dalam PP 71/2019).
+\end{plnbox}
+
+Sebelum rancangan arsitektur proses (\text{BPMN}) disahkan (\textit{sign-off}) pada level direksi/manajerial untuk kemudian menjadi instruksi kerja pembuatan piranti lunak, para eksekutif \textbf{wajib} membombardir rancangan tersebut dengan parameter \textit{Tollgate} berikut:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Executive Tollgate: Matriks Validasi Keamanan Alur Kerja Terintegrasi}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c @{}}
+\toprule
+\textbf{Aspek Validasi} & \textbf{Pertanyaan Pemeriksaan} & \textbf{Status} \\
+\midrule
+\textbf{Kelengkapan} & Apakah setiap pemicu memiliki task \& end event yang jelas? & $\square$ Ya / $\square$ Tidak \\
+\textbf{Konsistensi} & Apakah semua gateway memiliki jalur \textit{approved} dan \textit{rejected} yang eksplisit? & $\square$ Ya / $\square$ Tidak \\
+\textbf{Kepatuhan} & Apakah alur memastikan penciptaan arsip di titik transaksi sesuai PP 71/2019? & $\square$ Ya / $\square$ Tidak \\
+\textbf{Fallback} & Apakah ada prosedur manual digital untuk kondisi sistem \textit{down}? & $\square$ Ya / $\square$ Tidak \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Aktivitas Workshop (20 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Kelompok menggunakan Matriks Identifikasi dari Bab 2 sebagai input.
+    \item Pilih 1 proses prioritas (\textbf{Tinggi}) untuk dirancang ulang.
+    \item Gambar diagram \textit{To-Be} menggunakan lembar kerja BPMN (disediakan).
+    \item Lakukan validasi silang dengan kelompok lain menggunakan checklist di atas.
+\end{enumerate}
+
+\begin{outputbox}
+\textbf{Output Wajib Bab 3:} \textit{Diagram BPMN 2.0 (To-Be)} + \textit{Peta Pemicu Integrasi}. Dokumen ini akan dinilai berdasarkan logika alur, kejelasan otomasi, dan keselarasan dengan kriteria 4.3.2.
+\end{outputbox}
+
+\subsection*{Referensi Pendukung Bab 3}
+\begin{enumerate}[leftmargin=*, nosep]
+    \item IPB Digital Archive Workflow \& Trigger Mapping Guidelines
+    \item Object Management Group (OMG), \textit{BPMN 2.0 Specification} (Business Level)
+    \item PARBICA, \textit{Recordkeeping for Good Governance Toolkit (Guideline 2: Identifying Recordkeeping Requirements)}
+    \item World Bank RM Roadmap, \textit{Part 8: Technology Enablement \& Integration Patterns}
+\end{enumerate}
+
+\newpage
+% ================= BAB 4 =================
+\chapter{Penyusunan SOP Digital Terintegrasi}
+\textit{Durasi Fasilitasi: 15 Menit} \quad \textit{Kriteria Penilaian: 4.3.3}
+
+\section{Evolusi SOP: Dari Manual ke Digital-Integrated}
+
+Secara fundamental, terdapat perbedaan prinsip yang mendasar antara Standar Operasional Prosedur (SOP) konvensional dengan SOP digital yang terintegrasi. 
+
+\textbf{SOP Konvensional} pada dasarnya bermuara pada "pedoman interaksi fisik antarmanusia" (\textit{human-to-human centric}). Prosedur ini dominan difokuskan pada panduan kerja manual, mengatur apa yang harus dicetak oleh staf operasional, menugaskan siapa manajer yang akan membubuhkan paraf atau spesimen tanda tangan basah, serta merinci tahapan administrasi manual terkait unit kerja yang menjadi tujuan pendistribusian berkas fisik selanjutnya. Titik berat instruksi ini sekadar berfokus pada dimensi "siapa melakukan apa" (\textit{who does what}) di lingkungan operasional luring/fisik.
+
+Sebaliknya, \textbf{SOP Digital Terintegrasi} adalah loncatan paradigma menuju \textit{human-system orchestration} (orkestrasi presisi antara mesin dan pegawai). Dalam tatanan tata kelola modern, sistem IT tidak lagi direduksi sebatas "alat ketik" atau "depo arsip", melainkan diposisikan setara sebagai \textbf{entitas interaktif} yang bekerja bahu-membahu dengan pejabat pembuat keputusan terkait. Karena itu, SOP transisi digital tidak cukup sekadar mereplikasi proses manual lama, melainkan harus mendefinisikan tatanan baru pada keempat kelompok prosedur otomasi ini:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pemicu Sistem (Pemicu Otomatis):} Di posisi ini manusia tidak selamanya mengawali inisiatif. SOP menjabarkan peristiwa, jadwal, atau pergantian status apa di dalam aplikasi operasional sistem yang seketika memicu sistem manajemen persuratan/kearsipan untuk beroperasi dan mengambil data (\textit{auto-capture}) laporan transaksi secara otomatis.
+    \item \textbf{Human-in-the-Loop (Titik Verifikasi Manual):} Tahapan kritis terencana di mana sistem "sengaja" dilarang bertindak mutlak, sebaliknya diwajibkan menunda aksi untuk menyerahkan validasi ganda kepada manusia. Titik ini umumnya diterapkan pada prosedur yang padat akan kebijaksanaan manajerial (\textit{judgement call}), pendelegasian otorisasi Tanda Tangan Elektronik (TTE) Tersertifikasi, perizinan \textit{Role-Based Access Control} (RBAC), atau audit keamanan kepatuhan.
+    \item \textbf{Automated Actions (Aksi Otonom Sistem/Mesin):} Langkah-langkah terprogram (\textit{background jobs}) yang dijalankan sepenuhnya oleh perangkat lunak tanpa memerlukan campur tangan manusia (\textit{user intervention}) guna menekan signifikansi risiko \textit{human-error}. Ruang lingkup komputasi ini meliputi penarikan data secara otomatis (\textit{auto-capture metadata}), penetapan jadwal retensi, serta penguncian status dokumen secara logikal agar menjadi rekam jejak administratif terotorisasi yang bersifat final (\textit{read-only}).
+    \item \textbf{Exception Paths (Jalur Eskalasi Darurat):} Rancangan pemulihan kontinjensi (\textit{fallback}) ketika ekosistem otomasi mengalami kegagalan teknis (\textit{system failure}). Bagian ini merinci protokol rute pengalihan (\textit{rerouting}) apabila terjadi skenario gangguan, seperti pada komunikasi jaringan inter-API (\textit{downtime/timeout}), guna memastikan kepatuhan tata kelola (\textit{compliance}) tetap terjaga.
+\end{itemize}
+
+Penajaman komparasi arsitektural antara pendekatan lawas dan pendekatan tata kelola holistik terintegrasi ini dapat dikontraskan melalui ringkasan matriks esensial di bawah ini:
+
+\begin{table}[H]
+\centering
+\small
+\caption{Matriks Perbedaan Paradigma SOP Konvensional vs Teringtegrasi}
+\begin{tabularx}{\textwidth}{@{} p{3.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Dimensi Pembanding} & \textbf{SOP Konvensional / Tradisional} & \textbf{SOP Digital Terintegrasi} \\
+\midrule
+\textbf{Fokus Ekosistem} & Pendokumentasian interaksi fisik antarmanusia secara manual. & Orkestrasi dan sinergi interaktif antara mesin sistem dan pegawai operasional PLN. \\
+\textbf{Inisiator Utama Proses} & Berdasarkan inisiatif manual personel melalui distribusi berkas fisik antar-unit kerja. & Berdasarkan parameter sistem otomatis melalui mekanisme \textit{system-event triggering}. \\
+\textbf{Validasi Naskah} & Verifikasi fisik secara langsung terhadap kelengkapan dan keutuhan dokumen kertas. & Validasi otomatis melalui \textit{Audit Trail} dan verifikasi integritas data secara sistematis. \\
+\textbf{Manajemen Risiko} & Mitigasi risiko bersifat reaktif, bergantung pada subjektivitas pelaporan dan daya ingat personel. & Mitigasi risiko bersifat preventif, melalui pencatatan \textit{Audit Trail} otomatis secara \textit{real-time} dan tidak dapat diubah (\textit{immutable}). \\
+\textbf{Penempatan Arsip} & Sangat bergantung pada ketersediaan luang petugas arsip pasca jam dinas. & \textit{Preservation by design}; dieksekusi otonom sepersekian detik usai status disahkan mesin. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{warnbox}
+\textbf{Catatan Batasan Materi:} Harap tekankan konsensus ini kembali ke unit bisnis! Dokumen SOP Terintegrasi ini \textbf{bukanlah buku panduan klik-sistem manual (\textit{User Guide})} seperti "pilih opsi X, klik centang Y". Dokumen ini adalah \textbf{kerangka tata kelola prosedur korporat (\textit{Corporate Protocol})} yang mengikat \textit{Service Level Agreement} (SLA), arsitektur alur kerja, validasi regulatif kepatuhan, serta akuntabilitas pengambil kebijakan pada ekosistem terdigitalisasi menyeluruh.
+\end{warnbox}
+
+% ============================================================
+%   DIAGRAM A: BPMN SOP KONVENSIONAL (As-Is / Manual)
+% ============================================================
+Visualisasi berikut memetakan potret alur kerja kearsipan dalam ekosistem manual yang sangat bergantung pada kehadiran fisik personel dan sirkulasi dokumen kertas:
+
+\begin{figure}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=1.2cm and 0.8cm,
+  startstyle/.style={circle, draw=red!70!black, fill=red!15, minimum size=1.1cm,
+    align=center, font=\scriptsize\bfseries, line width=1.2pt},
+  endstyle/.style={circle, draw=red!70!black, fill=red!25, minimum size=1.1cm,
+    align=center, font=\scriptsize\bfseries, line width=1.8pt},
+  manual/.style={rectangle, rounded corners=3pt, draw=gray!70, fill=gray!8,
+    text width=2.6cm, minimum height=1.5cm, align=center, font=\scriptsize, line width=0.8pt},
+  waiting/.style={rectangle, rounded corners=3pt, draw=red!50, fill=red!5,
+    text width=2.6cm, minimum height=1.5cm, align=center, font=\scriptsize\itshape, line width=0.8pt},
+  gateway/.style={diamond, draw=gray!70, fill=yellow!8,
+    minimum width=1.3cm, minimum height=1.3cm, align=center, font=\scriptsize\bfseries, inner sep=2pt, aspect=1},
+  arr/.style={-{Stealth[length=6pt]}, thick, color=gray!60},
+  arrno/.style={-{Stealth[length=6pt]}, thick, color=red!50, dashed},
+  timelbl/.style={font=\tiny\bfseries, text=red!60!black},
+  lanelab/.style={font=\small\bfseries, text=gray!70!black, rotate=90},
+]
+
+% Lane backgrounds
+\fill[gray!5] (0.2, 3.0) rectangle (20.5, 0.6);
+\fill[yellow!4] (0.2, 0.4) rectangle (20.5, -2.8);
+\fill[gray!5] (0.2, -3.0) rectangle (20.5, -6.2);
+% Lane labels
+\node[lanelab] at (0.5, 1.8) {Staf Operasional};
+\node[lanelab] at (0.5, -1.2) {Pimpinan / Manajer};
+\node[lanelab] at (0.5, -4.6) {Unit Kearsipan};
+% Lane dividers
+\draw[gray!30, thick] (0.2, 0.5) -- (20.5, 0.5);
+\draw[gray!30, thick] (0.2, -2.9) -- (20.5, -2.9);
+
+% Lane 1: Staf Operasional
+\node[startstyle] at (2.0, 1.8) (s1) {Start};
+\node[manual, right=of s1] (m1) {Cetak\\Dokumen\\Rangkap 3};
+\node[manual, right=of m1] (m2) {Isi Form\\Pengantar\\Manual};
+\node[manual, right=of m2] (m3) {Bawa Fisik\\ke Ruangan\\Pimpinan};
+
+% Lane 2: Pimpinan
+\node[waiting] at (9.5, -1.2) (w1) {Menunggu\\di Meja\\(Antrian)};
+\node[manual, right=of w1] (m4) {Review\\Fisik\\Dokumen};
+\node[gateway, right=of m4] (g1) {$\times$};
+\node[manual, right=of g1] (m5) {TTD Basah\\+ Stempel};
+
+% Lane 3: Unit Kearsipan
+\node[manual] at (13.5, -4.6) (m6) {Terima\\Berkas Fisik};
+\node[manual, right=of m6] (m7) {Catat di\\Buku Induk\\Manual};
+\node[manual, right=of m7] (m8) {Simpan\\ke Laci\\Filing};
+\node[endstyle, right=of m8] (e1) {End};
+
+% Arrows
+\draw[arr] (s1) -- (m1);
+\draw[arr] (m1) -- (m2);
+\draw[arr] (m2) -- (m3);
+\draw[arr] (m3.south) -- ++(0,-0.6) -| (w1.north);
+\draw[arr] (w1) -- (m4);
+\draw[arr] (m4) -- (g1);
+\draw[arrno] (g1.north) -- ++(0,1.2) -| node[above, pos=0.25, font=\scriptsize\itshape, text=red!60] {Revisi} (m2.north);
+\draw[arr] (g1) -- node[above, font=\scriptsize\itshape] {OK} (m5);
+\draw[arr] (m5.south) -- ++(0,-0.6) -| (m6.north);
+\draw[arr] (m6) -- (m7);
+\draw[arr] (m7) -- (m8);
+\draw[arr] (m8) -- (e1);
+
+% Time labels
+\node[timelbl, above=0.25cm of m1] {30 menit};
+\node[timelbl, above=0.25cm of m2] {15 menit};
+\node[timelbl, above=0.25cm of m3] {15--60 menit};
+\node[timelbl, below=0.25cm of w1] {\textcolor{red!70!black}{1--3 hari!}};
+\node[timelbl, below=0.25cm of m4] {30 menit};
+\node[timelbl, below=0.25cm of m5] {10 menit};
+\node[timelbl, above=0.25cm of m7] {20 menit};
+\node[timelbl, above=0.25cm of m8] {15 menit};
+
+% Total cycle
+\node[font=\normalsize\bfseries, text=red!70!black] at (10.5, -7.2) {Total Waktu Siklus Tipikal: 3--5 Hari Kerja};
+\node[font=\scriptsize\itshape, text=gray!60!black] at (10.5, -7.7) {Semua langkah bergantung pada kehadiran fisik manusia \& jam dinas};
+
+\end{tikzpicture}%
+}
+\caption{BPMN As-Is: Alur SOP Konvensional (Manual) -- Arsip Kontrak Pengadaan}
+\label{fig:bpmn-asis}
+\end{figure}
+
+\vspace{0.5cm}
+
+% ============================================================
+%   DIAGRAM B: BPMN SOP DIGITAL TERINTEGRASI (To-Be / Otomasi)
+% ============================================================
+Sebagai perbandingan, pemetaan di bawah ini menunjukkan transformasi alur tersebut ke dalam model digital terintegrasi yang memaksimalkan peran otomasi sistem:
+
+\begin{figure}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=1.2cm and 0.8cm,
+  startstyle/.style={circle, draw=green!60!black, fill=green!15, minimum size=1.1cm,
+    align=center, font=\scriptsize\bfseries, line width=1.2pt},
+  endstyle/.style={circle, draw=plnblue!80!black, fill=plnblue!25, minimum size=1.1cm,
+    align=center, font=\scriptsize\bfseries, line width=1.8pt},
+  autostep/.style={rectangle, rounded corners=3pt, draw=plnblue!80, fill=plnblue!12,
+    text width=2.6cm, minimum height=1.5cm, align=center, font=\scriptsize\bfseries, line width=0.8pt},
+  humanstep/.style={rectangle, rounded corners=3pt, draw=plnorange, fill=plnorange!10,
+    text width=2.6cm, minimum height=1.5cm, align=center, font=\scriptsize, line width=0.8pt},
+  gateway/.style={diamond, draw=plnorange!80, fill=plnorange!8,
+    minimum width=1.3cm, minimum height=1.3cm, align=center, font=\scriptsize\bfseries, inner sep=2pt, aspect=1},
+  arr/.style={-{Stealth[length=6pt]}, thick, color=plnblue!70},
+  arrok/.style={-{Stealth[length=6pt]}, thick, color=green!60!black},
+  arrno/.style={-{Stealth[length=6pt]}, thick, color=red!50, dashed},
+  timelbl/.style={font=\tiny\bfseries, text=green!50!black},
+  lanelab/.style={font=\small\bfseries, text=plnblue!80!black, rotate=90},
+]
+
+% Lane backgrounds
+\fill[plnblue!4] (0.2, 3.0) rectangle (20.5, 0.6);
+\fill[plnorange!4] (0.2, 0.4) rectangle (20.5, -2.8);
+\fill[plnblue!4] (0.2, -3.0) rectangle (20.5, -6.2);
+% Lane labels
+\node[lanelab] at (0.5, 1.8) {Sistem E-Proc / ERP};
+\node[lanelab] at (0.5, -1.2) {Manajer (Human-in-Loop)};
+\node[lanelab] at (0.5, -4.6) {Repositori Kearsipan};
+% Lane dividers
+\draw[plnblue!20, thick] (0.2, 0.5) -- (20.5, 0.5);
+\draw[plnblue!20, thick] (0.2, -2.9) -- (20.5, -2.9);
+
+% Lane 1: Sistem E-Proc
+\node[startstyle] at (2.0, 1.8) (s2) {Pemicu};
+\node[autostep, right=of s2] (a1) {Status:\\``Hasil Akhir\\Seleksi''};
+\node[autostep, right=of a1] (a2) {Auto-Generate\\Draft Kontrak\\+ BAST};
+\node[autostep, right=of a2] (a3) {Auto-Capture\\14 Field\\Metadata};
+
+% Lane 2: Manajer
+\node[humanstep] at (9.5, -1.2) (h1) {Review Draft\\via E-Office\\(Notifikasi)};
+\node[gateway, right=of h1] (g2) {$\times$};
+\node[humanstep, right=of g2] (h2) {Otorisasi\\TTE\\Tersertifikasi};
+
+% Lane 3: Repositori
+\node[autostep] at (13.5, -4.6) (a4) {Hash-Lock\\Immutable\\+ RBAC};
+\node[autostep, right=of a4] (a5) {Klasifikasi\\Retensi\\(JRA: 10 thn)};
+\node[autostep, right=of a5] (a6) {Log Audit\\Trail\\Permanen};
+\node[endstyle, right=of a6] (e2) {Arsip\\Final};
+
+% Arrows
+\draw[arr] (s2) -- (a1);
+\draw[arr] (a1) -- (a2);
+\draw[arr] (a2) -- (a3);
+\draw[arr] (a3.south) -- ++(0,-0.6) -| (h1.north);
+\draw[arr] (h1) -- (g2);
+\draw[arrno] (g2.north) -- ++(0,1.2) -| node[above, pos=0.25, font=\scriptsize\itshape, text=red!60] {Tolak (Komentar)} (a3.north);
+\draw[arrok] (g2) -- node[above, font=\scriptsize\itshape] {Setuju} (h2);
+\draw[arr] (h2.south) -- ++(0,-0.6) -| (a4.north);
+\draw[arr] (a4) -- (a5);
+\draw[arr] (a5) -- (a6);
+\draw[arr] (a6) -- (e2);
+
+% Eskalasi label
+\node[font=\scriptsize\itshape, text=red!60, below=0.25cm of g2] {Eskalasi jika $>$16 jam};
+
+% Time labels
+\node[timelbl, above=0.25cm of a1] {Otomatis};
+\node[timelbl, above=0.25cm of a2] {$<$1 detik};
+\node[timelbl, above=0.25cm of a3] {$<$1 detik};
+\node[timelbl, below=0.25cm of h1] {SLA: 16 jam};
+\node[timelbl, below=0.25cm of h2] {2 menit};
+\node[timelbl, above=0.25cm of a5] {Otomatis};
+\node[timelbl, above=0.25cm of a6] {Immutable};
+
+% Total cycle
+\node[font=\normalsize\bfseries, text=green!50!black] at (10.5, -7.2) {Total Waktu Siklus: $<$ 1 Hari Kerja (Mayoritas Otomatis)};
+\node[font=\scriptsize\itshape, text=gray!60!black] at (10.5, -7.7) {Satu-satunya bottleneck: intervensi manusia di titik TTE (terkontrol SLA)};
+
+% Legend
+\node[autostep, scale=0.5, text width=0.5cm, minimum height=0.5cm] at (3.0, -8.5) (lg1) {};
+\node[right=0.15cm of lg1, font=\scriptsize] {Proses Otomatis (Sistem)};
+\node[humanstep, scale=0.5, text width=0.5cm, minimum height=0.5cm] at (9.0, -8.5) (lg2) {};
+\node[right=0.15cm of lg2, font=\scriptsize] {Intervensi Manusia};
+\node[startstyle, scale=0.4] at (15.0, -8.5) (lg3) {};
+\node[right=0.15cm of lg3, font=\scriptsize] {Pemicu / Event};
+
+\end{tikzpicture}%
+}
+\caption{BPMN To-Be: Alur SOP Digital Terintegrasi -- Arsip Kontrak Pengadaan}
+\label{fig:bpmn-tobe-kontrak}
+\end{figure}
+
+\begin{plnbox}[Analisis Komparatif: SOP Konvensional vs Terintegrasi (Konteks Pengadaan)]
+\small
+\textbf{Menganalisis Perbedaan Paradigma pada Gambar \ref{fig:bpmn-asis} dan \ref{fig:bpmn-tobe-kontrak}:} \\
+Kedua diagram BPMN di atas disajikan secara berurutan untuk mendemonstrasikan secara visual jurang perbedaan (\textit{gap}) efisiensi antara prosedur persetujuan dokumen manual (As-Is) dan prosedur yang telah terorkestrasi secara digital (To-Be).
+
+Melalui komparasi siklus Pengadaan BAST ini, terdapat tiga transformasi fundamental:
+\begin{itemize}[leftmargin=*, nosep]
+    \item \textbf{Penghapusan Beban Fisik (\textit{Paperless Initiation}):} Pada Gambar \ref{fig:bpmn-asis}, inisiator membuang waktu 30-45 menit sekadar mencetak dan mengisi \textit{form} secara manual. Pada Gambar \ref{fig:bpmn-tobe-kontrak}, detik di mana status final diputus di aplikasi \textit{E-Procurement}, sistem seketika menarik data dan menciptakan draf kontrak tanpa keringat manusia (\textit{Auto-Generate}).
+    \item \textbf{Pemangkasan Antrean Birokrasi (\textit{Bottleneck}):} Di alur lawas, perputaran map memakan waktu penantian 1--3 hari akibat redudansi. Di alur terintegrasi, validasi (\textit{Human-in-the-Loop}) dibatasi pagar \textit{Service Level Agreement} (16 jam). Kegagalan mematuhi akan seketika memicu \textit{Auto-Escalation}.
+    \item \textbf{Keamanan Kepatuhan Hukum:} Siklus manual (As-Is) berakhir di lemar \textit{filing} fisik yang rentan insiden. Sebaliknya, model To-Be melengkapi siklus hidup arsip dengan eksekusi otonom penguncian dokumen (\textit{Hash-Lock Immutable}), log rekam jejak (\textit{Audit Trail}), serta pilar perlindungan \textit{Role-Based Access Control} (RBAC).
+\end{itemize}
+Total waktu siklus turun secara radikal dari \textbf{3--5 hari kerja} menjadi \textbf{$<$ 1 hari kerja}, membuktikan secara konkret bahwa integrasi kearsipan bukan sebatas memindahkan kertas ke layar PDF, melainkan sebuah \textbf{rekayasa ulang kecepatan dan keamanan bisnis}.
+\end{plnbox}
+
+\section{Komponen Wajib SOP Terintegrasi (Pemetaan Format Korporat)}
+Penyusunan sebuah "SOP Digital" kerap kali menimbulkan miskonsepsi seolah-olah kita mengarang cangkang dokumen baru di luar kelaziman standar mutu. Faktanya, rumusan \textbf{8 komponen wajib} di bawah ini \textbf{bukanlah format baru yang diada-adakan}. 
+
+Kerangka ini adalah hasil pemetaan langsung (penyelarasan bentuk) dari \textit{template} baku SOP Korporat konvensional (mengacu pada pedoman tata naskah dan prosedur operasi yang umum berlaku di lingkungan perseroan), di mana muatannya \textbf{disempurnakan dengan parameter pengamanan IT dan Kearsipan Digital} (berbasis standar PARBICA Guideline dan ISO 15489).
+
+Berikut adalah demonstrasi pemetaan bagaimana bab-bab konvensional di dalam SOP berubah bentuk (berevolusi) saat memasuki wilayah integrasi digital:
+
+\begin{table}[H]
+\centering
+\small
+\caption{Pemetaan Peningkatan Bab SOP Standar ke Anatomi Digital}
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{No} & \textbf{Bab SOP Standar (Konvensional)} & \textbf{Pembaruan Konten di Era Digital Terintegrasi (\textit{To-Be})} \\
+\midrule
+1 & \textbf{Tujuan \& Ruang Lingkup} & Diperluas dengan penegasan batas interoperabilitas penarikan data antar-sistem (misal: batasan tarikan dari \textit{E-Procurement} ke Repositori). \\
+2 & \textbf{Referensi / Dasar Hukum} & Menambahkan kepatuhan digital mutlak: UU ITE, PP No. 71/2019 tentang Bukti Elektronik, serta panduan tata kelola ANRI. \\
+3 & \textbf{Definisi \& Akronim} & Mengakomodasi terminologi arsitektur sistem (seperti \textit{Auto-Capture}, SLA \textit{Timeout}, RBAC, \textit{Hash-Lock}, \& \textit{Audit Trail}). \\
+4 & \textbf{Pihak Terkait (Peran)} & Tidak hanya berisi unit jabatan; kini wajib mengakui \textbf{Sistem Komputasi (Mesin)} sebagai entitas pengawasan (\textit{System Custodian}). \\
+5 & \textbf{Ketentuan Umum / Kebijakan} & Menetapkan parameter \textbf{Kearsipan Otomatis}: matriks kodifikasi Klasifikasi wajib, batasan Hak Akses digital, dan tenggat waktu Retensi Logikal. \\
+6 & \textbf{Uraian Prosedur / Alur Kerja} & Tidak lagi mendeskripsikan "siapa mengantar kertas ke meja mana". Diganti mutlak dengan desain pemicu sistem (\textit{System Trigger}) dan validasi rute paralel. \\
+7 & \textbf{Manajemen Risiko} & Bertransformasi fungsi perlindungan berlapis (\textbf{Exception \& Fallback}): memuat protokol pemulihan darurat manakala arsitektur IT mengalami \textit{server downtime}. \\
+8 & \textbf{Lampiran Pendukung} & Dilengkapi peta kodifikasi \textit{database}, draf log rekaman mesin (\textit{Audit Trail}), dan ilustrasi matriks metadata terintegrasi. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{plnbox}[{{Resolusi Kognitif: Evolusi, Bukan Revolusi Format}}]
+\small
+\textbf{Penjelasan Argumen Manajemen:} 
+Pimpinan perlu menyadari bahwa menyajikan "8 Komponen" di atas ke dalam workshop korporat sama sekali \textbf{tidak akan menimbulkan resistensi maupun melanggar} pedoman pembuatan SOP perusahaan yang sudah berjalan. Bentuk format kerangka (Tujuan, Referensi, Definisi, Uraian Langkah, dsb.) sepenuhnya identik!
+
+Intervensi kearsipan digital terjadi secara nyata pada \textbf{kualitas perombakan isi di tiap-tiap bab tersebut}, demi memastikan kendali validasi operasional tidak lagi diletakkan di atas lembar kertas, melainkan dikendalikan dan dikunci oleh tata kelola sistem komputasi terpusat.
+\end{plnbox}
+
+\begin{plnbox}[Kacamata Arsiparis: Fallacy "SOP Sistem vs SOP Kearsipan"]
+\small
+\textbf{Kesesatan Logika (Logical Fallacy) yang Sering Terjadi:} Sistem integrator sering kali mengklaim bahwa menambahkan metadata (seperti nomor dokumen dan tanggal) sudah cukup menjadikan proses tersebut "SOP Kearsipan". 
+
+\textbf{Faktanya:} Tanpa merujuk pada pemenuhan \textbf{Komponen ke-5 dari tabel struktur di atas} (yaitu aspek \textit{Pemetaan Klasifikasi, Retensi, \& Hak Akses}), SOP otomatisasi tersebut secara fungsional hanyalah sekadar "SOP operasional IT". Peran arsiparis di sini adalah mensyaratkan berjalannya komponen kelima tersebut, sehingga saat otomasi sistem bekerja, mesin tahu persis ke berkas penyimpanan digital mana dokumen harus dikunci (aspek klasifikasi), siapa saja yang dibatasi hak bacanya melalui sistem \textit{Role-Based Access Control} atau RBAC (aspek akses), dan kapan persisnya tenggat legal dokumen tersebut boleh dimusnahkan (aspek retensi). Tanpa kerangka kearsipan kelima ini, pencarian dokumen mungkin berasa cepat, namun pelindungan kerahasiaan dan kepatuhan informasi dipastikan sangat rentan bocor.
+\end{plnbox}
+
+\subsection{Studi Kasus Konkret: SOP Arsip Kontrak Pengadaan Digital}
+Selain lembar \textit{Work Order (arsip perintah kerja (SPK))} pemeliharaan terperinci yang dicontohkan pada berkas \textbf{Lampiran C}, mari kita pahami bersama esensi SOP Terintegrasi ini secara langsung dan kontekstual melalui contoh \textbf{Siklus Kearsipan Kontrak Pengadaan Barang dan Jasa} di dalam narasi modul ini. 
+
+Bayangkan sebuah skenario pembuatan draf \textit{SOP Digital Terintegrasi - Kontrak E-Procurement} PLN:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Tujuan \& Ruang Lingkup:} Mengamankan \textbf{Draf Kontrak \& BAST} ke dalam repositori digital terpusat (\textit{single source of truth}) korporat seketika tanpa tercecer di meja Biro Pengadaan.
+    \item \textbf{Definisi \& Akronim:} Mendefinisikan BAST, E-Proc, SLA, dan TTE.
+    \item \textbf{Peran \& Tanggung Jawab:} Pembagian tugas antara Vendor, Manajer Logistik, dan Unit Kearsipan.
+    \item \textbf{Aktivasi Pemicu (\textit{System Trigger}):} Ketika status tender berubah menjadi "Hasil Akhir Seleksi" pada dasbor vendor di portal sistem E-Proc PLN.
+    \item \textbf{Klasifikasi, Retensi \& Akses:} Murni sedetik pasca persetujuan TTE diselesaikan, repositori otomatis memindahkan arsip tersebut ke map rahasia, menandainya dengan jadwal pemusnahan \textbf{10 tahun ke depan}, sekaligus membatasi visibilitas akses baca (\textit{RBAC}).
+    \item \textbf{Alur Validasi \& SLA (\textit{Human-in-the-Loop}):} Manajer Logistik membaca ringkasan draf BAST dengan SLA review maksimal 16 jam kerja, lalu menyelesaikan "Otorisasi" TTE.
+    \item \textbf{Penanganan Eksepsi (\textit{Fallback}):} Jika API sistem TTE Nasional \textit{downtime}, alur akan ditunda di \textit{Waiting Terminal} dengan \textit{alert} ke IT.
+    \item \textbf{Referensi Regulasi:} Merujuk pada PP 71/2019 tentang PSTE mutlak TTE.
+\end{enumerate}
+
+Melalui pengintegrasian kedelapan komponen orkestrasi di atas, peserta diklat diharapkan langsung menyadari bahwa kekuatan utama dari \textit{"SOP IT Kearsipan Terintegrasi"} berpusat pada penyerahan seluruh beban administrasi rutin kepada kapasitas sistem komputasi (server), sementara sumber daya manusia (SDM) PLN akhirnya dialokasikan ke porsi analisis, pembuatan keputuan strategis dan pelaksanaan tugas di lapangan.
+
+\section{Penyelarasan Regulasi \& Tata Kelola BUMN (Fokus PP 71/2019)}
+SOP digital tidak boleh berdiri sendiri sebagai panduan teknis operasional belaka. Ia harus secara eksplisit selaras dan memiliki legitimasi hukum berdasarkan kerangka tata kelola di Indonesia, khususnya \textbf{PP No. 71 Tahun 2019 tentang Penyelenggaraan Sistem dan Transaksi Elektronik (PSTE)}.
+
+Banyak resistensi di lingkungan BUMN terhadap digitalisasi muncul karena keraguan akan keabsahan hukum dokumen digital, terutama terkait tanda tangan elektronik (TTE). Modul ini memberikan klarifikasi objektif terhadap anggapan tersebut melalui analisis regulasi:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Legitimasi Tanda Tangan Elektronik (Pasal 14-16 PP 71/2019):} Regulasi secara absolut mengakui bahwa TTE Tersertifikasi memiliki kekuatan hukum dan akibat hukum yang sah, sepenuhnya \textbf{setara dengan tanda tangan basah}. Oleh karena itu, SOP yang mengimplementasikan TTE untuk validasi dokumen operasional PLN (seperti Berita Acara atau dokumen kontrak) memiliki \textit{legal standing} yang tak terbantahkan di mata hukum maupun auditor.
+    \item \textbf{Syarat Sah Penyelenggaraan Sistem (Pasal 12):} Dalam otomasi proses, dokumen harus direkam dan disimpan tanpa perubahan pasca-validasi. Hal ini mewajibkan SOP mencakup komponen \textit{Immutability} (SOP Komponen 6) agar data elektronik yang dihasilkan dari integrasi (seperti tarikan data aset dari ERP) tidak dapat direkayasa dan memenuhi syarat sebagai alat bukti yang sah.
+    \item \textbf{Kepatuhan Administrasi ANRI (Perka No. 6/2021):} Memastikan metadata, retensi penyusutan ruang digital, dan jejak perubahan (Audit Trail) selaras dan otentik.
+\end{itemize}
+
+\begin{plnbox}[Kacamata Hukum \& GCG dalam SOP]
+\small
+\textbf{Klausul Contoh Integrasi GCG dalam SOP:}
+\begin{quote}
+\textit{``Setiap persetujuan digital (\textit{digital approval}) yang diberikan melalui sistem memiliki status final secara hukum sesuai PP 71/2019. Setiap perubahan status arsip setelah validasi akhir wajib direkam dalam \textbf{log sistem yang tidak dapat dihapus (immutable)}. Audit trail otomatis ini menjadi bagian integral dari pelaporan kepatuhan Unit Kearsipan untuk diajukan kepada Auditor Internal \& Eksternal sesuai \textit{Role-Based Access Control} (RBAC).''}
+\end{quote}
+\end{plnbox}
+
+\section{Standar Metadata Wajib Terintegrasi}
+Berdasarkan regulasi Indonesia (Perka ANRI No. 6 Tahun 2021 \& PP 71/2019) serta standar internasional (ISO 23081-1:2017), arsitektur kearsipan digital membutuhkan sekumpulan metadata wajib untuk memvalidasi konteks, konten, dan integritas dokumen. 
+
+Dalam spektrum kearsipan modern, metadata menjalankan dua fungsi utama yang harus diseimbangkan:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Evidence \& Compliance (Bukti \& Kepatuhan):} Berfokus pada penjaminan akuntabilitas hukum dan autentisitas arsip. Metadata ini menjawab aspek teknis mengenai siapa, kapan, dan melalui sistem apa sebuah dokumen diciptakan, serta menjamin bahwa dokumen tersebut belum dimanipulasi (\textit{integrity hash}).
+    \item \textbf{Discovery (Penemuan Kembali):} Berfokus pada nilai guna informasi dan aksesibilitas. Metadata ini (seperti uraian isi dan kata kunci) dirancang agar arsip dapat ditemukan kembali secara cepat dan akurat melalui fungsi pencarian semantik dalam repositori digital PLN.
+\end{enumerate}
+
+Dalam proses konversi prosedur fisik menjadi otomasi digital di PLN, setiap arsip yang tercipta dari \textit{trigger} Sistem Bisnis (misalnya E-Office, ERP, atau aplikasi operasional lainnya) diwajibkan melakukan \textit{auto-capture} pada \textbf{14 field inti} (12 Wajib + 2 Semi-Mandatory) berikut sebelum dokumen tersebut dapat dikunci permanen di repositori. \textbf{Catatan Strategis:} 12 field utama ditarik secara otomatis untuk menjamin integritas hukum, sementara 2 field tambahan (\textit{enhancement}) ditujukan untuk meningkatkan kualitas temu kembali (\textit{discovery}) arsip.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Matriks 14 Field Metadata Wajib \& Semi-Mandatory Terintegrasi PLN}
+\begin{tabularx}{\textwidth}{@{} l >{\raggedright\arraybackslash}X c c @{}}
+\toprule
+\textbf{Kode Field} & \textbf{Nama Field \& Definisi} & \textbf{Status} & \textbf{Pilar Validasi} \\
+\midrule
+\texttt{DOC\_ID} & ID Dokumen Unik (format: \texttt{[UNIT]/[JENIS]...}) & Wajib & \textbf{Konten} \\
+\texttt{ASSET\_ID} & ID Aset utama terkait (SAP-PM / AMS) & Wajib & \textbf{Konten} \\
+\texttt{WO\_REF} & Referensi Nomor Work Order (perintah kerja) & Wajib & \textbf{Konten} \\
+\texttt{CONTRACT\_REF} & Referensi Nomor Kontrak Korporat & Wajib & \textbf{Konten} \\
+\texttt{CONTENT\_DESC} & \textbf{Uraian Informasi / Ringkasan Isi Naskah} & Semi-Man. & \textbf{Deskriptif} \\
+\texttt{SEARCH\_TAGS} & \textbf{Kata Kunci / Search Tags (Thesaurus PLN)} & Semi-Man. & \textbf{Deskriptif} \\
+\texttt{LOCATION\_CODE} & Kode lokasi operasional (GIS / Master Data) & Wajib & \textbf{Konteks} \\
+\texttt{CREATOR\_UNIT} & Unit entitas pencipta arsip (IAM / HR) & Wajib & \textbf{Konteks} \\
+\texttt{CREATOR\_ROLE} & Peran atau jabatan pengguna (RBAC) & Wajib & \textbf{Konteks} \\
+\texttt{TIMESTAMP\_CREATE} & Waktu absolut penciptaan (ISO 8601) & Wajib & \textbf{Konteks} \\
+\texttt{CLASSIFICATION} & Tingkat keamanan (VITAL/INTERNAL/RAHASIA) & Wajib & \textbf{Konteks} \\
+\texttt{RETENTION\_RULE} & Ketetapan waktu simpan otomatis (JRA) & Wajib & \textbf{Konteks} \\
+\texttt{INTEGRITY\_HASH} & \textit{Identity hash} (SHA-256) untuk verifikasi & Wajib & \textbf{Integritas} \\
+\texttt{AUDIT\_TRAIL\_REF} & ID log audit (Jejak riwayat akses/perubahan) & Wajib & \textbf{Integritas} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{plnbox}[Panduan Implementasi Klausul Metadata dalam SOP]
+\textbf{Integrasi Metadata ke Aturan Operasional (\textit{Rule-Based}):}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Restriksi Input Manual:} \textit{Field} krusial (\texttt{DOC\_ID}, \texttt{TIMESTAMP\_CREATE}, \texttt{INTEGRITY\_HASH}) harus di-\textit{generate} otomatis oleh mesin tanpa campur tangan manusia.
+    \item \textbf{Kualitas Deskripsi (Semi-Mandatory):} Pengisian \texttt{CONTENT\_DESC} wajib dilakukan untuk arsip klasifikasi \texttt{VITAL} atau \texttt{RAHASIA}. Untuk arsip rutin, deskripsi dapat ditarik secara otomatis (\textit{auto-suggest}) dari sistem NLP korporat.
+    \item \textbf{Sifat \textit{Immutable}:} Setelah validasi TTE, seluruh 14 metadata tersebut dikunci permanen. Koreksi hanya dapat dilakukan melalui prosedur amandemen metadata resmi.
+\end{enumerate}
+\end{plnbox}
+
+\section{Review \& Finalisasi SOP}
+Tahap Tinjauan dan Finalisasi merupakan fase krusial untuk memastikan bahwa rancangan SOP Digital tidak hanya unggul secara teknis, namun juga aplikabel secara operasional. Relevansi tahap ini terletak pada upaya mitigasi risiko kesalahan alur (\textit{workflow error}), pengujian kejelasan tanggung jawab antar-unit, serta penjaminan kepatuhan terhadap tata kelola perusahaan yang baik (GCG) sebelum dokumen disahkan sebagai pedoman resmi korporat.
+
+Proses finalisasi SOP mengikuti siklus \textbf{Tinjauan Sejawat $\rightarrow$ Uji Keterbacaan $\rightarrow$ Persetujuan Manajemen} untuk memastikan kelayakan implementasi:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Matriks Review \& Finalisasi SOP}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Tahapan} & \textbf{Aktivitas} & \textbf{Keluaran / Kriteria} \\
+\midrule
+\textbf{Tinjauan Sejawat} & Kelompok lain menelaah draf menggunakan \textit{Daftar Periksa Keterbacaan SOP} & Minimal 3 masukan substansial diterima/ditolak dengan alasan \\
+\textbf{Uji Keterbacaan} & Simulasi satu siklus alur dengan peran berbeda & Seluruh peran memahami tugas, pemicu, dan prosedur mitigasi tanpa ambiguitas \\
+\textbf{Finalisasi} & Penyesuaian akhir, penomoran resmi, pengesahan digital & Dokumen siap diajukan ke Komite Tata Kelola atau Manajemen Atas \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Aktivitas Workshop (15 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Setiap kelompok mengembangkan \textbf{Draf SOP Digital Terintegrasi} berdasarkan diagram BPMN dari Bab 3.
+    \item Gunakan templat struktur \textbf{8 komponen} inti yang telah disediakan.
+    \item Lakukan tinjauan sejawat silang dengan fokus pada kejelasan SLA, penanganan pengecualian (\textit{exception handling}), dan keselarasan regulasi.
+    \item \textbf{Gunakan Daftar Periksa Validasi berikut sebagai instrumen telaah komponen metadata kelompok lain:}
+\end{enumerate}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Checklist Evaluasi Kesesuaian Metadata Wajib (Kriteria Penilaian)}
+\begin{tabularx}{\textwidth}{@{} l X c c @{}}
+\toprule
+\textbf{Field} & \textbf{Kriteria Parameter Validasi} & \textbf{Otomatis?} & \textbf{Cek Status} \\
+\midrule
+\texttt{DOC\_ID} & Format penomoran taat asas: \texttt{[UNIT]/[JENIS]...} & Otomatis & $\square$ \\
+\texttt{ASSET\_ID} & Terkoneksi secara valid pada Data Induk Aset PLN & Otomatis & $\square$ \\
+\texttt{CONTENT\_DESC} & Minimal 50 kata, mencerminkan substansi naskah & Semi-Man. & $\square$ \\
+\texttt{SEARCH\_TAGS} & 3--5 kata kunci dari thesaurus terkontrol PLN & Semi-Man. & $\square$ \\
+\texttt{TIMESTAMP\_CREATE} & Notasi waktu internasional presisi ISO 8601 & Otomatis & $\square$ \\
+\texttt{CLASSIFICATION} & Keamanan terdeteksi (Internal / Rahasia / Vital) & Semi-Aut. & $\square$ \\
+\texttt{RETENTION\_RULE} & Durasi JRA terhubung dinamis via tabel kebijakan & Otomatis & $\square$ \\
+\texttt{INTEGRITY\_HASH} & Jejak algoritma SHA-256 memancar terverifikasi & Otomatis & $\square$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{outputbox}
+\textbf{Luaran Wajib Bab 4:} \textit{Draf SOP Digital Terintegrasi} (1 proses PLN). Dokumen ini menjadi portofolio utama untuk kriteria penilaian 4.3.3 dan dapat langsung diusulkan untuk uji coba terbatas (\textit{pilot}).
+\end{outputbox}
+
+\subsection*{Referensi Pendukung Bab 4}
+\begin{enumerate}[leftmargin=*, nosep]
+    \item Perka ANRI No. 6/2021, \textit{Pengelolaan Arsip Elektronik (Pasal 8-12: Prosedur \& Metadata)}
+    \item ISO 15489-1:2016, \textit{Records Management -- Principles}
+    \item ARMA International, \textit{Generally Accepted Recordkeeping Principles (GARP) \#3 \& \#4}
+    \item Pedoman Tata Kelola Perusahaan yang Baik (GCG) BUMN Terkini
+    \item UK National Archives, \textit{Policy Framework for Digital Records}
+\end{enumerate}
+
+\end{document}

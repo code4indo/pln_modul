@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="userGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3f2fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bbdefb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="engineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff3e0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe0b2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="storageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c8e6c9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="siemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fce4ec;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8bbd9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#004b87;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0066b3;stop-opacity:1" />
+    </linearGradient>
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#004b87"/>
+    </marker>
+    <!-- Dashed arrow marker -->
+    <marker id="arrowheadDashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#fafafa"/>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#004b87">
+    Diagram Alur Audit Trail Sistem Arsip Digital PLN
+  </text>
+  <text x="500" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">
+    Dari Akses Pengguna hingga Penyimpanan Log Immutable
+  </text>
+
+  <!-- === LEFT SIDE: USERS === -->
+  <g id="users">
+    <!-- User box -->
+    <rect x="50" y="100" width="180" height="350" rx="8" fill="url(#userGrad)" stroke="#1976d2" stroke-width="2"/>
+    <text x="140" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1565c0">
+      Pengguna PLN
+    </text>
+    
+    <!-- User icons and labels -->
+    <circle cx="90" cy="160" r="15" fill="#1976d2"/>
+    <text x="90" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">👤</text>
+    <text x="115" y="165" font-family="Arial, sans-serif" font-size="11" fill="#333">Staf Kearsipan</text>
+    
+    <circle cx="90" cy="200" r="15" fill="#1976d2"/>
+    <text x="90" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">👤</text>
+    <text x="115" y="205" font-family="Arial, sans-serif" font-size="11" fill="#333">Manajemen</text>
+    
+    <circle cx="90" cy="240" r="15" fill="#1976d2"/>
+    <text x="90" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">👤</text>
+    <text x="115" y="245" font-family="Arial, sans-serif" font-size="11" fill="#333">Auditor SPI</text>
+    
+    <circle cx="90" cy="280" r="15" fill="#1976d2"/>
+    <text x="90" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">👤</text>
+    <text x="115" y="285" font-family="Arial, sans-serif" font-size="11" fill="#333">Staf IT</text>
+
+    <!-- Access actions -->
+    <rect x="70" y="320" width="140" height="110" rx="5" fill="white" stroke="#90caf9" stroke-width="1"/>
+    <text x="140" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1565c0">
+      Aksi Akses
+    </text>
+    <text x="80" y="360" font-family="Arial, sans-serif" font-size="10" fill="#333">• Pembacaan (View)</text>
+    <text x="80" y="375" font-family="Arial, sans-serif" font-size="10" fill="#333">• Pengubahan (Edit)</text>
+    <text x="80" y="390" font-family="Arial, sans-serif" font-size="10" fill="#333">• Persetujuan (Approve)</text>
+    <text x="80" y="405" font-family="Arial, sans-serif" font-size="10" fill="#333">• Ekspor (Export)</text>
+    <text x="80" y="420" font-family="Arial, sans-serif" font-size="10" fill="#333">• Pencarian (Search)</text>
+  </g>
+
+  <!-- === CENTER: DIGITAL ARCHIVE & AUDIT ENGINE === -->
+  <g id="archive">
+    <!-- Digital Archive -->
+    <rect x="280" y="120" width="160" height="100" rx="8" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+    <text x="360" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1565c0">
+      Arsip Digital
+    </text>
+    <text x="360" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+      Sistem Kearsipan
+    </text>
+    <text x="360" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">
+      (Dokumen, Metadata,
+    </text>
+    <text x="360" y="192" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">
+      Klasifikasi)
+    </text>
+  </g>
+
+  <!-- Arrow: Users to Archive -->
+  <line x1="230" y1="250" x2="280" y2="170" stroke="#004b87" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="255" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#004b87" font-weight="bold">Akses</text>
+
+  <!-- Audit Trail Engine -->
+  <g id="engine">
+    <rect x="280" y="260" width="200" height="140" rx="8" fill="url(#engineGrad)" stroke="#ff6b35" stroke-width="2"/>
+    <text x="380" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#e65100">
+      Audit Trail Engine
+    </text>
+    <text x="380" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+      Pencatat Otomatis
+    </text>
+    
+    <!-- 4W Metadata -->
+    <rect x="295" y="320" width="170" height="65" rx="5" fill="white" stroke="#ffcc80" stroke-width="1"/>
+    <text x="380" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#e65100">
+      4W Metadata Wajib
+    </text>
+    <text x="305" y="352" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      <tspan font-weight="bold" fill="#1565c0">WHO:</tspan> ID Pegawai + Role (SSO/IAM)
+    </text>
+    <text x="305" y="365" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      <tspan font-weight="bold" fill="#1565c0">WHAT:</tspan> Jenis Aksi (view/edit/approve)
+    </text>
+    <text x="305" y="378" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      <tspan font-weight="bold" fill="#1565c0">WHEN:</tspan> Timestamp ISO 8601
+    </text>
+    <text x="305" y="391" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      <tspan font-weight="bold" fill="#1565c0">WHERE:</tspan> IP + Lokasi/Unit PLN
+    </text>
+  </g>
+
+  <!-- Arrow: Archive to Engine -->
+  <line x1="360" y1="220" x2="360" y2="260" stroke="#004b87" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="400" y="245" font-family="Arial, sans-serif" font-size="9" fill="#004b87" font-weight="bold">Capture Event</text>
+
+  <!-- === RIGHT SIDE: STORAGE & SIEM === -->
+  
+  <!-- Permanent Log Storage -->
+  <g id="storage">
+    <rect x="540" y="140" width="200" height="130" rx="8" fill="url(#storageGrad)" stroke="#388e3c" stroke-width="2"/>
+    <text x="640" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2e7d32">
+      Penyimpanan Log Abadi
+    </text>
+    <text x="640" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+      (WORM Storage)
+    </text>
+    
+    <!-- Hash Chain -->
+    <rect x="555" y="200" width="170" height="55" rx="5" fill="white" stroke="#a5d6a7" stroke-width="1"/>
+    <text x="640" y="218" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2e7d32">
+      Hash Chain SHA-256
+    </text>
+    <text x="640" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      Menjamin Immutability
+    </text>
+    <text x="640" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">
+      (Tidak dapat dimanipulasi)
+    </text>
+  </g>
+
+  <!-- Arrow: Engine to Storage -->
+  <line x1="480" y1="330" x2="540" y2="205" stroke="#004b87" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="520" y="255" font-family="Arial, sans-serif" font-size="9" fill="#004b87" font-weight="bold">Simpan Log</text>
+
+  <!-- SIEM -->
+  <g id="siem">
+    <rect x="540" y="320" width="200" height="140" rx="8" fill="url(#siemGrad)" stroke="#c2185b" stroke-width="2"/>
+    <text x="640" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ad1457">
+      SIEM
+    </text>
+    <text x="640" y="362" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+      Security Information &amp;
+    </text>
+    <text x="640" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+      Event Management
+    </text>
+    
+    <!-- SIEM Functions -->
+    <rect x="555" y="390" width="170" height="55" rx="5" fill="white" stroke="#f48fb1" stroke-width="1"/>
+    <text x="640" y="408" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      • Deteksi Anomali Real-time
+    </text>
+    <text x="640" y="423" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      • Notifikasi Otomatis
+    </text>
+    <text x="640" y="438" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      • Pelaporan Kepatuhan
+    </text>
+  </g>
+
+  <!-- Arrow: Storage to SIEM -->
+  <line x1="640" y1="270" x2="640" y2="320" stroke="#666" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowheadDashed)"/>
+  <text x="670" y="300" font-family="Arial, sans-serif" font-size="9" fill="#666">Monitoring</text>
+
+  <!-- === FAR RIGHT: MANAGEMENT === -->
+  <g id="management">
+    <rect x="800" y="200" width="170" height="180" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+    <text x="885" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#6a1b9a">
+      Manajemen Atas
+    </text>
+    
+    <!-- Reports -->
+    <rect x="815" y="240" width="140" height="125" rx="5" fill="white" stroke="#ce93d8" stroke-width="1"/>
+    <text x="885" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#6a1b9a">
+      Output &amp; Laporan
+    </text>
+    <text x="825" y="278" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      • Dashboard Kepatuhan
+    </text>
+    <text x="825" y="293" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      • Alert Keamanan
+    </text>
+    <text x="825" y="308" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      • Audit Report
+    </text>
+    <text x="825" y="323" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      • Trend Analysis
+    </text>
+    <text x="825" y="338" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      • Evidence Legal
+    </text>
+    <text x="825" y="353" font-family="Arial, sans-serif" font-size="9" fill="#333">
+      • Policy Review
+    </text>
+  </g>
+
+  <!-- Arrow: SIEM to Management -->
+  <line x1="740" y1="390" x2="800" y2="290" stroke="#004b87" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="785" y="350" font-family="Arial, sans-serif" font-size="9" fill="#004b87" font-weight="bold">Laporan</text>
+
+  <!-- === BOTTOM: LEGAL FRAMEWORK === -->
+  <g id="legal">
+    <rect x="280" y="480" width="440" height="90" rx="8" fill="#fff8e1" stroke="#ffa000" stroke-width="1.5"/>
+    <text x="500" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e65100">
+      Landasan Regulasi
+    </text>
+    <text x="360" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+      PP 71/2019
+    </text>
+    <text x="360" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">
+      (Sistem &amp; Transaksi Elektronik)
+    </text>
+    <text x="500" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+      Perka ANRI 6/2021
+    </text>
+    <text x="500" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">
+      (Pengelolaan Arsip Elektronik)
+    </text>
+    <text x="640" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+      ISO 27001:2022
+    </text>
+    <text x="640" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">
+      (Information Security)
+    </text>
+    <text x="780" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+      GCG BUMN
+    </text>
+    <text x="780" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">
+      (Tata Kelola)
+    </text>
+  </g>
+
+  <!-- Connecting lines to legal -->
+  <line x1="380" y1="400" x2="380" y2="480" stroke="#ffa000" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="640" y1="460" x2="640" y2="480" stroke="#ffa000" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Source -->
+  <text x="500" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#999" font-style="italic">
+    Sumber: PT PLN (Persero) — Modul 4.4 Keamanan &amp; Keterlacakan Terintegrasi
+  </text>
+
+</svg>

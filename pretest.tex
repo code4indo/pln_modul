@@ -1,0 +1,507 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, headheight=14.5pt}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[expansion=false]{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Warna Korporat PLN
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+\definecolor{fillgreen}{RGB}{240,255,240}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=plnblue,
+    urlcolor=plnblue,
+    citecolor=plnblue
+}
+
+% Header & Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Pre-Test Modul 4.3}}
+\fancyhead[R]{\small Level 4 (Mastery) -- PLN}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Format Heading
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{plnblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries\color{plnblue}}{}{0em}{}
+\titleformat{\subsection}{\large\bfseries\color{plnblue}}{}{0em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+% Custom Boxes
+\newtcolorbox{plnbox}[1][]{%
+  colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries,
+  title=#1, sharp corners, boxrule=0.8pt, breakable
+}
+\newtcolorbox{warnbox}{%
+  colback=plnorange!10, colframe=plnorange, fonttitle=\bfseries,
+  title=Petunjuk Pengerjaan, sharp corners, breakable
+}
+\newtcolorbox{answerbox}{%
+  colback=fillgreen, colframe=green!50!black, fonttitle=\bfseries,
+  title=Kunci Jawaban (Khusus Fasilitator), sharp corners, breakable
+}
+
+% List styling
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
+\setlist[enumerate]{leftmargin=*, topsep=2pt, itemsep=2pt}
+
+% Helper: answer lines
+\newcommand{\ansline}[1][5.5cm]{\underline{\hspace{#1}}}
+
+\begin{document}
+
+% ================= COVER =================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+{\Huge\bfseries\color{plnblue} PRE-TEST}\\[0.4cm]
+{\LARGE\bfseries Modul 4.3: Optimalisasi Prosedur dan}\\[0.2cm]
+{\LARGE\bfseries Alur Kerja Terintegrasi}\\[0.8cm]
+\rule{0.8\linewidth}{0.6pt}\\[0.6cm]
+{\large Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
+{\large Level 4 (Mastery)}\\[1.2cm]
+{\large Disusun Khusus untuk: \textbf{PT PLN (Persero)}}\\
+{\large Target Peserta: Manajemen Atas (MA)}\\[2cm]
+
+\begin{plnbox}[Tujuan Pre-Test]
+\centering
+Pre-test ini \textbf{bukan} penilaian kelulusan. Tujuannya adalah \textbf{mengukur pemahaman awal} peserta agar fasilitator dapat menyesuaikan kedalaman materi dan pendampingan selama sesi pelatihan. Jawablah sejujurnya berdasarkan pemahaman Anda saat ini.
+\end{plnbox}
+
+\vspace{1cm}
+\begin{figure}[h]
+\centering
+\includegraphics[width=4cm]{example-image}
+\end{figure}
+\vfill
+{\small Waktu Pengerjaan: 15 Menit \quad|\quad Sifat: Diagnostik (Bukan Penilaian Kelulusan)}
+\end{titlepage}
+
+% ================= IDENTITAS PESERTA =================
+\newpage
+\thispagestyle{fancy}
+
+\begin{center}
+{\LARGE\bfseries\color{plnblue} LEMBAR JAWABAN PRE-TEST}\\[0.3cm]
+{\large Modul 4.3 -- Level 4 (Mastery)}
+\end{center}
+
+\vspace{0.6cm}
+
+\renewcommand{\arraystretch}{1.8}
+\noindent
+\begin{tabularx}{\textwidth}{@{} X X @{}}
+\textbf{Nama Peserta:} \ansline & \textbf{Unit Kerja:} \ansline \\
+\textbf{Jabatan:} \ansline & \textbf{Tanggal:} \ansline \\
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.4cm}
+
+\begin{warnbox}
+\begin{itemize}[nosep]
+    \item Waktu pengerjaan: \textbf{15 menit}. Kerjakan seluruh bagian (A--C).
+    \item \textbf{Tidak ada jawaban salah yang dihukum.} Jika ragu, tetap jawab sesuai perkiraan terbaik Anda.
+    \item Untuk Bagian A, lingkari atau beri tanda \textbf{X} pada jawaban yang dipilih.
+    \item Untuk Bagian B, beri tanda centang ($\checkmark$) pada kolom yang sesuai.
+    \item Untuk Bagian C, tulis jawaban singkat pada ruang yang disediakan.
+    \item Hasil pre-test akan dibandingkan dengan post-test untuk mengukur efektivitas pembelajaran.
+\end{itemize}
+\end{warnbox}
+
+\vspace{0.3cm}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\small
+\begin{tabularx}{0.85\textwidth}{@{} X c c c @{}}
+\toprule
+\textbf{Bagian} & \textbf{Jumlah Soal} & \textbf{Bobot/Soal} & \textbf{Total Poin} \\
+\midrule
+A. Pilihan Ganda (Pengetahuan Dasar) & 10 soal & 4 poin & 40 poin \\
+B. Penilaian Diri (\textit{Self-Assessment}) & 5 pernyataan & 2 poin & 10 poin \\
+C. Refleksi Pengalaman Kerja & 5 soal & 10 poin & 50 poin \\
+\midrule
+\textbf{TOTAL} & \textbf{20 soal} & & \textbf{100 poin} \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+% ================= BAGIAN A: PILIHAN GANDA =================
+\newpage
+\section{BAGIAN A: Pilihan Ganda -- Pengetahuan Dasar (10 soal $\times$ 4 poin = 40 poin)}
+\textit{Soal-soal berikut menguji pemahaman prasyarat Anda tentang tata kelola kearsipan dan proses bisnis. Lingkari \textbf{SATU} jawaban yang paling tepat.}
+
+\vspace{0.3cm}
+
+\begin{enumerate}[leftmargin=*, itemsep=0.5cm]
+
+% --- Soal 1: Regulasi Dasar ---
+\item Regulasi utama yang mengatur penyelenggaraan sistem dan transaksi elektronik di Indonesia, termasuk keabsahan tanda tangan elektronik, adalah:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item UU No. 14 Tahun 2008 tentang Keterbukaan Informasi Publik
+    \item PP No. 71 Tahun 2019 tentang Penyelenggaraan Sistem dan Transaksi Elektronik (PSTE)
+    \item Perka ANRI No. 28 Tahun 2012 tentang Pedoman Tata Naskah Dinas
+    \item UU No. 25 Tahun 2009 tentang Pelayanan Publik
+\end{enumerate}
+
+% --- Soal 2: Definisi Arsip ---
+\item Menurut UU 43/2009 tentang Kearsipan, yang dimaksud ``arsip'' adalah:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Hanya dokumen kertas yang disimpan di lemari/brankas
+    \item Rekaman kegiatan atau peristiwa dalam berbagai bentuk dan media, yang dibuat dan diterima oleh lembaga
+    \item Salinan digital dari dokumen yang sudah dihancurkan
+    \item File komputer yang tersimpan di server pusat data
+\end{enumerate}
+
+% --- Soal 3: Konsep Proses Bisnis ---
+\item Istilah ``\textit{bottleneck}'' dalam konteks alur kerja (proses bisnis) merujuk pada:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Titik di mana proses mengalami hambatan/penumpukan sehingga memperlambat keseluruhan alur
+    \item Jumlah maksimum dokumen yang dapat disimpan di server
+    \item Tahap akhir dari suatu proses persetujuan
+    \item Teknik untuk mempercepat pemrosesan data dengan kompresi file
+\end{enumerate}
+
+% --- Soal 4: Metadata ---
+\item Metadata arsip adalah:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Isi/konten utama dari dokumen itu sendiri
+    \item Informasi deskriptif tentang arsip (seperti judul, tanggal, pencipta, klasifikasi) yang memudahkan pencarian dan pengelolaan
+    \item Salinan cadangan (\textit{backup}) dari arsip asli
+    \item Tanda tangan digital yang melekat pada dokumen
+\end{enumerate}
+
+% --- Soal 5: Retensi Arsip ---
+\item Jadwal Retensi Arsip (JRA) menentukan:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Berapa banyak salinan arsip yang harus dibuat
+    \item Siapa saja yang boleh mengakses arsip tertentu
+    \item Berapa lama arsip harus disimpan sebelum dipindahkan, dimusnahkan, atau diserahkan ke lembaga kearsipan
+    \item Format file yang wajib digunakan untuk menyimpan arsip digital
+\end{enumerate}
+
+% --- Soal 6: SOP ---
+\item Fungsi utama Standar Operasional Prosedur (SOP) dalam pengelolaan arsip adalah:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Menggantikan seluruh peran manusia dengan otomasi komputer
+    \item Menjadi panduan baku yang menstandarkan langkah kerja, peran, dan tanggung jawab agar proses berjalan konsisten dan teraudit
+    \item Mengurangi jumlah pegawai yang dibutuhkan pada unit kearsipan
+    \item Menyimpan password dan kredensial akses sistem
+\end{enumerate}
+
+% --- Soal 7: Integrasi Sistem ---
+\item Dalam konteks organisasi, ``integrasi sistem'' secara umum berarti:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Mengganti seluruh aplikasi lama dengan satu aplikasi baru tunggal
+    \item Menghubungkan beberapa sistem/aplikasi yang berbeda agar dapat bertukar data dan bekerja secara terkoordinasi
+    \item Memindahkan seluruh data ke \textit{cloud computing}
+    \item Membeli lisensi perangkat lunak dari satu vendor yang sama
+\end{enumerate}
+
+% --- Soal 8: Tanda Tangan Elektronik ---
+\item Tanda tangan elektronik yang bersertifikat menurut hukum Indonesia:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Tidak memiliki kekuatan hukum sama sekali
+    \item Hanya berlaku untuk dokumen internal perusahaan, tidak untuk eksternal
+    \item Memiliki kekuatan hukum dan akibat hukum yang sah, setara dengan tanda tangan basah
+    \item Hanya berlaku jika disertai materai elektronik
+\end{enumerate}
+
+% --- Soal 9: Siklus Hidup Arsip ---
+\item Urutan siklus hidup arsip (\textit{records lifecycle}) yang benar adalah:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Penyimpanan $\rightarrow$ Penciptaan $\rightarrow$ Penggunaan $\rightarrow$ Pemusnahan
+    \item Penciptaan $\rightarrow$ Penggunaan/Pemeliharaan $\rightarrow$ Penyusutan (Pemusnahan/Penyerahan)
+    \item Pemusnahan $\rightarrow$ Penciptaan $\rightarrow$ Penyimpanan $\rightarrow$ Distribusi
+    \item Pengadaan $\rightarrow$ Instalasi $\rightarrow$ Operasi $\rightarrow$ Dekomisi
+\end{enumerate}
+
+% --- Soal 10: Audit Kearsipan ---
+\item Salah satu risiko utama jika arsip tidak dikelola dengan baik di lingkungan BUMN seperti PLN adalah:
+\begin{enumerate}[label=\Alph*., nosep]
+    \item Kecepatan internet menurun
+    \item Temuan audit oleh BPK/auditor eksternal terkait ketidaklengkapan jejak dokumen
+    \item Tagihan listrik pelanggan mengalami kenaikan
+    \item Kapasitas pembangkit listrik berkurang
+\end{enumerate}
+
+\end{enumerate}
+
+% ================= BAGIAN B: PENILAIAN DIRI =================
+\newpage
+\section{BAGIAN B: Penilaian Diri / \textit{Self-Assessment} (5 pernyataan $\times$ 2 poin = 10 poin)}
+\textit{Beri tanda centang ($\checkmark$) pada kolom yang paling menggambarkan tingkat pemahaman Anda \textbf{saat ini} terhadap topik berikut. Jawablah dengan jujur -- tidak ada jawaban benar atau salah.}
+
+\vspace{0.4cm}
+
+\renewcommand{\arraystretch}{1.6}
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X c c c c @{}}
+\toprule
+\textbf{No} & \textbf{Pernyataan Topik} & \rotatebox{90}{\textbf{Belum Tahu}} & \rotatebox{90}{\textbf{Pernah Dengar}} & \rotatebox{90}{\textbf{Cukup Paham}} & \rotatebox{90}{\textbf{Sangat Paham}} \\
+\midrule
+1 & Saya memahami perbedaan antara evaluasi prosedur kearsipan dan audit infrastruktur IT. & $\square$ & $\square$ & $\square$ & $\square$ \\[0.3cm]
+2 & Saya mengetahui apa itu \textit{Value Stream Mapping} dan kegunaannya untuk mengidentifikasi pemborosan dalam alur kerja. & $\square$ & $\square$ & $\square$ & $\square$ \\[0.3cm]
+3 & Saya pernah melihat atau menggunakan diagram BPMN (\textit{Business Process Model and Notation}) untuk menggambarkan alur kerja. & $\square$ & $\square$ & $\square$ & $\square$ \\[0.3cm]
+4 & Saya mengetahui apa yang dimaksud dengan ``pemicu otomatis'' dalam konteks integrasi antar-sistem (misalnya: satu status di Sistem A memicu aksi di Sistem B). & $\square$ & $\square$ & $\square$ & $\square$ \\[0.3cm]
+5 & Saya dapat menjelaskan mengapa metadata arsip penting untuk temu kembali (\textit{retrieval}) dan kepatuhan audit. & $\square$ & $\square$ & $\square$ & $\square$ \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.4cm}
+
+\begin{plnbox}[Catatan]
+\small
+Hasil penilaian diri ini akan digunakan oleh fasilitator untuk:
+\begin{itemize}[nosep]
+    \item Mengidentifikasi topik yang memerlukan penjelasan lebih mendalam di kelas
+    \item Membentuk kelompok workshop yang heterogen (campuran peserta berpengalaman dan pemula)
+    \item Menyesuaikan kecepatan penyampaian materi per bab
+\end{itemize}
+\end{plnbox}
+
+
+% ================= BAGIAN C: REFLEKSI PENGALAMAN =================
+\newpage
+\section{BAGIAN C: Refleksi Pengalaman Kerja (5 soal $\times$ 10 poin = 50 poin)}
+\textit{Jawab berdasarkan pengalaman nyata di unit kerja Anda. Jika belum memiliki pengalaman terkait, tuliskan ``Belum pernah mengalami'' dan jelaskan apa yang Anda perkirakan akan terjadi. Jawab maksimal 3--4 kalimat per soal.}
+
+\vspace{0.3cm}
+
+\begin{enumerate}[leftmargin=*, itemsep=0.3cm]
+
+% --- C1: Identifikasi Masalah ---
+\item Sebutkan \textbf{1 masalah utama} yang sering Anda temui dalam proses pengelolaan arsip/dokumen di unit kerja Anda saat ini. Apa dampaknya terhadap operasional sehari-hari?
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+% --- C2: Pengalaman Duplikasi ---
+\item Pernahkah Anda atau staf Anda harus \textbf{menginput data yang sama ke lebih dari satu sistem/aplikasi} untuk satu proses yang sama? Jika ya, ceritakan situasinya secara singkat. Jika tidak, menurut Anda mengapa redundansi input data bisa merugikan?
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+% --- C3: Tantangan Pencarian ---
+\item Ketika ada permintaan mendadak untuk menemukan arsip tertentu (misalnya saat audit atau permintaan data dari manajemen), berapa lama waktu yang biasanya dibutuhkan? Apa kesulitan utamanya?
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+% --- C4: Pengalaman Persetujuan ---
+\item Bagaimana proses persetujuan/validasi dokumen di unit kerja Anda? Apakah sudah menggunakan persetujuan digital, atau masih memerlukan tanda tangan fisik/basah? Apa kendala yang paling sering muncul?
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+% --- C5: Harapan Pembelajaran ---
+\item Apa \textbf{1 hal utama} yang ingin Anda pelajari atau peroleh dari pelatihan modul ini? Masalah spesifik apa di unit kerja Anda yang Anda harapkan bisa diatasi setelah mengikuti pelatihan?
+
+\vspace{0.2cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{0.3pt}
+
+\end{enumerate}
+
+% ================= KUNCI JAWABAN (FASILITATOR) =================
+\newpage
+\begin{center}
+{\LARGE\bfseries\color{red!70!black} KUNCI JAWABAN \& PANDUAN PENILAIAN}\\[0.2cm]
+{\large\color{red!70!black}\textit{(Dokumen Rahasia -- Khusus Fasilitator)}}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{answerbox}
+\textbf{PENTING:} Halaman ini \textbf{WAJIB DIPISAHKAN} dari lembar soal peserta. Pre-test bersifat diagnostik -- fasilitator menggunakan hasil ini untuk \textbf{memetakan keragaman pengetahuan awal kelas}, bukan untuk menentukan kelulusan. Bandingkan hasil pre-test dengan post-test di akhir sesi untuk mengukur \textit{learning gain}.
+\end{answerbox}
+
+\vspace{0.5cm}
+
+% --- Kunci Bagian A ---
+\subsection{Kunci Jawaban Bagian A: Pilihan Ganda (40 poin)}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabularx}{0.95\textwidth}{@{} c c X @{}}
+\toprule
+\textbf{No} & \textbf{Jawaban} & \textbf{Konsep Prasyarat yang Diuji} \\
+\midrule
+1 & \textbf{B} & Pengetahuan regulasi PSTE -- fondasi hukum tanda tangan elektronik \\
+2 & \textbf{B} & Definisi arsip menurut UU 43/2009 -- cakupan tidak terbatas pada kertas \\
+3 & \textbf{A} & Terminologi proses bisnis dasar -- hambatan proses alur kerja \\
+4 & \textbf{B} & Konsep metadata -- informasi deskriptif tentang arsip \\
+5 & \textbf{C} & Jadwal Retensi Arsip -- durasi simpan dan nasib akhir arsip \\
+6 & \textbf{B} & Fungsi SOP -- standarisasi langkah, peran, dan konsistensi \\
+7 & \textbf{B} & Integrasi sistem -- koneksi antar-aplikasi untuk pertukaran data \\
+8 & \textbf{C} & Keabsahan TTD elektronik bersertifikat -- setara TTD basah \\
+9 & \textbf{B} & Siklus hidup arsip -- penciptaan, penggunaan, penyusutan \\
+10 & \textbf{B} & Risiko tata kelola arsip buruk di BUMN -- temuan audit BPK \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.5cm}
+
+% --- Panduan Bagian B ---
+\subsection{Panduan Penilaian Bagian B: Penilaian Diri (10 poin)}
+
+\begin{plnbox}[Cara Skoring \& Interpretasi]
+\small
+Penilaian diri \textbf{tidak dinilai benar/salah}. Skor diberikan berdasarkan \textbf{kelengkapan pengisian} (2 poin per baris yang diisi). Fasilitator menggunakan hasil ini sebagai peta diagnostik:
+
+\vspace{0.3cm}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{} c X @{}}
+\toprule
+\textbf{Kolom Dominan} & \textbf{Implikasi bagi Fasilitator} \\
+\midrule
+Mayoritas ``Belum Tahu'' & Peserta memerlukan pengantar konseptual lebih panjang di Bab 1--2. Berikan contoh konkret PLN lebih banyak. \\
+Mayoritas ``Pernah Dengar'' & Peserta memiliki \textit{awareness} namun belum \textit{hands-on}. Fokuskan pada aktivitas workshop dan studi kasus. \\
+Mayoritas ``Cukup/Sangat Paham'' & Percepat pengantar, alokasikan waktu lebih banyak untuk diskusi lanjutan dan desain BPMN/SOP. \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+\end{plnbox}
+
+\subsection{Panduan Penilaian Bagian C: Refleksi Pengalaman (50 poin)}
+
+\textit{Bagian ini dinilai berdasarkan \textbf{kedalaman refleksi}, bukan ketepatan terminologi. Peserta yang belum berpengalaman tetap mendapat kredit jika menunjukkan kemampuan berpikir analitis.}
+
+\vspace{0.3cm}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabularx}{0.95\textwidth}{@{} c X X @{}}
+\toprule
+\textbf{No} & \textbf{Komponen Jawaban Berkualitas} & \textbf{Distribusi Poin} \\
+\midrule
+C1 & Menyebutkan masalah spesifik (bukan generik) + menjelaskan dampak operasional nyata & 5 poin masalah + 5 poin dampak \\
+\hline
+C2 & Mendeskripsikan situasi duplikasi konkret atau menjelaskan logis mengapa redundansi merugikan (waktu, inkonsistensi, risiko error) & 5 poin deskripsi + 5 poin analisis rugi \\
+\hline
+C3 & Menyebutkan estimasi waktu pencarian + mengidentifikasi penyebab kesulitan (tidak terindeks, tersebar, metadata buruk) & 5 poin waktu + 5 poin penyebab \\
+\hline
+C4 & Menggambarkan proses persetujuan aktual di unit + mengidentifikasi kendala (TTD basah, atasan di luar kantor, tidak ada SLA) & 5 poin deskripsi + 5 poin kendala \\
+\hline
+C5 & Menyebutkan harapan spesifik dan realistis (bukan generik seperti ``ingin belajar'') + menghubungkan dengan masalah nyata di unit kerja & 5 poin harapan + 5 poin koneksi masalah \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.5cm}
+
+% --- Panduan Perbandingan Pre-Post ---
+\subsection{Panduan Perbandingan Pre-Test vs Post-Test}
+
+\begin{plnbox}[Formula \textit{Learning Gain}]
+\small
+Untuk mengukur efektivitas pelatihan, hitung \textit{Normalized Learning Gain} menggunakan formula berikut:
+
+\vspace{0.3cm}
+\begin{center}
+$\displaystyle g = \frac{\text{Skor Post-Test} - \text{Skor Pre-Test (Bag. A)}}{100 - \text{Skor Pre-Test (Bag. A)}} \times 100\%$
+\end{center}
+
+\vspace{0.3cm}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{} c X @{}}
+\toprule
+\textbf{Nilai $g$} & \textbf{Interpretasi} \\
+\midrule
+$g \geq 70\%$ & \textbf{Tinggi} -- Pelatihan sangat efektif; peserta mengalami perubahan signifikan \\
+$30\% \leq g < 70\%$ & \textbf{Sedang} -- Pelatihan cukup efektif; masih ada ruang perbaikan metode \\
+$g < 30\%$ & \textbf{Rendah} -- Evaluasi ulang metode penyampaian atau kesiapan prasyarat peserta \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.3cm}
+\textbf{Catatan:} Perbandingan hanya dilakukan pada soal Bagian A (pilihan ganda) yang memiliki padanan langsung dengan Post-Test. Bagian B dan C pre-test berfungsi sebagai data kualitatif untuk menyesuaikan pendekatan fasilitasi.
+\end{plnbox}
+
+\vspace{0.5cm}
+
+\subsection{Peta Keterkaitan Pre-Test dengan Materi Modul}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\small
+\begin{tabularx}{0.95\textwidth}{@{} c X X @{}}
+\toprule
+\textbf{Soal Pre-Test} & \textbf{Prasyarat yang Diuji} & \textbf{Akan Diperdalam di Bab} \\
+\midrule
+A1 (PP 71/2019) & Regulasi PSTE & Bab 4 (SOP \& Regulasi), Bab 6 (Resistensi TTD Digital) \\
+A2 (Definisi Arsip) & UU 43/2009 & Bab 1 (Konteks Strategis) \\
+A3 (\textit{Bottleneck}) & Terminologi proses bisnis & Bab 2 (\textit{Friction Points} \& Evaluasi) \\
+A4 (Metadata) & Konsep dasar metadata & Bab 2 (Diagnostik), Bab 4 (Metadata SOP) \\
+A5 (JRA) & Retensi arsip & Bab 4 (Komponen Klasifikasi, Retensi \& Akses) \\
+A6 (SOP) & Fungsi SOP & Bab 4 (Evolusi SOP Digital) \\
+A7 (Integrasi) & Integrasi sistem & Bab 1 (Makna Integrasi), Bab 3 (Pola Integrasi) \\
+A8 (TTD Elektronik) & Hukum TTD elektronik & Bab 4 (Regulasi), Bab 6 (\textit{Change Management}) \\
+A9 (Siklus Hidup) & \textit{Records lifecycle} & Bab 2 (\textit{Value Stream Mapping}) \\
+A10 (Risiko Audit) & Dampak tata kelola buruk & Bab 1 (Konteks Strategis), Bab 5 (KPI \& ROI) \\
+\midrule
+B1--B5 & Tingkat familiaritas topik & Menentukan kecepatan penyampaian per bab \\
+\midrule
+C1--C5 & Pengalaman nyata di unit kerja & Input studi kasus workshop Bab 2--4 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+\end{document}

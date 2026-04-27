@@ -1,0 +1,99 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, headheight=14.5pt}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{amssymb}
+
+% Warna Korporat PLN
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+
+\title{\Large \textbf{LAMPIRAN KHUSUS} \\ \Large \textbf{Checklist Diagnostik Kesiapan Digital (PARBICA Guideline 13)}}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\textbf{Nama Unit Kerja:} \underline{\hspace{8cm}} \quad \textbf{Tanggal:} \underline{\hspace{4cm}}\\[0.2cm]
+\textbf{Nama Penilai:} \underline{\hspace{8cm}}\\[0.5cm]
+
+Isilah tabel checklist di bawah ini untuk mengevaluasi kesiapan prosedur digital pada unit Anda. Berilah skor dari \textbf{1 (Belum Siap)} hingga \textbf{5 (Sangat Siap)}.
+
+\renewcommand{\arraystretch}{1.5}
+\noindent
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X c c @{}}
+\toprule
+\textbf{Domain} & \textbf{Pertanyaan Diagnostik} & \textbf{Skor (1-5)} & \textbf{Catatan Khusus} \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{1. Kebijakan \& Strategi Kearsipan Digital}} \\
+\midrule
+1.1 & Apakah telah ada kebijakan eksplisit yang mewajibkan penciptaan arsip digital di titik transaksi bisnis? & $\square$ & \dotfill \\
+1.2 & Apakah strategi kearsipan diselaraskan dengan roadmap sistem PLN? & $\square$ & \dotfill \\
+1.3 & Apakah ada mekanisme review kebijakan kearsipan minimal 1x/tahun? & $\square$ & \dotfill \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{2. Tata Kelola \& Peran Organisasi}} \\
+\midrule
+2.1 & Apakah peran pengelola arsip telah didokumentasikan dalam RACI Chart resmi? & $\square$ & \dotfill \\
+2.2 & Apakah unit kearsipan memiliki kewenangan untuk menolak dokumen yang tak sesuai metadata? & $\square$ & \dotfill \\
+2.3 & Apakah ada forum lintas unit yang membahas optimalisasi alur arsip? & $\square$ & \dotfill \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{3. Kapasitas SDM \& Budaya Kerja}} \\
+\midrule
+3.1 & Apakah staf operasional dilatih memahami akibat anomali metadata? & $\square$ & \dotfill \\
+3.2 & Apakah ada KPI yang mengaitkan akurasi pengarsipan dengan penilaian kinerja? & $\square$ & \dotfill \\
+3.3 & Apakah tersedia panduan penanganan exception/sistem down? & $\square$ & \dotfill \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{4. Teknologi \& Interoperabilitas Sistem}} \\
+\midrule
+4.1 & Apakah sistem operasional memiliki kemampuan tarik data otomatis ke repositori arsip? & $\square$ & \dotfill \\
+4.2 & Apakah metadata inti dapat di-capture otomatis dari sistem sumber? & $\square$ & \dotfill \\
+4.3 & Apakah sistem kearsipan mendukung digital routing dengan SLA terukur? & $\square$ & \dotfill \\
+\bottomrule
+\end{tabularx}
+
+\newpage
+
+\noindent
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X c c @{}}
+\toprule
+\textbf{Domain} & \textbf{Pertanyaan Diagnostik} & \textbf{Skor (1-5)} & \textbf{Catatan Khusus} \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{5. Proses, Alur Kerja \& Efisiensi Operasional}} \\
+\midrule
+5.1 & Apakah informasi diketik lebih dari satu kali di aplikasi berbeda? & $\square$ & \dotfill \\
+5.2 & Apakah ada dokumen cetak yang pada akhirnya di-scan kembali menjadi PDF? & $\square$ & \dotfill \\
+5.3 & Berapa lama dokumen menunggu untuk divalidasi? & $\square$ & \dotfill \\
+5.4 & Siapa yang menjaga konsistensi metadata arsip di tahapan hilir? & $\square$ & \dotfill \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{6. Keamanan, Risiko \& Kepatuhan}} \\
+\midrule
+6.1 & Apakah setiap modifikasi arsip terekam dalam audit trail immutable? & $\square$ & \dotfill \\
+6.2 & Apakah klasifikasi arsip menentukan kontrol akses \& strategi backup? & $\square$ & \dotfill \\
+6.3 & Apakah ada prosedur fallback jika sistem digital down >4 jam? & $\square$ & \dotfill \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{7. Preservasi Jangka Panjang \& Keberlanjutan}} \\
+\midrule
+7.1 & Apakah format arsip memenuhi standar preservasi jangka panjang (PDF/A)? & $\square$ & \dotfill \\
+7.2 & Apakah ada rencana migrasi data arsip vital setiap 3-5 tahun? & $\square$ & \dotfill \\
+7.3 & Apakah anggaran operasional dialokasikan secara berkelanjutan? & $\square$ & \dotfill \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.4cm}
+\textbf{Total Skor Keseluruhan: \underline{\hspace{2cm}} / 110}\\[0.3cm]
+\textbf{Rata-rata Skor: \underline{\hspace{2cm}}}\\[0.5cm]
+
+\textbf{Kesimpulan \& Rekomendasi Utama:}\\[0.2cm]
+\rule{\textwidth}{0.4pt}
+\rule{\textwidth}{0.4pt}
+\rule{\textwidth}{0.4pt}
+
+\end{document}

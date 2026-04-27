@@ -1,0 +1,120 @@
+\documentclass[11pt, a4paper, landscape]{article}
+
+% --- UNIVERSAL PREAMBLE BLOCK ---
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{fontspec}
+
+\usepackage[indonesian, bidi=basic, provide=*]{babel}
+
+\babelprovide[import, onchar=ids fonts]{indonesian}
+\babelprovide[import, onchar=ids fonts]{english}
+
+% Set default/Latin font to Sans Serif in the main (rm) slot
+\babelfont{rm}{Noto Sans}
+
+% Add because main language is not English
+\usepackage{enumitem}
+\setlist[itemize]{label=-}
+
+% --- TIKZ & GRAPHICS ---
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, shadows, shapes.misc, backgrounds}
+\usepackage{xcolor}
+
+% --- COLOR DEFINITIONS ---
+\definecolor{TitleDark}{HTML}{0F172A}
+\definecolor{TitleSub}{HTML}{64748B}
+\definecolor{PilarLeft}{HTML}{64748B}
+\definecolor{PilarRight}{HTML}{0284C7}
+\definecolor{DimCenter}{HTML}{475569}
+\definecolor{NodeLeftBg}{HTML}{F1F5F9}
+\definecolor{NodeLeftBorder}{HTML}{94A3B8}
+\definecolor{NodeRightBg}{HTML}{E0F2FE}
+\definecolor{FoundBg1}{HTML}{0F172A}
+\definecolor{FoundTitle}{HTML}{38BDF8}
+\definecolor{FoundHighlight}{HTML}{FDE047}
+\definecolor{CircuitColor}{HTML}{38BDF8}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+\vspace*{\fill}
+\begin{tikzpicture}[
+    font=\rmfamily, % Noto Sans is mapped to rmfamily
+    dimnode/.style={rounded rectangle, fill=DimCenter, text=white, font=\bfseries, align=center, minimum width=4.5cm, minimum height=0.9cm, drop shadow={opacity=0.2, shadow xshift=0pt, shadow yshift=-2pt}},
+    leftnode/.style={rectangle, draw=NodeLeftBorder, thick, dashed, rounded corners, fill=NodeLeftBg, align=center, minimum width=6cm, minimum height=1cm, text=TitleDark},
+    rightnode/.style={rectangle, fill=NodeRightBg, align=center, font=\bfseries\color{PilarRight}, rounded corners, minimum width=6cm, minimum height=1cm, drop shadow={opacity=0.2, shadow xshift=0pt, shadow yshift=-2pt}},
+    arrow/.style={-{Stealth[scale=1.2]}, thick, draw=PilarRight},
+    dashline/.style={dashed, thick, draw=NodeLeftBorder}
+]
+
+% --- HEADER / TITLE ---
+\node[align=center] (title) at (0, 3) {
+    \huge\bfseries\color{TitleDark} KERANGKA EVOLUSI PARADIGMA SOP \\[0.3cm]
+    \Large\color{TitleSub} Pergeseran dari Ekosistem Manual Menuju Orkestrasi Otonom
+};
+
+% --- PHASE HEADERS ---
+\node[align=center] (headleft) at (-6, 0.5) {\Large\bfseries\color{PilarLeft} SOP KONVENSIONAL \\ \large\color{TitleSub} (Fragmentasi \& Manual)};
+\node[align=center] (headright) at (6, 0.5) {\Large\bfseries\color{PilarRight} SOP DIGITAL TERINTEGRASI \\ \large\color{CircuitColor} (Orkestrasi \& Otonom)};
+
+% --- RIGHT PILLAR BACKGROUND ---
+\fill[NodeRightBg!40!white, rounded corners=15pt, draw=CircuitColor!50, dashed, thick] (2.5, -0.5) rectangle (9.8, -9);
+
+% --- DIMENSION 1 ---
+\node[dimnode] (dim1) at (0, -1.5) {FOKUS EKOSISTEM};
+\node[leftnode] (L1) at (-6, -1.5) {Interaksi fisik antar-manusia};
+\node[rightnode] (R1) at (6, -1.5) {Orkestrasi sistem \& manusia};
+\draw[dashline] (L1) -- (dim1); \draw[arrow] (dim1) -- (R1);
+
+% --- DIMENSION 2 ---
+\node[dimnode] (dim2) at (0, -3) {INISIATOR PROSES};
+\node[leftnode] (L2) at (-6, -3) {Inisiatif manual oleh staf};
+\node[rightnode] (R2) at (6, -3) {System-Event Trigger otomatis};
+\draw[dashline] (L2) -- (dim2); \draw[arrow] (dim2) -- (R2);
+
+% --- DIMENSION 3 ---
+\node[dimnode] (dim3) at (0, -4.5) {VALIDASI NASKAH};
+\node[leftnode] (L3) at (-6, -4.5) {Tanda tangan basah \& stempel};
+\node[rightnode] (R3) at (6, -4.5) {Audit Trail \& TTE};
+\draw[dashline] (L3) -- (dim3); \draw[arrow] (dim3) -- (R3);
+
+% --- DIMENSION 4 ---
+\node[dimnode] (dim4) at (0, -6) {MANAJEMEN RISIKO};
+\node[leftnode] (L4) at (-6, -6) {Reaktif, bergantung daya ingat};
+\node[rightnode] (R4) at (6, -6) {Preventif, immutable \& real-time};
+\draw[dashline] (L4) -- (dim4); \draw[arrow] (dim4) -- (R4);
+
+% --- DIMENSION 5 ---
+\node[dimnode] (dim5) at (0, -7.5) {PENEMPATAN ARSIP};
+\node[leftnode] (L5) at (-6, -7.5) {Menunggu petugas pasca dinas};
+\node[rightnode] (R5) at (6, -7.5) {Preservation by design; otonom};
+\draw[dashline] (L5) -- (dim5); \draw[arrow] (dim5) -- (R5);
+
+% --- CIRCUIT SPINE (Estetika Integrasi di Kanan) ---
+\draw[line width=2pt, CircuitColor] (9.3, -1) -- (9.3, -8);
+\fill[PilarRight] (9.3, -1.5) circle (3pt);
+\fill[PilarRight] (9.3, -3) circle (3pt);
+\fill[PilarRight] (9.3, -4.5) circle (3pt);
+\fill[PilarRight] (9.3, -6) circle (3pt);
+\fill[PilarRight] (9.3, -7.5) circle (3pt);
+
+% --- FOUNDATION (INSIGHT) ---
+\node[rectangle, rounded corners=12pt, fill=FoundBg1, minimum width=19cm, minimum height=4cm, drop shadow={opacity=0.3, shadow xshift=0pt, shadow yshift=-4pt}] (found) at (0, -11) {};
+
+% Aksen biru di sisi kiri fondasi
+\fill[PilarRight, rounded corners=4pt] ([xshift=0.3cm, yshift=-0.3cm]found.north west) rectangle ([xshift=0.6cm, yshift=0.3cm]found.south west);
+
+% Teks Insight Fondasi
+\node[align=left, anchor=north west] at ([xshift=1.2cm, yshift=-0.6cm]found.north west) {
+    \Large\bfseries\color{FoundTitle} SOP SEBAGAI PROTOKOL KORPORAT
+};
+\node[align=left, anchor=north west, text=white, text width=17.2cm] at ([xshift=1.2cm, yshift=-1.6cm]found.north west) {
+    \large Bukan lagi sekadar dokumen panduan statis (\textit{\color{gray!50}User Guide}), melainkan arsitektur pengikat yang menjamin \\[0.3cm]
+    \large \textbf{\color{FoundHighlight} SLA (Service Level Agreement)}, \textbf{\color{FoundHighlight} Orkestrasi Alur Kerja}, dan \textbf{\color{FoundHighlight} Akuntabilitas Keputusan} secara terotomatisasi.
+};
+
+\end{tikzpicture}
+\vspace*{\fill}
+\end{center}
+\end{document}

@@ -1,0 +1,98 @@
+% ============================================================
+% Handout LaTeX — Cover + Content Pages
+% Kompilasi: xelatex / lualatex
+% ============================================================
+\documentclass[a4paper,12pt]{article}
+
+% ---------- packages ----------
+\usepackage[margin=0pt]{geometry}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usepackage{fontspec}
+\usepackage{afterpage}   % ganti background setelah cover
+
+% ---------- font Open Sans ----------
+\newfontfamily\titlefont[
+  Path      = ./fonts/,
+  BoldFont  = OpenSans-Bold.ttf,
+]{OpenSans-Regular.ttf}
+
+% ---------- warna kustom ----------
+\usepackage{xcolor}
+\definecolor{titlenavy}{RGB}{0,51,102}
+\definecolor{bodytext}{RGB}{0,0,0}
+
+% ============================================================
+%  BACKGROUND — Cover (halaman pertama)
+% ============================================================
+\AddToShipoutPictureBG*{%            % * = hanya halaman ini
+  \AtPageLowerLeft{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{cover_handout.png}%
+  }%
+}
+
+% ---------- perintah ganti ke background content ----------
+\newcommand{\switchtocontentbg}{%
+  \ClearShipoutPictureBG%
+  \AddToShipoutPictureBG{%
+    \AtPageLowerLeft{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{content_handout.png}%
+    }%
+  }%
+}
+
+% ---------- layout konten ----------
+\usepackage[top=40mm, bottom=30mm, left=25mm, right=25mm]{geometry}
+
+% ============================================================
+\begin{document}
+
+% ============================================================
+%  HALAMAN 1: COVER
+% ============================================================
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+
+  %--- LEVEL MANEJERIAL ---
+  \node[anchor=north west, text width=0.85\paperwidth, align=left]
+    at ([xshift=20mm, yshift=-0.27\paperheight]current page.north west)
+    {%
+      {\fontsize{14pt}{18pt}\selectfont\titlefont\bfseries\color{titlenavy}%
+       LEVEL MANEJERIAL}%
+    };
+
+  %--- Judul Utama ---
+  \node[anchor=north west, text width=0.85\paperwidth, align=left]
+    at ([xshift=20mm, yshift=-0.33\paperheight]current page.north west)
+    {%
+      {\fontsize{16pt}{20pt}\selectfont\titlefont\bfseries\color{titlenavy}%
+       PERANCANGAN SISTEM KEAMANAN\\[4pt]%
+       \& KETERLACAKAN TERINTEGRASI}%
+    };
+
+  %--- Teks bawah ---
+  \node[anchor=north west, text width=0.85\paperwidth, align=left]
+    at ([xshift=20mm, yshift=-0.23\paperheight]current page.center)
+    {%
+      {\fontsize{14pt}{18pt}\selectfont\titlefont\bfseries\color{titlenavy}%
+       PUSAT PENDIDIKAN DAN PELATIHAN\\[4pt]%
+       PT PLN (PERSERO)}%
+    };
+
+\end{tikzpicture}
+
+\newpage
+
+% ============================================================
+%  HALAMAN 2+: CONTENT (background content_handout.png)
+% ============================================================
+\switchtocontentbg
+
+\section*{\titlefont\bfseries\color{titlenavy} PENDAHULUAN}
+
+Ini adalah contoh teks konten untuk halaman kedua dan seterusnya.
+Ganti teks ini sesuai kebutuhan materi Anda.
+
+\end{document}

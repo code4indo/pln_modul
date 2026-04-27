@@ -1,0 +1,224 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1380 800" width="100%" height="100%">
+  <defs>
+    <style>
+      .big-letter { font-family: 'Segoe UI', Arial, sans-serif; font-size: 90px; font-weight: bold; text-anchor: middle; fill: #000; }
+      .heading { font-family: 'Segoe UI', Arial, sans-serif; font-size: 26px; font-weight: normal; text-anchor: middle; fill: #000; }
+      .bullet-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; fill: #000; }
+      .zone-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 24px; font-weight: normal; text-anchor: middle; fill: #FFF; }
+    </style>
+  </defs>
+
+  <!-- Latar Belakang -->
+  <rect width="1380" height="800" fill="#ffffff" />
+
+  <!-- ==================== BLOK PANAH ==================== -->
+
+  <!-- 1. Awareness (Kesadaran) -->
+  <g id="block-awareness">
+    <!-- Bagian Atas (Terang) -->
+    <polygon points="10,40 260,40 300,57.5 260,75 10,75" fill="#76B0F2" />
+    <!-- Bagian Bawah (Gelap) -->
+    <polygon points="10,75 260,75 320,137.5 260,200 10,200" fill="#1B4A81" />
+  </g>
+
+  <!-- 2. Desire (Keinginan) -->
+  <g id="block-desire">
+    <!-- Bagian Atas (Terang) -->
+    <polygon points="270,40 520,40 560,57.5 520,75 270,75 310,57.5" fill="#F8CF71" />
+    <!-- Bagian Bawah (Gelap) -->
+    <polygon points="270,75 520,75 580,137.5 520,200 270,200 330,137.5" fill="#F5A81A" />
+  </g>
+
+  <!-- 3. Knowledge (Pengetahuan) -->
+  <g id="block-knowledge">
+    <!-- Bagian Atas (Terang) -->
+    <polygon points="530,40 780,40 820,57.5 780,75 530,75 570,57.5" fill="#F09295" />
+    <!-- Bagian Bawah (Gelap) -->
+    <polygon points="530,75 780,75 840,137.5 780,200 530,200 590,137.5" fill="#D04B4E" />
+  </g>
+
+  <!-- 4. Ability (Kemampuan) -->
+  <g id="block-ability">
+    <!-- Bagian Atas (Terang) -->
+    <polygon points="790,40 1040,40 1080,57.5 1040,75 790,75 830,57.5" fill="#F8B375" />
+    <!-- Bagian Bawah (Gelap) -->
+    <polygon points="790,75 1040,75 1100,137.5 1040,200 790,200 850,137.5" fill="#F07A18" />
+  </g>
+
+  <!-- 5. Reinforcement (Penguatan) -->
+  <g id="block-reinforcement">
+    <!-- Bagian Atas (Terang) -->
+    <polygon points="1050,40 1300,40 1340,57.5 1300,75 1050,75 1090,57.5" fill="#9FE1DF" />
+    <!-- Bagian Bawah (Gelap) -->
+    <polygon points="1050,75 1300,75 1360,137.5 1300,200 1050,200 1110,137.5" fill="#209B99" />
+  </g>
+
+
+  <!-- ==================== HURUF BESAR ==================== -->
+  <text x="165" y="170" class="big-letter">A</text>
+  <text x="425" y="170" class="big-letter">D</text>
+  <text x="685" y="170" class="big-letter">K</text>
+  <text x="945" y="170" class="big-letter">A</text>
+  <text x="1205" y="170" class="big-letter">R</text>
+
+
+  <!-- ==================== JUDUL KOLOM & GARIS BAWAH ==================== -->
+  <text x="165" y="235" class="heading">Awareness</text>
+  <text x="165" y="265" class="heading">Kesadaran</text>
+  <line x1="105" y1="275" x2="225" y2="275" stroke="black" stroke-width="2" />
+
+  <text x="425" y="235" class="heading">Desire</text>
+  <text x="425" y="265" class="heading">Keinginan</text>
+  <line x1="365" y1="275" x2="485" y2="275" stroke="black" stroke-width="2" />
+
+  <text x="685" y="235" class="heading">Knowledge</text>
+  <text x="685" y="265" class="heading">Pengetahuan</text>
+  <line x1="610" y1="275" x2="760" y2="275" stroke="black" stroke-width="2" />
+
+  <text x="945" y="235" class="heading">Ability</text>
+  <text x="945" y="265" class="heading">Kemampuan</text>
+  <line x1="870" y1="275" x2="1020" y2="275" stroke="black" stroke-width="2" />
+
+  <text x="1205" y="235" class="heading">Reinforcement</text>
+  <text x="1205" y="265" class="heading">Penguatan</text>
+  <line x1="1140" y1="275" x2="1270" y2="275" stroke="black" stroke-width="2" />
+
+
+  <!-- ==================== KONTEN BULLET POINTS ==================== -->
+
+  <!-- KESADARAN (A) -->
+  <g id="text-awareness">
+    <!-- Bullet 1 -->
+    <circle cx="55" cy="294" r="3.5" fill="black" />
+    <text x="70" y="300" class="bullet-text">Umumkan perubahan</text>
+    <text x="70" y="324" class="bullet-text">kepada karyawan</text>
+    <text x="70" y="348" class="bullet-text">jauh sebelum waktunya.</text>
+    
+    <!-- Bullet 2 -->
+    <circle cx="55" cy="378" r="3.5" fill="black" />
+    <text x="70" y="384" class="bullet-text">Jelaskan alasan Anda</text>
+    <text x="70" y="408" class="bullet-text">di balik perubahan,</text>
+    <text x="70" y="432" class="bullet-text">termasuk masalah</text>
+    <text x="70" y="456" class="bullet-text">saat ini dan potensi</text>
+    <text x="70" y="480" class="bullet-text">ROI dari solusi baru.</text>
+
+    <!-- Bullet 3 -->
+    <circle cx="55" cy="510" r="3.5" fill="black" />
+    <text x="70" y="516" class="bullet-text">Beri karyawan</text>
+    <text x="70" y="540" class="bullet-text">kesempatan untuk</text>
+    <text x="70" y="564" class="bullet-text">bertanya dan</text>
+    <text x="70" y="588" class="bullet-text">memberikan saran.</text>
+  </g>
+
+  <!-- KEINGINAN (D) -->
+  <g id="text-desire">
+    <!-- Bullet 1 -->
+    <circle cx="315" cy="294" r="3.5" fill="black" />
+    <text x="330" y="300" class="bullet-text">Ukur reaksi</text>
+    <text x="330" y="324" class="bullet-text">karyawan terhadap</text>
+    <text x="330" y="348" class="bullet-text">perubahan.</text>
+
+    <!-- Bullet 2 -->
+    <circle cx="315" cy="378" r="3.5" fill="black" />
+    <text x="330" y="384" class="bullet-text">Identifikasi pelopor.</text>
+
+    <!-- Bullet 3 -->
+    <circle cx="315" cy="414" r="3.5" fill="black" />
+    <text x="330" y="420" class="bullet-text">Jika karyawan menolak</text>
+    <text x="330" y="444" class="bullet-text">atau acuh tak acuh,</text>
+    <text x="330" y="468" class="bullet-text">atasi kekhawatiran</text>
+    <text x="330" y="492" class="bullet-text">mereka atau tunjukkan</text>
+    <text x="330" y="516" class="bullet-text">bagaimana perubahan</text>
+    <text x="330" y="540" class="bullet-text">menguntungkan mereka</text>
+    <text x="330" y="564" class="bullet-text">secara pribadi.</text>
+  </g>
+
+  <!-- PENGETAHUAN (K) -->
+  <g id="text-knowledge">
+    <!-- Bullet 1 -->
+    <circle cx="575" cy="294" r="3.5" fill="black" />
+    <text x="590" y="300" class="bullet-text">Berikan pelatihan</text>
+    <text x="590" y="324" class="bullet-text">atau pembinaan untuk</text>
+    <text x="590" y="348" class="bullet-text">menunjukkan apa yang</text>
+    <text x="590" y="372" class="bullet-text">harus dilakukan</text>
+    <text x="590" y="396" class="bullet-text">setelah perubahan.</text>
+
+    <!-- Bullet 2 -->
+    <circle cx="575" cy="426" r="3.5" fill="black" />
+    <text x="590" y="432" class="bullet-text">Atasi kesenjangan</text>
+    <text x="590" y="456" class="bullet-text">keterampilan apa pun.</text>
+
+    <!-- Bullet 3 -->
+    <circle cx="575" cy="486" r="3.5" fill="black" />
+    <text x="590" y="492" class="bullet-text">Tawarkan sumber</text>
+    <text x="590" y="516" class="bullet-text">daya, seperti diagram</text>
+    <text x="590" y="540" class="bullet-text">alur proses, untuk</text>
+    <text x="590" y="564" class="bullet-text">referensi di</text>
+    <text x="590" y="588" class="bullet-text">kemudian hari.</text>
+  </g>
+
+  <!-- KEMAMPUAN (A) -->
+  <g id="text-ability">
+    <!-- Bullet 1 -->
+    <circle cx="835" cy="294" r="3.5" fill="black" />
+    <text x="850" y="300" class="bullet-text">Jadwalkan uji coba</text>
+    <text x="850" y="324" class="bullet-text">sebelum perubahan</text>
+    <text x="850" y="348" class="bullet-text">diimplementasikan</text>
+    <text x="850" y="372" class="bullet-text">sepenuhnya.</text>
+
+    <!-- Bullet 2 -->
+    <circle cx="835" cy="402" r="3.5" fill="black" />
+    <text x="850" y="408" class="bullet-text">Pantau kinerja</text>
+    <text x="850" y="432" class="bullet-text">segera setelah</text>
+    <text x="850" y="456" class="bullet-text">perubahan dan berikan</text>
+    <text x="850" y="480" class="bullet-text">umpan balik</text>
+    <text x="850" y="504" class="bullet-text">konstruktif.</text>
+
+    <!-- Bullet 3 -->
+    <circle cx="835" cy="534" r="3.5" fill="black" />
+    <text x="850" y="540" class="bullet-text">Tetapkan tujuan dan</text>
+    <text x="850" y="564" class="bullet-text">metrik yang wajar</text>
+    <text x="850" y="588" class="bullet-text">sejak awal.</text>
+
+    <!-- Bullet 4 -->
+    <circle cx="835" cy="618" r="3.5" fill="black" />
+    <text x="850" y="624" class="bullet-text">Sesuaikan proses</text>
+    <text x="850" y="648" class="bullet-text">bila perlu.</text>
+  </g>
+
+  <!-- PENGUATAN (R) -->
+  <g id="text-reinforcement">
+    <!-- Bullet 1 -->
+    <circle cx="1095" cy="294" r="3.5" fill="black" />
+    <text x="1110" y="300" class="bullet-text">Pantau perubahan</text>
+    <text x="1110" y="324" class="bullet-text">dari waktu ke waktu</text>
+    <text x="1110" y="348" class="bullet-text">untuk memastikannya</text>
+    <text x="1110" y="372" class="bullet-text">memenuhi hasil</text>
+    <text x="1110" y="396" class="bullet-text">yang Anda inginkan.</text>
+
+    <!-- Bullet 2 -->
+    <circle cx="1095" cy="426" r="3.5" fill="black" />
+    <text x="1110" y="432" class="bullet-text">Gunakan umpan balik</text>
+    <text x="1110" y="456" class="bullet-text">positif, penghargaan,</text>
+    <text x="1110" y="480" class="bullet-text">dan pengakuan untuk</text>
+    <text x="1110" y="504" class="bullet-text">mendorong karyawan</text>
+    <text x="1110" y="528" class="bullet-text">agar terus mengikuti</text>
+    <text x="1110" y="552" class="bullet-text">proses baru.</text>
+  </g>
+
+
+  <!-- ==================== ZONA BAWAH ==================== -->
+  
+  <!-- Zona Pemberdayaan (Enablement zone) -->
+  <g id="zone-enablement">
+    <polygon points="30,720 60,695 60,708 760,708 760,695 790,720 760,745 760,732 60,732 60,745" fill="#999999" />
+    <text x="410" y="728" class="zone-text">Zona Pemberdayaan</text>
+  </g>
+
+  <!-- Zona Keterlibatan (Engagement zone) -->
+  <g id="zone-engagement">
+    <polygon points="810,720 840,695 840,708 1310,708 1310,695 1340,720 1310,745 1310,732 840,732 840,745" fill="#999999" />
+    <text x="1075" y="728" class="zone-text">Zona Keterlibatan</text>
+  </g>
+
+</svg>

@@ -1,0 +1,43 @@
+%% ============================================================
+%% GAMBAR 2.2 — Hash Chain / Blockchain Immutability (Custom Diagram)
+%% Sumber: modul44_handout_with_figures.tex
+%% Desain mandiri dengan label Bahasa Indonesia
+%% ============================================================
+
+\begin{tikzpicture}[
+  ok/.style={draw=plnblue, fill=plnblue!5, rounded corners=3pt,
+    line width=0.8pt, minimum width=1.8cm, minimum height=2cm,
+    align=center, font=\small, inner sep=4pt},
+  fail/.style={draw=red!70!black, fill=red!5, rounded corners=3pt,
+    line width=0.8pt, minimum width=1.8cm, minimum height=2cm,
+    align=center, font=\small, inner sep=4pt},
+  warn/.style={draw=orange!80!black, fill=orange!5, rounded corners=3pt,
+    line width=0.8pt, minimum width=1.8cm, minimum height=2cm,
+    align=center, font=\small, inner sep=4pt},
+  arr/.style={-{Stealth[length=4pt]}, line width=0.7pt}
+]
+% Title
+\node[font=\small\bfseries, text=plnblue] at (5,3.8)
+  {Hash Chain: Kekekalan (Immutability) Log Audit};
+\node[font=\tiny, text=gray] at (5,3.4)
+  {Modifikasi 1 byte merusak seluruh rantai ke depan};
+% Log blocks
+\node[ok] (L1) at (0,1.5) {\textbf{Log \#1}\\[-1pt]{\scriptsize a4f8c2..e7b1}\\
+  {\tiny Admin\_PLN, 08:30}\\[-1pt]{\tiny\color{green!60!black}$\checkmark$ Valid}};
+\node[ok] (L2) at (2.5,1.5) {\textbf{Log \#2}\\[-1pt]{\scriptsize 7d3e91..2a4c}\\
+  {\tiny Operator\_A, 09:15}\\[-1pt]{\tiny\color{green!60!black}$\checkmark$ Valid}};
+\node[fail] (L3) at (5,1.5) {\textbf{Log \#3}\\[-1pt]{\scriptsize\color{red!70!black}3b6c45..f3e7}\\
+  {\tiny Hacker??, 23:45}\\[-1pt]{\tiny\color{red!70!black}$\times$ Tampered}};
+\node[warn] (L4) at (7.5,1.5) {\textbf{Log \#4}\\[-1pt]{\scriptsize b1c7f3..8d2e}\\
+  {\tiny Auditor\_B, 10:00}\\[-1pt]{\tiny\color{orange!80!black}$\times$ Broken}};
+\node[warn] (L5) at (10,1.5) {\textbf{Log \#5}\\[-1pt]{\scriptsize e9d4a6..1f7c}\\
+  {\tiny Admin\_PLN, 14:30}\\[-1pt]{\tiny\color{orange!80!black}$\times$ Broken}};
+% Arrows
+\draw[arr, plnblue] (L1) -- (L2);
+\draw[arr, red!70!black] (L2) -- (L3);
+\draw[arr, orange!80!black] (L3) -- (L4);
+\draw[arr, orange!80!black] (L4) -- (L5);
+% Alert
+\node[font=\tiny\bfseries, text=red!70!black] at (5,-0.3)
+  {PELANGGARAN INTEGRITAS TERDETEKSI --- SIEM memicu alert otomatis};
+\end{tikzpicture}
