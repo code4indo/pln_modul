@@ -24,6 +24,7 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{tabularx}
+\usepackage{xltabular}
 \usepackage{enumitem}
 \usepackage{lmodern}
 \usepackage{microtype}
@@ -187,21 +188,30 @@ Modul ini dirancang untuk menjawab kebutuhan tersebut dengan pendekatan empat pi
 \section{Target Kompetensi}
 Setelah menyelesaikan modul ini, peserta diharapkan mampu mencapai empat kompetensi utama yang dipetakan terhadap kriteria penilaian sebagai berikut:
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
-\caption{Pemetaan Target Kompetensi terhadap Kriteria Penilaian}
-\begin{tabularx}{\textwidth}{@{} c X l @{}}
+\begin{xltabular}{\textwidth}{@{} c X l @{}}
+\caption{Pemetaan Target Kompetensi terhadap Kriteria Penilaian}\\
 \toprule
 \textbf{Kode} & \textbf{Target Kompetensi} & \textbf{Kriteria Penilaian} \\
 \midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Kode} & \textbf{Target Kompetensi} & \textbf{Kriteria Penilaian} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 TK-1 & Peserta mampu merancang skema kontrol akses terintegrasi berbasis peran (RBAC) yang menghubungkan sistem kearsipan dengan sistem kepegawaian. & 4.4.1 \\
 TK-2 & Peserta mampu merancang mekanisme audit trail otomatis yang merekam setiap akses dan perubahan arsip. & 4.4.2 \\
 TK-3 & Peserta mampu merumuskan kebijakan keamanan yang terintegrasi dengan sistem manajemen keamanan informasi organisasi. & 4.4.3 \\
 TK-4 & Peserta mampu merancang sistem backup dan disaster recovery terintegrasi. & 4.4.4 \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
 Keempat target kompetensi di atas bersifat kumulatif dan terintegrasi: keberhasilan pencapaian pada setiap kompetensi menjadi prasyarat efektivitas kompetensi berikutnya. Misalnya, skema RBAC yang dirancang pada TK-1 akan menentukan siapa yang tercatat dalam audit trail (TK-2), yang pada gilirannya menjadi input kebijakan keamanan (TK-3) dan memengaruhi prioritas backup (TK-4).
 
@@ -216,24 +226,33 @@ Keempat target kompetensi di atas bersifat kumulatif dan terintegrasi: keberhasi
 
 \noindent Modul 4.4 berdiri di atas fondasi yang dibangun oleh tiga modul sebelumnya dalam Level 4. Tabel \ref{tab:ringkasan-modul} merangkum cakupan masing-masing modul dan kaitannya dengan Modul 4.4:
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.5cm} X X @{}}
 \caption{Ringkasan Modul 4.1--4.3 dan Kaitannya dengan Modul 4.4}
-\label{tab:ringkasan-modul}
-\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.5cm} X X @{}}
+\label{tab:ringkasan-modul}\\
 \toprule
 \textbf{Modul} & \textbf{Judul \& Cakupan Utama} & \textbf{Relevansi dengan Modul 4.4} \\
 \midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Modul} & \textbf{Judul \& Cakupan Utama} & \textbf{Relevansi dengan Modul 4.4} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 \rowcolor{rowalt}
 4.1 & Merancang Potensi Integrasi Sistem, Prosedur, dan Teknologi Kearsipan Eksisting. Peserta mampu merancang peta kondisi eksisting, matriks potensi integrasi, dan skenario integrasi terpadu. & Menyediakan pemetaan aset dan sistem yang menjadi objek perlindungan keamanan dalam Modul 4.4. \\
 \rowcolor{white}
 4.2 & Perancangan Arsitektur Sistem Terintegrasi. Peserta mampu merancang diagram arsitektur, titik integrasi antar subsistem (penciptaan, penggunaan, pemeliharaan, penyusutan), dan spesifikasi teknis/fungsional. & Menyediakan arsitektur sistem yang menjadi infrastruktur bagi kontrol keamanan (RBAC, audit trail) dalam Modul 4.4. \\
 \rowcolor{rowalt}
 4.3 & Optimalisasi Prosedur dan Alur Kerja Terintegrasi. Peserta mampu mengevaluasi prosedur eksisting, merancang alur kerja baru, dan menganalisis potensi peningkatan efektivitas. & Menyediakan prosedur dan alur kerja operasional yang harus dilindungi oleh kebijakan keamanan dalam Modul 4.4. \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
 \noindent Ketiga modul tersebut menjadi prasyarat karena Modul 4.4 tidak membahas desain arsitektur teknis (ranah 4.2) atau optimalisasi alur kerja bisnis (ranah 4.3) secara langsung, melainkan berfokus pada lapisan tata kelola keamanan yang memastikan arsip digital PLN terlindungi, terlacak, dan tersedia.
 
@@ -242,21 +261,30 @@ Keempat target kompetensi di atas bersifat kumulatif dan terintegrasi: keberhasi
 \section{Arsitektur Keamanan Terintegrasi}
 Keempat target kompetensi dalam modul ini tidak berdiri sendiri, melainkan membentuk satu sistem tata kelola keamanan arsip yang saling terkait. Pemahaman terhadap hubungan antar-TK menjadi kunci bagi Manajemen Atas untuk mengarahkan tim secara koheren dan menghindari solusi parsial yang tidak saling mendukung.
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
-\caption{Hubungan Terintegrasi antar Target Kompetensi}
-\begin{tabularx}{\textwidth}{@{} l l X @{}}
+\begin{xltabular}{\textwidth}{@{} l l X @{}}
+\caption{Hubungan Terintegrasi antar Target Kompetensi}\\
 \toprule
 \textbf{TK} & \textbf{Terhubung dengan} & \textbf{Bentuk Integrasi} \\
 \midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{TK} & \textbf{Terhubung dengan} & \textbf{Bentuk Integrasi} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 TK-1 (RBAC) & TK-2, TK-3 & Matriks peran menentukan WHO yang tercatat di audit trail (TK-2) dan menjadi input penetapan kewenangan dalam kebijakan (TK-3). \\
 TK-2 (Audit Trail) & TK-1, TK-3, TK-4 & Log audit membuktikan kepatuhan RBAC (TK-1), menjadi bukti kepatuhan ISMS (TK-3), dan log operasi backup sendiri harus di-audit (TK-4). \\
 TK-3 (Kebijakan ISMS) & TK-1, TK-2, TK-4 & Kebijakan menjadi payung hukum bagi RBAC (TK-1), menetapkan standar audit (TK-2), dan menentukan kebijakan retensi/recovery (TK-4). \\
 TK-4 (Backup/DR) & TK-2, TK-3 & Backup melindungi log audit trail (TK-2) dan merupakan kontrol wajib dalam kerangka ISMS (TK-3). \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
 \begin{plnbox}[Pandangan Strategis untuk Manajemen Atas]
 Ketika mengesahkan kebijakan keamanan arsip, Manajemen Atas harus memastikan bahwa keempat pilar ini dirancang secara bersamaan, bukan secara berurutan oleh unit yang berbeda tanpa koordinasi. Solusi parsial -- misalnya implementasi RBAC tanpa audit trail, atau backup tanpa kebijakan retensi -- akan menciptakan celah keamanan yang tidak terdeteksi hingga terjadi insiden. Studi kasus di Bab 5 akan mendemonstrasikan bagaimana keempat pilar ini saling bergantung dalam situasi nyata.
@@ -350,22 +378,31 @@ Untuk memastikan integrasi ini benar-benar bernilai bagi organisasi, Manajemen A
   \item Akuntabilitas lintas fungsi. Tetapkan pembagian tanggung jawab jelas antara HR, Unit Kearsipan, IT Governance, dan Atasan Langsung agar tidak ada area abu-abu saat terjadi insiden.
 \end{enumerate}
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{2.8cm} X @{}}
 \caption{Indikator Kendali Integrasi RBAC--Kepegawaian untuk Dashboard Manajemen}
-\label{tab:kpi-rbac-hr}
-\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{2.8cm} X @{}}
+\label{tab:kpi-rbac-hr}\\
 \toprule
 \textbf{Indikator} & \textbf{Target Praktik Baik} & \textbf{Makna bagi Manajemen Atas} \\
 \midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Indikator} & \textbf{Target Praktik Baik} & \textbf{Makna bagi Manajemen Atas} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 SLA \textit{provisioning} mutasi/promosi & Maks. 1x24 jam & Menjamin pegawai baru di fungsi tertentu dapat bekerja tanpa membuka akses berlebih. \\
 SLA \textit{de-provisioning} pegawai keluar & \textit{Same day} (prioritas tinggi) & Mengurangi risiko akun yatim (\textit{orphan account}) yang sering menjadi sumber kebocoran. \\
 Rasio akun tidak sesuai jabatan aktif & Mendekati 0\% & Mengukur kedisiplinan sinkronisasi antara struktur organisasi dan hak akses aktual. \\
 Jumlah akses darurat tanpa review & 0 kasus & Menjamin setiap pengecualian memiliki jejak keputusan dan evaluasi pascakejadian. \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
 Pertanyaan eksekutif yang perlu dijawab berkala: ``Apakah perubahan struktur organisasi minggu ini otomatis tercermin pada hak akses arsip, dan apakah kita memiliki bukti auditnya?'' Jika jawabannya belum konsisten ``ya'', maka integrasi belum matang dan berisiko tinggi.
 
@@ -380,15 +417,26 @@ Skema akses ditentukan oleh perpotongan peran organisasi dan tingkat sensitivita
   \item Makna superskrip darurat ($^{\dagger}$): akses diperbolehkan hanya melalui mekanisme persetujuan khusus; bukan hak akses reguler harian.
 \end{itemize}
 
-\begin{table}[H]
-\centering
+\begingroup
 \footnotesize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.8cm} Y Y Y Y @{}}
 \caption{Matriks RBAC untuk Arsip Digital PLN -- Role per Fungsi Organisasi}
-\label{tab:matriks-rbac}
+\label{tab:matriks-rbac}\\
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.8cm} Y Y Y Y @{}}
 \rowcolor{rowhead}
 \textcolor{white}{\textbf{Peran (Role) di PLN}} & \textcolor{white}{\textbf{Publik/ Internal}} & \textcolor{white}{\textbf{Terbatas}} & \textcolor{white}{\textbf{Rahasia}} & \textcolor{white}{\textbf{Vital}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{5}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\rowcolor{rowhead}
+\textcolor{white}{\textbf{Peran (Role) di PLN}} & \textcolor{white}{\textbf{Publik/ Internal}} & \textcolor{white}{\textbf{Terbatas}} & \textcolor{white}{\textbf{Rahasia}} & \textcolor{white}{\textbf{Vital}} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 \multicolumn{5}{@{}l}{\cellcolor{plnblue!15}Operasional -- Unit Kearsipan \& Tata Usaha} \\
 \cmidrule(l){1-5}
 \rowcolor{rowalt}
@@ -425,9 +473,8 @@ VP Compliance/ GCG & R & R, E & R, E & R, E \\
 \cmidrule(l){1-5}
 \rowcolor{rowalt}
 Service Account (Sistem) & Auto-capture & Auto-classify & -- & -- \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 Keterangan hak akses: C = Create, R = Read, U = Update, A = Approve, E = Export/Review\\
 $^{\dagger}$Dengan persetujuan atasan langsung (prosedur darurat). $^{\ddagger}$Kasi Tata Laksana Surat \& Kearsipan.\\
 Role berdasarkan Peraturan Direksi PT PLN (Persero) Nomor 0037.P/DIR/2022 tentang Organisasi dan Tata Kerja\footnote{PT PLN (Persero), Perdir 0037.P/DIR/2022, Organisasi dan Tata Kerja (Jakarta: PLN, 2022).} PT PLN (Persero).
@@ -583,14 +630,24 @@ Dalam kerangka regulasi nasional, keempat elemen 4W ini bukan pilihan melainkan 
 
 Untuk memastikan implementasi 4W tidak hanya bersifat deklaratif, Modul ini mewajibkan penerapan 14 Field Metadata Audit pada setiap entri log. Tabel berikut memperinci field tersebut, bersama dengan sumber data dan status kepatuhannya:
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
-\caption{14 Field Metadata Audit Trail (12 Wajib + 2 Semi-Mandatory)}
-\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c @{}}
+\begin{xltabular}{\textwidth}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c @{}}
+\caption{14 Field Metadata Audit Trail (12 Wajib + 2 Semi-Mandatory)}\\
 \toprule
 \textbf{Kode} & \textbf{Nama Field} & \textbf{Sumber Data} & \textbf{Status} \\
 \midrule
+\endfirsthead
+
+\multicolumn{4}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Kode} & \textbf{Nama Field} & \textbf{Sumber Data} & \textbf{Status} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 DOC\_ID & ID Dokumen Unik & Sistem Nomor & Wajib \\
 TIMESTAMP & Waktu Aksi (ISO 8601) & System Clock & Wajib \\
 HASH\_SHA256 & Nilai Hash Integritas & Cryptographic Module & Wajib \\
@@ -605,9 +662,8 @@ INTEGRITY\_HASH & Verifikasi Perubahan & Hash Module & Wajib \\
 AUDIT\_TRAIL\_REF & Log Terkait & Chain Log & Wajib \\
 CONTENT\_DESC & Ringkasan Isi & NLP/Input & Semi \\
 SEARCH\_TAGS & Kata Kunci Terkontrol & Thesaurus & Semi \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
 \noindent Membaca Tabel untuk Keputusan Manajemen: Dua belas field bertanda \textit{Wajib} membentuk \textit{minimum viable audit log} yang harus ada agar entri log memiliki kekuatan hukum dan dapat digunakan sebagai bukti investigasi. Tanpa salah satu dari 12 field ini, log tersebut berisiko ditolak oleh auditor eksternal atau regulator karena dianggap tidak lengkap. Misalnya, jika HASH\_SHA256 tidak tercatat, organisasi tidak dapat membuktikan bahwa log tersebut tidak dimanipulasi. Jika CONTRACT\_REF tidak tercatat, Manajemen Atas tidak dapat melakukan korelasi antara aktivitas arsip dengan kontrak pembangkit tertentu yang sedang diaudit BPK.
 
@@ -842,23 +898,32 @@ Seluruh aktivitas dicatat dalam Audit Trail immutable dengan hash chain SHA-256,
 
 TARIF adalah akronim dari lima prinsip tata kelola yang menjadi tolok ukur kinerja BUMN sebagaimana diatur dalam Permen BUMN PER-2/MBU/03/2023 tentang Pedoman GCG Signifikan BUMN. Kelima prinsip ini memiliki implikasi langsung terhadap kebijakan keamanan arsip digital. Tabel \ref{tab:pemetaan-gcg} merangkum implementasi setiap prinsip TARIF dalam konteks kebijakan keamanan arsip:
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
+\begin{xltabular}{\textwidth}{@{} l X @{}}
 \caption{Pemetaan Prinsip GCG ke Kebijakan Keamanan Arsip}
-\label{tab:pemetaan-gcg}
-\begin{tabularx}{\textwidth}{@{} l X @{}}
+\label{tab:pemetaan-gcg}\\
 \toprule
 \textbf{Prinsip TARIF} & \textbf{Implementasi dalam Kebijakan Arsip} \\
 \midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Prinsip TARIF} & \textbf{Implementasi dalam Kebijakan Arsip} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 Transparansi & Audit trail dapat diakses Auditor Internal/Eksternal sesuai kewenangan \\
 Akuntabilitas & RACI digital jelas; setiap aksi terikat identitas dan TTE \\
 Responsibilitas & Kepatuhan PP 71/2019 \& Perka ANRI 6/2021 wajib diuji berkala \\
 Independensi & Unit Kearsipan berwenang tolak arsip tidak memenuhi standar metadata \\
 \textit{Fairness} & Akses berbasis \textit{need-to-know}, tidak diskriminatif, ada mekanisme banding \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
 Berikut penjelasan detail dari kelima prinsip TARIF dan implementasinya dalam kebijakan keamanan arsip digital:
 
@@ -1056,24 +1121,34 @@ Bagian ini membahas konsep RTO dan RPO secara visual melalui diagram timeline (G
 
 Mengapa Manajemen Atas perlu memahami RTO dan RPO? Kedua metrik ini bukan sekadar parameter teknis -- melainkan keputusan bisnis strategis yang memiliki implikasi langsung terhadap biaya operasional dan manajemen risiko PLN. Menetapkan RTO 1 jam dan RPO 15 menit untuk seluruh arsip akan sangat mahal dan tidak efisien, karena tidak semua arsip memiliki tingkat kepentingan yang sama. Oleh karena itu, penetapan RTO/RPO harus proporsional dengan klasifikasi keamanan arsip sebagaimana diatur dalam Perdir 0037.P/DIR/2022. Tabel \ref{tab:rto-rpo} merangkum target pemulihan yang direkomendasikan berdasarkan tingkat kepentingan:
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.2cm} P{2.5cm} P{2.5cm} X @{}}
 \caption{Target Pemulihan (RTO/RPO) Berdasarkan Klasifikasi Arsip}
-\label{tab:rto-rpo}
+\label{tab:rto-rpo}\\
 \renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.2cm} P{2.5cm} P{2.5cm} X @{}}
 \rowcolor{rowhead}
 \textcolor{white}{\textbf{Klasifikasi}} & \textcolor{white}{\textbf{RTO}} & \textcolor{white}{\textbf{RPO}} & \textcolor{white}{\textbf{Strategi Prioritas}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{4}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\rowcolor{rowhead}
+\textcolor{white}{\textbf{Klasifikasi}} & \textcolor{white}{\textbf{RTO}} & \textcolor{white}{\textbf{RPO}} & \textcolor{white}{\textbf{Strategi Prioritas}} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 \rowcolor{rowalt}
 Vital & $< 4$ jam & $< 1$ jam & \textit{Mirror site} aktif, \textit{failover} otomatis, replikasi waktu nyata \\
 \rowcolor{white}
 Rahasia & $< 12$ jam & $< 4$ jam & Backup harian terenkripsi, \textit{restore} manual teruji \\
 \rowcolor{rowalt}
 Internal/ Publik & $< 24$ jam & $< 12$ jam & Backup mingguan, arsip dingin (cold storage) \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
 \needspace{4\baselineskip}
 
@@ -1113,15 +1188,26 @@ Kebijakan DR harus mencakup:
 \subsection{Analisis Dampak Bisnis (BIA) untuk Arsip Digital}
 BIA adalah tahap paling kritis dalam perancangan BCP/DR -- dan merupakan kegiatan yang secara langsung menjadi tanggung jawab Manajemen Atas. BIA menjawab pertanyaan strategis: ``Jika arsip X tidak dapat diakses selama Y jam, apa dampaknya terhadap operasional, keuangan, reputasi, dan kepatuhan regulasi?'' Tanpa BIA, penetapan RTO/RPO hanyalah tebakan tanpa dasar bisnis. Tabel \ref{tab:bia} menyajikan template BIA ringkas yang memetakan empat kategori klasifikasi arsip terhadap contoh arsip di PLN serta dampak operasional dan regulasinya masing-masing.
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.5cm} X X X @{}}
 \caption{Template BIA Ringkas untuk Arsip Digital PLN}
-\label{tab:bia}
+\label{tab:bia}\\
 \renewcommand{\arraystretch}{1.6}
-\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.5cm} X X X @{}}
 \rowcolor{rowhead}
 \textcolor{white}{\textbf{Kategori}} & \textcolor{white}{\textbf{Contoh Arsip di PLN}} & \textcolor{white}{\textbf{Dampak Operasional}} & \textcolor{white}{\textbf{Dampak Regulasi}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{4}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\rowcolor{rowhead}
+\textcolor{white}{\textbf{Kategori}} & \textcolor{white}{\textbf{Contoh Arsip di PLN}} & \textcolor{white}{\textbf{Dampak Operasional}} & \textcolor{white}{\textbf{Dampak Regulasi}} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 \rowcolor{rowalt}
 Vital & Kontrak pembangkit, laporan keuangan teraudit, dokumen RUPS & Gangguan operasional nasional; potensi kerugian triliunan rupiah & Pelanggaran UU Perseroan; sanksi OJK; ancaman pidana \\
 \rowcolor{white}
@@ -1130,9 +1216,8 @@ Rahasia & Data pelanggan, dokumen tender, laporan audit & Gangguan layanan regio
 Terbatas & SOP internal, laporan kinerja unit, surat keputusan & Gangguan operasional unit; penurunan efisiensi & Potensi temuan audit internal \\
 \rowcolor{white}
 Publik & Info publik, laporan tahunan, profil perusahaan & Minimal -- tidak mengganggu operasional & Tidak ada \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
 Pertanyaan kunci untuk Manajemen Atas: ``Jika seluruh arsip vital unit ini musnah besok, apakah kita bisa melanjutkan operasional? Berapa kerugian finansial yang ditimbulkan? Apakah kita siap menghadapi pemeriksaan regulator?''
 
@@ -1234,14 +1319,25 @@ Refleksi Integrasi (Pilar 1 s.d. Pilar 4): Dengan merujuk studi kasus di atas, i
 \section{Ringkasan Kriteria Penilaian}
 Bab ini merupakan titik validasi akhir yang menghubungkan seluruh rancangan yang telah disusun pada Bab 1--5 dengan keputusan pengesahan Manajemen Atas. Tabel berikut memetakan setiap pilar kompetensi ke portofolio wajib yang menjadi bukti kelulusan, disertai fokus penilaian dan bobot yang setara -- menegaskan bahwa keempat pilar bersifat kumulatif dan tidak ada yang dapat diabaikan. Setelah tabel ini, section 6.2 menyajikan rubrik terukur untuk menilai masing-masing portofolio secara objektif, dan section 6.3 menyediakan checklist pengesahan sebelum rancangan diajukan ke Komite Tata Kelola.
 
-\begin{table}[H]
-\centering
+\begingroup
 \footnotesize
-\caption{Pemetaan Target Kompetensi $\rightarrow$ Kriteria Penilaian $\rightarrow$ Portofolio}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1cm} >{\raggedright\arraybackslash}p{3.5cm} X X >{\centering\arraybackslash}p{1cm} @{}}
+\caption{Pemetaan Target Kompetensi $\rightarrow$ Kriteria Penilaian $\rightarrow$ Portofolio}\\
 \renewcommand{\arraystretch}{1.6}
-\begin{tabularx}{\textwidth}{@{} >{\centering\arraybackslash}p{1cm} >{\raggedright\arraybackslash}p{3.5cm} X X >{\centering\arraybackslash}p{1cm} @{}}
 \rowcolor{rowhead}
 \textcolor{white}{\textbf{Pilar}} & \textcolor{white}{\textbf{Target Kompetensi}} & \textcolor{white}{\textbf{Portofolio Wajib}} & \textcolor{white}{\textbf{Fokus Penilaian}} & \textcolor{white}{\textbf{Bobot}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{5}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\rowcolor{rowhead}
+\textcolor{white}{\textbf{Pilar}} & \textcolor{white}{\textbf{Target Kompetensi}} & \textcolor{white}{\textbf{Portofolio Wajib}} & \textcolor{white}{\textbf{Fokus Penilaian}} & \textcolor{white}{\textbf{Bobot}} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 \rowcolor{rowalt}
 Pilar 1 & Merancang skema kontrol akses RBAC terintegrasi dengan sistem kepegawaian & Matriks RBAC + Prosedur Akses & Kejelasan peran, \textit{least privilege}, integrasi HR/SSO, review berkala & 25\% \\
 \rowcolor{white}
@@ -1250,9 +1346,8 @@ Pilar 2 & Merancang mekanisme audit trail otomatis yang merekam setiap akses dan
 Pilar 3 & Merumuskan kebijakan keamanan terintegrasi dengan ISMS organisasi & Rancangan Kebijakan Keamanan & Keselarasan ISO 27001, \textit{Zero Trust}, TARIF GCG & 25\% \\
 \rowcolor{white}
 Pilar 4 & Merancang sistem backup dan disaster recovery terintegrasi & Matriks RTO/RPO + Rencana DR & Kesesuaian 3-2-1, target realistis, prosedur \textit{fallback}/simulasi & 25\% \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 Kelulusan: Skor portofolio $\geq 70$, post-test $\geq 65$, submit komitmen tindak lanjut.
 
 \needspace{4\baselineskip}
@@ -1260,89 +1355,135 @@ Kelulusan: Skor portofolio $\geq 70$, post-test $\geq 65$, submit komitmen tinda
 \section{Rubrik Penilaian Terukur}
 Tabel \ref{tab:rubrik-1} hingga Tabel \ref{tab:rubrik-4} memberikan indikator penilaian terukur untuk masing-masing portofolio, agar Manajemen Atas memiliki alat evaluasi yang objektif dan konsisten. Secara berurutan: Tabel \ref{tab:rubrik-1} menilai Matriks RBAC (Pilar 1), Tabel \ref{tab:rubrik-2} menilai Mekanisme Audit Trail (Pilar 2), Tabel \ref{tab:rubrik-3} menilai Kebijakan Keamanan ISMS (Pilar 3), dan Tabel \ref{tab:rubrik-4} menilai Sistem Backup \& DR (Pilar 4).
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
+\begin{xltabular}{\textwidth}{@{} l X @{}}
 \caption{Rubrik Penilaian Portofolio 1 -- Pilar 1: Kontrol Akses: Matriks RBAC Terintegrasi}
-\label{tab:rubrik-1}
-\begin{tabularx}{\textwidth}{@{} l X @{}}
+\label{tab:rubrik-1}\\
 \toprule
 \textbf{Level} & \textbf{Indikator} \\
 \midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Level} & \textbf{Indikator} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 Kurang (< 50) & Matriks peran tidak lengkap; tidak ada keterkaitan dengan sistem kepegawaian; prinsip \textit{least privilege} tidak diterapkan; tidak ada prosedur \textit{provisioning/de-provisioning}. \\
 Cukup (50--69) & Matriks peran lengkap tetapi belum detail; keterkaitan dengan sistem kepegawaian disebutkan secara konseptual; ada prosedur tetapi belum operasional. \\
 Baik (70--84) & Matriks peran lengkap dengan pemisahan hak akses yang jelas; prosedur \textit{provisioning/de-provisioning} terhubung dengan siklus hidup kepegawaian; ada mekanisme review berkala. \\
 Sangat Baik ($\geq$ 85) & Seluruh indikator Baik terpenuhi, ditambah: validasi \textit{segregation of duties}, mekanisme akses sementara (delegasi, lintas-unit), dan penanganan mutasi darurat sudah tercakup. \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
+\begin{xltabular}{\textwidth}{@{} l X @{}}
 \caption{Rubrik Penilaian Portofolio 2 -- Pilar 2: Audit Trail: Mekanisme Audit Trail Otomatis}
-\label{tab:rubrik-2}
-\begin{tabularx}{\textwidth}{@{} l X @{}}
+\label{tab:rubrik-2}\\
 \toprule
 \textbf{Level} & \textbf{Indikator} \\
 \midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Level} & \textbf{Indikator} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 Kurang (< 50) & Tidak ada daftar event yang diaudit; 14 field metadata tidak lengkap; tidak ada penjelasan mekanisme immutability; tidak ada mekanisme eskalasi. \\
 Cukup (50--69) & Daftar event ada tetapi tidak terstruktur; field metadata terisi sebagian; immutability disebutkan tetapi mekanisme tidak jelas; eskalasi bersifat umum. \\
 Baik (70--84) & Kategori event lengkap dan terstruktur (akses, perubahan, persetujuan, ekspor, sistem); 14 field terisi lengkap; mekanisme immutability (hash chain/WORM) dijelaskan; ada prosedur eskalasi dengan timeline. \\
 Sangat Baik ($\geq$ 85) & Seluruh indikator Baik terpenuhi, ditambah: mekanisme alert otomatis untuk event kritis, retensi log sudah ditetapkan, dan kesesuaian dengan PP 71/2019 dan Perka ANRI 6/2021 dibuktikan. \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
+\begin{xltabular}{\textwidth}{@{} l X @{}}
 \caption{Rubrik Penilaian Portofolio 3 -- Pilar 3: Kebijakan Keamanan: Kebijakan Keamanan Terintegrasi ISMS}
-\label{tab:rubrik-3}
-\begin{tabularx}{\textwidth}{@{} l X @{}}
+\label{tab:rubrik-3}\\
 \toprule
 \textbf{Level} & \textbf{Indikator} \\
 \midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Level} & \textbf{Indikator} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 Kurang (< 50) & Kebijakan tidak merujuk ISO 27001; tidak ada keterkaitan dengan ISMS organisasi; prinsip TARIF tidak terakomodasi; tidak ada analisis risiko. \\
 Cukup (50--69) & Kebijakan merujuk ISO 27001 secara umum; ada keterkaitan dengan ISMS tetapi belum spesifik; sebagian prinsip TARIF terakomodasi; analisis risiko masih permukaan. \\
 Baik (70--84) & Kebijakan selaras dengan minimum 3 kontrol ISO 27001 yang relevan; posisi kebijakan dalam hierarki ISMS jelas; seluruh prinsip TARIF terakomodasi; ada hasil analisis risiko sederhana. \\
 Sangat Baik ($\geq$ 85) & Seluruh indikator Baik terpenuhi, ditambah: mekanisme review berkala terjadwal, proses konsultasi internal terdokumentasi, dan klausul kepatuhan terhadap regulasi nasional (PP 71/2019, UU PDP) sudah spesifik. \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
+\begin{xltabular}{\textwidth}{@{} l X @{}}
 \caption{Rubrik Penilaian Portofolio 4 -- Pilar 4: Pemulihan Data: Sistem Backup dan Disaster Recovery}
-\label{tab:rubrik-4}
-\begin{tabularx}{\textwidth}{@{} l X @{}}
+\label{tab:rubrik-4}\\
 \toprule
 \textbf{Level} & \textbf{Indikator} \\
 \midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Level} & \textbf{Indikator} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 Kurang (< 50) & Strategi backup tidak mengikuti 3-2-1; RTO/RPO tidak ditetapkan; tidak ada BCP; tidak ada prosedur fallback. \\
 Cukup (50--69) & Strategi 3-2-1 disebutkan tetapi belum operasional; RTO/RPO ada tetapi belum berbasis BIA; ada draf BCP tetapi belum lengkap. \\
 Baik (70--84) & Strategi 3-2-1 operasional; RTO/RPO berbasis klasifikasi arsip dan BIA sederhana; BCP mencakup prosedur \textit{fallback}, prioritas \textit{recovery}, dan jadwal simulasi. \\
 Sangat Baik ($\geq$ 85) & Seluruh indikator Baik terpenuhi, ditambah: jadwal simulasi terdokumentasi dengan hasil evaluasi, mekanisme komunikasi krisis, dan keterkaitan dengan ISMS (backup sebagai kontrol keamanan) sudah dijelaskan. \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
 \needspace{4\baselineskip}
 
 \section{Tinjauan Akhir: 4 Prasyarat Pengesahan}
 Sebelum disahkan dan diimplementasikan, setiap rancangan kebijakan keamanan arsip wajib lolos pemeriksaan 4 prasyarat berikut. Jika salah satu prasyarat belum terpenuhi, rancangan harus diperbaiki terlebih dahulu sebelum diajukan ke Komite Tata Kelola.
 
-\begin{table}[H]
-\centering
+\begingroup
 \small
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{0.8cm} >{\raggedright\arraybackslash}p{3cm} X @{}}
 \caption{Daftar Tinjauan Akhir (Checklist) Sebelum Pengesahan Rancangan}
-\label{tab:tinjauan-akhir}
+\label{tab:tinjauan-akhir}\\
 \renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\textwidth}{@{} >{\centering\arraybackslash}p{0.8cm} >{\raggedright\arraybackslash}p{3cm} X @{}}
 \toprule
 \textbf{No} & \textbf{Aspek} & \textbf{Pertanyaan Tinjauan} \\
 \midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{No} & \textbf{Aspek} & \textbf{Pertanyaan Tinjauan} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
 \rowcolor{rowalt}
 1 & Kepatuhan Regulasi & Apakah rancangan selaras dengan PP 71/2019 dan Perka ANRI 6/2021? \\
 \rowcolor{white}
@@ -1351,9 +1492,8 @@ Sebelum disahkan dan diimplementasikan, setiap rancangan kebijakan keamanan arsi
 3 & Nilai Manfaat & Apakah mitigasi risiko terukur (\textit{downtime} berkurang, temuan audit mendekati nol)? \\
 \rowcolor{white}
 4 & Kesiapan Skalasi & Apakah infrastruktur dan prosedur siap dikembangkan untuk jangka panjang? \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}
+\endgroup
 
 \noindent Catatan: Tinjauan ini dilakukan oleh Manajemen Atas bersama tim Kearsipan, IT Governance, dan Legal. Hasil tinjauan didokumentasikan sebagai lampiran notulen rapat pengesahan kebijakan.
 
