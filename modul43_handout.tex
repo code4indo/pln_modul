@@ -1,0 +1,1363 @@
+% ============================================================
+% MODUL 4.3 — HANDOUT EKSEKUTIF
+% ============================================================
+% Template: Sama dengan revised1_modul44_handout.tex
+% ============================================================
+
+\pdfminorversion=7
+\documentclass[12pt,a4paper]{report}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=3cm, bottom=2.5cm, footskip=1.5cm}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{xltabular}
+\usepackage{enumitem}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, calc, backgrounds, fit, decorations.markings}
+\graphicspath{{assets/}{gambar/}{background/}}
+
+% ---------- background template handout ----------
+\usepackage{eso-pic}
+\newcommand{\switchtocontentbg}{%
+  \ClearShipoutPictureBG%
+  \AddToShipoutPictureBG{%
+    \AtPageLowerLeft{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{template-handout/content_handout.png}%
+    }%
+  }%
+}
+
+% Warna tambahan untuk tabel
+\definecolor{rowalt}{RGB}{235,243,250}
+\definecolor{rowhead}{RGB}{0,75,135}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plnorange}{RGB}{255,107,53}
+\definecolor{plncyan}{RGB}{0,163,224}
+\definecolor{plngreen}{RGB}{0,150,136}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\scriptsize\textbf{Handout Modul 4.3 -- Optimalisasi Prosedur \& Alur Kerja Terintegrasi}}
+\fancyhead[R]{\scriptsize Level 4 (Mastery) -- PT PLN (Persero)}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{plnblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries\color{plnblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{plnblue}}{\thesubsection}{1em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+\newtcolorbox{plnbox}[1][]{colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries, title=#1, sharp corners, boxrule=0.8pt, breakable}
+\newtcolorbox{outputbox}{colback=green!10, colframe=green!50!black, fonttitle=\bfseries, title=Output Portofolio, sharp corners, breakable}
+\newtcolorbox{warnbox}[1][]{colback=plnorange!10, colframe=plnorange, fonttitle=\bfseries, title=#1, sharp corners, breakable}
+
+\setlist[itemize]{leftmargin=*, topsep=3pt, itemsep=3pt}
+\setlist[enumerate]{leftmargin=*, topsep=3pt, itemsep=3pt}
+
+\hypersetup{colorlinks=true, linkcolor=plnblue, urlcolor=plnblue, citecolor=plnblue}
+
+\usepackage{needspace}
+
+% ---------- cegah widow/orphan line ----------
+\widowpenalty=10000
+\clubpenalty=10000
+
+\raggedbottom
+
+\begin{document}
+
+% ============================================================
+%  HALAMAN 1: COVER dengan background template
+% ============================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{template-handout/cover_handout.png}%
+  }%
+}
+
+\begin{tikzpicture}[remember picture, overlay]
+  %--- LEVEL MANEJERIAL ---
+  \node[anchor=north west, text width=0.80\paperwidth, align=left]
+    at ([xshift=20mm, yshift=-0.27\paperheight]current page.north west)
+    {%
+      {\fontsize{14pt}{18pt}\selectfont\bfseries\color{plnblue}%
+       LEVEL 4 (MASTERY) -- MANAJEMEN ATAS}%
+    };
+
+  %--- Judul Utama ---
+  \node[anchor=north west, text width=0.80\paperwidth, align=left]
+    at ([xshift=20mm, yshift=-0.33\paperheight]current page.north west)
+    {%
+      {\fontsize{16pt}{20pt}\selectfont\bfseries\color{plnblue}%
+       MODUL 4.3: OPTIMALISASI PROSEDUR\\[4pt]%
+       \& ALUR KERJA TERINTEGRASI}%
+    };
+
+  %--- Teks bawah ---
+  \node[anchor=north west, text width=0.80\paperwidth, align=left]
+    at ([xshift=20mm, yshift=-0.76\paperheight]current page.north west)
+    {%
+      {\fontsize{14pt}{18pt}\selectfont\bfseries\color{plnblue}%
+       PUSAT PENDIDIKAN DAN PELATIHAN\\[4pt]%
+       PT PLN (PERSERO)}%
+    };
+\end{tikzpicture}
+\end{titlepage}
+
+\switchtocontentbg
+
+\begin{center}
+{\Large\bfseries\color{plnblue} Petunjuk Penggunaan Handout}\\[0.5cm]
+\end{center}
+
+\begin{plnbox}[Ikon \& Konvensi Visual]
+Handout ini menggunakan beberapa konvensi visual untuk memudahkan navigasi:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Boks biru} seperti ini berisi ringkasan strategis, panduan tata kelola, atau template kebijakan yang menjadi perhatian utama Manajemen Atas.
+    \item \textbf{Boks hijau} berjudul ``Output Portofolio'' menandakan tugas yang harus dikerjakan dan dikumpulkan sebagai bukti kompetensi.
+    \item \textbf{Tabel} menyajikan matriks, rubrik penilaian, dan data terstruktur -- gunakan sebagai referensi.
+    \item \textbf{Diagram/gambar} mengilustrasikan konsep kunci -- setiap diagram disertai caption multi-baris dengan penjelasan dan sumber.
+    \item \textbf{Catatan kaki} berisi sitasi regulasi dan standar.
+\end{itemize}
+\end{plnbox}
+
+\begin{plnbox}[Cara Menggunakan Handout Ini]
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Sebelum pelatihan:} Baca Pendahuluan untuk memahami konteks, target kompetensi, dan arsitektur optimalisasi. Gunakan Glosarium di akhir dokumen sebagai referensi istilah teknis.
+    \item \textbf{Saat pelatihan:} Durasi fasilitasi 45 menit (Pendahuluan 5$\cdot$ Diagnosa 10$\cdot$ Desain 10$\cdot$ SOP 10$\cdot$ ROI 7$\cdot$ Kasus 3). Kerjakan Aktivitas Workshop di setiap bab secara mandiri (30 menit/bab). Hasil workshop menjadi bagian dari Portofolio yang dinilai.
+    \item \textbf{Studi kasus:} Bab 5 menguji pemahaman holistik -- baca skenario transformasi SPK Pemeliharaan GI 150 kV dan analisis dari 4 perspektif pilar optimalisasi.
+    \item \textbf{Setelah pelatihan:} Lihat Bab 6 (Validasi \& Rubrik Penilaian) untuk memahami kriteria kelulusan dan menyusun komitmen tindak lanjut.
+\end{enumerate}
+\end{plnbox}
+
+\vspace{0.5cm}
+\noindent\small\textit{Catatan: Seluruh materi dalam handout ini dirancang agar dapat dipahami secara mandiri oleh Manajemen Atas. Istilah teknis yang belum familiar dapat ditemukan di Glosarium di bagian akhir dokumen.}
+
+\tableofcontents
+
+\chapter*{Pendahuluan}
+\addcontentsline{toc}{chapter}{Pendahuluan}
+% Penomeran section Pendahuluan: A, B, C, D
+\setcounter{section}{0}
+\renewcommand{\thesection}{\Alph{section}}
+
+Modul 4.3 merupakan mata pelajaran inti dalam Level 4 (Mastery) yang berfokus pada \textbf{optimalisasi prosedur dan alur kerja terintegrasi} kearsipan digital. Sasaran utamanya adalah membekali Manajemen Atas PLN dengan kemampuan mengevaluasi prosedur eksisting, merancang alur kerja baru berbasis otomasi, menyusun SOP Digital yang sah secara hukum, serta membuktikan efisiensi dan ROI transformasi.
+
+Dua konsep kunci yang menjadi landasan modul ini perlu dipahami sejak awal. Pertama, \textit{Value-Added Focus}: setiap langkah dalam alur kerja harus ditanya apakah benar-benar menambah nilai bagi organisasi atau sekadar \textit{waste} (pemborosan). Dalam konteks PLN, langkah seperti mencetak dokumen hanya untuk ditandatangani basah, mengantar kertas antar-meja, atau mengetik ulang data yang sudah ada di sistem ERP merupakan \textit{non-value-added activities} yang harus dieliminasi. Kedua, \textit{Single Source of Truth}: data cukup diinput sekali di sistem sumber operasional (misal: SAP-PM, E-Procurement, SCADA), dan mengalir otomatis beserta metadata-nya ke repositori kearsipan tanpa intervensi manual.
+
+\needspace{4\baselineskip}
+
+\section{Konteks \& Urgensi: Mengapa Ini Penting bagi PLN?}
+PLN sebagai Badan Usaha Milik Negara yang mengelola infrastruktur kelistrikan nasional menghadapi tantangan tata kelola arsip yang semakin kompleks. Banyak alur kerja kearsipan masih terjebak pada pola \textbf{Digital $\rightarrow$ Analog $\rightarrow$ Digital}: dokumen lahir secara digital di Sistem A, lalu dicetak menjadi kertas, ditandatangani basah, di-scan, dan diunggah kembali ke Sistem B. Pola ini bukan hanya memperlambat siklus bisnis, tetapi juga meningkatkan risiko ketidakpatuhan terhadap \textbf{PP 71/2019}\footnote{PP 71/2019, Penyelenggaraan Sistem dan Transaksi Elektronik, LNRI 196 (2019).} tentang Penyelenggaraan Sistem dan Transaksi Elektronik (PSTE) serta standar audit BPK dan BUMN.
+
+Pertimbangkan skenario berikut: jika proses persetujuan Berita Acara Serah Terima (BAST) pembangkit memerlukan waktu 5 hari karena harus melewati antrean cetak, kurir, dan tanda tangan basah, maka pembayaran kepada vendor tertunda, proyek pembangkit terhambat, dan PLN menghadapi risiko ganda: (1) kerugian finansial akibat keterlambatan operasional, serta (2) sanksi regulasi jika audit trail tidak lengkap. Dalam perspektif GCG, kegagalan mengoptimasi prosedur secara langsung memengaruhi penilaian tata kelola perusahaan -- termasuk dalam parameter TARIF yang menjadi tolok ukur kinerja BUMN.
+
+Modul ini dirancang untuk menjawab kebutuhan tersebut dengan pendekatan empat pilar terintegrasi: Diagnosa (Pilar 1), Desain Alur Kerja (Pilar 2), SOP Digital (Pilar 3), dan Justifikasi Bisnis (Pilar 4). Studi kasus nyata di Bab 5 akan mendemonstrasikan bagaimana kegagalan pada satu pilar dapat menyebabkan inefisiensi sistemik yang berdampak langsung pada operasional dan keuangan PLN.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{assets/value_center.png}
+\caption{Visualisasi Pergeseran Paradigma: Dari \textit{Cost Center} Menuju \textit{Value Center}}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{assets/rc3.png}
+\caption{Model Records Continuum: Arsip sebagai Aliran Data yang Tak Terputus (Sumber: Upward, 1996)}
+\end{figure}
+
+\needspace{4\baselineskip}
+
+\section{Target Kompetensi}
+Setelah menyelesaikan modul ini, peserta diharapkan mampu mencapai empat kompetensi utama yang dipetakan terhadap kriteria penilaian sebagai berikut:
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} c X l @{}}
+\caption{Pemetaan Target Kompetensi terhadap Kriteria Penilaian}\\
+\toprule
+\textbf{Kode} & \textbf{Target Kompetensi} & \textbf{Kriteria Penilaian} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Kode} & \textbf{Target Kompetensi} & \textbf{Kriteria Penilaian} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+TK-1 & Peserta mampu mengevaluasi prosedur kearsipan yang ada dan mengidentifikasi area optimasi menggunakan Kerangka Diagnosa 7 Domain Terintegrasi. & 4.3.1 \\
+TK-2 & Peserta mampu merancang alur kerja terintegrasi (to-be) berbasis BPMN 2.0 dengan pemicu otomatis dan pola integrasi. & 4.3.2 \\
+TK-3 & Peserta mampu menyusun SOP Digital Terintegrasi 8 Komponen yang memenuhi persyaratan regulasi (PP 71/2019, Perka ANRI). & 4.3.3 \\
+TK-4 & Peserta mampu menghitung efisiensi, ROI, dan menyusun justifikasi bisnis berbasis KPI Time-Cost-Risk serta Balanced Scorecard. & 4.3.4 \\
+\end{xltabular}
+\endgroup
+
+Keempat target kompetensi di atas bersifat kumulatif dan terintegrasi: keberhasilan pencapaian pada setiap kompetensi menjadi prasyarat efektivitas kompetensi berikutnya. Misalnya, diagnosa area optimasi (TK-1) menentukan proses mana yang paling berharga untuk dirancang ulang (TK-2), yang pada gilirannya menjadi dasar penyusunan SOP Digital (TK-3) dan perhitungan ROI-nya (TK-4).
+
+\needspace{4\baselineskip}
+
+\section{Sasaran \& Prasyarat Peserta}
+\begin{itemize}[leftmargin=*]
+    \item Target: Manajemen Atas (Unit Kearsipan, IT Governance, GCG, Risk Management)
+    \item Prasyarat: Lulus Modul 4.1 (Analisis Sistem) dan 4.2 (Arsitektur Terintegrasi), memahami dasar tata kelola kearsipan, familiar dengan sistem SAP dan proses operasional unit.
+    \item Output: 4 dokumen portofolio kebijakan/prosedur siap validasi manajemen, masing-masing membuktikan pencapaian TK-1 hingga TK-4.
+\end{itemize}
+
+\noindent Modul 4.3 berdiri di atas fondasi yang dibangun oleh dua modul sebelumnya dalam Level 4. Tabel \ref{tab:ringkasan-modul} merangkum cakupan masing-masing modul dan kaitannya dengan Modul 4.3:
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.5cm} X X @{}}
+\caption{Ringkasan Modul 4.1--4.2 dan Kaitannya dengan Modul 4.3}
+\label{tab:ringkasan-modul}\\
+\toprule
+\textbf{Modul} & \textbf{Judul \& Cakupan Utama} & \textbf{Relevansi dengan Modul 4.3} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Modul} & \textbf{Judul \& Cakupan Utama} & \textbf{Relevansi dengan Modul 4.3} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+4.1 & Merancang Potensi Integrasi Sistem, Prosedur, dan Teknologi Kearsipan Eksisting. Peserta mampu merancang peta kondisi eksisting, matriks potensi integrasi, dan skenario integrasi terpadu. & Menyediakan pemetaan as-is dan matriks kondisi yang menjadi input evaluasi dan identifikasi area optimasi dalam Modul 4.3. \\
+\rowcolor{white}
+4.2 & Perancangan Arsitektur Sistem Terintegrasi. Peserta mampu merancang diagram arsitektur, titik integrasi antar subsistem, dan spesifikasi teknis/fungsional. & Menyediakan blueprint arsitektur dan titik integrasi yang menjadi acuan pemicu otomatis dan pola integrasi alur kerja dalam Modul 4.3. \\
+\rowcolor{rowalt}
+4.4 & Perancangan Sistem Keamanan \& Keterlacakan Terintegrasi. Peserta mampu merancang skema RBAC, audit trail, kebijakan ISMS, dan sistem backup/DR. & Menyediakan klausul keamanan dan kontrol akses yang menjadi bagian tak terpisahkan dari SOP Digital dan alur kerja terintegrasi Modul 4.3. \\
+\end{xltabular}
+\endgroup
+
+\needspace{4\baselineskip}
+
+\section{Arsitektur Optimalisasi Terintegrasi}
+Keempat target kompetensi dalam modul ini tidak berdiri sendiri, melainkan membentuk satu sistem tata kelola optimalisasi yang saling terkait. Pemahaman terhadap hubungan antar-TK menjadi kunci bagi Manajemen Atas untuk mengarahkan tim secara koheren dan menghindari solusi parsial yang tidak saling mendukung.
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} l l X @{}}
+\caption{Hubungan Terintegrasi antar Target Kompetensi}\\
+\toprule
+\textbf{TK} & \textbf{Terhubung dengan} & \textbf{Bentuk Integrasi} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{TK} & \textbf{Terhubung dengan} & \textbf{Bentuk Integrasi} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+TK-1 (Diagnosa) & TK-2, TK-3, TK-4 & Temuan area optimasi menentukan proses mana yang dirancang ulang (TK-2), diatur dalam SOP (TK-3), dan dihitung ROI-nya (TK-4). \\
+TK-2 (Desain) & TK-1, TK-3, TK-4 & Alur to-be harus mencerminkan temuan diagnosa (TK-1), dituangkan dalam SOP (TK-3), dan menjadi dasar kalkulasi efisiensi (TK-4). \\
+TK-3 (SOP) & TK-1, TK-2, TK-4 & SOP Digital mengikat prosedur hasil diagnosa (TK-1) dan desain alur (TK-2), serta menentukan parameter pengukuran KPI/ROI (TK-4). \\
+TK-4 (ROI) & TK-1, TK-2, TK-3 & Justifikasi bisnis memvalidasi apakah intervensi yang diusulkan memang bernilai strategis dibandingkan biayanya. \\
+\end{xltabular}
+\endgroup
+
+\begin{plnbox}[Pandangan Strategis untuk Manajemen Atas]
+Ketika mengesahkan rencana optimalisasi, Manajemen Atas harus memastikan bahwa keempat pilar ini dirancang secara bersamaan, bukan secara berurutan oleh unit yang berbeda tanpa koordinasi. Solusi parsial -- misalnya merancang alur otomatis tanpa SOP yang jelas, atau menghitung ROI tanpa diagnosa yang akurat -- akan menciptakan inefisiensi baru yang tidak terdeteksi hingga terjadi kegagalan implementasi. Studi kasus di Bab 5 akan mendemonstrasikan bagaimana keempat pilar ini saling bergantung dalam situasi nyata.
+\end{plnbox}
+
+% Kembalikan penomeran section ke format 1.1, 2.1, ...
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+
+
+% ============================================================
+\chapter{Diagnosa: Evaluasi Prosedur \& Identifikasi Area Optimasi}
+(Kriteria Penilaian 4.3.1 -- Target Kompetensi 1)
+% ============================================================
+
+Bab ini mendukung pencapaian Pilar 1: Diagnosa -- peserta mampu mengevaluasi prosedur kearsipan yang ada dan mengidentifikasi area optimasi menggunakan Kerangka Diagnosa 7 Domain Terintegrasi. Evaluasi bukan sekadar mencari ``apa yang salah'', melainkan \textbf{menemukan \textit{waste} tersembunyi} yang memakan biaya, waktu, dan meningkatkan risiko kepatuhan tanpa disadari.
+
+Tiga prinsip fundamental yang mendasari evaluasi prosedur perlu dipahami oleh Manajemen Atas:
+
+\textit{Value-Added Analysis} adalah prinsip yang menyatakan bahwa setiap langkah dalam alur kerja harus diuji apakah benar-benar menambah nilai bagi pelanggan (unit berikutnya, auditor, atau regulator) atau sekadar \textit{waste}. Dalam konteks PLN, langkah seperti mencetak dokumen hanya untuk ditandatangani, mengirim berkas fisik antar-lantai, atau mengetik ulang data yang sudah tersedia di SAP merupakan \textit{non-value-added activities} yang harus dieliminasi.
+
+\textit{Document Shadowing} adalah teknik mengikuti perjalanan satu dokumen dari lahir sampai tersimpan, mencatat setiap kali dokumen berpindah tangan, berganti format, atau menunggu di meja seseorang. Teknik ini seringkali mengejutkan: sebuah dokumen yang seharusnya selesai dalam 4 jam ternyata menghabiskan 4,2 hari karena 90\% waktunya terbuang di antrean.
+
+\textit{Gemba Walk} adalah pendekatan turun langsung ke lapangan dan bertanya kepada staf: ``Apa yang paling membuat frustrasi dalam proses administrasi Anda?'' ``Berapa kali Anda input ulang data yang sama ke sistem berbeda?'' Jawaban-jawaban ini seringkali lebih bernilai daripada laporan formal.
+
+\needspace{4\baselineskip}
+
+\section{Kerangka Diagnosa 7 Domain Terintegrasi}
+Evaluasi dilakukan dengan skor 1--5 pada tujuh domain berikut untuk menentukan prioritas optimasi. Domain ini \textbf{bukan adopsi harfiah dari satu standar tunggal}, melainkan hasil \textbf{sintesis terstruktur} dari PP 71/2019, Perka ANRI 6/2021, ISO 15489, ISO 27001, NIST SP 800-53, World Bank RM Roadmap, PARBICA Toolkit, dan prinsip GCG BUMN.
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} l X c @{}}
+\caption{Kerangka Diagnosa 7 Domain Terintegrasi}\\
+\toprule
+\textbf{Domain} & \textbf{Pertanyaan Kunci} & \textbf{Skor (1--5)} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Domain} & \textbf{Pertanyaan Kunci} & \textbf{Skor (1--5)} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+\textbf{1. Kebijakan} & Apakah ada mandat penciptaan arsip di titik transaksi? Apakah kebijakan kearsipan terintegrasi dengan kebijakan korporasi? & $\square$ \\
+\textbf{2. Tata Kelola} & Apakah peran dan akuntabilitas (RACI) sudah jelas? Apakah ada pemisahan fungsi antara pencipta, pengelola, dan pengguna arsip? & $\square$ \\
+\rowcolor{rowalt}
+\textbf{3. SDM} & Apakah ada KPI khusus terkait akurasi pengarsipan? Apakah staf dilatih untuk alur kerja terintegrasi? & $\square$ \\
+\textbf{4. Interoperabilitas} & Apakah sistem mampu melakukan tarik data otomatis antar-platform (SAP, E-Office, E-Proc)? & $\square$ \\
+\rowcolor{rowalt}
+\textbf{5. Proses Bisnis} & Apakah ada duplikasi input (ketik ulang) data? Apakah ada \textit{shadow systems} (proses manual di samping sistem digital)? & $\square$ \\
+\textbf{6. Keamanan} & Apakah audit trail bersifat \textit{immutable}? Apakah ada kontrol akses berbasis peran (RBAC)? & $\square$ \\
+\rowcolor{rowalt}
+\textbf{7. Preservasi} & Apakah format digital memenuhi standar jangka panjang (PDF/A)? Apakah strategi backup memenuhi 3-2-1? & $\square$ \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+\textbf{Interpretasi Skor:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{$\leq$ 2 (Belum Siap):} Intervensi kebijakan/desain ulang alur kerja segera. Prioritas utama.
+    \item \textbf{3 (Siap Parsial):} Dapat dioptimalkan melalui pemicu digital, SLA, dan exception handling.
+    \item \textbf{$\geq$ 4 (Siap Integrasi):} Layak menjadi \textit{pilot project} alur kerja terintegrasi dan SOP digital.
+\end{itemize}
+
+\begin{plnbox}[Panduan Pemanfaatan Diagnosa untuk Keputusan Manajemen]
+Gunakan hasil skoring 7 Domain sebagai dasar tiga keputusan eksekutif: (1) \textbf{keputusan risiko} -- domain mana yang paling rentan menimbulkan temuan audit; (2) \textbf{keputusan investasi} -- area mana yang perlu diprioritaskan untuk otomasi dan integrasi; dan (3) \textbf{keputusan organisasi} -- unit mana yang memerlukan penguatan SDM atau restrukturisasi tanggung jawab. Jangan mengesahkan rencana transformasi tanpa data diagnosa yang akurat.
+\end{plnbox}
+
+\needspace{4\baselineskip}
+
+\section{Teknik Pencarian Fakta untuk Manajemen Atas}
+Bagi Manajemen Atas, teknik pencarian fakta bukan berarti mengumpulkan data teknis sendiri, melainkan memastikan bahwa tim terkait menjalankan metodologi yang benar dan menyajikan temuan dalam format yang dapat ditindaklanjuti.
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Document Shadowing.} Tim operasional mengikuti perjalanan satu dokumen dari lahir sampai tersimpan. Catat setiap kali dokumen berpindah tangan, berganti format, atau menunggu di meja seseorang. Manajemen Atas memvalidasi apakah sampel yang dipilih representatif dan apakah temuan waktu tunggu sudah dikorelasikan dengan volume aktual.
+    \item \textbf{Log Analysis.} Tim IT membuka data \textit{timestamp} sistem dan bandingkan \textit{actual vs SLA}. Berapa lama seharusnya proses persetujuan versus kenyataannya? Manajemen Atas memastikan bahwa perbandingan ini tidak hanya teknis, melainkan dikaitkan dengan dampak bisnis (keterlambatan pembayaran vendor, penalti kontrak, dll).
+    \item \textbf{Gemba Walk.} Tim manajemen turun langsung ke lapangan dan bertanya kepada staf: ``Apa yang paling membuat frustrasi?'' ``Berapa kali Anda input ulang data yang sama ke sistem berbeda?'' Manajemen Atas memastikan bahwa temuan dari Gemba Walk tidak hanya didengar, melainkan dituangkan dalam daftar perbaikan prioritas.
+\end{enumerate}
+
+\begin{warnbox}[Peringatan: Data Asumsi vs Faktual]
+Angka kerugian yang digunakan dalam simulasi modul ini (misalnya Rp 1,04 Miliar/tahun) adalah \textbf{ilustrasi pemodelan pedagogis}. Di workshop, Bapak/Ibu wajib mengganti angka-asumsi ini dengan \textbf{data faktual} unit masing-masing agar justifikasi bisnis akuntabel di depan komite investasi.
+\end{warnbox}
+
+\needspace{4\baselineskip}
+
+\section{Langkah-Langkah Evaluasi Prosedur}
+Bagi Manajemen Atas, evaluasi prosedur bukan berarti menganalisis setiap langkah sendiri, melainkan memastikan bahwa proses tata kelola berikut dijalankan dengan benar oleh tim terkait:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Pilih Proses Prioritas.} Manajemen Atas menetapkan 1--2 proses kearsipan dengan volume tinggi atau risiko tinggi sebagai pilot evaluasi. Contoh: BAST E-Procurement, SPK Pemeliharaan GI, atau Laporan Keuangan Bulanan.
+    \item \textbf{Terapkan 7 Domain.} Tim lintas fungsi (Kearsipan, IT, Operasional) melakukan skoring pada 7 Domain. Manajemen Atas memvalidasi kelengkapan data dan kejujuran skoring -- jangan biarkan unit melakukan \textit{self-rating} yang terlalu optimis.
+    \item \textbf{Identifikasi \textit{Waste} Terbesar.} Fokus pada 3 jenis \textit{waste} utama: \textit{Overprocessing} (mencetak hanya untuk tanda tangan), \textit{Waiting} (dokumen tertahan di antrean persetujuan), dan \textit{Defect} (kesalahan metadata yang memerlukan revisi).
+    \item \textbf{Kuantifikasi Dampak Bisnis.} Ubah temuan waste menjadi angka: berapa jam terbuang per tahun, berapa biaya revisi, berapa risiko sanksi jika audit trail tidak lengkap. Tanpa kuantifikasi, temuan diagnosa tidak akan mendapatkan perhatian komite investasi.
+    \item \textbf{Tetapkan Prioritas Intervensi.} Manajemen Atas menyetujui daftar area optimasi yang diurutkan berdasarkan dampak bisnis vs biaya intervensi. Prioritaskan \textit{quick wins} yang dapat menunjukkan hasil dalam 30--60 hari.
+\end{enumerate}
+
+Pertanyaan kunci untuk Manajemen Atas: ``Apakah kita tahu persis berapa lama waktu siklus proses arsip vital di unit ini, dan berapa persen dari waktu itu adalah \textit{waste} yang bisa dieliminasi?''
+
+\begin{plnbox}[Ringkasan untuk Manajemen Atas -- Bab 1]
+Diagnosa adalah fondasi optimalisasi: tanpa data akurat tentang apa yang salah, solusi yang dirancang akan meleset. Tiga pesan kunci yang harus dibawa Manajemen Atas dari bab ini: (1) diagnosa harus berbasis 7 Domain yang mencakup kebijakan, tata kelola, SDM, interoperabilitas, proses, keamanan, dan preservasi; (2) data faktual lebih bernilai daripada asumsi -- minta tim menyajikan bukti waktu tunggu, volume revisi, dan frekuensi kehilangan; dan (3) prioritas intervensi harus didasarkan pada dampak bisnis, bukan kemudahan teknis implementasi.
+\end{plnbox}
+
+\needspace{4\baselineskip}
+
+\section{Aktivitas Workshop (30 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Pilih 1 proses kearsipan di unit Anda dan lakukan Document Shadowing ringkas (catat setiap langkah, waktu, dan format).
+    \item Skor 7 Domain untuk proses tersebut dan identifikasi domain paling lemah.
+    \item Kuantifikasi \textit{waste} dalam satuan jam/tahun dan biaya kesempatan (opportunity cost).
+\end{enumerate}
+
+\begin{outputbox}
+\textbf{Portofolio 1 (Pilar 1: Diagnosa):} Matriks Identifikasi Area Optimasi + Skoring 7 Domain. Dinilai berdasarkan kemampuan peserta mengevaluasi prosedur as-is secara sistematis, kejelasan temuan \textit{waste}, kuantifikasi dampak bisnis, dan prioritas intervensi yang masuk akal.
+\end{outputbox}
+
+
+% ============================================================
+\chapter{Desain: Perancangan Alur Kerja Terintegrasi (To-Be)}
+(Kriteria Penilaian 4.3.2 -- Target Kompetensi 2)
+% ============================================================
+
+Bab ini mendukung pencapaian Pilar 2: Desain Alur Kerja -- peserta mampu merancang alur kerja terintegrasi (to-be) berbasis BPMN 2.0 dengan pemicu otomatis dan pola integrasi. Desain alur kerja bukan sekadar menggambar diagram, melainkan \textbf{menyusun cetak biru hukum} yang mengikat cara kerja unit, tanggung jawab peran, dan logika sistem dalam satu notasi visual standar internasional.
+
+Mengapa bab ini berurutan setelah Diagnosa? Skema evaluasi yang dirancang pada Bab 1 (Pilar 1) menentukan \textit{apa} yang perlu diperbaiki dan \textit{mengapa}. Namun, temuan diagnosa tanpa rancangan alur kerja yang konkret ibarat diagnosis penyakit tanpa resep obat. Desain alur kerja (Pilar 2) menjembatani celah tersebut dengan menyusun \textit{blueprint} operasional yang dapat diimplementasikan, diaudit, dan diukur.
+
+Dua konsep teknis kunci yang menjadi fondasi desain alur kerja perlu dipahami oleh Manajemen Atas dalam konteks bisnis:
+
+\textit{Trigger-Based Auto-Capture} adalah mekanisme di mana sistem operasional (ERP/SCADA/E-Procurement) secara otomatis menarik data transaksi dan menghasilkan draf arsip beserta metadata begitu status transaksi final. \textit{Manusia tidak lagi memulai proses arsip secara manual.} Bagi Manajemen Atas, ini berarti eliminasi kesalahan input manual dan jaminan bahwa setiap transaksi bisnis meninggalkan jejak arsip yang lengkap -- sebuah prasyarat kepatuhan yang tidak dapat dinegosiasikan.
+
+\textit{Parallel Digital Routing} adalah mekanisme pengiriman dokumen \textbf{serentak} ke multi-pejabat untuk persetujuan paralel, menggantikan antrean birokrasi berjenjang. Bagi Manajemen Atas, ini berlangsung pengurangan waktu siklus secara dramatis. Namun, \textit{catatan kritis}: dokumen harus dikunci \textit{read-only} saat paralel; revisi diajukan sebagai metadata komentar, bukan mengubah dokumen asli. Tanpa penguncian ini, versi dokumen akan bertabrakan dan arsiparis tidak akan tahu mana yang menjadi \textit{Golden Record}.
+
+\needspace{4\baselineskip}
+
+\section{Tiga Pola Integrasi Utama PLN}
+Implementasi alur kerja terintegrasi di organisasi sebesar PLN tidak berarti menjalankan seluruh proses secara otomatis dengan prioritas yang sama. Pola integrasi berikut memetakan prioritas implementasi berdasarkan dampak bisnis dan kompleksitas teknis:
+
+\begin{plnbox}[Pola 1: Trigger-Based Auto-Capture]
+Sistem operasional (ERP/SCADA) secara otomatis menarik data transaksi dan menghasilkan draf arsip beserta metadata begitu status transaksi final. \textit{Manusia tidak lagi memulai proses arsip secara manual.} Contoh: teknisi menekan ``Technical Complete'' di aplikasi operasional, dan detik itu juga draf BA Penormalan tercipta dengan metadata lengkap.
+
+\textbf{Makna bagi Manajemen Atas:} Ini adalah fondasi kepatuhan. Tanpa auto-capture, organisasi bergantung pada kesadaran dan kesempatan manusia untuk mengarsipkan -- sebuah risiko yang tidak dapat diterima untuk transaksi bernilai miliaran rupiah.
+\end{plnbox}
+
+\begin{plnbox}[Pola 2: Parallel Digital Routing]
+Dokumen dikirim \textbf{serentak} ke multi-pejabat (misal: \textit{Asset Owner} \& \textit{Dispatcher}) untuk persetujuan paralel. Ini memangkas antrean birokrasi berjenjang secara dramatis.
+
+\textbf{Makna bagi Manajemen Atas:} Pengurangan waktu siklus 60--80\% pada proses persetujuan. Namun, Manajemen Atas harus memastikan ada mekanisme penguncian \textit{read-only} dan pelacakan versi, karena persetujuan paralel tanpa kontrol akan menghasilkan kekacauan versi dokumen.
+\end{plnbox}
+
+\begin{plnbox}[Pola 3: SLA-Driven Escalation]
+Jika validasi melebihi batas waktu (contoh: $>$1--16 jam sesuai jenis dokumen), sistem secara otomatis mengeskalasi ke atasan (Manajer UPT/GM). Tidak ada lagi dokumen yang ``tidur'' di meja seseorang tanpa konsekuensi.
+
+\textbf{Makna bagi Manajemen Atas:} Ini adalah instrumen akuntabilitas. SLA bukan sekadar angka, melainkan kontrak kinerja digital yang memaksa respons cepat. Manajemen Atas harus menyetujui threshold SLA dan menerima notifikasi eskalasi secara aktif.
+\end{plnbox}
+
+\needspace{4\baselineskip}
+
+\section{Notasi BPMN 2.0 untuk Eksekutif}
+\textit{Business Process Model and Notation (BPMN) 2.0} adalah bahasa visual standar internasional (ISO/IEC 19510)\footnote{ISO/IEC 19510:2013, Information technology -- OMG Object Management Group BPMN Specification.} untuk memetakan alur kerja. Manajemen Atas wajib bisa \textbf{membaca, memvalidasi, dan mengesahkan} diagram ini, karena BPMN adalah ``cetak biru hukum'' proses.
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} c X X @{}}
+\caption{Simbol Dasar BPMN 2.0 untuk Manajemen}\\
+\toprule
+\textbf{Simbol} & \textbf{Nama} & \textbf{Fungsi dalam Konteks Kearsipan} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Simbol} & \textbf{Nama} & \textbf{Fungsi dalam Konteks Kearsipan} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\textbullet & Start Event & Pemicu alur (contoh: \texttt{SPK\_Selesai}, \texttt{Kontrak\_Diunggah}) \\
+$\square$ & Task & Aktivitas bisnis (contoh: \texttt{Cek Kelengkapan Metadata}) \\
+$\Diamond$ ($\times$) & Gateway (Exclusive) & Keputusan bercabang (\textit{Jika Disetujui / Jika Direvisi}) \\
+$\rightarrow$ & Sequence Flow & Urutan tugas dalam satu sistem/unit \\
+$\cdots \rightarrow$ & Message Flow & Komunikasi antar-sistem (contoh: API dari ERP ke E-Office) \\
+$\blacksquare$ & End Event & Penyelesaian alur (contoh: \texttt{Arsip\_Otentik\_Disimpan}) \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+\textbf{Mengapa Menggunakan BPMN 2.0?}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Bahasa Universal:} Menjembatani kesenjangan komunikasi antara analis bisnis, kebijakan kearsipan, dan pengembang IT.
+    \item \textbf{Presisi Kepemilikan:} Melalui penggunaan \textit{Pools} (lingkup unit/sistem) \& \textit{Lanes} (peran jabatan), tanggung jawab persetujuan di setiap tahapan terlihat sangat jelas.
+    \item \textbf{Kesiapan Otomasi:} Skema logika visual BPMN dapat dieksekusi secara langsung oleh mesin otomasi (\textit{workflow engine}).
+\end{itemize}
+
+\needspace{4\baselineskip}
+
+\section{Studi Kasus: Arsip BAST E-Procurement}
+Berikut adalah skenario operasional nyata penerapan ketiga pola integrasi pada proses \textit{Berita Acara Serah Terima} (BAST) di sistem E-Procurement:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Pemicu:} Vendor menekan ``Submit Pekerjaan'' di portal E-Procurement.
+    \item \textbf{Auto-Generate:} Sistem menyusun draf BAST secara otomatis tanpa diketik manusia, menarik metadata vendor dan spesifikasi kontrak dari database.
+    \item \textbf{API Transfer:} Draf dikirim ke Sistem E-Office (Tata Persuratan) via integrasi API dengan \textit{payload} metadata lengkap.
+    \item \textbf{Review:} Manajer Logistik membuka E-Office, memeriksa substansi draf.
+    \item \textbf{Gateway:} Ditolak $\rightarrow$ kembali ke vendor dengan komentar revisi. Disetujui $\rightarrow$ TTE (Tanda Tangan Elektronik Tersertifikasi).
+    \item \textbf{Hash-Lock:} Sistem mengunci arsip BAST permanen (\textit{immutable}) dengan hash SHA-256.
+    \item \textbf{End:} Transaksi BAST tervalidasi digital tanpa satu pun kertas dicetak.
+\end{enumerate}
+
+\begin{plnbox}[Relevansi untuk Unit Pengadaan]
+Integrasi antara E-Procurement dan E-Office mengeliminasi kebutuhan staf mengetik ulang data vendor ke form BAST manual. Seluruh metadata kontrak tertarik otomatis dari portal pengadaan. Bagi Manajemen Atas, ini berarti: (1) eliminasi kesalahan input manual, (2) percepatan siklus persetujuan, dan (3) jejak audit trail yang lengkap untuk setiap transaksi.
+\end{plnbox}
+
+\needspace{4\baselineskip}
+
+\section{Validasi Alur: Executive Tollgate}
+Sebelum rancangan BPMN disahkan dan anggaran dicairkan, Manajemen Atas \textbf{wajib} memvalidasi rancangan dengan empat parameter kritis agar tidak terjadi kegagalan sistematis saat implementasi:
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} l X @{}}
+\caption{Executive Tollgate: Empat Parameter Validasi Alur To-Be}\\
+\toprule
+\textbf{Aspek Validasi} & \textbf{Pertanyaan Pemeriksaan} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Aspek Validasi} & \textbf{Pertanyaan Pemeriksaan} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+\textbf{1. Kelengkapan} & Apakah setiap pemicu (\textit{trigger}) memiliki aktivitas (\textit{task}) dan peristiwa akhir (\textit{end event}) yang terdefinisi? \\
+\textbf{2. Konsistensi} & Apakah semua gerbang keputusan (\textit{gateway}) memiliki jalur persetujuan \textit{dan} penolakan untuk mencegah kebuntuan proses? \\
+\rowcolor{rowalt}
+\textbf{3. Kepatuhan} & Apakah alur kerja telah sesuai dengan regulasi (PP 71/2019, ISO 15489, tata naskah dinas)? \\
+\textbf{4. Fallback} & Apakah tersedia prosedur mitigasi apabila terjadi kegagalan sistem (\textit{downtime}, API \textit{timeout})? \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+\begin{warnbox}[Peringatan Executive Tollgate]
+Apabila salah satu kriteria di atas belum terpenuhi, \textbf{jangan berikan persetujuan implementasi}. Penundaan untuk perbaikan desain jauh lebih murah daripada kegagalan sistem di lapangan.
+\end{warnbox}
+
+\begin{plnbox}[Ringkasan untuk Manajemen Atas -- Bab 2]
+Desain alur kerja adalah cetak biru operasional: tanpa validasi Manajemen Atas, sistem buatan IT bisa berujung pada pelanggaran wewenang persetujuan atau kebocoran akses. Tiga pesan kunci: (1) tiga pola integrasi (Trigger-Based, Parallel Routing, SLA Escalation) harus dipilih berdasarkan prioritas bisnis, bukan kemudahan teknis; (2) BPMN adalah bahasa universal yang mengikat semua pihak -- Manajemen Atas wajib bisa memvalidasinya; dan (3) \textit{Executive Tollgate} empat parameter harus dilewati sebelum satu rupiah pun dikeluarkan untuk implementasi.
+\end{plnbox}
+
+\needspace{4\baselineskip}
+
+\section{Aktivitas Workshop (30 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Pilih 1 proses dari hasil diagnosa Bab 1 dan gambar sketsa alur To-Be menggunakan notasi BPMN (di kertas terpisah).
+    \item Tentukan trigger sistem, jalur paralel (jika ada), threshold SLA, dan jalur eskalasi.
+    \item Identifikasi 1 risiko potensial dan rancang mekanisme \textit{fallback}-nya.
+\end{enumerate}
+
+\begin{outputbox}
+\textbf{Portofolio 2 (Pilar 2: Desain Alur Kerja):} Diagram BPMN 2.0 To-Be + Peta Pemicu Integrasi. Dinilai berdasarkan kemampuan peserta merancang alur kerja terintegrasi, kejelasan trigger, konsistensi gateway, kepatuhan regulasi, dan mekanisme fallback.
+\end{outputbox}
+
+
+% ============================================================
+\chapter{SOP Digital: Penyusunan SOP Terintegrasi 8 Komponen}
+(Kriteria Penilaian 4.3.3 -- Target Kompetensi 3)
+% ============================================================
+
+Bab ini mendukung pencapaian Pilar 3: SOP Digital -- peserta mampu menyusun SOP Digital Terintegrasi 8 Komponen yang memenuhi persyaratan regulasi (PP 71/2019, Perka ANRI). SOP Digital bukan sekadar SOP konvensional yang di-\textit{scan} dan diunggah, melainkan \textbf{protokol korporat} yang mengikat SLA, arsitektur alur kerja, akuntabilitas pengambil keputusan, dan kepatuhan regulasi dalam satu dokumen yang sah secara hukum.
+
+Mengapa bab ini berurutan setelah Desain Alur Kerja? Rancangan alur kerja (Pilar 2) menyusun \textit{blueprint} visual proses. Namun, blueprint tanpa SOP yang disahkan tidak memiliki kekuatan mengikat di level organisasi. Tanpa SOP Digital yang disahkan oleh Manajemen Atas, alur kerja terintegrasi hanyalah konfigurasi teknis yang dapat dengan mudah diabaikan atau diubah tanpa pertanggungjawaban. SOP Digital (Pilar 3) memberikan landasan legitimasi bagi seluruh mekanisme optimalisasi, sekaligus memastikan keselarasan dengan standar internasional (ISO 15489), regulasi nasional (PP 71/2019), dan prinsip GCG BUMN (TARIF).
+
+\needspace{4\baselineskip}
+
+\section{Evolusi SOP: Dari Manual ke Digital-Integrated}
+SOP Digital Terintegrasi adalah evolusi dari template SOP Korporat konvensional yang muatannya disempurnakan dengan parameter pengamanan IT dan kearsipan digital. Perbedaan fundamentalnya dapat dilihat pada tabel berikut:
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} p{3.6cm} X X @{}}
+\caption{Paradigma Berubah: SOP Konvensional vs SOP Digital Terintegrasi}\\
+\toprule
+\textbf{Dimensi} & \textbf{SOP Konvensional} & \textbf{SOP Digital Terintegrasi} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Dimensi} & \textbf{SOP Konvensional} & \textbf{SOP Digital Terintegrasi} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+\textit{Fokus Ekosistem} & Interaksi fisik antarmanusia & Orkestrasi mesin \& pegawai \\
+\textit{Inisiator Proses} & Manual personel & \textit{System-event triggering} \\
+\rowcolor{rowalt}
+\textit{Validasi Naskah} & Tanda tangan basah \& stempel & TTE Tersertifikasi + Hash Integrity \\
+\textit{Manajemen Risiko} & Reaktif, bergantung ingatan & Preventif, \textit{audit trail real-time immutable} \\
+\rowcolor{rowalt}
+\textit{Penempatan Arsip} & Lemari fisik, bergantung petugas & \textit{Preservation by design}, otonom \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+\needspace{4\baselineskip}
+
+\section{Delapan Komponen Wajib SOP Digital Terintegrasi}
+Agar SOP memiliki kekuatan hukum dan operasional, wajib memuat kedelapan komponen anatomi berikut. Kerangka ini bukan format baru yang diada-adakan, melainkan \textbf{evolusi} dari template SOP Korporat konvensional.
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Tujuan \& Ruang Lingkup.} Diperluas dengan penegasan batas interoperabilitas penarikan data antar-sistem (misal: batasan tarikan dari E-Procurement ke Repositori).
+    \item \textbf{Dasar Hukum.} Menambahkan kepatuhan digital mutlak: UU ITE, PP No.~71/2019 tentang Bukti Elektronik, serta panduan tata kelola ANRI.\footnote{PP 71/2019, Pasal 14--16, mengatur bahwa Tanda Tangan Elektronik Tersertifikasi (TTE) memiliki kekuatan hukum setara tanda tangan basah.}
+    \item \textbf{Definisi \& Akronim Digital.} Mengakomodasi terminologi arsitektur sistem (Auto-Capture, SLA Timeout, RBAC, Hash-Lock, Audit Trail).
+    \item \textbf{Peran + System Custodian.} Tidak hanya berisi unit jabatan; kini wajib mengakui \textbf{Sistem Komputasi (Mesin)} sebagai entitas pengawasan dalam tanggung jawab alur kerja.
+    \item \textbf{Klasifikasi, Retensi \& Akses.} Menetapkan parameter kearsipan otomatis --- matriks kodifikasi klasifikasi wajib, batasan hak akses digital (RBAC), dan tenggat waktu retensi logikal.
+    \item \textbf{Uraian Prosedur / Alur Kerja.} Tidak lagi mendeskripsikan ``siapa mengantar kertas ke meja mana''. Diganti mutlak dengan desain pemicu sistem (System Trigger), rute paralel, dan SLA digital.
+    \item \textbf{Manajemen Risiko (Exception \& Fallback).} Bertransformasi menjadi protokol perlindungan berlapis: memuat prosedur pemulihan darurat manakala arsitektur IT mengalami \textit{server downtime} atau API \textit{timeout}.
+    \item \textbf{Lampiran Teknis.} Dilengkapi peta kodifikasi database, draf log rekaman mesin (Audit Trail), dan ilustrasi \textbf{Matriks Metadata Terintegrasi} (14 field wajib).
+\end{enumerate}
+
+\begin{plnbox}[Panduan Pemanfaatan 8 Komponen untuk Keputusan Manajemen]
+Gunakan 8 komponen sebagai dasar penilaian kecukupan draf SOP dari tim: (1) Apakah komponen 2 (Dasar Hukum) mencakup PP 71/2019 dan Perka ANRI? (2) Apakah komponen 4 (Peran + System Custodian) mengakui sistem sebagai entitas pengawasan? (3) Apakah komponen 6 (Uraian Prosedur) menggunakan bahasa trigger dan SLA, bukan bahasa manual? Jika salah satu komponen tidak ada, SOP belum layak disahkan.
+\end{plnbox}
+
+\needspace{4\baselineskip}
+
+\section{Metadata Journey: 14 Field \& 3 Lapisan Perlindungan}
+Arsip digital bukan sekadar file PDF. Arsip yang sah dilindungi oleh \textbf{14 field metadata} yang di-\textit{auto-capture} sebelum dokumen dikunci permanen. Tiga lapisan perlindungannya adalah:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Evidential (Lapis 1):} Hash SHA-256, Timestamp ISO 8601, DOC\_ID, Audit Log --- menjamin keaslian dan \textit{non-repudiation}.
+    \item \textbf{Contextual (Lapis 2):} Nomor aset (SAP-PM), Work Order, kontrak, lokasi GIS --- memberi makna operasional dan memungkinkan korelasi dengan data bisnis lain.
+    \item \textbf{Governance (Lapis 3):} Klasifikasi keamanan (Vital/Rahasia/Terbatas/Publik), retensi (JRA), role access (RBAC) --- mengatur tata kelola dan kepatuhan regulasi.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  lapis3/.style={rectangle, rounded corners=8pt, draw=plnblue, line width=2pt, fill=plnblue!6, minimum width=11cm, minimum height=4.8cm, align=center},
+  lapis2/.style={rectangle, rounded corners=6pt, draw=plncyan, line width=1.5pt, fill=plncyan!8, minimum width=8.8cm, minimum height=3.4cm, align=center},
+  lapis1/.style={rectangle, rounded corners=4pt, draw=plngreen, line width=1.2pt, fill=plngreen!10, minimum width=6.6cm, minimum height=2.0cm, align=center},
+  konten/.style={rectangle, rounded corners=2pt, draw=plnorange, line width=1pt, fill=plnorange!12, minimum width=3.8cm, minimum height=0.9cm, align=center, font=\bfseries\small},
+  lbl/.style={font=\scriptsize\bfseries, align=left},
+  fld/.style={font=\tiny, align=center, text=darkgray}
+]
+% Lapisan 3 (Governance) - paling luar
+\node[lapis3] (l3) {};
+\node[lbl, anchor=north west, text=plnblue!80!black] at ([xshift=0.25cm, yshift=-0.25cm]l3.north west) {Lapisan 3: Governance};
+\node[fld, anchor=south] at ([yshift=0.35cm]l3.south) {Klasifikasi Keamanan (VITAL/INTERNAL/RAHASIA) \;|\; Retensi (JRA) \;|\; Role Access (RBAC)};
+
+% Lapisan 2 (Contextual)
+\node[lapis2] (l2) {};
+\node[lbl, anchor=north west, text=plncyan!80!black] at ([xshift=0.2cm, yshift=-0.2cm]l2.north west) {Lapisan 2: Contextual};
+\node[fld, anchor=south] at ([yshift=0.25cm]l2.south) {Nomor Aset (SAP-PM) \;|\; Work Order \;|\; Kontrak \;|\; Lokasi GIS};
+
+% Lapisan 1 (Evidential)
+\node[lapis1] (l1) {};
+\node[lbl, anchor=north west, text=plngreen!70!black] at ([xshift=0.15cm, yshift=-0.15cm]l1.north west) {Lapisan 1: Evidential};
+\node[fld, anchor=south] at ([yshift=0.15cm]l1.south) {Hash SHA-256 \;|\; Timestamp ISO 8601 \;|\; DOC\_ID \;|\; Audit Log};
+
+% Konten di pusat
+\node[konten] (k) {KONTEN DOKUMEN};
+
+% Panah keterangan
+\node[font=\scriptsize\itshape, text=gray!70!black, below=0.5cm of l3] {Metafora ``bawang berlapis-lapis'': setiap lapis adalah pertahanan. Kalau satu lapis hilang, arsip tidak lengkap.};
+\end{tikzpicture}
+\caption{Metadata Journey: Tiga Lapisan Perlindungan Arsip Digital}
+\end{figure}
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c @{}}
+\caption{14 Field Metadata Audit Trail (12 Wajib + 2 Semi-Mandatory)}\\
+\toprule
+\textbf{Kode} & \textbf{Nama Field} & \textbf{Sumber Data} & \textbf{Status} \\
+\midrule
+\endfirsthead
+
+\multicolumn{4}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Kode} & \textbf{Nama Field} & \textbf{Sumber Data} & \textbf{Status} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+DOC\_ID & ID Dokumen Unik & Sistem Nomor & Wajib \\
+TIMESTAMP & Waktu Aksi (ISO 8601) & System Clock & Wajib \\
+\rowcolor{rowalt}
+HASH\_SHA256 & Nilai Hash Integritas & Cryptographic Module & Wajib \\
+CREATOR\_ROLE & Peran Pengguna & IAM/SSO & Wajib \\
+\rowcolor{rowalt}
+AUDIT\_LOG\_ID & ID Log Immutable & SIEM/Audit Engine & Wajib \\
+CLASSIFICATION & Tingkat Keamanan & Policy Engine & Wajib \\
+\rowcolor{rowalt}
+RETENTION\_RULE & Aturan Retensi & Schedule DB & Wajib \\
+ASSET\_ID & Referensi Aset PLN & SAP-PM/AMS & Wajib \\
+\rowcolor{rowalt}
+CONTRACT\_REF & Referensi Kontrak & E-Proc/Legal & Wajib \\
+LOCATION\_GIS & Lokasi Operasional & Master Data & Wajib \\
+\rowcolor{rowalt}
+INTEGRITY\_HASH & Verifikasi Perubahan & Hash Module & Wajib \\
+AUDIT\_TRAIL\_REF & Log Terkait & Chain Log & Wajib \\
+\midrule
+CONTENT\_DESC & Ringkasan Isi & NLP/Input & Semi \\
+SEARCH\_TAGS & Kata Kunci Terkontrol & Thesaurus & Semi \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+\noindent Membaca Tabel untuk Keputusan Manajemen: Dua belas field bertanda \textit{Wajib} membentuk \textit{minimum viable audit log} yang harus ada agar entri log memiliki kekuatan hukum. Tanpa salah satu dari 12 field ini, log tersebut berisiko ditolak oleh auditor eksternal atau regulator.
+
+\needspace{4\baselineskip}
+
+\section{Keabsahan Hukum \& Trust-Chain Digital}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{TTE Tersertifikasi (PP 71/2019, Pasal 14--16):} Memiliki kekuatan hukum \textbf{setara} tanda tangan basah. Jaminannya: Autentisitas, Integritas, dan Nirsangkal (\textit{non-repudiation}).
+    \item \textbf{Trust-Chain:} Setiap TTE terhubung ke sertifikat yang diterbitkan oleh \textit{Certificate Authority} terakreditasi nasional.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{trust_chain.png}
+\caption{Digital Signature Trust-Chain: Rantai Kepercayaan dari Pejabat ke Certificate Authority}
+\end{figure}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Blockchain Hash Chain:} Setiap transaksi menghasilkan hash yang menyertakan hash transaksi sebelumnya. Jika satu dokumen diubah, seluruh rantai rusak dan terdeteksi. Inilah yang disebut \textit{Immutable}.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{assets/Blockchain_Hash_Chain.png}
+\caption{Visualisasi Blockchain Hash Chain: Jaminan Immutability Arsip Digital}
+\end{figure}
+
+\begin{plnbox}[Ringkasan untuk Manajemen Atas -- Bab 3]
+SOP Digital adalah payung hukum yang memberikan legitimasi dan keberlanjutan bagi seluruh mekanisme optimalisasi. Tiga pesan kunci: (1) SOP Digital bukan SOP konvensional yang di-scan, melainkan protokol korporat yang mengikat SLA, arsitektur alur kerja, dan kepatuhan regulasi; (2) delapan komponen wajib harus lengkap, khususnya pengakuan \textit{System Custodian} dan dasar hukum digital; dan (3) 14 field metadata adalah \textit{minimum viable} agar arsip memiliki kekuatan hukum di mata regulator.
+\end{plnbox}
+
+\needspace{4\baselineskip}
+
+\section{Aktivitas Workshop (30 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Susun draf SOP Digital 8 Komponen untuk 1 proses prioritas (maks. 2 halaman).
+    \item Lengkapi Matriks Metadata 14 Field untuk 1 jenis arsip kritis unit Anda.
+    \item Validasi apakah dasar hukum SOP mencakup PP 71/2019 dan Perka ANRI.
+\end{enumerate}
+
+\begin{outputbox}
+\textbf{Portofolio 3 (Pilar 3: SOP Digital):} Draft SOP Digital Terintegrasi 8 Komponen + Matriks Metadata 14 Field. Dinilai berdasarkan kelengkapan 8 komponen, kejelasan trigger/SLA, kesesuaian dengan regulasi, dan keberadaan mekanisme fallback.
+\end{outputbox}
+
+
+% ============================================================
+\chapter{Justifikasi Bisnis: Efisiensi, ROI \& KPI}
+(Kriteria Penilaian 4.3.4 -- Target Kompetensi 4)
+% ============================================================
+
+Bab ini mendukung pencapaian Pilar 4: Justifikasi Bisnis -- peserta mampu menghitung efisiensi, ROI, dan menyusun justifikasi bisnis berbasis KPI Time-Cost-Risk serta Balanced Scorecard. Optimalisasi tidak lengkap tanpa bukti kuantitatif bahwa intervensi yang diusulkan memang bernilai strategis dibandingkan biayanya.
+
+Mengapa bab ini berurutan setelah SOP Digital? Kebijakan dan prosedur (Pilar 3) menetapkan \textit{apa} yang harus dilakukan dan \textit{bagaimana} standarnya. Namun, SOP tanpa justifikasi bisnis tidak akan mendapatkan persetujuan anggaran. Manajemen Atas memerlukan data: berapa biayanya, berapa manfaatnya, dan kapan modal kembali. Justifikasi bisnis (Pilar 4) melengkapi tiga pilar sebelumnya dengan memastikan bahwa transformasi yang diusulkan tidak hanya ``bagus secara teori'', melainkan menguntungkan secara finansial.
+
+\needspace{4\baselineskip}
+
+\section{Trifecta Manfaat: Time--Cost--Risk}
+Kerangka kerja \textit{Time-Cost-Risk Saving} membagi manfaat transformasi menjadi tiga dimensi:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Time Saving:} Pemangkasan waktu tunggu dan durasi proses. Mengukur \textbf{efisiensi hari ini}.
+    \item \textbf{Cost Saving:} Reduksi pengeluaran riil (kertas, cetak, ruang, \textit{rework}). Mengukur \textbf{optimasi anggaran}.
+    \item \textbf{Risk Saving:} Perlindungan terhadap kerugian finansial masif akibat kehilangan arsip vital atau sanksi hukum. Menjamin \textbf{keamanan kepatuhan di masa depan}.
+\end{itemize}
+
+\needspace{4\baselineskip}
+
+\section{Indikator Kinerja Utama (KPI) Target}
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} X X X @{}}
+\caption{Indikator Kinerja Utama (KPI) Target Optimalisasi}\\
+\toprule
+\textbf{Indikator} & \textbf{Definisi} & \textbf{Target Optimasi} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Indikator} & \textbf{Definisi} & \textbf{Target Optimasi} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+Waktu Siklus (\textit{Cycle Time}) & Waktu total dari draf s.d. tersimpan & Turun 40--60\% \\
+Ketepatan Awal (FTA) & \% lolos validasi tanpa revisi & Minimal 90\% \\
+\rowcolor{rowalt}
+Waktu Temu Kembali & Kecepatan pencarian arsip & $<$ 30 detik (digital) \\
+Tingkat Kepatuhan & \% pemenuhan SLA \& regulasi & Minimal 95\% \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+\textbf{Penting:} Kepatuhan bukan sekadar ``dokumennya ada''. Kepatuhan berarti ada TTE-nya, ada Hash-nya, ada metadata otomatisnya, dan ada audit trail-nya. Itu baru patuh.
+
+\needspace{4\baselineskip}
+
+\section{Balanced Scorecard (BSC) Perspective}
+Keempat KPI di atas masing-masing mewakili satu perspektif Kaplan \& Norton, sehingga laporan kearsipan bisa disajikan sebagai pencapaian korporat:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Financial:} \textit{Cost Saved} (dari eliminasi manual \& rework).
+    \item \textbf{Customer:} \textit{First-Time Accuracy} (unit kerja lain adalah ``pelanggan'' data kita).
+    \item \textbf{Internal Process:} \textit{Cycle Time} (kecepatan alur kerja).
+    \item \textbf{Learning \& Growth:} \textit{Compliance Status} (kematangan tata kelola).
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{assets/Balanced_Scorecard.png}
+\caption{Balanced Scorecard Perspective: Memetakan KPI Kearsipan ke Visi Korporat (Sumber: Kaplan \& Norton, 1992)}
+\end{figure}
+
+\needspace{4\baselineskip}
+
+\section{Rumus ROI \& Basis Kalkulasi}
+\[
+\text{ROI} = \frac{(\Delta \text{Waktu} \times \text{Volume Tahunan} \times \text{Biaya SDM/Jam}) - \text{Biaya Implementasi}}{\text{Biaya Implementasi}} \times 100\%
+\]
+
+\noindent Transparansi asumsi diperlukan agar business case dapat dipertanggungjawabkan di depan komite investasi.
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} X X r @{}}
+\caption{Asumsi \& Basis Kalkulasi Studi Kasus (Ilustrasi)}\\
+\toprule
+\textbf{Komponen Kerugian} & \textbf{Basis Perhitungan} & \textbf{Nilai} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Komponen Kerugian} & \textbf{Basis Perhitungan} & \textbf{Nilai} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+Waktu siklus terbuang & 1.200 arsip $\times$ 4,2 hari $\times$ Rp 150.000/hari & Rp 756 jt \\
+Biaya revisi metadata & 420 arsip gagal $\times$ 2 jam $\times$ Rp 62.500/jam & Rp 52,5 jt \\
+\rowcolor{rowalt}
+Kehilangan arsip vital & 8 kasus $\times$ Rp 25 jt (rekonstruksi + sanksi) & Rp 200 jt \\
+Temu kembali lambat & 1.200 arsip $\times$ 0,25 jam $\times$ Rp 125.000/jam & Rp 37,5 jt \\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{Total Estimasi Kerugian}} & \textbf{Rp 1.046.000.000} \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+\begin{plnbox}[Parameter yang Harus Disesuaikan per Unit]
+Ganti angka-asumsi di atas dengan data faktual unit Anda: (1) Volume arsip/tahun, (2) Rata-rata frekuensi kehilangan, (3) Biaya tenaga kerja lokal, dan (4) Waktu siklus aktual. Logika kalkulasi tetap sama.
+\end{plnbox}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    barstyle/.style={rectangle, rounded corners=2pt, minimum height=0.7cm, draw=white, line width=1pt},
+    labelstyle/.style={font=\scriptsize\bfseries, text=white},
+    scale=0.9, transform shape
+]
+% Timeline Scale
+\draw[thick, gray!30, -Stealth] (0, 2.2) -- (12, 2.2) node[right, font=\scriptsize] {Hari Kerja};
+\foreach \x in {0,1,2,3,4,5} \node[font=\scriptsize, gray] at (\x*2, 2.45) {\x};
+
+% AS-IS (Manual)
+\node[anchor=west, font=\small\bfseries, color=plnblue] at (-3.8, 0.9) {MANUAL (As-Is)};
+\node[barstyle, fill=plnblue!40, minimum width=2cm, anchor=west] (b1) at (0, 0.9) {};
+\node[labelstyle] at (b1.center) {Drafting};
+
+\node[barstyle, fill=red!60, minimum width=3cm, anchor=west] (b2) at (2, 0.9) {};
+\node[labelstyle] at (b2.center) {Cetak/Kurir};
+
+\node[barstyle, fill=red!80, minimum width=4cm, anchor=west] (b3) at (5, 0.9) {};
+\node[labelstyle] at (b3.center) {Antrian Approval};
+
+\node[barstyle, fill=plnblue!60, minimum width=1cm, anchor=west] (b4) at (9, 0.9) {};
+\node[labelstyle] at (b4.center) {Scan};
+
+% TO-BE (Digital)
+\node[anchor=west, font=\small\bfseries, color=plngreen] at (-3.8, -0.6) {DIGITAL (To-Be)};
+\node[barstyle, fill=plngreen!60, minimum width=0.8cm, anchor=west] (t1) at (0, -0.6) {};
+\node[labelstyle] at (t1.center) {Auto};
+
+\node[barstyle, fill=plngreen!80, minimum width=1.5cm, anchor=west] (t2) at (0.8, -0.6) {};
+\node[labelstyle] at (t2.center) {Digital Appr.};
+
+\node[barstyle, fill=plncyan!70, minimum width=1.1cm, anchor=west] (t3) at (2.3, -0.6) {};
+\node[labelstyle] at (t3.center) {Simpan};
+
+% Efficiency Arrow
+\draw[Stealth-Stealth, plnorange, line width=2pt] (10.5, 0.9) -- (10.5, -0.6) node[midway, right, font=\bfseries\small] {Efisiensi $>$ 75\%};
+
+% Legend
+\fill[red!70] (0, -1.8) rectangle (0.25, -2.0); \node[right, font=\scriptsize] at (0.25, -1.9) {Non-Value Added (Waiting/Manual)};
+\fill[plngreen!70] (5.5, -1.8) rectangle (5.75, -2.0); \node[right, font=\scriptsize] at (5.75, -1.9) {Value Added (Automated)};
+\end{tikzpicture}
+\caption{Efficiency Heatmap: Perbandingan Durasi Siklus Manual vs Digital}
+\end{figure}
+
+\textit{Metafora:} Proses manual seperti baris merah panjang yang penuh gesekan. Proses digital seperti baris hijau pendek yang hanya menyisakan aktivitas \textit{Value Added}.
+
+\needspace{4\baselineskip}
+
+\section{Studi Kasus: Transformasi SPK Pemeliharaan GI 150 kV}
+\textbf{Profil Unit:} UIT Jawa Bagian Tengah -- 48 Gardu Induk 150 kV -- Volume 1.200 SPK/tahun.
+
+\textbf{Kondisi As-Is (Hasil Pemodelan):}
+\begin{itemize}[leftmargin=*]
+    \item Waktu siklus rata-rata: \textbf{5 hari}
+    \item Kesalahan metadata: \textbf{35\%} (420 dokumen/tahun perlu revisi, 2 jam/revisi)
+    \item Kehilangan arsip: \textbf{8 kasus/tahun}
+    \item Waktu temu kembali: \textbf{15--30 menit} (fisik)
+    \item Total estimasi kerugian: \textbf{Rp 1.046.000.000/tahun}
+\end{itemize}
+
+\textbf{Intervensi:} Trigger-Based Auto-Capture, Parallel Digital Routing, SLA-Driven Escalation, Hash-Lock Immutable, pembaruan SOP.
+
+\textbf{Kondisi To-Be (Setelah 90 Hari Pilot):}
+\begin{itemize}[leftmargin=*]
+    \item Waktu siklus: \textbf{0,8 hari} (turun 84\%)
+    \item Ketepatan Awal: \textbf{100\%} (dari 65\%)
+    \item Waktu temu kembali: \textbf{$<$20 detik} (turun 99\%)
+    \item Tingkat Kepatuhan: \textbf{98\%} (dari 72\%)
+    \item Kehilangan arsip / Temuan audit BPK: \textbf{0}
+\end{itemize}
+
+\textbf{Kalkulasi ROI (Simulasi):}
+\begin{itemize}[leftmargin=*]
+    \item Total Manfaat Tahunan: \textbf{Rp 1.046.000.000}
+    \item Total Biaya Tahun Pertama: \textbf{Rp 161.000.000}
+    \item Keuntungan Bersih: \textbf{Rp 885.000.000}
+    \item \textbf{ROI: 550\%} --- \textbf{Payback Period: $<$ 2 bulan}
+\end{itemize}
+
+\begin{plnbox}[Ringkasan untuk Manajemen Atas -- Bab 4]
+Justifikasi bisnis adalah fondasi legitimasi anggaran: tanpa bukti kuantitatif, transformasi tidak akan mendapatkan persetujuan komite investasi. Tiga pesan kunci: (1) gunakan kerangka Time-Cost-Risk untuk memastikan tidak ada dimensi manfaat yang terlupakan; (2) KPI harus dipetakan ke Balanced Scorecard agar dapat disajikan sebagai pencapaian korporat; dan (3) transparansi asumsi adalah prasyarat akuntabilitas -- jangan sembunyikan angka-asumsi di balik total akhir.
+\end{plnbox}
+
+\needspace{4\baselineskip}
+
+\section{Aktivitas Workshop (30 Menit)}
+\begin{enumerate}[leftmargin=*]
+    \item Pilih 1 proses prioritas dari unit Anda dan kalkulasi estimasi kerugian tahunan (Time-Cost-Risk).
+    \item Tetapkan target KPI (Cycle Time, FTA, Compliance) yang realistis.
+    \item Susun Business Case 1 halaman dengan estimasi biaya implementasi dan proyeksi ROI.
+\end{enumerate}
+
+\begin{outputbox}
+\textbf{Portofolio 4 (Pilar 4: Justifikasi Bisnis):} Business Case 1 Halaman + Action Plan 30 Hari + KPI Tracker. Dinilai berdasarkan kejelasan kalkulasi ROI, realisme asumsi, kesesuaian KPI dengan Balanced Scorecard, dan kelengkapan Action Plan.
+\end{outputbox}
+
+
+% ============================================================
+\chapter{Manajemen Perubahan: Implementasi \& Mitigasi Resistensi}
+% ============================================================
+
+Implementasi alur kerja terintegrasi dan SOP Digital tidak akan berhasil tanpa dukungan orang-orang yang menjalankannya. Bab ini membahas kerangka manajemen perubahan yang paling relevan untuk konteks PLN: ADKAR untuk level individu dan Kotter untuk level organisasi.
+
+\begin{warnbox}[Peringatan untuk Manajemen Atas]
+Kesalahan paling fatal dalam transformasi digital kearsipan bukan memilih teknologi yang salah, melainkan \textbf{mengabaikan dimensi manusia}. Sebagian besar pilot project yang gagal di lingkungan BUMN bukan karena sistemnya tidak berfungsi, tetapi karena personel tidak disiapkan secara memadai untuk mengadopsinya. Alokasikan minimal \textbf{30\%} dari anggaran dan waktu implementasi untuk aktivitas manajemen perubahan.
+\end{warnbox}
+
+\needspace{4\baselineskip}
+
+\section{Kerangka ADKAR (Hiatt, 2006)}
+Lima tahapan perubahan pada level individu:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Awareness:} Bangun kesadaran bahwa prosedur manual saat ini punya ``biaya tersembunyi'' yang menggerus efisiensi.
+    \item \textbf{Desire:} Tumbuhkan kemauan dengan menunjukkan \textit{Quick Win} dalam 30 hari pertama.
+    \item \textbf{Knowledge:} Berikan pelatihan teknis yang fokus pada manfaat, bukan tombol.
+    \item \textbf{Ability:} Pastikan mampu mengoperasikan melalui pendampingan personal.
+    \item \textbf{Reinforcement:} Jaga agar perubahan bertahan melalui SKI, audit, dan insentif.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{assets/ADKAR_Model.png}
+\caption{Model ADKAR: Lima Tahapan Perubahan pada Level Individu (Sumber: Hiatt, 2006)}
+\end{figure}
+
+\needspace{4\baselineskip}
+
+\section{Kotter: 3 Langkah Kepemimpinan yang Paling Relevan}
+Dari 8 langkah Kotter (1996), tiga yang paling krusial untuk konteks PLN:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Membentuk Koalisi:} Bentuk \textit{Duta Kearsipan} di setiap unit --- supervisor muda yang menjadi pelaksana praktik terbaik.
+    \item \textbf{Capaian Jangka Pendek (Quick Win):} Pilot 30 hari pertama harus menunjukkan hasil konkret (misal: ``waktu siklus berkurang 90\% di GI X'').
+    \item \textbf{Penguatan Budaya:} Pelembagaan melalui SKI, audit berkala, dan transparansi dashboard.
+\end{itemize}
+
+\textit{Pesan kunci:} Kalau pimpinan masih minta staf mencetak draf agar bisa dibaca di kertas, maka pimpinan sedang mengirim sinyal bahwa ia sendiri tidak percaya pada sistem digital. \textbf{Pimpinan harus jadi pengguna pertama.}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{assets/Kotters_8_Step.png}
+\caption{Model Kotter 8 Step: Kerangka Kepemimpinan Transformasi (Sumber: Kotter, 1996)}
+\end{figure}
+
+\needspace{4\baselineskip}
+
+\section{Matriks Strategi Mitigasi Resistensi}
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} l X X @{}}
+\caption{Matriks Mitigasi Resistensi: Pola Perilaku \& Taktik Manajerial}\\
+\toprule
+\textbf{Jenis Resistensi} & \textbf{Pola Perilaku} & \textbf{Taktik Manajerial} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Jenis Resistensi} & \textbf{Pola Perilaku} & \textbf{Taktik Manajerial} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+Kebiasaan & ``Cara lama sudah berjalan baik, kenapa harus berubah?'' & Tunjukkan \textit{Quick Win} hasil pilot $<$30 hari. \\
+Kompetensi & ``Saya tidak mengerti teknologi ini.'' & Pendampingan personal dan \textit{peer-learning}. \\
+\rowcolor{rowalt}
+Kewenangan & ``Ini mengubah siapa yang memutuskan apa.'' & Berikan peran sebagai \textit{Duta Kearsipan} --- akui pengalaman mereka. \\
+Kepercayaan & ``Tanda tangan basah lebih sah secara hukum.'' & Sosialisasi PP 71/2019 \& demonstrasi audit trail digital yang justru lebih melindungi. \\
+\rowcolor{rowalt}
+Data Efisiensi & ``Angka-angka itu hanya teori.'' & Tampilkan data efisiensi hasil pilot di rapat manajemen rutin secara transparan. \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+\needspace{4\baselineskip}
+
+\section{Matriks Mendelow: Power vs Interest}
+Gunakan matriks ini untuk memprioritaskan strategi komunikasi:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Kuadran Kanan Atas} (Power Tinggi, Interest Tinggi): GM, VP, Manajer Area. \textit{Kelola secara intensif} --- mereka menentukan nasib proyek.
+    \item \textbf{Kuadran Kiri Atas} (Power Tinggi, Interest Rendah): Penyelia Senior, Auditor. \textit{Jaga kepuasan} --- kalau tidak puas, mereka bisa jadi penghambat.
+    \item \textbf{Kuadran Kanan Bawah} (Power Rendah, Interest Tinggi): Tim IT, Unit Kearsipan. \textit{Mitra kerja teknis} --- libatkan dalam desain detail.
+    \item \textbf{Kuadran Kiri Bawah} (Power Rendah, Interest Rendah): Staf operasional umum. \textit{Pantau minimal} --- beri informasi rutin.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{assets/Power-Interest_Grid.png}
+\caption{Matriks Mendelow (Power/Interest Grid): Panduan Prioritisasi Stakeholder}
+\end{figure}
+
+\needspace{4\baselineskip}
+
+\section{Taktik 30 Hari Pertama yang Terbukti Efektif}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Minggu 1--2: Parallel Run.} Jalankan proses lama dan baru secara bersamaan. Jangan langsung matikan cara lama. Biarkan staf melihat sendiri bahwa cara digital lebih cepat.
+    \item \textbf{Minggu 3: Cut-Off.} Hentikan proses lama secara resmi setelah staf merasa percaya diri. Sediakan \textit{helpdesk} internal untuk pertanyaan cepat.
+    \item \textbf{Minggu 4: Rayakan Quick Win.} Publikasikan data ``arsip diproses dalam 4 jam vs sebelumnya 5 hari'' di forum internal/grup koordinasi unit.
+\end{enumerate}
+\textbf{Kunci sukses:} Jangan pernah mempermalukan personel yang lambat beradaptasi. Gunakan pendekatan \textit{``kita belajar bersama''}.
+
+\needspace{4\baselineskip}
+
+\section{7 Kesalahan Umum yang Harus Dihindari}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{``Cepat = Berkualitas''} --- Tanpa metadata otomatis, hash integrity, dan audit trail, dokumen cepat hanyalah ``file tanpa konteks'' yang cacat hukum.
+    \item \textbf{``SOP Digital = User Guide Aplikasi''} --- SOP Digital adalah \textbf{protokol korporat}, bukan buku panduan klik tombol.
+    \item \textbf{Parallel Routing tanpa Immutability Lock} --- Tanpa penguncian \textit{read-only}, revisi berbarengan akan memicu \textit{version conflict}.
+    \item \textbf{``Integrasi = Koneksi API Antar-Server''} --- Integrasi kearsipan menuntut perpindahan utuh \textbf{Content + Structure + Context}.
+    \item \textbf{``100\% Paperless atau Tidak Sama Sekali''} --- PLN masih dalam masa transisi \textbf{Arsip Hibrida}. Jika regulasi mensyaratkan fisik, yang diotomasi adalah \textit{metadata tracking} dan sinkronisasi depo arsip fisik dengan \textit{Finding Aid} digital.
+    \item \textbf{Mendelegasikan Validasi BPMN Mutlak ke IT/Vendor} --- BPMN adalah ``cetak biru hukum''. Tanpa validasi bisnis, sistem bisa berujung pada pelanggaran wewenang persetujuan.
+    \item \textbf{``Metadata Hanya Nomor Dokumen dan Tanggal''} --- Tanpa pemetaan klasifikasi, retensi, dan hak akses (RBAC), SOP tersebut hanyalah ``SOP operasional IT'' biasa.
+\end{enumerate}
+
+\begin{plnbox}[Ringkasan untuk Manajemen Atas -- Bab 5]
+Manajemen perubahan adalah fondasi keberhasilan implementasi: tanpa dukungan personel, teknologi terbaik pun akan gagal. Tiga pesan kunci: (1) alokasikan minimal 30\% anggaran untuk manajemen perubahan; (2) pimpinan harus menjadi pengguna pertama sistem digital; dan (3) jangan pernah mempermalukan staf yang lambat beradaptasi -- gunakan pendekatan ``kita belajar bersama''.
+\end{plnbox}
+
+
+% ============================================================
+\chapter{Validasi, Rubrik Penilaian \& Komitmen Tindak Lanjut}
+% ============================================================
+
+Bab ini menyajikan kerangka validasi akhir, rubrik penilaian portofolio, dan langkah konkret yang harus diambil Manajemen Atas setelah pelatihan selesai.
+
+\needspace{4\baselineskip}
+
+\section{Executive Tollgate Final (4 Gerbang Keputusan)}
+Sebelum menyetujui implementasi (\textit{go-live}), pastikan keempat gerbang berikut berstatus \textbf{hijau}:
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} l X @{}}
+\caption{Executive Tollgate Final: Empat Gerbang Keputusan Implementasi}\\
+\toprule
+\textbf{Gerbang} & \textbf{Pertanyaan Kunci} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Gerbang} & \textbf{Pertanyaan Kunci} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+\textbf{1. Legal Compliance} & Apakah alur baru selaras dengan ISO 15489, tata naskah dinas, \& PP 71/2019? \\
+\textbf{2. Data Integrity} & Apakah audit trail, TTE, \& Hash SHA-256 sudah menjamin keaslian? \\
+\rowcolor{rowalt}
+\textbf{3. Operational Value} & Apakah efisiensi waktu \& biaya sudah tervalidasi melalui kalkulasi ROI? \\
+\textbf{4. Scalability} & Apakah infrastruktur IT siap untuk volume data jangka panjang? \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+\textit{Kalau ada gerbang yang masih merah, mundur satu langkah --- evaluasi ulang di bagian diagnosa atau desain SOP. Jangan pernah memaksakan implementasi yang belum siap.}
+
+\needspace{4\baselineskip}
+
+\section{Rubrik Penilaian \& Checklist Portofolio}
+Peserta dinyatakan lulus Modul 4.3 jika memenuhi kriteria berikut:
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} l X c @{}}
+\caption{Rubrik Penilaian \& Checklist Kelulusan Modul 4.3}\\
+\toprule
+\textbf{No} & \textbf{Komponen Penilaian} & \textbf{Status} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{No} & \textbf{Komponen Penilaian} & \textbf{Status} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+1 & Matriks Identifikasi Area Optimasi (minimal 4 area, lengkap dengan hambatan \& prioritas) & $\square$ \\
+2 & Diagram BPMN 2.0 To-Be + Peta Pemicu Integrasi & $\square$ \\
+\rowcolor{rowalt}
+3 & Draft SOP Digital Terintegrasi (8 komponen lengkap) & $\square$ \\
+4 & Business Case 1 Halaman + Action Plan 30 Hari + KPI Tracker & $\square$ \\
+\midrule
+\rowcolor{plnblue!15}
+5 & Skor Rubrik Penilaian Terintegrasi $\geq$ \textbf{70/100} & $\square$ \\
+6 & Post-Test Konseptual LMS PLN $\geq$ \textbf{65/100} & $\square$ \\
+\rowcolor{plnblue!15}
+7 & Komitmen Tindak Lanjut Implementasi (tertulis \& ditandatangani) & $\square$ \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+\textit{Target Akhir: Empat dokumen portofolio menjadi \textbf{blueprint transformasi} yang dapat langsung diusulkan sebagai pilot project di unit kerja masing-masing.}
+
+\needspace{4\baselineskip}
+
+\section{Checklist Implementasi 30 Hari}
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} l X X l @{}}
+\caption{Rencana Aksi Implementasi 30 Hari}\\
+\toprule
+\textbf{Minggu} & \textbf{Aktivitas Utama} & \textbf{Sasaran} & \textbf{PIC} \\
+\midrule
+\endfirsthead
+
+\multicolumn{4}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{Minggu} & \textbf{Aktivitas Utama} & \textbf{Sasaran} & \textbf{PIC} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+Minggu 1 & Pilot Launch & Integrasi API, pelatihan tim percontohan & $\ldots$ \\
+Minggu 2 & Parallel Run & Jalankan proses lama dan baru bersamaan; biarkan staf melihat sendiri & $\ldots$ \\
+\rowcolor{rowalt}
+Minggu 3 & Cut-Off Resmi & Hentikan proses lama; sediakan helpdesk untuk pertanyaan & $\ldots$ \\
+Minggu 4 & Standardisasi & Evaluasi KPI, publikasikan data efisiensi, persiapkan replikasi ke unit lain & $\ldots$ \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+\needspace{4\baselineskip}
+
+\section{FAQ Singkat untuk Manajemen Atas}
+
+\begin{plnbox}[Q: Apakah TTE Tersertifikasi setara dengan tanda tangan basah?]
+\textbf{A:} Ya. Sesuai \textbf{Pasal 14--16 PP 71/2019}, TTE Tersertifikasi memiliki kekuatan hukum dan akibat hukum yang \textbf{sama persis} dengan tanda tangan basah. SOP yang mengimplementasikannya memiliki \textit{legal standing} tak terbantahkan.
+\end{plnbox}
+
+\begin{plnbox}[Q: Bagaimana jika sistem down saat proses berlangsung?]
+\textbf{A:} Komponen ke-7 SOP Digital (Exception \& Fallback) mewajibkan adanya prosedur \textit{fallback}. Dokumen ditahan di \textit{Waiting Terminal} dengan \textit{alert} ke IT. Tidak ada dokumen disahkan melalui ``proses luring tanpa pencatatan.''
+\end{plnbox}
+
+\begin{plnbox}[Q: Apakah ini berarti 100\% paperless?]
+\textbf{A:} Tidak selalu. PLN masih dalam masa transisi \textbf{Arsip Hibrida}. Jika regulasi mensyaratkan fisik, yang diotomasi adalah \textit{metadata tracking} dan sinkronisasi depo arsip fisik dengan \textit{Finding Aid} digital.
+\end{plnbox}
+
+\begin{plnbox}[Q: Mengapa Manajemen Atas harus ikut mempelajari BPMN?]
+\textbf{A:} MA tidak perlu menggambar dari nol, tetapi \textbf{wajib bisa membaca, memvalidasi, dan mengesahkan} diagram. BPMN adalah ``cetak biru hukum'' proses. Tanpa validasi MA, sistem buatan IT bisa berujung pada pelanggaran wewenang persetujuan atau kebocoran akses.
+\end{plnbox}
+
+\needspace{4\baselineskip}
+
+\section{Empat Langkah Setelah Hari Ini}
+\begin{enumerate}[leftmargin=*]
+    \item Identifikasi \textbf{1 proses prioritas} di unit Anda dalam 7 hari.
+    \item Bentuk \textbf{koalisi mini} (IT + Unit Kearsipan + Manajer Area).
+    \item Jalankan \textbf{Parallel Run} selama 2 minggu pada proses terpilih.
+    \item Laporkan \textbf{Quick Win pertama} ke atasan dengan data ROI awal.
+\end{enumerate}
+
+\begin{plnbox}[Komitmen Saya]
+\vspace{0.3cm}
+Saya berjanji akan menginisiasi optimalisasi pada proses \dotfill dengan target penurunan waktu siklus sebesar \dotfill \% pada tanggal \dotfill.
+
+\vspace{1.2cm}
+\begin{flushright}
+\begin{minipage}{0.5\textwidth}
+\centering
+\dotfill\\
+Nama \& Jabatan
+\end{minipage}
+\end{flushright}
+\end{plnbox}
+
+
+% ============================================================
+\chapter*{Glosarium}
+\addcontentsline{toc}{chapter}{Glosarium}
+% ============================================================
+
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} >{\bfseries}l X @{}}
+\toprule
+\textbf{Istilah} & \textbf{Definisi} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l}{\small\textit{Lanjutan Tabel}}\\
+\toprule
+\textbf{Istilah} & \textbf{Definisi} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+ADKAR & Model perubahan individu (Awareness, Desire, Knowledge, Ability, Reinforcement). \\
+ANRI & Arsip Nasional Republik Indonesia. \\
+BAST & Berita Acara Serah Terima. \\
+BPMN & Business Process Model and Notation --- ``cetak biru hukum'' proses. \\
+Business Case & Dokumen ringkas analisis biaya-manfaat untuk usulan optimalisasi. \\
+DRP & Disaster Recovery Plan --- rencana pemulihan bencana arsip vital. \\
+Exception Handling & Prosedur alternatif saat sistem gagal/fallback. \\
+FTA & First-Time Accuracy (Ketepatan Awal). \\
+GCG & Good Corporate Governance. \\
+Human-System Orchestration & Orkestrasi intervensi manusia dan otomasi sistem dalam satu alur. \\
+Immutable & Bersifat tidak dapat diubah/dihapus --- jaminan keutuhan bukti. \\
+JRA & Jadwal Retensi Arsip. \\
+Metadata Auto-Capture & Pengambilan field metadata wajib secara terprogram tanpa input manual. \\
+PARBICA & Pacific Regional Branch of the ICA. \\
+PSTE & Penyelenggaraan Sistem \& Transaksi Elektronik. \\
+RBAC & Role-Based Access Control. \\
+Content--Structure--Context & Tiga komponen integrasi kearsipan; file tanpa konteks metadata adalah bukti yang cacat hukum. \\
+ROT & Redundant, Obsolete, Trivial (sampah digital). \\
+Shadow Systems & Proses manual yang diam-diam tetap dijalankan di samping sistem digital; musuh tersembunyi transformasi. \\
+System Custodian & Pengakuan sistem komputasi sebagai entitas pengawasan dalam tanggung jawab alur kerja SOP Digital. \\
+RPO & Recovery Point Objective --- batas maksimum kehilangan data yang ditoleransi. \\
+RTO & Recovery Time Objective --- target waktu pemulihan akses arsip pasca-gangguan. \\
+SHA-256 & Algoritma hash untuk verifikasi integritas dokumen. \\
+SLA & Service Level Agreement. \\
+Time-Cost-Risk & Pendekatan kuantifikasi tiga dimensi efektivitas transformasi. \\
+TTE & Tanda Tangan Elektronik Tersertifikasi. \\
+VSM & Value Stream Mapping. \\
+Zero Trust & Prinsip keamanan tanpa pengguna/sistem default terpercaya; verifikasi eksplisit. \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
+% ============================================================
+\chapter*{Daftar Pustaka}
+\addcontentsline{toc}{chapter}{Daftar Pustaka}
+% ============================================================
+
+\begin{thebibliography}{99}
+\small
+
+% Regulasi Indonesia
+\bibitem{uu43} Republik Indonesia. (2009). \textit{Undang-Undang Nomor 43 Tahun 2009 tentang Kearsipan}. Lembaran Negara RI Tahun 2009 No.~152.
+
+\bibitem{pp71} Republik Indonesia. (2019). \textit{Peraturan Pemerintah Nomor 71 Tahun 2019 tentang Penyelenggaraan Sistem dan Transaksi Elektronik}. Lembaran Negara RI Tahun 2019 No.~194.
+
+\bibitem{perka6} Arsip Nasional Republik Indonesia (ANRI). (2021). \textit{Peraturan Kepala ANRI Nomor 6 Tahun 2021 tentang Pedoman Pengelolaan Arsip Elektronik}. Jakarta: ANRI.
+
+\bibitem{uu11} Republik Indonesia. (2008). \textit{Undang-Undang Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik (UU ITE)}. Lembaran Negara RI Tahun 2008 No.~58.
+
+% Standar Internasional
+\bibitem{iso15489} International Organization for Standardization (ISO). (2016). \textit{ISO 15489-1:2016 Information and documentation --- Records management --- Part 1: Concepts and principles}. Geneva: ISO.
+
+\bibitem{iso27001} International Organization for Standardization (ISO). (2022). \textit{ISO/IEC 27001:2022 Information security, cybersecurity and privacy protection --- Information security management systems --- Requirements}. Geneva: ISO.
+
+\bibitem{iso19510} International Organization for Standardization (ISO). (2013). \textit{ISO/IEC 19510:2013 Information technology --- OMG Object Management Group BPMN Specification}. Geneva: ISO.
+
+\bibitem{nist80053} National Institute of Standards and Technology (NIST). (2020). \textit{SP 800-53 Rev.~5: Security and Privacy Controls for Information Systems and Organizations}. Gaithersburg, MD: NIST.
+
+% Toolkit & Panduan Internasional
+\bibitem{parbica} Pacific Regional Branch of the International Council on Archives (PARBICA). (2014). \textit{Recordkeeping for Good Governance Toolkit} (Open Access). PARBICA.
+
+\bibitem{worldbank} The World Bank. (2011). \textit{Records Management Roadmap for the World Bank Group Archives: Part 4 (Workflow Analysis) \& Part 6 (Integration Strategy)}. Washington, DC: The World Bank.
+
+% Literatur Akademis
+\bibitem{upward1996} Upward, F. (1996). Structuring the Records Continuum --- Part One: Postcustodial Principles and Properties. \textit{Archives and Manuscripts}, 24(2), 268--285.
+
+\bibitem{hiatt2006} Hiatt, J. M. (2006). \textit{ADKAR: A Model for Change in Business, Government and Our Community}. Loveland, CO: Prosci Learning Center Publications.
+
+\bibitem{kotter1996} Kotter, J. P. (1996). \textit{Leading Change}. Boston, MA: Harvard Business School Press.
+
+\bibitem{kaplan1992} Kaplan, R. S., \& Norton, D. P. (1992). The Balanced Scorecard: Measures that Drive Performance. \textit{Harvard Business Review}, 70(1), 71--79.
+
+% Dokumen Internal
+\bibitem{soppln} PT PLN (Persero). (2024). \textit{SOP Induk Tata Kelola Informasi PT PLN (Persero) --- Bab VII: Pengelolaan Arsip Digital}. Jakarta: Sekretaris Perusahaan PT PLN (Persero).
+
+\end{thebibliography}
+
+\vfill
+\begin{center}
+\small\textit{Handout ini merupakan ringkasan eksekutif dari Modul 4.3 Level 4 (Mastery) PLN.\\
+Diselaraskan dengan Narasi Narasumber, Slide Presentasi, Glosarium, \& Lembar Kerja.\\
+Gunakan sebagai rujukan cepat saat workshop dan implementasi lapangan.}
+\end{center}
+
+\end{document}
