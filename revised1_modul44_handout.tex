@@ -225,7 +225,6 @@ Keempat target kompetensi di atas bersifat kumulatif dan terintegrasi: keberhasi
 
 \noindent Ketiga modul tersebut menjadi prasyarat karena Modul 4.4 tidak membahas desain arsitektur teknis (ranah 4.2) atau optimalisasi alur kerja bisnis (ranah 4.3) secara langsung, melainkan berfokus pada lapisan tata kelola keamanan yang memastikan arsip digital PLN terlindungi, terlacak, dan tersedia.
 
-
 \section{Arsitektur Keamanan Terintegrasi}
 Keempat target kompetensi dalam modul ini tidak berdiri sendiri, melainkan membentuk satu sistem tata kelola keamanan arsip yang saling terkait. Pemahaman terhadap hubungan antar-TK menjadi kunci bagi Manajemen Atas untuk mengarahkan tim secara koheren dan menghindari solusi parsial yang tidak saling mendukung.
 
@@ -292,7 +291,7 @@ Dalam perspektif keterlacakan (traceability), RBAC memainkan peran fundamental: 
 %% (Jika SVG bermasalah, konversi ke PNG dengan Inkscape)
 %% ============================================================
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \resizebox{0.7\textwidth}{!}{%
 \begin{tikzpicture}[
@@ -477,7 +476,7 @@ Dua konsep teknis kunci yang menjadi fondasi mekanisme audit trail perlu dipaham
 %% Desain mandiri untuk konteks PLN
 %% ============================================================
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{audit_v3.png}
 \caption{Diagram Alur Audit Trail Sistem Arsip Digital PLN -- Dari Akses Pengguna hingga Penyimpanan Log Immutable\\
@@ -600,7 +599,7 @@ Pertanyaan kunci untuk Manajemen Atas: ``Jika hari ini terjadi kebocoran arsip v
 %% Desain mandiri dengan label Bahasa Indonesia
 %% ============================================================
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \resizebox{0.70\textwidth}{!}{%
 \begin{tikzpicture}[
@@ -688,7 +687,7 @@ Dua kerangka standar internasional menjadi rujukan utama dalam bab ini. Pertama,
 %% Simpan sebagai: gambar/PDCA_Cycle.svg
 %% ============================================================
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \resizebox{0.50\textwidth}{!}{%
 \begin{tikzpicture}[
@@ -735,7 +734,7 @@ Arsip digital dikategorikan sebagai Aset Informasi Kritis. Dalam kerangka ISO/IE
 
 Implementasi ISO/IEC 27001:2022 di organisasi sebesar PLN tidak berarti menjalankan seluruh 93 kontrol secara bersamaan dengan prioritas yang sama. Sebagian kontrol memiliki dampak langsung terhadap keamanan arsip digital — misalnya: manajemen aset, kontrol akses, kriptografi, dan kelangsungan bisnis — sementara kontrol lain bersifat pendukung (kesadaran keamanan, keamanan fisik, pengembangan sistem). Tanpa pemetaan prioritas, Manajemen Atas berisiko mengalokasikan sumber daya pada kontrol dengan dampak rendah bagi kearsipan sementara kontrol kritis terabaikan. Gambar \ref{fig:iso27001-controls} berfungsi sebagai \textbf{peta jalan prioritisasi}: ia menampilkan seluruh lanskap 93 kontrol dalam 4 kelompok besar sekaligus menyorot (dengan tanda {\color{orange!80!black}$\star$}) sub-kategori yang memiliki relevansi tinggi terhadap keamanan arsip digital PLN. Dengan peta ini, Manajemen Atas dapat mengambil keputusan strategis berbasis bukti: fokus investasi pada kontrol bertanda bintang terlebih dahulu, baru melengkapi kontrol pendukung sesuai ketersediaan anggaran.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.75\textwidth]{iso_preview.png}
 \caption{Peta Area Kontrol ISO/IEC 27001:2022 -- 93 Kontrol dalam 4 Kelompok dengan Indikator Relevansi Kearsipan\\
@@ -754,7 +753,7 @@ Sebelum membahas detail kontrol ISO 27001:2022 pada Gambar \ref{fig:iso27001-con
 %% Desain mandiri dengan 5 lapisan sesuai narasi
 %% ============================================================
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.60\textwidth]{defense_in_depth.png}
 \caption{\textit{Defense in Depth} -- 5 Lapisan Keamanan Berlapis untuk Melindungi Arsip Digital PLN\\
@@ -778,23 +777,21 @@ Sebelum membahas detail kontrol ISO 27001:2022 pada Gambar \ref{fig:iso27001-con
     \item \textit{Zero Trust:} Tidak ada akses default. Setiap permintaan diverifikasi secara eksplisit berdasarkan konteks (role, device, lokasi, waktu).
 \end{enumerate}
 
-\begin{figure}[p]
+\begin{figure}[H]
 \centering
-\vfill
 \includegraphics[width=0.85\textwidth,height=0.35\textheight,keepaspectratio]{gambar/NIST_Zero_Trust_Architecture.png}
 \caption{Arsitektur \textit{Zero Trust} Referensi NIST\\
 \small Sumber: NIST SP 1800-35, Figure 1 (Public Domain). Untuk adaptasi konteks PLN, lihat Gambar~\ref{fig:zero-trust-pln}.}
 \label{fig:zero-trust}
 
-\vfill
+\vspace{1em}
 \rule{0.6\textwidth}{0.4pt}
-\vfill
+\vspace{1em}
 
 \includegraphics[width=0.98\textwidth,height=0.52\textheight,keepaspectratio]{nist.png}
 \caption{Model \textit{Zero Trust} untuk Keamanan Arsip Digital PLN -- Arsitektur Lengkap dengan \textit{Control Plane} dan \textit{Data Plane}\\
 \small Sumber: NIST SP 800-207 \textit{Zero Trust Architecture}, diadaptasi untuk konteks PLN.}
 \label{fig:zero-trust-pln}
-\vfill
 \end{figure}
 
 \small Gambar \ref{fig:zero-trust-pln} mengadaptasi arsitektur \textit{Zero Trust} NIST (Gambar 3.4) ke dalam konteks spesifik keamanan arsip digital PLN dengan arsitektur lengkap yang terdiri dari \textit{Control Plane} (keputusan kebijakan) dan \textit{Data Plane} (transmisi data). Pada \textit{Control Plane}, Policy Engine (PE) dan Policy Administrator (PA) bekerja sama untuk mengevaluasi dan mengelola kebijakan akses. PE menerima data verifikasi dari PEP dan melakukan query ke empat Policy Information Points (PIPs): (1) PIP: ICAM untuk data identitas dan akses (SSO, MFA, RBAC), (2) PIP: Endpoint untuk keamanan perangkat (Device Trust, MDM), (3) PIP: Analytics untuk deteksi ancaman real-time, dan (4) PIP: Data Security untuk klasifikasi dan integritas data arsip.
@@ -909,7 +906,7 @@ Mengapa bab ini berurutan setelah Kebijakan Keamanan? Kebijakan keamanan (Pilar 
 %% Referensi akademis: US-CERT/CISA Data Backup Options
 %% ============================================================
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{321_rule.png}
 \caption{Strategi Backup 3-2-1 untuk Arsip Digital PLN -- 3 Salinan, 2 Media, 1 Offsite\\
@@ -934,7 +931,7 @@ Bagian ini membahas konsep RTO dan RPO secara visual melalui diagram timeline (G
 %% File: gambar/RTO_RPO_Timeline.png (dari SVG: RTO_RPO_Timeline.svg)
 %% ============================================================
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tikzpicture}
@@ -1041,7 +1038,7 @@ Secara internasional, kerangka BCP yang paling banyak diadopsi adalah ISO 22301:
 %% ============================================================
 %% GAMBAR 4.3 — BCP Lifecycle (Custom Image)
 %% ============================================================
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.65\textwidth,height=0.35\textheight,keepaspectratio]{gambar/BCP_Lifecycle_Custom.png}
 \caption{Siklus Hidup \textit{Business Continuity Plan} (BCP) -- Lima Fase Iteratif ISO 22301:2019\\
