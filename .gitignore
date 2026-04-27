@@ -1,24 +1,9 @@
-# LaTeX build files
-*.aux
-*.bbl
-*.blg
-*.log
-*.out
-*.toc
-*.nav
-*.snm
-*.vrb
-*.fls
-*.fdb_latexmk
-*.synctex.gz
-*.bcf
-*.run.xml
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Temporary preview files
+page*_preview.png
+page*_footer_zoom.png
+page*_full.png
+*.png:Zone.Identifier
+*.svg:Zone.Identifier
+*.tex:Zone.Identifier
+*.py:Zone.Identifier
+*.md:Zone.Identifier
