@@ -1,9 +1,76 @@
-# Temporary preview files
+# ============================================
+# Gitignore untuk Proyek LaTeX - PLN Modul
+# ============================================
+
+# --------------------------------------------
+# File Build LaTeX (artefak kompilasi)
+# --------------------------------------------
+*.aux
+*.log
+*.out
+*.toc
+*.nav
+*.snm
+*.vrb
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.bbl
+*.blg
+*.idx
+*.ind
+*.ilg
+*.glo
+*.gls
+*.lot
+*.lof
+*.lol
+*.run.xml
+*.bcf
+*.xdv
+
+# --------------------------------------------
+# File PDF Output (hasil build)
+# --------------------------------------------
+*.pdf
+
+# --------------------------------------------
+# File Zone.Identifier (dari Windows/WSL)
+# --------------------------------------------
+*:Zone.Identifier
+
+# --------------------------------------------
+# File Sementara & Preview
+# --------------------------------------------
 page*_preview.png
 page*_footer_zoom.png
 page*_full.png
-*.png:Zone.Identifier
-*.svg:Zone.Identifier
-*.tex:Zone.Identifier
-*.py:Zone.Identifier
-*.md:Zone.Identifier
+*_preview.png
+*_preview-*.png
+
+# --------------------------------------------
+# File Python Cache
+# --------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# --------------------------------------------
+# Editor & OS
+# --------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# --------------------------------------------
+# File Output Konversi
+# --------------------------------------------
+*_pandoc.pptx
+*_visual.pptx
