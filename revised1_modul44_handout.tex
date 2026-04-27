@@ -423,13 +423,11 @@ Skema akses ditentukan oleh perpotongan peran organisasi dan tingkat sensitivita
 \caption{Matriks RBAC untuk Arsip Digital PLN -- Role per Fungsi Organisasi}
 \label{tab:matriks-rbac}\\
 \renewcommand{\arraystretch}{1.4}
-\rowcolor{rowhead}
 \textcolor{white}{\textbf{Peran (Role) di PLN}} & \textcolor{white}{\textbf{Publik/ Internal}} & \textcolor{white}{\textbf{Terbatas}} & \textcolor{white}{\textbf{Rahasia}} & \textcolor{white}{\textbf{Vital}} \\
 \midrule
 \endfirsthead
 
 \multicolumn{5}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
-\rowcolor{rowhead}
 \textcolor{white}{\textbf{Peran (Role) di PLN}} & \textcolor{white}{\textbf{Publik/ Internal}} & \textcolor{white}{\textbf{Terbatas}} & \textcolor{white}{\textbf{Rahasia}} & \textcolor{white}{\textbf{Vital}} \\
 \midrule
 \endhead
@@ -439,39 +437,26 @@ Skema akses ditentukan oleh perpotongan peran organisasi dan tingkat sensitivita
 
 \multicolumn{5}{@{}l}{\cellcolor{plnblue!15}Operasional -- Unit Kearsipan \& Tata Usaha} \\
 \cmidrule(l){1-5}
-\rowcolor{rowalt}
 Staf Kearsipan/ Arsiparis & C, R & R & R$^{\dagger}$ & -- \\
-\rowcolor{white}
 Staf Administrasi/ TU & C, R & R & -- & -- \\
-\rowcolor{rowalt}
 Kabag TU/ Kasubag Kearsipan & C, R, U & C, R, U & R, E & R \\
-\rowcolor{white}
 Kasi TLSK$^{\ddagger}$ & C, R & R, E & R$^{\dagger}$ & -- \\
 \multicolumn{5}{@{}l}{\cellcolor{plnblue!15}Fungsional -- HR, Hukum, IT} \\
 \cmidrule(l){1-5}
-\rowcolor{rowalt}
 Staf HR/ Administrasi HR & C, R & R & R$^{\dagger}$ & -- \\
-\rowcolor{white}
 Staf Hukum/ Legal & C, R & C, R, U & R, E & R \\
-\rowcolor{rowalt}
 Staf IT/ Developer, DBA & -- & R & R & R$^{\dagger}$ \\
 \multicolumn{5}{@{}l}{\cellcolor{plnblue!15}Manajemen -- Pusat \& Unit Induk} \\
 \cmidrule(l){1-5}
-\rowcolor{white}
 GM / SRM Unit Induk & R & R, U & R, U, A & R, U, A \\
-\rowcolor{rowalt}
 EVP/ SVP/ VP Pusat & R & R, U & R, U, A & R, U, A \\
 \multicolumn{5}{@{}l}{\cellcolor{plnblue!15}Pengawasan -- SPI, GCG, Cyber Security} \\
 \cmidrule(l){1-5}
-\rowcolor{white}
 Auditor SPI/ Staf Auditor & R & R, E & R, E & R, E \\
-\rowcolor{rowalt}
 VP Cyber Security/ IT Sec & R & R, E & R, E & R, E \\
-\rowcolor{white}
 VP Compliance/ GCG & R & R, E & R, E & R, E \\
 \multicolumn{5}{@{}l}{\cellcolor{plnblue!15}Sistem -- Otomasi \& Integrasi} \\
 \cmidrule(l){1-5}
-\rowcolor{rowalt}
 Service Account (Sistem) & Auto-capture & Auto-classify & -- & -- \\
 \end{xltabular}
 \endgroup
@@ -1127,13 +1112,11 @@ Mengapa Manajemen Atas perlu memahami RTO dan RPO? Kedua metrik ini bukan sekada
 \caption{Target Pemulihan (RTO/RPO) Berdasarkan Klasifikasi Arsip}
 \label{tab:rto-rpo}\\
 \renewcommand{\arraystretch}{1.5}
-\rowcolor{rowhead}
 \textcolor{white}{\textbf{Klasifikasi}} & \textcolor{white}{\textbf{RTO}} & \textcolor{white}{\textbf{RPO}} & \textcolor{white}{\textbf{Strategi Prioritas}} \\
 \midrule
 \endfirsthead
 
 \multicolumn{4}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
-\rowcolor{rowhead}
 \textcolor{white}{\textbf{Klasifikasi}} & \textcolor{white}{\textbf{RTO}} & \textcolor{white}{\textbf{RPO}} & \textcolor{white}{\textbf{Strategi Prioritas}} \\
 \midrule
 \endhead
@@ -1141,11 +1124,8 @@ Mengapa Manajemen Atas perlu memahami RTO dan RPO? Kedua metrik ini bukan sekada
 \bottomrule
 \endfoot
 
-\rowcolor{rowalt}
 Vital & $< 4$ jam & $< 1$ jam & \textit{Mirror site} aktif, \textit{failover} otomatis, replikasi waktu nyata \\
-\rowcolor{white}
 Rahasia & $< 12$ jam & $< 4$ jam & Backup harian terenkripsi, \textit{restore} manual teruji \\
-\rowcolor{rowalt}
 Internal/ Publik & $< 24$ jam & $< 12$ jam & Backup mingguan, arsip dingin (cold storage) \\
 \end{xltabular}
 \endgroup
@@ -1194,13 +1174,11 @@ BIA adalah tahap paling kritis dalam perancangan BCP/DR -- dan merupakan kegiata
 \caption{Template BIA Ringkas untuk Arsip Digital PLN}
 \label{tab:bia}\\
 \renewcommand{\arraystretch}{1.6}
-\rowcolor{rowhead}
 \textcolor{white}{\textbf{Kategori}} & \textcolor{white}{\textbf{Contoh Arsip di PLN}} & \textcolor{white}{\textbf{Dampak Operasional}} & \textcolor{white}{\textbf{Dampak Regulasi}} \\
 \midrule
 \endfirsthead
 
 \multicolumn{4}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
-\rowcolor{rowhead}
 \textcolor{white}{\textbf{Kategori}} & \textcolor{white}{\textbf{Contoh Arsip di PLN}} & \textcolor{white}{\textbf{Dampak Operasional}} & \textcolor{white}{\textbf{Dampak Regulasi}} \\
 \midrule
 \endhead
@@ -1208,13 +1186,9 @@ BIA adalah tahap paling kritis dalam perancangan BCP/DR -- dan merupakan kegiata
 \bottomrule
 \endfoot
 
-\rowcolor{rowalt}
 Vital & Kontrak pembangkit, laporan keuangan teraudit, dokumen RUPS & Gangguan operasional nasional; potensi kerugian triliunan rupiah & Pelanggaran UU Perseroan; sanksi OJK; ancaman pidana \\
-\rowcolor{white}
 Rahasia & Data pelanggan, dokumen tender, laporan audit & Gangguan layanan regional; potensi kebocoran data pelanggan & Pelanggaran UU PDP; ancaman pidana; denda administratif \\
-\rowcolor{rowalt}
 Terbatas & SOP internal, laporan kinerja unit, surat keputusan & Gangguan operasional unit; penurunan efisiensi & Potensi temuan audit internal \\
-\rowcolor{white}
 Publik & Info publik, laporan tahunan, profil perusahaan & Minimal -- tidak mengganggu operasional & Tidak ada \\
 \end{xltabular}
 \endgroup
@@ -1324,13 +1298,11 @@ Bab ini merupakan titik validasi akhir yang menghubungkan seluruh rancangan yang
 \begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1cm} >{\raggedright\arraybackslash}p{3.5cm} X X >{\centering\arraybackslash}p{1cm} @{}}
 \caption{Pemetaan Target Kompetensi $\rightarrow$ Kriteria Penilaian $\rightarrow$ Portofolio}\\
 \renewcommand{\arraystretch}{1.6}
-\rowcolor{rowhead}
 \textcolor{white}{\textbf{Pilar}} & \textcolor{white}{\textbf{Target Kompetensi}} & \textcolor{white}{\textbf{Portofolio Wajib}} & \textcolor{white}{\textbf{Fokus Penilaian}} & \textcolor{white}{\textbf{Bobot}} \\
 \midrule
 \endfirsthead
 
 \multicolumn{5}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
-\rowcolor{rowhead}
 \textcolor{white}{\textbf{Pilar}} & \textcolor{white}{\textbf{Target Kompetensi}} & \textcolor{white}{\textbf{Portofolio Wajib}} & \textcolor{white}{\textbf{Fokus Penilaian}} & \textcolor{white}{\textbf{Bobot}} \\
 \midrule
 \endhead
@@ -1338,13 +1310,9 @@ Bab ini merupakan titik validasi akhir yang menghubungkan seluruh rancangan yang
 \bottomrule
 \endfoot
 
-\rowcolor{rowalt}
 Pilar 1 & Merancang skema kontrol akses RBAC terintegrasi dengan sistem kepegawaian & Matriks RBAC + Prosedur Akses & Kejelasan peran, \textit{least privilege}, integrasi HR/SSO, review berkala & 25\% \\
-\rowcolor{white}
 Pilar 2 & Merancang mekanisme audit trail otomatis yang merekam setiap akses dan perubahan arsip & Alur Audit + Template 14 Field & Kelengkapan 4W, immutability, compliance PP 71/2019 dan Perka ANRI 6/2021 & 25\% \\
-\rowcolor{rowalt}
 Pilar 3 & Merumuskan kebijakan keamanan terintegrasi dengan ISMS organisasi & Rancangan Kebijakan Keamanan & Keselarasan ISO 27001, \textit{Zero Trust}, TARIF GCG & 25\% \\
-\rowcolor{white}
 Pilar 4 & Merancang sistem backup dan disaster recovery terintegrasi & Matriks RTO/RPO + Rencana DR & Kesesuaian 3-2-1, target realistis, prosedur \textit{fallback}/simulasi & 25\% \\
 \end{xltabular}
 \endgroup
@@ -1469,7 +1437,6 @@ Sebelum disahkan dan diimplementasikan, setiap rancangan kebijakan keamanan arsi
 \begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{0.8cm} >{\raggedright\arraybackslash}p{3cm} X @{}}
 \caption{Daftar Tinjauan Akhir (Checklist) Sebelum Pengesahan Rancangan}
 \label{tab:tinjauan-akhir}\\
-\renewcommand{\arraystretch}{1.3}
 \toprule
 \textbf{No} & \textbf{Aspek} & \textbf{Pertanyaan Tinjauan} \\
 \midrule
@@ -1484,13 +1451,9 @@ Sebelum disahkan dan diimplementasikan, setiap rancangan kebijakan keamanan arsi
 \bottomrule
 \endfoot
 
-\rowcolor{rowalt}
 1 & Kepatuhan Regulasi & Apakah rancangan selaras dengan PP 71/2019 dan Perka ANRI 6/2021? \\
-\rowcolor{white}
 2 & Integritas Data & Apakah keaslian dan keterlacakan dijamin melalui Hash, TTE, serta Audit Immutable? \\
-\rowcolor{rowalt}
 3 & Nilai Manfaat & Apakah mitigasi risiko terukur (\textit{downtime} berkurang, temuan audit mendekati nol)? \\
-\rowcolor{white}
 4 & Kesiapan Skalasi & Apakah infrastruktur dan prosedur siap dikembangkan untuk jangka panjang? \\
 \end{xltabular}
 \endgroup
