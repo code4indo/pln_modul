@@ -1,0 +1,7 @@
+\babel@toc {bahasa}{}\relax 
+\beamer@sectionintoc {1}{Pilar 1:\\Kontrol Akses Berbasis Peran (RBAC)}{8}{0}{1}
+\beamer@sectionintoc {2}{Pilar 2:\\Audit Trail Otomatis \& Keterlacakan}{14}{0}{2}
+\beamer@sectionintoc {3}{Pilar 3:\\Kebijakan Keamanan Terintegrasi dengan ISMS}{21}{0}{3}
+\beamer@sectionintoc {4}{Pilar 4:\\Backup \& Disaster Recovery Terintegrasi}{29}{0}{4}
+\beamer@sectionintoc {5}{Studi Kasus:\\Insiden Kebocoran Arsip Kontrak}{35}{0}{5}
+\beamer@sectionintoc {6}{Validasi, Portofolio \& Executive Tollgate}{40}{0}{6}

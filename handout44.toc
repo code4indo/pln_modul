@@ -1,0 +1,17 @@
+\babel@toc {bahasa}{}\relax 
+\contentsline {chapter}{\numberline {1}Kontrol Akses Berbasis Peran (RBAC) Terintegrasi}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Integrasi Konseptual dengan Sistem Kepegawaian}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Matriks Role $\times $ Klasifikasi Arsip PLN}{3}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Mekanisme Audit Trail Otomatis \& Keterlacakan}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Kerangka 4W \& Field Metadata Wajib}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Prinsip Immutable \& Trust-Chain}{5}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Kebijakan Keamanan Terintegrasi dengan ISMS}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Integrasi dengan ISO/IEC 27001:2022}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Tiga Prinsip Fundamental Kebijakan}{7}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Sistem Backup \& Disaster Recovery Terintegrasi}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Strategi Backup 3-2-1 untuk Arsip PLN}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Penetapan RTO \& RPO Berbasis Criticality}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Business Continuity Plan (BCP) Kearsipan}{9}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Validasi, Portofolio \& Executive Tollgate}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Ringkasan Kriteria Penilaian}{11}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Executive Tollgate Verifikasi}{11}{section.5.2}%

@@ -424,12 +424,12 @@ Skema akses ditentukan oleh perpotongan peran organisasi dan tingkat sensitivita
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.8cm} Y Y Y Y @{}}
 \caption{Matriks RBAC untuk Arsip Digital PLN -- Role per Fungsi Organisasi}
 \label{tab:matriks-rbac}\\
-\textbf{Peran (Role) di PLN}} & \textbf{Publik/ Internal}} & \textbf{Terbatas}} & \textbf{Rahasia}} & \textbf{Vital}} \\
+\textbf{Peran (Role) di PLN} & \textbf{Publik/ Internal} & \textbf{Terbatas} & \textbf{Rahasia} & \textbf{Vital} \\
 \midrule
 \endfirsthead
 
 \multicolumn{5}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
-\textbf{Peran (Role) di PLN}} & \textbf{Publik/ Internal}} & \textbf{Terbatas}} & \textbf{Rahasia}} & \textbf{Vital}} \\
+\textbf{Peran (Role) di PLN} & \textbf{Publik/ Internal} & \textbf{Terbatas} & \textbf{Rahasia} & \textbf{Vital} \\
 \midrule
 \endhead
 
@@ -742,7 +742,7 @@ Audit trail mewujudkan keterlacakan (traceability) -- yaitu kemampuan untuk mere
 (Kriteria Penilaian 4.4.3 -- Target Kompetensi 3)
 % ============================================================
 
-Mengapa bab ini berurutan setelah Audit Trail? RBAC (Pilar 1) mengontrol akses dan Audit Trail (Pilar 2) mencatat akses. Namun, kedua mekanisme tersebut memerlukan payung hukum dan kerangka tata kelola agar memiliki kekuatan mengikat di level organisasi. Tanpa kebijakan keamanan yang disahkan oleh Manajemen Atas, RBAC dan audit trail hanyalah konfigurasi teknis yang tidak memiliki dasar hukum -- dan dapat dengan mudah diabaikan atau diubah tanpa pertanggungjawaban. Kebijakan keamanan (Pilar 3) memberikan landasan legitimasi bagi seluruh kontrol keamanan, sekaligus memastikan keselarasan dengan standar internasional (ISO 27001), regulasi nasional (PP 71/2019), dan prinsip GCG BUMN (TARIF).
+Mengapa bab ini berurutan setelah Audit Trail? RBAC (Pilar 1) mengontrol akses dan Audit Trail (Pilar 2) mencatat akses. Namun, kedua mekanisme tersebut memerlukan payung hukum dan kerangka tata kelola agar memiliki kekuatan mengikat di level organisasi. Tanpa kebijakan keamanan yang disahkan oleh Manajemen Atas, RBAC dan audit trail hanyalah konfigurasi teknis yang tidak memiliki dasar hukum -- dan dapat dengan mudah diabaikan atau diubah tanpa pertanggungjawaban. Kebijakan keamanan arsip (Pilar 3) memberikan landasan legitimasi bagi seluruh kontrol keamanan, sekaligus memastikan keselarasan dengan standar internasional (ISO 27001), regulasi nasional (PP 71/2019), dan prinsip GCG BUMN (TARIF).
 
 Bab ini mendukung pencapaian Pilar 3: Kebijakan Keamanan -- peserta mampu merumuskan kebijakan keamanan yang terintegrasi dengan sistem manajemen keamanan informasi organisasi. Kebijakan keamanan arsip tidak boleh berdiri sendiri. Ia harus menjadi bagian tak terpisahkan dari Sistem Manajemen Keamanan Informasi (ISMS) organisasi dan mendukung prinsip GCG BUMN (TARIF).
 
@@ -1021,7 +1021,7 @@ Kebijakan wajib mencantumkan jadwal backup otomatis, enkripsi \textit{at-rest/in
 
 \small Strategi backup 3-2-1 pada Bagian 4.1 menjawab pertanyaan ``bagaimana'' data arsip dilindungi -- yaitu melalui replikasi ke berbagai media dan lokasi. Namun, strategi backup saja tidak cukup; Manajemen Atas juga harus menetapkan ``seberapa cepat'' sistem harus pulih dan ``seberapa banyak data yang boleh hilang'' ketika gangguan terjadi. Dua pertanyaan inilah yang dijawab oleh Recovery Time Objective (RTO) dan Recovery Point Objective (RPO).
 
-Penetapan RTO dan RPO bukanlah keputusan teknis semata, melainkan keputusan strategis yang harus diambil oleh Manajemen Atas berdasarkan dua pertimbangan utama. Pertama, pertimbangan tingkat kepentingan arsip: dokumen seperti kontrak pembangkit listrik atau laporan keuangan teraudit memiliki dampak yang jauh lebih besar jika hilang dibandingkan dengan surat edaran internal, sehingga membutuhkan target pemulihan yang lebih ketat. Kedua, pertimbangan keseimbangan biaya dan risiko: menetapkan RTO dan RPO yang terlalu agresif untuk seluruh arsip akan mengakibatkan pembengkakan biaya infrastruktur tanpa proporsi manfaat yang sepadan. Sebaliknya, target yang terlalu longgar berarti PLN harus menerima risiko downtime yang lebih lama dan potensi kehilangan data yang lebih besar -- sebuah risiko yang dapat berujung pada sanksi regulasi, kerugian finansial, atau gangguan pelayanan publik.
+Penetapan RTO dan RPO bukanlah keputusan teknis semata, melainkan keputusan strategis yang harus diambil oleh Manajemen Atas berdasarkan dua pertimbangan utama. Pertama, pertimbangan tingkat kepentingan arsip: dokumen seperti kontrak pembangkit listrik atau laporan keuangan teraudit memiliki dampak yang jauh lebih besar jika hilang dibandingkan dengan surat edaran internal, sehingga memerlukan target pemulihan yang lebih ketat. Kedua, pertimbangan keseimbangan biaya dan risiko: menetapkan RTO dan RPO yang terlalu agresif untuk seluruh arsip akan mengakibatkan pembengkakan biaya infrastruktur tanpa proporsi manfaat yang sepadan. Sebaliknya, target yang terlalu longgar berarti PLN harus menerima risiko downtime yang lebih lama dan potensi kehilangan data yang lebih besar -- sebuah risiko yang dapat berujung pada sanksi regulasi, kerugian finansial, atau gangguan pelayanan publik.
 
 Bagian ini membahas konsep RTO dan RPO secara visual melalui diagram timeline (Gambar \ref{fig:rto-rpo}), kemudian menghubungkannya dengan klasifikasi keamanan arsip PLN sebagaimana diatur dalam Perdir 0037.P/DIR/2022 untuk menghasilkan target pemulihan yang proporsional dan terukur.
 
@@ -1113,12 +1113,12 @@ Mengapa Manajemen Atas perlu memahami RTO dan RPO? Kedua metrik ini bukan sekada
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.2cm} P{2.5cm} P{2.5cm} X @{}}
 \caption{Target Pemulihan (RTO/RPO) Berdasarkan Klasifikasi Arsip}
 \label{tab:rto-rpo}\\
-\textbf{Klasifikasi}} & \textbf{RTO}} & \textbf{RPO}} & \textbf{Strategi Prioritas}} \\
+\textbf{Klasifikasi} & \textbf{RTO} & \textbf{RPO} & \textbf{Strategi Prioritas} \\
 \midrule
 \endfirsthead
 
 \multicolumn{4}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
-\textbf{Klasifikasi}} & \textbf{RTO}} & \textbf{RPO}} & \textbf{Strategi Prioritas}} \\
+\textbf{Klasifikasi} & \textbf{RTO} & \textbf{RPO} & \textbf{Strategi Prioritas} \\
 \midrule
 \endhead
 
@@ -1175,12 +1175,12 @@ BIA adalah tahap paling kritis dalam perancangan BCP/DR -- dan merupakan kegiata
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.5cm} X X X @{}}
 \caption{Template BIA Ringkas untuk Arsip Digital PLN}
 \label{tab:bia}\\
-\textbf{Kategori}} & \textbf{Contoh Arsip di PLN}} & \textbf{Dampak Operasional}} & \textbf{Dampak Regulasi}} \\
+\textbf{Kategori} & \textbf{Contoh Arsip di PLN} & \textbf{Dampak Operasional} & \textbf{Dampak Regulasi} \\
 \midrule
 \endfirsthead
 
 \multicolumn{4}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
-\textbf{Kategori}} & \textbf{Contoh Arsip di PLN}} & \textbf{Dampak Operasional}} & \textbf{Dampak Regulasi}} \\
+\textbf{Kategori} & \textbf{Contoh Arsip di PLN} & \textbf{Dampak Operasional} & \textbf{Dampak Regulasi} \\
 \midrule
 \endhead
 

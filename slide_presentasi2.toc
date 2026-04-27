@@ -1,0 +1,4 @@
+\babel@toc {bahasa}{}\relax 
+\beamer@sectionintoc {1}{Bagian I:\\Fondasi \& Diagnosa}{7}{0}{1}
+\beamer@sectionintoc {2}{Bagian II:\\Desain \& Implementasi}{19}{0}{2}
+\beamer@sectionintoc {3}{Bagian III:\\ROI \& Tindak Lanjut}{33}{0}{3}

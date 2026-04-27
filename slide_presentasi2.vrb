@@ -1,0 +1,19 @@
+\frametitle{Evolusi Paradigma SOP PLN}
+\begin{table}
+        \centering
+        \scriptsize
+        \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.5cm} X X @{}}
+            \toprule
+            \textbf{Dimensi} & \textbf{SOP Konvensional} & \textbf{SOP Digital Terintegrasi} \\
+            \midrule
+            \textbf{Fokus Ekosistem} & Interaksi fisik antar-manusia. & Orkestrasi sistem dan manusia. \\
+            \textbf{Inisiator Proses} & Inisiatif manual oleh staf. & \textbf{System-Event Trigger} otomatis. \\
+            \textbf{Validasi Naskah} & Tanda tangan basah \& stempel. & \textbf{Audit Trail} \& \textbf{TTE}. \\
+            \textbf{Mgt. Risiko} & Reaktif, bergantung daya ingat. & Preventif, \textit{immutable} \& \textit{real-time}. \\
+            \textbf{Penempatan Arsip} & Menunggu petugas pasca dinas. & \textit{Preservation by design}; otonom. \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+    \begin{orangebox}[Insight Pimpinan]
+        \scriptsize SOP Digital bukan buku manual sistem (\textit{User Guide}), melainkan \textbf{Protokol Korporat} yang mengikat SLA, arsitektur alur kerja, dan akuntabilitas pengambil keputusan.
+    \end{orangebox}
