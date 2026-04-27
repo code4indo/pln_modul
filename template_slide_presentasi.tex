@@ -1,0 +1,307 @@
+% ============================================================
+% TEMPLATE SLIDE PRESENTASI PLN
+% Tata Kelola Kearsipan - Level Manajerial
+% ============================================================
+\documentclass[aspectratio=169,11pt]{beamer}
+
+% Encoding dan Bahasa
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Package Pendukung
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage{booktabs}
+% \usepackage{fontawesome5}  % Optional - uncomment jika tersedia
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric, calc, backgrounds, fit}
+
+% Font Profesional
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{sfmath}
+\usefonttheme{professionalfonts}
+
+% Warna Korporat PLN & Danantara
+\definecolor{plnblue}{RGB}{0,75,135}
+\definecolor{plncyan}{RGB}{0,163,224}
+\definecolor{plnorange}{RGB}{255,107,53}
+\definecolor{plnwhite}{RGB}{255,255,255}
+\definecolor{plnlightgray}{RGB}{240,245,250}
+\definecolor{plndark}{RGB}{30,50,70}
+
+% Path Gambar
+\graphicspath{{background/}{assets/}{gambar/}}
+
+% ============================================================
+% KONFIGURASI TEMPLATE BEAMER
+% ============================================================
+\mode<presentation>{
+    % Hilangkan navigasi default
+    \setbeamertemplate{navigation symbols}{}
+    \setbeamertemplate{sidebar}{}
+    
+    % Itemize dan enumerate
+    \setbeamertemplate{itemize items}[circle]
+    \setbeamertemplate{enumerate items}[default]
+    
+    % Warna struktur
+    \setbeamercolor{structure}{fg=plnblue}
+    \setbeamercolor{frametitle}{fg=plnwhite,bg=}
+    \setbeamercolor{framesubtitle}{fg=plnwhite!90}
+}
+
+% ============================================================
+% HEADER DAN FOOTER
+% ============================================================
+% Logo posisi: sesuai gambar contoh
+% Top Left: Danantara Indonesia
+% Top Right: PLN
+% Bottom Left: PLN Mobile
+% Bottom Right: www.pln.co.id
+
+\setbeamertemplate{headline}{%
+    \begin{tikzpicture}[remember picture, overlay]
+        % Logo Danantara Indonesia - Kiri Atas
+        \node[anchor=north west, inner sep=0pt] at ([xshift=0.5cm, yshift=-0.3cm]current page.north west) {
+            \includegraphics[height=0.8cm]{background/top_left.png}
+        };
+        % Logo PLN - Kanan Atas
+        \node[anchor=north east, inner sep=0pt] at ([xshift=-0.5cm, yshift=-0.3cm]current page.north east) {
+            \includegraphics[height=0.8cm]{background/top_right.png}
+        };
+    \end{tikzpicture}
+}
+
+\setbeamertemplate{footline}{%
+    \begin{tikzpicture}[remember picture, overlay]
+        % Logo PLN Mobile - Kiri Bawah
+        \node[anchor=south west, inner sep=0pt] at ([xshift=0.5cm, yshift=0.3cm]current page.south west) {
+            \includegraphics[height=0.6cm]{background/buttom_left.png}
+        };
+        % Website - Kanan Bawah
+        \node[anchor=south east, inner sep=0pt] at ([xshift=-0.5cm, yshift=0.3cm]current page.south east) {
+            \includegraphics[height=0.5cm]{background/button_right.png}
+        };
+    \end{tikzpicture}
+}
+
+% ============================================================
+% BACKGROUND TEMPLATE
+% ============================================================
+
+% 1. BACKGROUND OPENING (Halaman Judul)
+\newcommand{\backgroundopening}{%
+    \usebackgroundtemplate{%
+        \begin{tikzpicture}[remember picture, overlay]
+            \node[anchor=center, inner sep=0pt] at (current page.center) {
+                \includegraphics[width=\paperwidth,height=\paperheight]{background/opening.jpg}
+            };
+        \end{tikzpicture}%
+    }%
+}
+
+% 2. BACKGROUND SECTION (Pergantian Bagian)
+\newcommand{\backgroundsection}{%
+    \usebackgroundtemplate{%
+        \begin{tikzpicture}[remember picture, overlay]
+            \node[anchor=center, inner sep=0pt] at (current page.center) {
+                \includegraphics[width=\paperwidth,height=\paperheight]{background/section.jpg}
+            };
+        \end{tikzpicture}%
+    }%
+}
+
+% 3. BACKGROUND CONTENT (Slide Isi)
+\newcommand{\backgroundcontent}{%
+    \usebackgroundtemplate{%
+        \begin{tikzpicture}[remember picture, overlay]
+            \node[anchor=center, inner sep=0pt] at (current page.center) {
+                \includegraphics[width=\paperwidth,height=\paperheight]{background/content.jpg}
+            };
+        \end{tikzpicture}%
+    }%
+}
+% Set default background
+\backgroundcontent
+
+% ============================================================
+% KOTAK KONTEN KUSTOM
+% ============================================================
+\newtcolorbox{contentbox}[1][]{%
+    colback=plnwhite!95,
+    colframe=plncyan,
+    fonttitle=\bfseries\large\color{plnblue},
+    title=#1,
+    sharp corners,
+    boxrule=1pt,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    breakable
+}
+
+\newtcolorbox{infobox}[1][]{%
+    colback=plnblue!5,
+    colframe=plnblue,
+    fonttitle=\bfseries,
+    title=#1,
+    sharp corners,
+    boxrule=0.8pt,
+    left=6pt,
+    right=6pt,
+    top=4pt,
+    bottom=4pt
+}
+
+\newtcolorbox{alertbox}[1][]{%
+    colback=plnorange!10,
+    colframe=plnorange,
+    fonttitle=\bfseries,
+    title=#1,
+    sharp corners,
+    boxrule=0.8pt,
+    left=6pt,
+    right=6pt,
+    top=4pt,
+    bottom=4pt
+}
+
+% ============================================================
+% SLIDE TEMPLATE COMMANDS
+% ============================================================
+
+% Slide Opening/Judul
+\newcommand{\slideopening}[2]{%
+    \backgroundopening
+    \begin{frame}[plain]
+        \vspace{2cm}
+        \begin{center}
+            {\Huge\bfseries\color{plnwhite} #1}\\[0.5cm]
+            {\Large\color{plnwhite!90} #2}
+        \end{center}
+    \end{frame}
+    \backgroundcontent
+}
+
+% Slide Section/Pemisah Bagian
+\newcommand{\slidesection}[2]{%
+    \backgroundsection
+    \begin{frame}[plain]
+        \vspace{3cm}
+        \begin{center}
+            {\Huge\bfseries\color{plnwhite} #1}\\[0.5cm]
+            {\large\color{plnwhite!80} #2}
+        \end{center}
+    \end{frame}
+    \backgroundcontent
+}
+
+% ============================================================
+% DOKUMEN MULAI
+% ============================================================
+\begin{document}
+
+% === SLIDE 1: OPENING ===
+\backgroundopening
+\begin{frame}[plain]
+    \vspace{3.5cm}
+    \begin{center}
+        {\fontsize{28}{32}\selectfont\bfseries\color{plnwhite} TATA KELOLA KEARSIPAN}\\[0.8cm]
+        {\fontsize{16}{20}\selectfont\color{plnwhite!95} LEVEL MANAJERIAL}
+    \end{center}
+\end{frame}
+
+% === SLIDE 2: SECTION - PENDAHULUAN ===
+\slidesection{Pendahuluan}{Konsep Dasar Tata Kelola Kearsipan}
+
+% === SLIDE 3: CONTENT ===
+\begin{frame}{Latar Belakang}
+    \vspace{0.5cm}
+    \begin{columns}[T]
+        \begin{column}{0.55\textwidth}
+            \begin{contentbox}[Urgensi Transformasi Digital]
+                \begin{itemize}
+                    \item Volume arsip digital meningkat \textbf{300\%} per tahun
+                    \item Kebutuhan regulasi: PP 71/2019, Perka ANRI
+                    \item Tantangan keamanan dan keterlacakan
+                    \item Efisiensi operasional dan akuntabilitas
+                \end{itemize}
+            \end{contentbox}
+        \end{column}
+        \begin{column}{0.42\textwidth}
+            \begin{infobox}[Target Peserta]
+                \small
+                \begin{itemize}
+                    \item Manajemen Atas PLN
+                    \item Pemilik Proses Bisnis
+                    \item Pengambil Kebijakan
+                \end{itemize}
+            \end{infobox}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% === SLIDE 4: SECTION - KERANGKA KONSEP ===
+\slidesection{Kerangka Konsep}{Paradigma Tata Kelola Kearsipan Modern}
+
+% === SLIDE 5: CONTENT ===
+\begin{frame}{Empat Pilar Tata Kelola}
+    \vspace{0.3cm}
+    \begin{center}
+        \begin{tikzpicture}[
+            node distance=1.2cm,
+            box/.style={rectangle, rounded corners=5pt, draw=plnblue, fill=plnblue!10, 
+                        minimum width=2.8cm, minimum height=1.2cm, align=center, 
+                        font=\small\bfseries, line width=1pt}
+        ]
+            \node[box] (tk1) {Kontrol Akses\\(RBAC)};
+            \node[box, right=of tk1] (tk2) {Audit Trail\\(Keterlacakan)};
+            \node[box, below=of tk1] (tk3) {Kebijakan\\(ISMS)};
+            \node[box, below=of tk2] (tk4) {Backup\\(DR/BC)};
+            
+            \draw[-{Stealth}, thick, plnblue] (tk1) -- (tk2);
+            \draw[-{Stealth}, thick, plnblue] (tk1) -- (tk3);
+            \draw[-{Stealth}, thick, plnblue] (tk2) -- (tk4);
+            \draw[-{Stealth}, thick, plnblue] (tk3) -- (tk4);
+        \end{tikzpicture}
+    \end{center}
+    \vspace{0.3cm}
+    \begin{alertbox}[Catatan Penting]
+        \small Keempat pilar ini saling terintegrasi dan kumulatif. Keberhasilan satu pilar menjadi prasyarat efektivitas pilar berikutnya.
+    \end{alertbox}
+\end{frame}
+
+% === SLIDE 6: SECTION - IMPLEMENTASI ===
+\slidesection{Implementasi}{Langkah-Langkah Strategis}
+
+% === SLIDE 7: CONTENT ===
+\begin{frame}{Roadmap Implementasi}
+    \vspace{0.3cm}
+    \begin{enumerate}
+        \item \textbf{Assessment} - Evaluasi kondisi existing
+        \item \textbf{Perancangan} - Desain sistem terintegrasi
+        \item \textbf{Pengembangan} - Implementasi teknis
+        \item \textbf{Uji Coba} - Piloting dan validasi
+        \item \textbf{Go-Live} - Operasional penuh
+        \item \textbf{Evaluasi} - Continuous improvement
+    \end{enumerate}
+\end{frame}
+
+% === SLIDE 8: PENUTUP ===
+\backgroundsection
+\begin{frame}[plain]
+    \vspace{3.5cm}
+    \begin{center}
+        {\Huge\bfseries\color{plnwhite} Terima Kasih}\\[1cm]
+        {\large\color{plnwhite!90} PT PLN (Persero)}\\[0.3cm]
+        {\normalsize\color{plnwhite!80} Pusat Pendidikan dan Pelatihan}
+    \end{center}
+\end{frame}
+
+\end{document}

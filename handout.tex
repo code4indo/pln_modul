@@ -98,55 +98,51 @@
 
 % ================= COVER PAGE =================
 \begin{titlepage}
-\centering
-\vspace*{1cm}
-
-% PLN Branding Bar
+% Background image covering full page
 \begin{tikzpicture}[remember picture, overlay]
-  \fill[plnblue] (current page.north west) rectangle ([yshift=-2.8cm]current page.north east);
-  \node[anchor=west, white, font=\bfseries\large] at ([xshift=2cm, yshift=-1.4cm]current page.north west) {PT PLN (PERSERO)};
-  \node[anchor=east, white, font=\small] at ([xshift=-2cm, yshift=-1.4cm]current page.north east) {Center of Excellence -- Records Management};
+\node[inner sep=0pt] at (current page.center)
+{\includegraphics[width=\paperwidth,height=\paperheight]{background/cover_handout.png}};
 \end{tikzpicture}
 
-\vspace{2.5cm}
+% Content overlay - positioned over the blue area
+\centering
+\vspace*{4.5cm}
 
-{\Huge\bfseries\color{plnblue} HANDOUT EKSEKUTIF}\\[0.4cm]
-{\LARGE\bfseries Modul 4.3: Optimalisasi Prosedur dan\\ Alur Kerja Terintegrasi}\\[0.5cm]
-{\large\itshape Edisi Revisi -- Sinkron dengan Narasi, Slide Presentasi, \& Modul Lengkap}\\[0.8cm]
-
+{\Huge\bfseries\color{white} HANDOUT EKSEKUTIF}\\[0.4cm]
+{\LARGE\bfseries\color{white} Modul 4.3: Optimalisasi Prosedur dan\\ Alur Kerja Terintegrasi}\\[0.5cm]
+{\large\itshape\color{white} Edisi Revisi -- Sinkron dengan Narasi, Slide Presentasi, \& Modul Lengkap}\\[0.8cm]
 \rule{0.6\linewidth}{1.2pt}\\[0.8cm]
-
 \begin{minipage}{0.85\textwidth}
 \centering
-\large
-Handout ini disusun khusus untuk \textbf{Manajemen Atas (MA)} sebagai panduan strategis dalam mengevaluasi, merancang, dan mengukur efektivitas transformasi prosedur kearsipan digital di lingkungan PT PLN (Persero).
-
+\large\color{white} Handout ini disusun khusus untuk \textbf{Manajemen Atas (MA)} sebagai panduan strategis dalam mengevaluasi, merancang, dan mengukur efektivitas transformasi prosedur kearsipan digital di lingkungan PT PLN (Persero).
 \vspace{0.5cm}
+
 \normalsize
-\textit{Level Kompetensi: \textbf{Level 4 (Mastery)} --- Target: Manajemen Atas}\\
-\textit{Standar Rujukan: PP 71/2019, Perka ANRI, ISO 15489, PARBICA Toolkit}
+\textit{\color{white}Level Kompetensi: \textbf{Level 4 (Mastery)} --- Target: Manajemen Atas}\\
+\textit{\color{white}Standar Rujukan: PP 71/2019, Perka ANRI, ISO 15489, PARBICA Toolkit}
 \end{minipage}
+
+\vspace{1.5cm}
+
+\begin{tikzpicture}
+\node[rectangle, draw=white, line width=1.5pt, rounded corners=5pt, inner sep=12pt, fill=white, fill opacity=0.95, text opacity=1] {
+\begin{minipage}{0.7\textwidth}
+\centering
+\textbf{\color{plnblue}EMPAT OUTPUT WAJIB}\\[6pt]
+\small
+\begin{tabular}{@{}c@{\hspace{8pt}}c@{}}
+\textbullet~Matriks Area Optimasi & \textbullet~Diagram BPMN 2.0 To-Be \\[4pt]
+\textbullet~Draft SOP Digital 8 Komponen & \textbullet~Business Case \& Action Plan 30 Hari
+\end{tabular}
+\end{minipage}
+};
+\end{tikzpicture}
 
 \vfill
 
-\begin{tikzpicture}
-  \node[rectangle, draw=plnorange, line width=1.5pt, rounded corners=5pt, inner sep=12pt] {
-    \begin{minipage}{0.7\textwidth}
-    \centering
-    \textbf{\color{plnblue}EMPAT OUTPUT WAJIB}\\[6pt]
-    \small
-    \begin{tabular}{@{}c@{\hspace{8pt}}c@{}}
-      \textbullet~Matriks Area Optimasi & \textbullet~Diagram BPMN 2.0 To-Be \\[4pt]
-      \textbullet~Draft SOP Digital 8 Komponen & \textbullet~Business Case \& Action Plan 30 Hari
-    \end{tabular}
-    \end{minipage}
-  };
-\end{tikzpicture}
-
-\vspace{1.5cm}
-{\large\bfseries PT PLN (Persero)}\\
-{\small Dokumen Internal -- Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
-{\small \today}
+{\large\bfseries\color{plnblue} PT PLN (Persero)}\\
+{\small\color{darkgray} Dokumen Internal -- Program Penguatan Kompetensi Tata Kelola Kearsipan}\\
+{\small\color{darkgray} \today}
 \end{titlepage}
 
 \pagenumbering{roman}
