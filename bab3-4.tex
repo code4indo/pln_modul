@@ -367,6 +367,114 @@ Secara sintaks teknis klasik, BPMN sangat lekat dengan penggunaan garis batas \t
 Eliminasi garis pembatas (batas antar unit) ini merupakan strategi persuasi taktis. Tujuannya adalah mereduksi ego sektoral dan memaksa \textit{Top Management} agar menaruh atensi tunggal pada evaluasi \textbf{Kecepatan Laju Operasional (\textit{Data Velocity})} dan \textbf{Rantai Otomasi}, bukan malah terjebak pada perdebatan politis mengenai "wilayah kekuasaan" departemen mana yang paling berat beban kerjanya.
 \end{plnbox}
 
+\section{Metodologi Penyusunan SOP Digital Terintegrasi}
+
+Setelah memahami prinsip desain workflow dan pola integrasi, langkah selanjutnya adalah mentransformasikan rancangan alur kerja tersebut ke dalam bentuk dokumen SOP Digital Terintegrasi yang dapat diimplementasikan. Bagian ini memberikan gambaran umum metodologi penyusunan SOP digital, sebelum dibahas secara komprehensif pada Bab 4.
+
+\begin{plnbox}[Relevansi Eksekutif: Mengapa MA Perlu Memahami Metodologi Penyusunan]
+\small
+\textbf{Sikap Skeptis:} "Bukankah penyusunan SOP adalah tugas staf administrasi atau tim kualitas? Mengapa level Manajemen Atas perlu memahami metodologinya?"
+
+\textbf{Jawaban Strategis:} MA tidak perlu menulis SOP secara teknis, namun \textbf{wajib memahami kerangka metodologis} untuk dapat:
+\begin{itemize}[nosep, leftmargin=*]
+\item Menilai apakah SOP yang diusulkan tim sudah memenuhi standar integrasi digital atau masih berupa SOP konvensional yang di-\textit{copy-paste} ke format digital
+\item Mengarahkan penyusunan SOP agar selaras dengan arsitektur IT korporat dan regulasi kearsipan (PP 71/2019)
+\item Menjamin bahwa SOP yang disahkan memiliki komponen pengamanan digital (metadata, audit trail, RBAC) yang menjadi garis pertahanan hukum perusahaan
+\end{itemize}
+\end{plnbox}
+
+\subsection{Kerangka Umum Penyusunan SOP Digital}
+
+Penyusunan SOP Digital Terintegrasi mengikuti siklus metodologi berikut:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Analisis Gap Proses As-Is vs To-Be}
+\begin{itemize}
+\item Identifikasi proses manual yang ada (As-Is) dari Bab 2
+\item Tentukan titik-titik transformasi digital berdasarkan rancangan BPMN To-Be (Bab 3)
+\item Definisikan batasan integrasi antar-sistem (E-Procurement, ERP, E-Office, Repositori)
+\end{itemize}
+
+\item \textbf{Penetapan 8 Komponen Wajib SOP Digital}
+\begin{itemize}
+\item \textbf{Tujuan \& Ruang Lingkup}: Diperluas dengan batasan interoperabilitas sistem
+\item \textbf{Referensi/Dasar Hukum}: Termasuk UU ITE, PP 71/2019, Perka ANRI
+\item \textbf{Definisi \& Akronim}: Mengakomodasi terminologi arsitektur sistem (Auto-Capture, SLA, RBAC, Hash-Lock)
+\item \textbf{Pihak Terkait}: Mengakui Sistem Komputasi sebagai entitas pengawasan
+\item \textbf{Ketentuan Umum}: Parameter kearsipan otomatis (klasifikasi, retensi, hak akses)
+\item \textbf{Uraian Prosedur}: Pemicu sistem (trigger) dan validasi rute paralel
+\item \textbf{Manajemen Risiko}: Protokol fallback untuk kondisi sistem down
+\item \textbf{Lampiran}: Peta kodifikasi database, log audit trail, matriks metadata
+\end{itemize}
+
+\item \textbf{Pemetaan Alur Kerja ke Prosedur Tertulis}
+\begin{itemize}
+\item Konversi diagram BPMN (Bab 3) menjadi uraian langkah prosedural
+\item Definisikan \textit{System Trigger} untuk setiap titik otomasi
+\item Tetapkan titik \textit{Human-in-the-Loop} untuk validasi manual
+\item Rumuskan \textit{Service Level Agreement} (SLA) untuk setiap tahapan
+\end{itemize}
+
+\item \textbf{Integrasi Standar Metadata Wajib}
+\begin{itemize}
+\item Pastikan 12 field metadata wajib di-\textit{capture} otomatis
+\item Definisikan 2 field semi-mandatory untuk penemuan kembali (discovery)
+\item Tetapkan aturan \textit{immutability} dan penguncian post-validasi
+\end{itemize}
+
+\item \textbf{Penyelarasan Regulasi dan GCG}
+\begin{itemize}
+\item Verifikasi kepatuhan terhadap PP 71/2019 (TTE, bukti elektronik)
+\item Pastikan adanya klausul audit trail dan RBAC
+\item Sesuaikan dengan kebijakan tata kelola BUMN terkini
+\end{itemize}
+
+\item \textbf{Validasi dan Finalisasi}
+\begin{itemize}
+\item Tinjauan sejawat menggunakan daftar periksa keterbacaan
+\item Uji keterbacaan melalui simulasi satu siklus alur
+\item Persetujuan manajemen dan pengesahan digital
+\end{itemize}
+\end{enumerate}
+
+\subsection{Hubungan Antara Perancangan Alur (Bab 3) dan Penyusunan SOP (Bab 4)}
+
+Terdapat keterkaitan erat antara aktivitas Bab 3 dan Bab 4:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Matriks Hubungan Output Bab 3 dengan Input Bab 4}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Output Bab 3 (Perancangan Alur)} & \textbf{Pemanfaatan di Bab 4 (Penyusunan SOP)} \\
+\midrule
+Diagram BPMN 2.0 To-Be & Menjadi dasar uraian prosedur pada Komponen 6 (Uraian Prosedur) \\
+Identifikasi System Trigger & Menjadi definisi Pemicu Sistem pada Komponen 5 (Ketentuan Umum) \\
+Pola Parallel Digital Routing & Menjadi acuan penentuan SLA dan titik Human-in-the-Loop \\
+Peta Gateway dan Exception Path & Menjadi dasar Komponen 7 (Manajemen Risiko/\textit{Fallback}) \\
+Matriks Validasi Tollgate & Menjadi instrumen Review \& Finalisasi SOP \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{warnbox}
+\textbf{Pemisahan Bab yang Jelas:} Bab 3 berfokus pada \textit{perancangan arsitektur alur kerja} (\textit{workflow design}), sementara Bab 4 berfokus pada \textit{penulisan dokumen SOP} sebagai instrumen tata kelola korporat. Meskipun terkait, kedua aktivitas memerlukan keahlian berbeda: perancangan alur membutuhkan pemahaman BPMN dan arsitektur sistem, sedangkan penyusunan SOP membutuhkan keahlian tata naskah dan kepatuhan regulasi.
+\end{warnbox}
+
+\subsection{Output Interim: Dokumen Pra-SOP}
+
+Sebelum SOP Digital final disusun, tim perlu menghasilkan \textbf{Dokumen Pra-SOP} yang berisi:
+\begin{itemize}[leftmargin=*]
+\item Ringkasan proses As-Is yang akan ditransformasi
+\item Diagram BPMN To-Be yang telah divalidasi
+\item Daftar pemicu otomatis dan titik intervensi manual
+\item Matriks metadata yang akan diimplementasikan
+\item Daftar regulasi terkait yang menjadi rujukan
+\end{itemize}
+
+Dokumen Pra-SOP ini menjadi bahan diskusi dengan stakeholder sebelum masuk ke penyusunan SOP final pada Bab 4.
+
 \section{Validasi Alur Terintegrasi}
 \begin{plnbox}[Relevansi Eksekutif: Fungsi Checklist Sebagai "Gerbang Tol" (Tollgate) Anggaran]
 \small

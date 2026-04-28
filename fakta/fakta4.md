@@ -129,13 +129,13 @@ Penyimpanan → Repositori Arsip PLN dengan metadata terindeks
 
 ---
 
-## 📊 CHECKLIST VALIDASI METADATA (Untuk Workshop Bab 4)
+## 📊 DAFTAR CONTROL VALIDASI METADATA (Untuk Workshop Bab 4)
 
 ```latex
 \begin{table}[htbp]
 \centering
 \small
-\caption{Checklist Validasi Metadata Wajib – Output Peserta}
+\caption{Daftar Control Validasi Metadata Wajib – Output Peserta}
 \begin{tabularx}{\textwidth}{@{} l X c c @{}}
 \toprule
 \textbf{Field} & \textbf{Kriteria Validasi} & \textbf{Auto?} & \textbf{Status} \\
@@ -176,8 +176,8 @@ Penyimpanan → Repositori Arsip PLN dengan metadata terindeks
 | **Apa metadata wajib minimal menurut regulasi Indonesia?** | 15 field sesuai Perka ANRI No. 6/2021 Pasal 8–12, mencakup identitas, konteks, konten, manajemen, dan integritas |
 | **Bagaimana mengadaptasinya untuk PLN?** | Tambahkan 12 field kontekstual terintegrasi (ASSET_ID, WO_REF, dll.) yang dapat di-capture otomatis dari SAP/AMS/E-Office |
 | **Apakah metadata dapat diubah setelah validasi?** | ❌ Tidak. Metadata final bersifat *immutable*; koreksi memerlukan prosedur *amendment* ber-audit |
-| **Bagaimana memastikan kepatuhan?** | Gunakan checklist validasi di SOP Digital + sistem menolak penyimpanan jika field wajib tidak terpenuhi |
+| **Bagaimana memastikan kepatuhan?** | Gunakan daftar control validasi di SOP Digital + sistem menolak penyimpanan jika field wajib tidak terpenuhi |
 
 > 📌 **Rekomendasi Implementasi**: Integrasikan standar metadata ini ke dalam **template SOP Digital** (Bab 4 Modul 4.3) dan **skema audit trail** (Bab 4 Modul 4.4) untuk memastikan output peserta selaras dengan regulasi dan siap implementasi.
 
-Jika Anda memerlukan **kode LaTeX untuk lampiran standar metadata**, **template checklist validasi dalam format `.xlsx`**, atau **diagram alur auto-capture metadata untuk presentasi**, beri tahu saya dan akan saya susun secara instan. 🚀
+Jika Anda memerlukan **kode LaTeX untuk lampiran standar metadata**, **template daftar control validasi dalam format `.xlsx`**, atau **diagram alur auto-capture metadata untuk presentasi**, beri tahu saya dan akan saya susun secara instan. 🚀
