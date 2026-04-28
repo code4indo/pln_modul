@@ -1,7 +1,7 @@
 \babel@toc {bahasa}{}\relax 
 \contentsline {chapter}{Pendahuluan}{4}{chapter*.2}%
-\contentsline {section}{\numberline {A}Konteks \& Urgensi: Mengapa Ini Penting bagi PLN?}{4}{section.0.1}%
-\contentsline {section}{\numberline {B}Target Kompetensi}{5}{section.0.2}%
+\contentsline {section}{\numberline {A}Konteks \& Urgensi: Mengapa Ini Penting bagi PLN?}{5}{section.0.1}%
+\contentsline {section}{\numberline {B}Target Kompetensi}{6}{section.0.2}%
 \contentsline {section}{\numberline {C}Sasaran \& Prasyarat Peserta}{6}{section.0.3}%
 \contentsline {section}{\numberline {D}Arsitektur Optimalisasi Terintegrasi}{7}{section.0.4}%
 \contentsline {chapter}{\numberline {1}Diagnosa: Evaluasi Prosedur \& Identifikasi Area Optimasi}{8}{chapter.1}%

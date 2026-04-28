@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  28 APR 2026 09:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  28 APR 2026 10:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1212,54 +1212,54 @@ Package pdftex.def Info: template-handout/content_handout.png  used on input li
 ne 164.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [3]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 177.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 177.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 177.
-<assets/value_center.png, id=302, 903.375pt x 634.37pt>
+<assets/value_center.png, id=301, 903.375pt x 634.37pt>
 File: assets/value_center.png Graphic file (type png)
 <use assets/value_center.png>
-Package pdftex.def Info: assets/value_center.png  used on input line 185.
+Package pdftex.def Info: assets/value_center.png  used on input line 176.
 (pdftex.def)             Requested size: 341.43307pt x 239.76602pt.
-File: template-handout/content_handout.png Graphic file (type png)
-<use template-handout/content_handout.png>
-Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 188.
-(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [4
-
-]
-<assets/rc3.png, id=309, 385.44pt x 273.9033pt>
+<assets/rc3.png, id=302, 385.44pt x 273.9033pt>
 File: assets/rc3.png Graphic file (type png)
 <use assets/rc3.png>
-Package pdftex.def Info: assets/rc3.png  used on input line 191.
+Package pdftex.def Info: assets/rc3.png  used on input line 182.
 (pdftex.def)             Requested size: 341.43307pt x 242.62799pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 222.
+ne 185.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [5 <./assets/value_center.png (PNG copy)> <./assets/rc3.png>]
+ [4
+
+ <./assets/value_center.png (PNG copy)>]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 189.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 189.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 189.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 266.
+ne 195.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [5 <./assets/rc3.png>]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 263.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [6
 pdfTeX warning (ext4): destination with the same identifier (name{table.0.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.266 \needspace{4\baselineskip}
-                                
+l.263 \end{xltabular}
+                     
 pdfTeX warning (ext4): destination with the same identifier (name{table.0.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.266 \needspace{4\baselineskip}
-                                ]
+l.263 \end{xltabular}
+                     ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
@@ -1469,21 +1469,21 @@ l.877 \end{xltabular}
 <assets/efficiency_heatmap.png, id=453, 327.20242pt x 87.26602pt>
 File: assets/efficiency_heatmap.png Graphic file (type png)
 <use assets/efficiency_heatmap.png>
-Package pdftex.def Info: assets/efficiency_heatmap.png  used on input line 886.
+Package pdftex.def Info: assets/efficiency_heatmap.png  used on input line 911.
 
 (pdftex.def)             Requested size: 409.71692pt x 109.27664pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 913.
+ne 914.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [23 <./assets/efficiency_heatmap.png>]
+ [23]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
 ne 944.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [24]
+ [24 <./assets/efficiency_heatmap.png>]
 Bab 5.
 <assets/ADKAR_Model.png, id=468, 1378.14874pt x 702.625pt>
 File: assets/ADKAR_Model.png Graphic file (type png)
@@ -1616,7 +1616,7 @@ b></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on modul43_handout.pdf (34 pages, 2200113 bytes).
+Output written on modul43_handout.pdf (34 pages, 2200340 bytes).
 PDF statistics:
  670 PDF objects out of 1000 (max. 8388607)
  554 compressed objects within 6 object streams

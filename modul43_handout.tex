@@ -171,15 +171,6 @@ Modul 4.3 merupakan mata pelajaran inti dalam Level 4 (Mastery) yang berfokus pa
 
 Dua konsep kunci yang menjadi landasan modul ini perlu dipahami sejak awal. Pertama, \textit{Value-Added Focus}: setiap langkah dalam alur kerja harus ditanya apakah benar-benar menambah nilai bagi organisasi atau sekadar \textit{waste} (pemborosan). Dalam konteks PLN, langkah seperti mencetak dokumen hanya untuk ditandatangani basah, mengantar kertas antar-meja, atau mengetik ulang data yang sudah ada di sistem ERP merupakan \textit{non-value-added activities} yang harus dieliminasi. Kedua, \textit{Single Source of Truth}: data cukup diinput sekali di sistem sumber operasional (misal: SAP-PM, E-Procurement, SCADA), dan mengalir otomatis beserta metadata-nya ke repositori kearsipan tanpa intervensi manual.
 
-\needspace{4\baselineskip}
-
-\section{Konteks \& Urgensi: Mengapa Ini Penting bagi PLN?}
-PLN sebagai Badan Usaha Milik Negara yang mengelola infrastruktur kelistrikan nasional menghadapi tantangan tata kelola arsip yang semakin kompleks. Banyak organisasi infrastruktur, termasuk sektor kelistrikan, masih menggunakan pola Digital $\rightarrow$ Analog $\rightarrow$ Digital: dokumen lahir secara digital di Sistem A, lalu dicetak menjadi kertas, ditandatangani basah, di-scan, dan diunggah kembali ke Sistem B. Pola ini bukan hanya memperlambat siklus bisnis, tetapi juga meningkatkan risiko ketidakpatuhan terhadap PP 71/2019\footnote{PP 71/2019; lihat Daftar Pustaka [2].} tentang Penyelenggaraan Sistem dan Transaksi Elektronik (PSTE) serta standar audit BPK dan BUMN.
-
-Pertimbangkan skenario berikut: jika proses persetujuan Berita Acara Serah Terima (BAST) pembangkit memerlukan waktu 5 hari karena harus melewati antrean cetak, kurir, dan tanda tangan basah, maka pembayaran kepada vendor tertunda, proyek pembangkit terhambat, dan PLN menghadapi risiko ganda: (1) kerugian finansial akibat keterlambatan operasional, serta (2) sanksi regulasi jika audit trail tidak lengkap. Dalam perspektif GCG, kegagalan mengoptimasi prosedur secara langsung memengaruhi penilaian tata kelola perusahaan -- termasuk dalam parameter TARIF yang menjadi tolok ukur kinerja BUMN.
-
-Modul ini dirancang untuk menjawab kebutuhan tersebut dengan pendekatan empat fase terintegrasi: Diagnosa (Fase 1), Desain Alur Kerja (Fase 2), SOP Digital (Fase 3), dan Justifikasi Bisnis (Fase 4). Studi kasus nyata di Bab 4 akan mendemonstrasikan bagaimana kegagalan pada satu fase dapat menyebabkan inefisiensi sistemik yang berdampak langsung pada operasional dan keuangan PLN.
-
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.75\textwidth]{assets/value_center.png}
@@ -191,6 +182,15 @@ Modul ini dirancang untuk menjawab kebutuhan tersebut dengan pendekatan empat fa
 \includegraphics[width=0.75\textwidth]{assets/rc3.png}
 \caption{Model Records Continuum: Arsip sebagai Aliran Data yang Tak Terputus (Sumber: Upward, 1996)}
 \end{figure}
+
+\needspace{4\baselineskip}
+
+\section{Konteks \& Urgensi: Mengapa Ini Penting bagi PLN?}
+PLN sebagai Badan Usaha Milik Negara yang mengelola infrastruktur kelistrikan nasional menghadapi tantangan tata kelola arsip yang semakin kompleks. Banyak organisasi infrastruktur, termasuk sektor kelistrikan, masih menggunakan pola Digital $\rightarrow$ Analog $\rightarrow$ Digital: dokumen lahir secara digital di Sistem A, lalu dicetak menjadi kertas, ditandatangani basah, di-scan, dan diunggah kembali ke Sistem B. Pola ini bukan hanya memperlambat siklus bisnis, tetapi juga meningkatkan risiko ketidakpatuhan terhadap PP 71/2019\footnote{PP 71/2019; lihat Daftar Pustaka [2].} tentang Penyelenggaraan Sistem dan Transaksi Elektronik (PSTE) serta standar audit BPK dan BUMN.
+
+Pertimbangkan skenario berikut: jika proses persetujuan Berita Acara Serah Terima (BAST) pembangkit memerlukan waktu 5 hari karena harus melewati antrean cetak, kurir, dan tanda tangan basah, maka pembayaran kepada vendor tertunda, proyek pembangkit terhambat, dan PLN menghadapi risiko ganda: (1) kerugian finansial akibat keterlambatan operasional, serta (2) sanksi regulasi jika audit trail tidak lengkap. Dalam perspektif GCG, kegagalan mengoptimasi prosedur secara langsung memengaruhi penilaian tata kelola perusahaan -- termasuk dalam parameter TARIF yang menjadi tolok ukur kinerja BUMN.
+
+Modul ini dirancang untuk menjawab kebutuhan tersebut dengan pendekatan empat fase terintegrasi: Diagnosa (Fase 1), Desain Alur Kerja (Fase 2), SOP Digital (Fase 3), dan Justifikasi Bisnis (Fase 4). Studi kasus nyata di Bab 4 akan mendemonstrasikan bagaimana kegagalan pada satu fase dapat menyebabkan inefisiensi sistemik yang berdampak langsung pada operasional dan keuangan PLN.
 
 \needspace{4\baselineskip}
 
@@ -881,14 +881,6 @@ Temu kembali lambat & 1.200 arsip $\times$ 0,25 jam $\times$ Rp 125.000/jam & Rp
 Ganti angka-asumsi di atas dengan data faktual unit Anda: (1) Volume arsip/tahun, (2) Rata-rata frekuensi kehilangan, (3) Biaya tenaga kerja lokal, dan (4) Waktu siklus aktual. Logika kalkulasi tetap sama.
 \end{plnbox}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\textwidth]{assets/efficiency_heatmap.png}
-\caption{Efficiency Heatmap: Perbandingan Durasi Siklus Manual vs Digital}
-\end{figure}
-
-\textit{Analisis:} Proses manual diwakili oleh linimasa panjang dengan hambatan operasional. Proses digital diwakili oleh linimasa efisien yang difokuskan pada aktivitas \textit{Value Added}.
-
 \needspace{4\baselineskip}
 
 \section{Studi Kasus: Transformasi SPK Pemeliharaan GI 150 kV}
@@ -913,6 +905,14 @@ Kondisi \textit{to-be} (Setelah 90 Hari Pilot):
     \item Tingkat Kepatuhan: 98\% (dari 72\%)
     \item Kehilangan arsip / Temuan audit BPK: 0
 \end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{assets/efficiency_heatmap.png}
+\caption{Efficiency Heatmap: Perbandingan Durasi Siklus Manual vs Digital}
+\end{figure}
+
+\textit{Analisis:} Proses manual diwakili oleh linimasa panjang dengan hambatan operasional. Proses digital diwakili oleh linimasa efisien yang difokuskan pada aktivitas \textit{Value Added}.
 
 Kalkulasi ROI (Simulasi):
 \begin{itemize}[leftmargin=*]
