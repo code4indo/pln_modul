@@ -6,40 +6,40 @@
 \contentsline {section}{\numberline {D}Arsitektur Optimalisasi Terintegrasi}{7}{section.0.4}%
 \contentsline {chapter}{\numberline {1}Diagnosa: Evaluasi Prosedur \& Identifikasi Area Optimasi}{8}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Kerangka Diagnosa 7 Domain Terintegrasi}{8}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Teknik Pencarian Fakta untuk Manajemen Atas}{9}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Langkah-Langkah Evaluasi Prosedur}{10}{section.1.3}%
+\contentsline {section}{\numberline {1.2}Teknik Pencarian Fakta untuk Manajemen Atas}{10}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Langkah-Langkah Evaluasi Prosedur}{11}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Aktivitas Workshop (30 Menit)}{11}{section.1.4}%
-\contentsline {chapter}{\numberline {2}Desain: Perancangan Alur Kerja Terintegrasi (\textit {to-be})}{12}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Tiga Pola Integrasi Utama PLN}{12}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Notasi BPMN 2.0 untuk Eksekutif}{13}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Studi Kasus: Arsip BAST E-Procurement}{14}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Validasi Alur: Executive Tollgate}{14}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Aktivitas Workshop (30 Menit)}{15}{section.2.5}%
-\contentsline {chapter}{\numberline {3}SOP Digital: Penyusunan SOP Terintegrasi 8 Komponen}{16}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Evolusi SOP: Dari Manual ke Digital-Integrated}{16}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Delapan Komponen Wajib SOP Digital Terintegrasi}{16}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Skema Tata Kelola Metadata: 14 Field \& 3 Lapisan Perlindungan}{17}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Keabsahan Hukum \& Trust-Chain Digital}{19}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Aktivitas Workshop (30 Menit)}{20}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Justifikasi Bisnis: Efisiensi, ROI \& KPI}{21}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Trifecta Manfaat: Time--Cost--Risk}{21}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Indikator Kinerja Utama (KPI) Target}{21}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Balanced \textit {scorecard} (BSC) Perspective}{22}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Rumus ROI \& Basis Kalkulasi}{22}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Studi Kasus: Transformasi SPK Pemeliharaan GI 150 kV}{23}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Aktivitas Workshop (30 Menit)}{24}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Manajemen Perubahan: Implementasi \& Mitigasi Resistensi}{25}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Kerangka ADKAR (Hiatt, 2006)}{25}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Kotter: 3 Langkah Kepemimpinan yang Paling Relevan}{26}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Matriks Strategi Mitigasi Resistensi}{27}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Matriks Mendelow: Power vs Interest}{27}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Taktik 30 Hari Pertama yang Terbukti Efektif}{28}{section.5.5}%
-\contentsline {section}{\numberline {5.6}7 Kesalahan Umum yang Harus Dihindari}{28}{section.5.6}%
-\contentsline {chapter}{\numberline {6}Validasi, Rubrik Penilaian \& Komitmen Tindak Lanjut}{29}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Executive Tollgate Final (4 Gerbang Keputusan)}{29}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Rubrik Penilaian \& \textit {checklist} Portofolio}{29}{section.6.2}%
-\contentsline {section}{\numberline {6.3}\textit {checklist} Implementasi 30 Hari}{30}{section.6.3}%
-\contentsline {section}{\numberline {6.4}FAQ Singkat untuk Manajemen Atas}{30}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Empat Langkah Setelah Hari Ini}{31}{section.6.5}%
-\contentsline {chapter}{Glosarium}{32}{chapter*.13}%
-\contentsline {chapter}{Daftar Pustaka}{33}{chapter*.14}%
+\contentsline {chapter}{\numberline {2}Desain: Perancangan Alur Kerja Terintegrasi (\textit {to-be})}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Tiga Pola Integrasi Utama PLN}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Notasi BPMN 2.0 untuk Eksekutif}{14}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Studi Kasus: Arsip BAST E-Procurement}{16}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Validasi Alur: Executive Tollgate}{16}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Aktivitas Workshop (30 Menit)}{17}{section.2.5}%
+\contentsline {chapter}{\numberline {3}SOP Digital: Penyusunan SOP Terintegrasi 8 Komponen}{18}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Evolusi SOP: Dari Manual ke Digital-Integrated}{18}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Delapan Komponen Wajib SOP Digital Terintegrasi}{19}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Skema Tata Kelola Metadata: 14 Field \& 3 Lapisan Perlindungan}{20}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Keabsahan Hukum \& Trust-Chain Digital}{21}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Aktivitas Workshop (30 Menit)}{23}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Justifikasi Bisnis: Efisiensi, ROI \& KPI}{24}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Trifecta Manfaat: Time--Cost--Risk}{24}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Indikator Kinerja Utama (KPI) Target}{24}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Balanced \textit {scorecard} (BSC) Perspective}{25}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Rumus ROI \& Basis Kalkulasi}{25}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Studi Kasus: Transformasi SPK Pemeliharaan GI 150 kV}{26}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Aktivitas Workshop (30 Menit)}{27}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Manajemen Perubahan: Implementasi \& Mitigasi Resistensi}{29}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Kerangka ADKAR (Hiatt, 2006)}{29}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Kotter: 3 Langkah Kepemimpinan yang Paling Relevan}{30}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Matriks Strategi Mitigasi Resistensi}{31}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Matriks Mendelow: Power vs Interest}{31}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Taktik 30 Hari Pertama yang Terbukti Efektif}{32}{section.5.5}%
+\contentsline {section}{\numberline {5.6}7 Kesalahan Umum yang Harus Dihindari}{32}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Validasi, Rubrik Penilaian \& Komitmen Tindak Lanjut}{33}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Executive Tollgate Final (4 Gerbang Keputusan)}{33}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Rubrik Penilaian \& \textit {checklist} Portofolio}{33}{section.6.2}%
+\contentsline {section}{\numberline {6.3}\textit {checklist} Implementasi 30 Hari}{34}{section.6.3}%
+\contentsline {section}{\numberline {6.4}FAQ Singkat untuk Manajemen Atas}{34}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Empat Langkah Setelah Hari Ini}{35}{section.6.5}%
+\contentsline {chapter}{Glosarium}{36}{chapter*.18}%
+\contentsline {chapter}{Daftar Pustaka}{37}{chapter*.19}%
