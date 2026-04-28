@@ -8,8 +8,8 @@
 \contentsline {section}{\numberline {1.1}Kerangka Diagnosa 7 Domain Terintegrasi}{8}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Teknik Pencarian Fakta untuk Manajemen Atas}{9}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Langkah-Langkah Evaluasi Prosedur}{10}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Aktivitas Workshop (30 Menit)}{10}{section.1.4}%
-\contentsline {chapter}{\numberline {2}Desain: Perancangan Alur Kerja Terintegrasi (To-Be)}{12}{chapter.2}%
+\contentsline {section}{\numberline {1.4}Aktivitas Workshop (30 Menit)}{11}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Desain: Perancangan Alur Kerja Terintegrasi (\textit {to-be})}{12}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Tiga Pola Integrasi Utama PLN}{12}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Notasi BPMN 2.0 untuk Eksekutif}{13}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Studi Kasus: Arsip BAST E-Procurement}{14}{section.2.3}%
@@ -24,7 +24,7 @@
 \contentsline {chapter}{\numberline {4}Justifikasi Bisnis: Efisiensi, ROI \& KPI}{21}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Trifecta Manfaat: Time--Cost--Risk}{21}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Indikator Kinerja Utama (KPI) Target}{21}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Balanced Scorecard (BSC) Perspective}{22}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Balanced \textit {scorecard} (BSC) Perspective}{22}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Rumus ROI \& Basis Kalkulasi}{22}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Studi Kasus: Transformasi SPK Pemeliharaan GI 150 kV}{23}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Aktivitas Workshop (30 Menit)}{24}{section.4.6}%
@@ -37,9 +37,9 @@
 \contentsline {section}{\numberline {5.6}7 Kesalahan Umum yang Harus Dihindari}{28}{section.5.6}%
 \contentsline {chapter}{\numberline {6}Validasi, Rubrik Penilaian \& Komitmen Tindak Lanjut}{29}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Executive Tollgate Final (4 Gerbang Keputusan)}{29}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Rubrik Penilaian \& Checklist Portofolio}{29}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Checklist Implementasi 30 Hari}{30}{section.6.3}%
+\contentsline {section}{\numberline {6.2}Rubrik Penilaian \& \textit {checklist} Portofolio}{29}{section.6.2}%
+\contentsline {section}{\numberline {6.3}\textit {checklist} Implementasi 30 Hari}{30}{section.6.3}%
 \contentsline {section}{\numberline {6.4}FAQ Singkat untuk Manajemen Atas}{30}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Empat Langkah Setelah Hari Ini}{30}{section.6.5}%
+\contentsline {section}{\numberline {6.5}Empat Langkah Setelah Hari Ini}{31}{section.6.5}%
 \contentsline {chapter}{Glosarium}{32}{chapter*.13}%
 \contentsline {chapter}{Daftar Pustaka}{33}{chapter*.14}%

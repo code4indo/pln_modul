@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  28 APR 2026 06:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  28 APR 2026 08:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1218,7 +1218,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 177.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 177.
-<assets/value_center.png, id=300, 903.375pt x 634.37pt>
+<assets/value_center.png, id=302, 903.375pt x 634.37pt>
 File: assets/value_center.png Graphic file (type png)
 <use assets/value_center.png>
 Package pdftex.def Info: assets/value_center.png  used on input line 185.
@@ -1231,7 +1231,7 @@ ne 188.
  [4
 
 ]
-<assets/rc3.png, id=307, 385.44pt x 273.9033pt>
+<assets/rc3.png, id=309, 385.44pt x 273.9033pt>
 File: assets/rc3.png Graphic file (type png)
 <use assets/rc3.png>
 Package pdftex.def Info: assets/rc3.png  used on input line 191.
@@ -1276,7 +1276,7 @@ Bab 1.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 354.
+ne 356.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
 [8
 
@@ -1285,47 +1285,47 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.354 \end{xltabular}
+l.356 \end{xltabular}
                      ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 381.
+ne 379.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [9]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 409.
+ne 404.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [10]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 417.
+ne 419.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [11]
 Bab 2.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 440.
+ne 442.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
 [12
 
 ] (/usr/share/texmf/tex/latex/lm/t1lmtt.fd)
-Underfull \hbox (badness 3826) in paragraph at lines 484--484
+Underfull \hbox (badness 3826) in paragraph at lines 488--488
 []|\T1/lmr/m/n/10.95 (+20) Pemicu alur (con-toh: \T1/lmtt/m/n/10.95 SPK_Selesai
 \T1/lmr/m/n/10.95 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--484
+Underfull \hbox (badness 10000) in paragraph at lines 488--488
 []|\T1/lmr/m/n/10.95 (+20) Aktivitas bis-nis (con-toh: \T1/lmtt/m/n/10.95 Cek
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--484
+Underfull \hbox (badness 10000) in paragraph at lines 488--488
 []|\T1/lmr/m/n/10.95 (+20) Penyelesaian alur (con-toh:
  []
 
@@ -1339,32 +1339,31 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.2.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.491     \item \textbf
-                       {Kesiapan Otomasi:} Skema logika visual BPMN dapat di...
-]
+l.491 M
+       engapa Menggunakan BPMN 2.0?]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 543.
+ne 547.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [14
 pdfTeX warning (ext4): destination with the same identifier (name{table.2.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.543 \end{xltabular}
+l.547 \end{xltabular}
                      ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 569.
+ne 573.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [15]
 Bab 3.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 620.
+ne 624.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
 [16
 
@@ -1373,55 +1372,55 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.620     \item \textbf
-                       {Definisi \& Akronim Digital.} Mengakomodasi terminol...
+l.624     \item D
+                 efinisi \& Akronim Digital. Mengakomodasi terminologi arsit...
 ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 676.
+ne 682.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [17]
 <trust_chain.png, id=415, 246.6816pt x 246.6816pt>
 File: trust_chain.png Graphic file (type png)
 <use trust_chain.png>
-Package pdftex.def Info: trust_chain.png  used on input line 732.
+Package pdftex.def Info: trust_chain.png  used on input line 738.
 (pdftex.def)             Requested size: 318.66948pt x 318.69861pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 735.
+ne 741.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [18
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.735 
+l.741 
       ]
 <assets/Blockchain_Hash_Chain.png, id=425, 584.93532pt x 389.20406pt>
 File: assets/Blockchain_Hash_Chain.png Graphic file (type png)
 <use assets/Blockchain_Hash_Chain.png>
 Package pdftex.def Info: assets/Blockchain_Hash_Chain.png  used on input line 7
-42.
+48.
 (pdftex.def)             Requested size: 295.90588pt x 196.8939pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 745.
+ne 751.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [19 <./trust_chain.png>]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 765.
+ne 771.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [20 <./assets/Blockchain_Hash_Chain.png>]
 Bab 4.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 821.
+ne 827.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
 [21
 
@@ -1430,23 +1429,23 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.821     \item \textbf
-                       {Financial:} \textit{Cost Saved} (dari eliminasi manu...
+l.827     \item F
+                 inancial: \textit{Cost Saved} (dari eliminasi manual \& rew...
 ]
 <assets/Balanced_Scorecard.png, id=444, 1104.125pt x 621.32124pt>
 File: assets/Balanced_Scorecard.png Graphic file (type png)
 <use assets/Balanced_Scorecard.png>
-Package pdftex.def Info: assets/Balanced_Scorecard.png  used on input line 829.
+Package pdftex.def Info: assets/Balanced_Scorecard.png  used on input line 835.
 
 (pdftex.def)             Requested size: 341.43307pt x 192.13356pt.
 
-Underfull \hbox (badness 2626) in paragraph at lines 869--869
+Underfull \hbox (badness 2626) in paragraph at lines 877--877
 []|\T1/lmr/m/n/10.95 (+20) 1.200 ar-sip $\OMS/lmsy/m/n/10.95 ^^B$ \T1/lmr/m/n/1
 0.95 (+20) 4,2 ha-ri $\OMS/lmsy/m/n/10.95 ^^B$ \T1/lmr/m/n/10.95 (+20) Rp
  []
 
 
-Underfull \hbox (badness 1655) in paragraph at lines 869--869
+Underfull \hbox (badness 1655) in paragraph at lines 877--877
 []|\T1/lmr/m/n/10.95 (+20) 1.200 ar-sip $\OMS/lmsy/m/n/10.95 ^^B$ \T1/lmr/m/n/1
 0.95 (+20) 0,25 jam $\OMS/lmsy/m/n/10.95 ^^B$ \T1/lmr/m/n/10.95 (+20) Rp
  []
@@ -1454,37 +1453,37 @@ Underfull \hbox (badness 1655) in paragraph at lines 869--869
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 869.
+ne 877.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
 [22{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}
 pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.869 \end{xltabular}
+l.877 \end{xltabular}
                       <./assets/Balanced_Scorecard.png>]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 951.
+ne 952.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [23]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 976.
+ne 984.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [24]
 Bab 5.
 <assets/ADKAR_Model.png, id=466, 1378.14874pt x 702.625pt>
 File: assets/ADKAR_Model.png Graphic file (type png)
 <use assets/ADKAR_Model.png>
-Package pdftex.def Info: assets/ADKAR_Model.png  used on input line 999.
+Package pdftex.def Info: assets/ADKAR_Model.png  used on input line 1007.
 (pdftex.def)             Requested size: 318.66948pt x 162.46877pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1003.
+ne 1011.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
 [25
 
@@ -1492,43 +1491,43 @@ ne 1003.
 <assets/Kotters_8_Step.png, id=477, 994.71625pt x 582.175pt>
 File: assets/Kotters_8_Step.png Graphic file (type png)
 <use assets/Kotters_8_Step.png>
-Package pdftex.def Info: assets/Kotters_8_Step.png  used on input line 1017.
+Package pdftex.def Info: assets/Kotters_8_Step.png  used on input line 1025.
 (pdftex.def)             Requested size: 341.43307pt x 199.82901pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1051.
+ne 1059.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [26
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1051 \end{xltabular}
+l.1059 \end{xltabular}
                        <./assets/Kotters_8_Step.png>]
 <assets/Power-Interest_Grid.png, id=485, 770.88pt x 433.62pt>
 File: assets/Power-Interest_Grid.png Graphic file (type png)
 <use assets/Power-Interest_Grid.png>
-Package pdftex.def Info: assets/Power-Interest_Grid.png  used on input line 106
-7.
+Package pdftex.def Info: assets/Power-Interest_Grid.png  used on input line 107
+5.
 (pdftex.def)             Requested size: 295.90588pt x 166.44467pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1081.
+ne 1089.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [27 <./assets/Power-Interest_Grid.png (PNG copy)>]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1100.
+ne 1110.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [28]
 Bab 6.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1181.
+ne 1193.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
 [29
 
@@ -1537,36 +1536,36 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.6.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1181 \needspace{4\baselineskip}
+l.1193 \needspace{4\baselineskip}
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{table.6.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1181 \needspace{4\baselineskip}
+l.1193 \needspace{4\baselineskip}
                                  ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1240.
+ne 1244.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [30
 pdfTeX warning (ext4): destination with the same identifier (name{table.6.3}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1240 \end{enumerate}
-                      ]
+l.1244 \needspace{4\baselineskip}
+                                 ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1258.
+ne 1270.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [31]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1312.
+ne 1324.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [32
 
@@ -1574,7 +1573,7 @@ ne 1312.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1316.
+ne 1328.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [33
 
@@ -1582,7 +1581,7 @@ ne 1316.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1363.
+ne 1375.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [34
 
@@ -1592,16 +1591,16 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `modul43_handout.out' has not changed.
-(rerunfilecheck)             Checksum: 2BDF0C76451ED83CEF789F1D746AEA98;10920.
+(rerunfilecheck)             Checksum: 31B69A4D5A58EA640EA1D7C3174A1310;10920.
  ) 
 Here is how much of TeX's memory you used:
- 35780 strings out of 475670
- 711127 string characters out of 5784921
+ 35737 strings out of 475670
+ 710688 string characters out of 5784921
  1947975 words of memory out of 5000000
- 56807 multiletter control sequences out of 15000+600000
- 672783 words of font info for 265 fonts, out of 8000000 for 9000
+ 56812 multiletter control sequences out of 15000+600000
+ 679270 words of font info for 243 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 101i,12n,107p,1012b,1010s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,13n,107p,1012b,1010s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/p
@@ -1613,10 +1612,10 @@ b></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on modul43_handout.pdf (35 pages, 2151121 bytes).
+Output written on modul43_handout.pdf (35 pages, 2155473 bytes).
 PDF statistics:
  673 PDF objects out of 1000 (max. 8388607)
  558 compressed objects within 6 object streams
  184 named destinations out of 1000 (max. 500000)
- 62511 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 66607 words of extra memory for PDF output out of 74296 (max. 10000000)
 
