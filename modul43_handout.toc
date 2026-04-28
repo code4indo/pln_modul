@@ -31,9 +31,9 @@
 \contentsline {chapter}{\numberline {5}Manajemen Perubahan: Implementasi \& Mitigasi Resistensi}{25}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Kerangka ADKAR (Hiatt, 2006)}{25}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Kotter: 3 Langkah Kepemimpinan yang Paling Relevan}{26}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Matriks Strategi Mitigasi Resistensi}{26}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Matriks Strategi Mitigasi Resistensi}{27}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Matriks Mendelow: Power vs Interest}{27}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Taktik 30 Hari Pertama yang Terbukti Efektif}{27}{section.5.5}%
+\contentsline {section}{\numberline {5.5}Taktik 30 Hari Pertama yang Terbukti Efektif}{28}{section.5.5}%
 \contentsline {section}{\numberline {5.6}7 Kesalahan Umum yang Harus Dihindari}{28}{section.5.6}%
 \contentsline {chapter}{\numberline {6}Validasi, Rubrik Penilaian \& Komitmen Tindak Lanjut}{29}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Executive Tollgate Final (4 Gerbang Keputusan)}{29}{section.6.1}%
