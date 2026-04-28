@@ -31,8 +31,35 @@
 \usepackage{caption}
 \usepackage{amssymb}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta, positioning, shapes.geometric, calc, backgrounds, fit, decorations.markings}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, shapes.misc, calc, backgrounds, fit, decorations.markings, shadows}
+
+% TikZ BPMN Styles
+\tikzset{
+    startstyle/.style={circle, draw=red!70!black, fill=red!15, minimum size=0.9cm, align=center, font=\tiny\bfseries, line width=1pt},
+    endstyle/.style={circle, draw=red!70!black, fill=red!25, minimum size=0.9cm, align=center, font=\tiny\bfseries, line width=1.5pt},
+    startstyle_tobe/.style={circle, draw=green!60!black, fill=green!15, minimum size=0.9cm, align=center, font=\tiny\bfseries, line width=1pt},
+    endstyle_tobe/.style={circle, draw=plnblue!80!black, fill=plnblue!25, minimum size=0.9cm, align=center, font=\tiny\bfseries, line width=1.5pt},
+    manual/.style={rectangle, rounded corners=2pt, draw=gray!70, fill=gray!8, text width=2.4cm, minimum height=1.2cm, align=center, font=\tiny, line width=0.6pt},
+    waiting/.style={rectangle, rounded corners=2pt, draw=red!50, fill=red!5, text width=2.4cm, minimum height=1.2cm, align=center, font=\tiny\itshape, line width=0.6pt},
+    autostep/.style={rectangle, rounded corners=2pt, draw=plnblue!80, fill=plnblue!12, text width=2.4cm, minimum height=1.2cm, align=center, font=\tiny\bfseries, line width=0.6pt},
+    humanstep/.style={rectangle, rounded corners=2pt, draw=plnorange, fill=plnorange!10, text width=2.4cm, minimum height=1.2cm, align=center, font=\tiny, line width=0.6pt},
+    gateway/.style={diamond, draw=gray!70, fill=yellow!8, minimum width=1.1cm, minimum height=1.1cm, align=center, font=\tiny\bfseries, inner sep=1pt, aspect=1},
+    gateway_tobe/.style={diamond, draw=plnorange!80, fill=plnorange!8, minimum width=1.1cm, minimum height=1.1cm, align=center, font=\tiny\bfseries, inner sep=1pt, aspect=1},
+    arr/.style={-{Stealth[length=5pt]}, thick, color=gray!60},
+    arr_tobe/.style={-{Stealth[length=5pt]}, thick, color=plnblue!70},
+    arrok/.style={-{Stealth[length=5pt]}, thick, color=green!60!black},
+    arrno/.style={-{Stealth[length=5pt]}, thick, color=red!50, dashed},
+    apimsg/.style={-{Stealth[length=6pt]}, dashed, thick, color=gray!80!black},
+    timelbl/.style={font=\tiny\bfseries, text=red!60!black},
+    timelbl_tobe/.style={font=\tiny\bfseries, text=green!50!black},
+    lanelab/.style={font=\tiny\bfseries, text=gray!70!black, rotate=90},
+    meta/.style={circle, fill=#1, text=white, font=\fontsize{3}{4}\selectfont\bfseries, inner sep=1pt, minimum size=0.9cm, align=center},
+    docstyle/.style={rectangle, fill=white, draw=plnblue, line width=1.5pt, minimum width=2.2cm, minimum height=3.2cm, drop shadow}
+}
+
 \graphicspath{{assets/}{gambar/}{background/}}
+\usepackage[bottom]{footmisc}
+
 
 % ---------- background \textit{template} handout ----------
 \usepackage{eso-pic}
@@ -55,6 +82,9 @@
 \definecolor{plnorange}{RGB}{255,107,53}
 \definecolor{plncyan}{RGB}{0,163,224}
 \definecolor{plngreen}{RGB}{0,150,136}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{medgray}{RGB}{150,150,150}
+\definecolor{darkgray}{RGB}{60,60,60}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -169,29 +199,16 @@ Handout ini menggunakan beberapa konvensi visual untuk memudahkan navigasi:
 
 Modul 4.3 merupakan mata pelajaran inti dalam Level 4 (Mastery) yang berfokus pada optimalisasi prosedur dan alur kerja terintegrasi kearsipan digital. Sasaran utamanya adalah membekali Manajemen Atas PLN dengan kemampuan mengevaluasi prosedur yang ada, merancang alur kerja baru berbasis otomasi, menyusun SOP Digital yang sah secara hukum, serta membuktikan efisiensi dan ROI transformasi.
 
-Dua konsep kunci yang menjadi landasan modul ini perlu dipahami sejak awal. Pertama, \textit{Value-Added Focus}: setiap langkah dalam alur kerja harus ditanya apakah benar-benar menambah nilai bagi organisasi atau sekadar \textit{waste} (pemborosan). Dalam konteks PLN, langkah seperti mencetak dokumen hanya untuk ditandatangani basah, mengantar kertas antar-meja, atau mengetik ulang data yang sudah ada di sistem ERP merupakan \textit{non-value-added activities} yang harus dieliminasi. Kedua, \textit{Single Source of Truth}: data cukup diinput sekali di sistem sumber operasional (misal: SAP-PM, E-Procurement, SCADA), dan mengalir otomatis beserta metadata-nya ke repositori kearsipan tanpa intervensi manual.
+Bagi level Manajemen Atas, transformasi tata kelola kearsipan tidak lagi dipandang sebagai sekadar urusan administratif penyimpanan dokumen, melainkan instrumen strategis untuk mengakselerasi proses bisnis perusahaan. Keberhasilan transformasi digital di PLN sangat bergantung pada kemampuan pimpinan dalam memitigasi risiko hukum melalui penyusunan SOP yang tepat, serta keberanian untuk mendesain ulang tata kelola yang berbelit menjadi alur kerja yang ringkas, transparan, dan dapat dipertanggungjawabkan di mata auditor.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{assets/value_center.png}
-\caption{Visualisasi Pergeseran Paradigma: Dari \textit{Cost Center} Menuju \textit{Value Center}}
-\end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{assets/rc3.png}
-\caption{Model Records Continuum: Arsip sebagai Aliran Data yang Tak Terputus (Sumber: Upward, 1996)}
-\end{figure}
 
 \needspace{4\baselineskip}
 
 \section{Konteks \& Urgensi: Mengapa Ini Penting bagi PLN?}
 PLN sebagai Badan Usaha Milik Negara yang mengelola infrastruktur kelistrikan nasional menghadapi tantangan tata kelola arsip yang semakin kompleks. Banyak organisasi infrastruktur, termasuk sektor kelistrikan, masih menggunakan pola Digital $\rightarrow$ Analog $\rightarrow$ Digital: dokumen lahir secara digital di Sistem A, lalu dicetak menjadi kertas, ditandatangani basah, di-scan, dan diunggah kembali ke Sistem B. Pola ini bukan hanya memperlambat siklus bisnis, tetapi juga meningkatkan risiko ketidakpatuhan terhadap PP 71/2019\footnote{PP 71/2019; lihat Daftar Pustaka [2].} tentang Penyelenggaraan Sistem dan Transaksi Elektronik (PSTE) serta standar audit BPK dan BUMN.
 
-Pertimbangkan skenario berikut: jika proses persetujuan Berita Acara Serah Terima (BAST) pembangkit memerlukan waktu 5 hari karena harus melewati antrean cetak, kurir, dan tanda tangan basah, maka pembayaran kepada vendor tertunda, proyek pembangkit terhambat, dan PLN menghadapi risiko ganda: (1) kerugian finansial akibat keterlambatan operasional, serta (2) sanksi regulasi jika audit trail tidak lengkap. Dalam perspektif GCG, kegagalan mengoptimasi prosedur secara langsung memengaruhi penilaian tata kelola perusahaan -- termasuk dalam parameter TARIF yang menjadi tolok ukur kinerja BUMN.
-
-Modul ini dirancang untuk menjawab kebutuhan tersebut dengan pendekatan empat fase terintegrasi: Diagnosa (Fase 1), Desain Alur Kerja (Fase 2), SOP Digital (Fase 3), dan Justifikasi Bisnis (Fase 4). Studi kasus nyata di Bab 4 akan mendemonstrasikan bagaimana kegagalan pada satu fase dapat menyebabkan inefisiensi sistemik yang berdampak langsung pada operasional dan keuangan PLN.
-
+Oleh karena itu, modul ini dirancang untuk menyelesaikan inefisiensi tersebut melalui pendekatan empat fase terintegrasi: Diagnosa (Fase 1), Desain Alur Kerja (Fase 2), SOP Digital (Fase 3), dan Justifikasi Bisnis (Fase 4).
 \needspace{4\baselineskip}
 
 \section{Target Kompetensi}
@@ -217,7 +234,7 @@ Setelah menyelesaikan modul ini, peserta diharapkan mampu mencapai empat kompete
 
 TK-1 & Peserta mampu mengevaluasi prosedur kearsipan yang ada dan mengidentifikasi area optimasi menggunakan Kerangka Diagnosa 7 Domain Terintegrasi. & 4.3.1 \\
 TK-2 & Peserta mampu merancang alur kerja terintegrasi (\textit{to-be}) berbasis BPMN 2.0 dengan pemicu otomatis dan pola integrasi. & 4.3.2 \\
-TK-3 & Peserta mampu menyusun SOP Digital Terintegrasi 8 Komponen yang memenuhi persyaratan regulasi (PP 71/2019, Perka ANRI). & 4.3.3 \\
+TK-3 & Peserta mampu menyusun SOP Digital Terintegrasi 8 Komponen yang memenuhi persyaratan regulasi secara komprehensif. & 4.3.3 \\
 TK-4 & Peserta mampu menghitung efisiensi, ROI, dan menyusun justifikasi bisnis berbasis KPI Time-Cost-Risk serta Balanced \textit{scorecard}. & 4.3.4 \\
 \end{xltabular}
 \endgroup
@@ -308,20 +325,199 @@ Ketika mengesahkan rencana optimalisasi, Manajemen Atas harus memastikan bahwa k
 
 Bab ini mendukung pencapaian Fase 1: Diagnosa -- peserta mampu mengevaluasi prosedur kearsipan yang ada dan mengidentifikasi area optimasi menggunakan Kerangka Diagnosa 7 Domain Terintegrasi. Evaluasi prosedur bukan sekadar mencari kesalahan administratif staf lapangan, melainkan mengidentifikasi \textit{waste} (pemborosan) tersembunyi yang diam-diam menguras anggaran operasional dan menghambat siklus bisnis perusahaan.
 
+Tujuan utama dari diagnosa ini adalah memetakan jalan untuk pergeseran paradigma unit kearsipan: dari sekadar \textit{Cost Center} (beban operasional penyimpanan kertas) menuju \textit{Value Center} (aset strategis tata kelola yang mempercepat keputusan bisnis).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{assets/value_center.png}
+\caption{Visualisasi Pergeseran Paradigma: Dari \textit{Cost Center} Menuju \textit{Value Center}}
+\end{figure}
+
 Tiga prinsip fundamental yang mendasari evaluasi prosedur perlu dipahami oleh Manajemen Atas:
+
+\begin{figure}[H]
+\centering
+\resizebox{0.85\textwidth}{!}{%
+\begin{tikzpicture}[scale=1.0]
+    % === Stage 1: Value-Added Focus ===
+    \node[rectangle, rounded corners=4pt, draw=plnblue, fill=plnblue!8, minimum width=3cm, minimum height=1.6cm, align=center] (b1) at (0,0) {};
+    \node[font=\scriptsize\bfseries, text=plnblue] at (0,0.5) {Value-Added Focus};
+    \node[font=\tiny, text=gray!80!black] at (0,0.2) {Hapus yang tidak perlu};
+    \node[fill=red!25, draw=red, minimum size=0.25cm, inner sep=0pt] at (-0.6,-0.2) {};
+    \draw[red, very thin] (-0.7,-0.1) -- (-0.5,-0.3); \draw[red, very thin] (-0.7,-0.3) -- (-0.5,-0.1);
+    \node[fill=plngreen!25, draw=plngreen, minimum size=0.25cm, inner sep=0pt] at (0,-0.2) {};
+    \node[fill=red!25, draw=red, minimum size=0.25cm, inner sep=0pt] at (0.6,-0.2) {};
+    \draw[red, very thin] (0.5,-0.1) -- (0.7,-0.3); \draw[red, very thin] (0.5,-0.3) -- (0.7,-0.1);
+    
+    \draw[-{Stealth[length=5pt]}, thick, gray!50] (1.6,0) -- (2.2,0);
+    
+    % === Stage 2: Single Source of Truth ===
+    \node[rectangle, rounded corners=4pt, draw=plncyan, fill=plncyan!8, minimum width=3cm, minimum height=1.6cm, align=center] (b2) at (4,0) {};
+    \node[font=\scriptsize\bfseries, text=plncyan] at (4,0.5) {Single Source of Truth};
+    \node[font=\tiny, text=gray!80!black] at (4,0.2) {Input 1×, pakai banyak};
+    \fill[plncyan!50] (4,-0.15) circle (0.1cm);
+    \draw[plncyan, thin] (4,-0.15) -- (3.65,-0.35); \draw[plncyan, thin] (4,-0.15) -- (4,-0.4); \draw[plncyan, thin] (4,-0.15) -- (4.35,-0.35);
+    \fill[plncyan!30] (3.65,-0.35) circle (0.05cm); \fill[plncyan!30] (4,-0.4) circle (0.05cm); \fill[plncyan!30] (4.35,-0.35) circle (0.05cm);
+    
+    \draw[-{Stealth[length=5pt]}, thick, gray!50] (5.6,0) -- (6.2,0);
+    
+    % === Stage 3: Rule-Based Routing ===
+    \node[rectangle, rounded corners=4pt, draw=plnorange, fill=plnorange!8, minimum width=3cm, minimum height=1.6cm, align=center] (b3) at (8,0) {};
+    \node[font=\scriptsize\bfseries, text=plnorange] at (8,0.5) {Rule-Based Routing};
+    \node[font=\tiny, text=gray!80!black] at (8,0.2) {Otomatis berdasarkan aturan};
+    \node[diamond, fill=plnorange!25, draw=plnorange, aspect=1, minimum size=0.35cm, inner sep=0pt] at (8,-0.15) {};
+    \draw[-{Stealth[length=4pt]}, plngreen, thin] (8.2,-0.1) -- ++(0.25,0.12);
+    \draw[-{Stealth[length=4pt]}, red, thin] (8.2,-0.2) -- ++(0.25,-0.12);
+\end{tikzpicture}
+}
+\caption{Tiga Pilar Strategis Optimalisasi Prosedur}
+\end{figure}
 
 \textit{\textit{value-added} Analysis} adalah prinsip yang menyatakan bahwa setiap langkah dalam alur kerja harus diuji apakah benar-benar menambah nilai bagi pelanggan (unit berikutnya, auditor, atau regulator) atau sekadar \textit{waste}. Dalam konteks PLN, langkah seperti mencetak dokumen hanya untuk ditandatangani, mengirim berkas fisik antar-lantai, atau mengetik ulang data yang sudah tersedia di SAP merupakan \textit{\textit{non-\textit{value-added}} activities} yang harus dieliminasi.
 
-\textit{Document Shadowing} adalah teknik mengikuti perjalanan satu dokumen dari lahir sampai tersimpan, mencatat setiap kali dokumen berpindah tangan, berganti format, atau menunggu di meja seseorang. Teknik ini seringkali mengejutkan: sebuah dokumen yang seharusnya selesai dalam 4 jam ternyata menghabiskan 4,2 hari karena 90\% waktunya terbuang di antrean.
+\textit{Single Source of Truth} memastikan bahwa data cukup diinput satu kali di sistem sumber operasional (misal: SAP-PM, E-Procurement, SCADA) dan mengalir otomatis beserta metadata-nya ke repositori kearsipan tanpa intervensi rekam ulang secara manual.
 
-\textit{Gemba Walk} adalah pendekatan turun langsung ke lapangan dan bertanya kepada staf: ``Apa yang paling membuat frustrasi dalam proses administrasi Anda?'' ``Berapa kali Anda input ulang data yang sama ke sistem berbeda?'' Jawaban-jawaban ini seringkali lebih bernilai daripada laporan formal.
+\textit{Rule-Based Routing} merujuk pada pendelegasian pergerakan dokumen kepada sistem. Dokumen tidak lagi diedarkan secara manual, melainkan dikirim otomatis ke Pejabat Berwenang sesuai dengan parameter matriks persetujuan (SLA) yang ditanamkan dalam aplikasi.
+
+\subsection*{Dampak Inefisiensi: \textit{Friction Points} pada Tata Kelola Konvensional}
+
+Ketika ketiga pilar strategis tersebut diabaikan, organisasi akan terjebak dalam siklus administrasi konvensional yang memicu \textit{waste}. Ketidakmampuan dalam merancang tata kelola kearsipan yang terintegrasi ini seringkali bermuara pada pola inefisiensi sistemik, yang dapat divisualisasikan melalui dua skenario \textit{friction points} berikut:
+
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.95\textwidth}
+\begin{tcolorbox}[
+    colback=white, colframe=plnblue!40,
+    boxrule=0.6pt, arc=3pt, left=3pt, right=3pt, top=2pt, bottom=2pt,
+    title={\footnotesize\bfseries \color{plnblue}Skenario 1: Digital $\rightarrow$ Analog $\rightarrow$ Digital},
+    fonttitle=\bfseries, coltitle=plnblue,
+    attach boxed title to top left={yshift=-2.5mm, xshift=4mm},
+    boxed title style={colback=white, colframe=white, boxrule=0pt}
+]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=1.0cm]
+\node[draw, fill=plnblue!10, text width=2.0cm, align=center, font=\tiny, rounded corners=2pt] (s1) {Penciptaan\\(Sistem A)};
+\node[draw, red, fill=red!10, right=of s1, text width=2.0cm, align=center, font=\tiny, rounded corners=2pt] (f1) {CETAK FISIK\\(Friction 1)};
+\node[draw, red, fill=red!10, right=of f1, text width=2.0cm, align=center, font=\tiny, rounded corners=2pt] (f2) {TTD MANUAL\\(Friction 2)};
+\node[draw, red, fill=red!10, right=of f2, text width=2.0cm, align=center, font=\tiny, rounded corners=2pt] (f3) {SCAN \& UPLOAD\\(Friction 3)};
+\node[draw, fill=plnblue!10, right=of f3, text width=2.0cm, align=center, font=\tiny, rounded corners=2pt] (s2) {Penyimpanan\\(Sistem B)};
+\draw[->, thick] (s1) -- (f1); \draw[->, thick] (f1) -- (f2); \draw[->, thick] (f2) -- (f3); \draw[->, thick] (f3) -- (s2);
+\end{tikzpicture}%
+}
+\end{tcolorbox}
+\vspace{0.2cm}
+\begin{tcolorbox}[
+    colback=white, colframe=plnorange!50,
+    boxrule=0.6pt, arc=3pt, left=3pt, right=3pt, top=2pt, bottom=2pt,
+    title={\footnotesize\bfseries \color{plnorange}Skenario 2: Fisik Sejak Awal},
+    fonttitle=\bfseries, coltitle=plnorange,
+    attach boxed title to top left={yshift=-2.5mm, xshift=4mm},
+    boxed title style={colback=white, colframe=white, boxrule=0pt}
+]
+\centering
+\resizebox{0.75\textwidth}{!}{%
+\begin{tikzpicture}[node distance=1.0cm]
+\node[draw, red, fill=red!10, text width=2.2cm, align=center, font=\tiny, rounded corners=2pt] (p1) {PENCIPTAAN FISIK\\(Formulir Manual)};
+\node[draw, red, fill=red!10, right=of p1, text width=2.2cm, align=center, font=\tiny, rounded corners=2pt] (p2) {DISTRIBUSI FISIK\\(Kurir/Pos Internal)};
+\node[draw, red, fill=red!10, right=of p2, text width=2.2cm, align=center, font=\tiny, rounded corners=2pt] (p3) {PENYIMPANAN FISIK\\(Lemari Arsip)};
+\node[draw, red, fill=red!10, right=of p3, text width=2.2cm, align=center, font=\tiny, rounded corners=2pt] (p4) {DIGITALISASI\\(Scan saat butuh)};
+\draw[->, thick] (p1) -- (p2); \draw[->, thick] (p2) -- (p3); \draw[->, thick] (p3) -- (p4);
+\end{tikzpicture}%
+}
+\end{tcolorbox}
+\end{minipage}
+\caption{Friction Points (Titik Inefisiensi) pada Skenario Prosedur Kearsipan As-Is}
+\end{figure}
+
+Pertimbangkan skenario berikut: jika proses persetujuan Berita Acara Serah Terima (BAST) pembangkit memerlukan waktu 5 hari karena harus melewati antrean cetak, kurir, dan tanda tangan basah, maka pembayaran kepada vendor tertunda, proyek pembangkit terhambat, dan PLN menghadapi risiko ganda: (1) kerugian finansial akibat keterlambatan operasional, serta (2) sanksi regulasi jika audit trail tidak lengkap. Dalam perspektif GCG, kegagalan mengoptimasi prosedur secara langsung memengaruhi penilaian tata kelola perusahaan -- termasuk dalam parameter TARIF yang menjadi tolok ukur kinerja BUMN.
+
+\subsection*{Solusi Paradigma: Model \textit{Records Continuum}}
+Sebagai solusi dari inefisiensi pada Skenario 1 dan 2, Manajemen Atas harus mengadopsi kerangka kerja \textbf{\textit{Records Continuum Model}} (ISO 15489). Berbeda dengan siklus hidup tradisional (\textit{Life Cycle}) yang memutus umur dokumen menjadi fase-fase terpisah (aktif, inaktif, musnah), \textit{Continuum Model} menegaskan bahwa arsip digital adalah satu aliran data berkesinambungan sejak ia dikonsepkan di aplikasi operasional.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{assets/rc3.png}
+\caption{Model Records Continuum: Arsip sebagai Aliran Data yang Tak Terputus (Sumber: Upward, 1996)}
+\end{figure}
+
+Dimensi kontinuitas ini mencakup:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Create:} Transaksi awal terekam otomatis saat kejadian (contoh: BAST/SPK diterbitkan).
+    \item \textbf{Capture:} Sistem mengunci validasi dan metadata untuk integritas hukum.
+    \item \textbf{Organize:} Klasifikasi otonom yang langsung mengatur tata kelola organisasi.
+    \item \textbf{Pluralize:} Akses korporat lintas-direktorat untuk audit dan kepatuhan.
+\end{itemize}
+
+\needspace{4\baselineskip}
+
+\needspace{4\baselineskip}
+
+\section{Teknik Pencarian Fakta untuk Manajemen Atas}
+
+Untuk beralih dari inefisiensi administrasi konvensional menuju idealita tata kelola \textit{Records Continuum}, Manajemen Atas harus terlebih dahulu memetakan presisi akar masalah di unit kerjanya. Proses pemetaan ini menuntut ketersediaan data faktual dari lapangan, bukan sekadar opini atau asumsi di atas kertas. 
+
+Bagi Manajemen Atas, pengumpulan fakta operasional ini bukan berarti turun langsung melakukan audit teknis sendirian, melainkan memastikan bahwa tim pengampu kearsipan menjalankan tiga metodologi investigasi berikut dan menyajikan temuannya secara terukur:
+
+\begin{enumerate}[leftmargin=*]
+    \item Document Shadowing. Tim operasional mengikuti perjalanan satu dokumen dari lahir sampai tersimpan. Catat setiap kali dokumen berpindah tangan, berganti format, atau menunggu di meja seseorang. Manajemen Atas memvalidasi apakah sampel yang dipilih representatif dan apakah temuan waktu tunggu sudah dikorelasikan dengan volume aktual.
+    \item Log Analysis. Tim IT membuka data \textit{timestamp} sistem dan bandingkan \textit{actual vs SLA}. Berapa lama seharusnya proses persetujuan versus kenyataannya? Manajemen Atas memastikan bahwa perbandingan ini tidak hanya teknis, melainkan dikaitkan dengan dampak bisnis (keterlambatan pembayaran vendor, penalti kontrak, dll).
+    \item Gemba Walk. Tim manajemen turun langsung ke lapangan dan bertanya kepada staf: ``Apa yang paling membuat frustrasi?'' ``Berapa kali Anda input ulang data yang sama ke sistem berbeda?'' Manajemen Atas memastikan bahwa temuan dari Gemba Walk tidak hanya didengar, melainkan dituangkan dalam daftar perbaikan prioritas.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\resizebox{0.85\textwidth}{!}{%
+\begin{tikzpicture}[scale=0.55, every node/.style={transform shape}]
+    % Steps as Boxes
+    % Shadowing
+    \node[rectangle, rounded corners=6pt, draw=plnblue, fill=plnblue!5, minimum width=3.5cm, minimum height=2.2cm, align=center] (a) at (0,0) {};
+    \node[font=\scriptsize\bfseries, text=plnblue] at (0,0.7) {Shadowing};
+    \begin{scope}[shift={(0,-0.2)}]
+        \draw[thick, plnblue] (-0.3,0) rectangle (0.3,0.5);
+        \draw[plnblue] (-0.2,0.4) -- (0.2,0.4); \draw[plnblue] (-0.2,0.3) -- (0.2,0.3);
+        \draw[plnorange, very thick] (0.3,0) circle (0.25cm);
+        \draw[plnorange, very thick] (0.45,-0.15) -- (0.6,-0.3);
+    \end{scope}
+
+    % Log Analysis
+    \node[rectangle, rounded corners=6pt, draw=plncyan, fill=plncyan!5, minimum width=3.5cm, minimum height=2.2cm, align=center] (b) at (4.5,2.5) {};
+    \node[font=\scriptsize\bfseries, text=plncyan] at (4.5,3.2) {Log Analysis};
+    \begin{scope}[shift={(4.5,2.3)}]
+        \draw[->, gray] (-0.5,0) -- (0.5,0); \draw[->, gray] (-0.5,0) -- (-0.5,0.7);
+        \draw[thick, plncyan] (-0.5,0.1) -- (-0.2,0.5) -- (0.1,0.3) -- (0.4,0.6);
+    \end{scope}
+
+    % Gemba Walk
+    \node[rectangle, rounded corners=6pt, draw=plnorange, fill=plnorange!5, minimum width=3.5cm, minimum height=2.2cm, align=center] (c) at (9,0) {};
+    \node[font=\scriptsize\bfseries, text=plnorange] at (9,0.7) {Gemba Walk};
+    \begin{scope}[shift={(9,-0.2)}]
+        \draw[thick, plnorange] (0,0.4) circle (0.15cm);
+        \draw[thick, plnorange] (0,0.25) -- (0,-0.1);
+        \draw[thick, plnorange] (-0.2,0.1) -- (0.2,0.1);
+        \draw[plngreen, very thick] (0.4,0) -- (0.5,-0.1) -- (0.7,0.2);
+    \end{scope}
+
+    % Arrows
+    \draw[-{Stealth[length=8pt]}, line width=1.5pt, gray!30] (1.8,0.5) .. controls (2.5,1.5) .. (3.2,2.0);
+    \draw[-{Stealth[length=8pt]}, line width=1.5pt, gray!30] (5.8,2.0) .. controls (6.5,1.5) .. (7.2,0.5);
+\end{tikzpicture}%
+}
+\caption{Visualisasi Proses Diagnosa Lapangan: Shadowing, Log Analysis, dan Gemba Walk}
+\end{figure}
+
+
+
 
 \needspace{4\baselineskip}
 
 \section{Kerangka Diagnosa 7 Domain Terintegrasi}
 
-Manajemen Atas tidak perlu menjadi auditor teknis, tetapi harus mampu mengajukan pertanyaan korektif yang mengarahkan tim ke arah prioritas yang benar. Ketujuh domain berikut adalah instrumen evaluasi untuk menilai tingkat kematangan tata kelola arsip: dari kebijakan hingga teknologi, dari personel hingga keberlanjutan. Domain ini disusun berdasarkan sintesis regulasi nasional dan standar internasional sehingga hasil evaluasinya dapat langsung dijadikan dasar investasi dan alokasi sumber daya.
-Evaluasi dilakukan dengan skor 1--5 pada tujuh domain berikut untuk menentukan prioritas optimasi. Domain ini bukan adopsi harfiah dari satu standar tunggal, melainkan hasil sintesis terstruktur dari PP 71/2019, Perka ANRI 6/2021, ISO 15489, ISO 27001, NIST SP 800-53, World Bank RM \textit{roadmap}, PARBICA Toolkit, dan prinsip GCG BUMN.
+Data mentah dan temuan yang berhasil dikumpulkan melalui \textit{Shadowing}, \textit{Log Analysis}, dan \textit{Gemba Walk} pada akhirnya harus dikuantifikasi agar dapat dijadikan dasar keputusan bisnis. Untuk itu, seluruh temuan lapangan tersebut wajib dipetakan dan diskor ke dalam kerangka evaluasi yang komprehensif.
+
+Ketujuh domain berikut adalah instrumen standar untuk menilai tingkat kematangan tata kelola arsip PLN: mulai dari dimensi kebijakan hingga arsitektur teknologi. Karena disusun berdasarkan sintesis regulasi nasional dan standar global (ISO 15489, ANRI), hasil evaluasi pada domain ini sah untuk dijadikan landasan persetujuan anggaran dan prioritas alokasi sumber daya.
+Evaluasi dilakukan dengan skor 1--5 pada tujuh domain berikut untuk menentukan prioritas optimasi. Domain ini bukan adopsi harfiah dari satu standar tunggal, melainkan hasil sintesis terstruktur dari standar kearsipan dan keamanan global (ISO, NIST, PARBICA) serta regulasi tata kelola nasional dan prinsip GCG BUMN.
 
 \begingroup
 \small
@@ -373,17 +569,6 @@ Gunakan hasil skoring 7 Domain sebagai dasar tiga keputusan eksekutif: (1) keput
 \caption{Radar Chart Maturitas: Perbandingan Skor 7 Domain (Kondisi Saat Ini vs Target Siap Integrasi)}
 \end{figure}
 
-\needspace{4\baselineskip}
-
-\section{Teknik Pencarian Fakta untuk Manajemen Atas}
-Bagi Manajemen Atas, teknik pencarian fakta bukan berarti mengumpulkan data teknis sendiri, melainkan memastikan bahwa tim terkait menjalankan metodologi yang benar dan menyajikan temuan dalam format yang dapat ditindaklanjuti.
-
-\begin{enumerate}[leftmargin=*]
-    \item Document Shadowing. Tim operasional mengikuti perjalanan satu dokumen dari lahir sampai tersimpan. Catat setiap kali dokumen berpindah tangan, berganti format, atau menunggu di meja seseorang. Manajemen Atas memvalidasi apakah sampel yang dipilih representatif dan apakah temuan waktu tunggu sudah dikorelasikan dengan volume aktual.
-    \item Log Analysis. Tim IT membuka data \textit{timestamp} sistem dan bandingkan \textit{actual vs SLA}. Berapa lama seharusnya proses persetujuan versus kenyataannya? Manajemen Atas memastikan bahwa perbandingan ini tidak hanya teknis, melainkan dikaitkan dengan dampak bisnis (keterlambatan pembayaran vendor, penalti kontrak, dll).
-    \item Gemba Walk. Tim manajemen turun langsung ke lapangan dan bertanya kepada staf: ``Apa yang paling membuat frustrasi?'' ``Berapa kali Anda input ulang data yang sama ke sistem berbeda?'' Manajemen Atas memastikan bahwa temuan dari Gemba Walk tidak hanya didengar, melainkan dituangkan dalam daftar perbaikan prioritas.
-\end{enumerate}
-
 \begin{warnbox}[Peringatan: Data Asumsi vs Faktual]
 Angka kerugian yang digunakan dalam simulasi modul ini (misalnya Rp 1,04 Miliar/tahun) adalah ilustrasi pemodelan pedagogis. Di workshop, Bapak/Ibu wajib mengganti angka-asumsi ini dengan data faktual unit masing-masing agar justifikasi bisnis akuntabel di depan komite investasi.
 \end{warnbox}
@@ -391,7 +576,8 @@ Angka kerugian yang digunakan dalam simulasi modul ini (misalnya Rp 1,04 Miliar/
 \needspace{4\baselineskip}
 
 \section{Langkah-Langkah Evaluasi Prosedur}
-Bagi Manajemen Atas, evaluasi prosedur bukan berarti menganalisis setiap langkah sendiri, melainkan memastikan bahwa proses tata kelola berikut dijalankan dengan benar oleh tim terkait:
+
+Hasil skoring dari 7 Domain (seperti tergambar pada Radar Chart) telah memotret posisi maturitas (\textit{maturity level}) kearsipan organisasi saat ini secara objektif. Untuk meramu hasil pemetaan statis tersebut menjadi rencana perbaikan yang berdampak nyata, Manajemen Atas perlu memandu tim unitnya melalui lima tahapan evaluasi prosedural yang progresif berikut:
 
 \begin{enumerate}[leftmargin=*]
     \item Pilih Proses Prioritas. Manajemen Atas menetapkan 1--2 proses kearsipan dengan volume tinggi atau risiko tinggi sebagai pilot evaluasi. Contoh: BAST E-Procurement, SPK Pemeliharaan GI, atau Laporan Keuangan Bulanan.
@@ -410,6 +596,7 @@ Diagnosa adalah fondasi optimalisasi: tanpa data akurat tentang apa yang salah, 
 \needspace{4\baselineskip}
 
 \section{Aktivitas Workshop (30 Menit)}
+\textit{(Catatan: Gunakan \textbf{Lampiran A: Matriks Identifikasi Area Optimasi} pada Lembar Kerja untuk aktivitas ini.)}
 \begin{enumerate}[leftmargin=*]
     \item Pilih 1 proses kearsipan di unit Anda dan lakukan Document Shadowing ringkas (catat setiap langkah, waktu, dan format).
     \item Skor 7 Domain untuk proses tersebut dan identifikasi domain paling lemah.
@@ -426,15 +613,9 @@ Portofolio 1 (Fase 1: Diagnosa): Matriks Identifikasi Area Optimasi + Skoring 7 
 (Kriteria Penilaian 4.3.2 -- Target Kompetensi 2)
 % ============================================================
 
-Bab ini mendukung pencapaian Fase 2: Desain Alur Kerja -- peserta mampu merancang alur kerja terintegrasi (\textit{to-be}) berbasis BPMN 2.0 dengan pemicu otomatis dan pola integrasi. Desain alur kerja bukan sekadar menggambar diagram, melainkan menyusun rancangan arsitektur hukum yang mengikat cara kerja unit, tanggung jawab peran, dan logika sistem dalam satu notasi visual standar internasional.
+Bab ini mendukung pencapaian Fase 2: Desain Alur Kerja -- peserta mampu merancang alur kerja terintegrasi (\textit{to-be}) berbasis BPMN 2.0 dengan pemicu otomatis dan pola integrasi. 
 
-Mengapa bab ini berurutan setelah Diagnosa? Skema evaluasi yang dirancang pada Bab 1 (Fase 1) menentukan \textit{apa} yang perlu diperbaiki dan \textit{mengapa}. Namun, temuan diagnosa tanpa rancangan alur kerja yang konkret hanyalah identifikasi masalah tanpa rencana tindak lanjut penyelesaian. Desain alur kerja (Fase 2) menjembatani celah tersebut dengan menyusun rancangan arsitektur operasional yang dapat diimplementasikan, diaudit, dan diukur.
-
-Dua konsep teknis kunci yang menjadi fondasi desain alur kerja perlu dipahami oleh Manajemen Atas dalam konteks bisnis:
-
-\textit{Trigger-Based Auto-Capture} adalah mekanisme di mana sistem operasional (ERP/SCADA/E-Procurement) secara otomatis menarik data transaksi dan menghasilkan draf arsip beserta metadata begitu status transaksi final. \textit{Manusia tidak lagi memulai proses arsip secara manual.} Bagi Manajemen Atas, ini berarti eliminasi kesalahan input manual dan jaminan bahwa setiap transaksi bisnis meninggalkan jejak arsip yang lengkap -- sebuah prasyarat kepatuhan yang tidak dapat dinegosiasikan.
-
-\textit{Parallel Digital Routing} adalah mekanisme pengiriman dokumen serentak ke multi-pejabat untuk persetujuan paralel, menggantikan antrean birokrasi berjenjang. Bagi Manajemen Atas, ini berlangsung pengurangan waktu siklus secara dramatis. Namun, \textit{catatan kritis}: dokumen harus dikunci \textit{read-only} saat paralel; revisi diajukan sebagai metadata komentar, bukan mengubah dokumen asli. Tanpa penguncian ini, versi dokumen akan bertabrakan dan arsiparis tidak akan tahu mana yang menjadi \textit{Golden Record}.
+Setelah memetakan inefisiensi sistemik pada Fase Diagnosa (Bab 1), Manajemen Atas membutuhkan arsitektur operasional baru untuk menyembuhkan inefisiensi tersebut. Temuan diagnosa hanyalah identifikasi masalah; penyelesaiannya terletak pada perancangan ulang tata kelola alur kerja. Desain alur kerja (Fase 2) hadir untuk merumuskan cara kerja baru yang mengeliminasi \textit{waste} secara otomatis. Desain baru ini bukan sekadar aktivitas menggambar diagram teknis, melainkan penyusunan arsitektur hukum yang mengikat unit kerja ke dalam sebuah notasi visual standar internasional (BPMN).
 
 \needspace{4\baselineskip}
 
@@ -459,10 +640,12 @@ Jika validasi melebihi batas waktu (contoh: $>$1--16 jam sesuai jenis dokumen), 
 Makna bagi Manajemen Atas: Ini adalah instrumen akuntabilitas. SLA dalam sistem digital bukan sekadar angka durasi target penyelesaian, melainkan kontrak akuntabilitas otomatis yang secara paksa mencegah dokumen tertahan di meja persetujuan tanpa konsekuensi. Manajemen Atas harus menyetujui threshold SLA dan menerima notifikasi eskalasi secara aktif.
 \end{plnbox}
 
+Untuk merealisasikan ketiga pola alur kerja (logikal) di atas, PLN membutuhkan fondasi arsitektur pertukaran data yang tangguh antar-sistem (seperti integrasi SAP, E-Procurement, dan E-Office). Gambar berikut mengilustrasikan relevansi tersebut melalui \textbf{Tiga Pola Arsitektur Integrasi Sistem}. Pendekatan \textit{Hybrid} (kombinasi Point-to-Point dan Middleware/Hub) menjadi rekomendasi utama karena paling andal dalam mengakomodasi kompleksitas \textit{trigger} otomatis, \textit{routing} paralel, dan eskalasi SLA pada volume transaksi berskala besar.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\textwidth]{assets/diagram_pola_integrasi.png}
-\caption{Tiga Pola Arsitektur Integrasi: Point-to-Point, Middleware/Hub, dan Hybrid (Rekomendasi)}
+\caption{Tiga Pola Arsitektur Integrasi Sistem: Point-to-Point, Middleware/Hub, dan Hybrid (Rekomendasi)}
 \end{figure}
 
 \needspace{4\baselineskip}
@@ -509,8 +692,74 @@ Mengapa Menggunakan BPMN 2.0?
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.95\textwidth]{assets/diagram_bpmn.png}
-\caption{Perbandingan Alur Kerja BAST: AS-IS (Manual, 4--7 hari) vs TO-BE (Digital Terintegrasi, $<$1 hari)}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=1.2cm and 0.8cm]
+\fill[gray!5] (0.2, 2.5) rectangle (18, 0.6);
+\fill[yellow!4] (0.2, 0.4) rectangle (18, -2.3);
+\fill[gray!5] (0.2, -2.5) rectangle (18, -5.4);
+\draw[gray!30, thick] (0.2, 0.5) -- (18, 0.5);
+\draw[gray!30, thick] (0.2, -2.4) -- (18, -2.4);
+\node[lanelab] at (0.4, 1.6) {Staf Cabang};
+\node[lanelab] at (0.4, -1.0) {Manajer UPT};
+\node[lanelab] at (0.4, -4.0) {Kearsipan};
+\node[startstyle] at (1.5, 1.6) (s1) {Start};
+\node[manual, right=of s1] (m1) {Cetak\\Kontrak\\Rangkap 3};
+\node[manual, right=of m1] (m2) {Isi Form\\Pengantar};
+\node[manual, right=of m2] (m3) {Kirim Kurir\\Internal};
+\node[waiting] at (8.5, -1.0) (w1) {Antrian\\Meja};
+\node[manual, right=of w1] (m4) {Review\\\& TTD\\Basah};
+\node[gateway, right=of m4] (g1) {$\times$};
+\node[manual, right=of g1] (m5) {Stempel\\Basah};
+\node[manual] at (12.5, -4.0) (m6) {Terima\\Fisik};
+\node[manual, right=of m6] (m7) {Catat Buku\\Induk};
+\node[endstyle, right=of m7] (e1) {End};
+\draw[arr] (s1) -- (m1); \draw[arr] (m1) -- (m2); \draw[arr] (m2) -- (m3);
+\draw[arr] (m3.south) -- ++(0,-0.4) -| (w1.north);
+\draw[arr] (w1) -- (m4); \draw[arr] (m4) -- (g1);
+\draw[arrno] (g1.north) -- ++(0,0.8) -| node[above, font=\tiny\itshape, text=red] {Revisi} (m2.south);
+\draw[arr] (g1) -- node[above, font=\tiny\itshape] {OK} (m5);
+\draw[arr] (m5.south) -- ++(0,-0.4) -| (m6.north);
+\draw[arr] (m6) -- (m7); \draw[arr] (m7) -- (e1);
+\node[timelbl, below=0.15cm of w1] {1--3 hari!};
+\node[font=\small\bfseries, text=red!70!black] at (9, -6.5) {SIKLUS MANUAL: 3--5 HARI KERJA};
+\end{tikzpicture}
+}
+\caption{Model BPMN Kondisi Saat Ini (AS-IS): Alur Manual dengan Waktu Siklus Panjang}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=1.2cm and 0.8cm]
+\fill[plnblue!4] (0.2, 2.5) rectangle (18, 0.6);
+\fill[plnorange!4] (0.2, 0.4) rectangle (18, -2.3);
+\fill[plnblue!4] (0.2, -2.5) rectangle (18, -5.4);
+\draw[plnblue!20, thick] (0.2, 0.5) -- (18, 0.5);
+\draw[plnblue!20, thick] (0.2, -2.4) -- (18, -2.4);
+\node[lanelab, text=plnblue!80!black] at (0.4, 1.6) {ERP / SAP};
+\node[lanelab, text=plnblue!80!black] at (0.4, -1.0) {Pimpinan};
+\node[lanelab, text=plnblue!80!black] at (0.4, -4.0) {Repositori};
+\node[startstyle_tobe] at (1.5, 1.6) (s2) {Event};
+\node[autostep, right=of s2] (a1) {Auto-Capture\\Metadata\\ERP};
+\node[autostep, right=of a1] (a2) {Generate\\Draft Digital\\(PDF/A)};
+\node[humanstep] at (7.5, -1.0) (h1) {Digital Review\\via E-Office};
+\node[gateway_tobe, right=of h1] (g2) {$\times$};
+\node[humanstep, right=of g2] (h2) {Otorisasi\\TTE};
+\node[autostep] at (12.5, -4.0) (a3) {Hash-Lock\\Immutable};
+\node[autostep, right=of a3] (a4) {Log Audit\\Trail};
+\node[endstyle_tobe, right=of a4] (e2) {Arsip};
+\draw[arr_tobe] (s2) -- (a1); \draw[arr_tobe] (a1) -- (a2);
+\draw[arr_tobe] (a2.south) -- ++(0,-0.4) -| (h1.north);
+\draw[arr_tobe] (h1) -- (g2);
+\draw[arrno] (g2.north) -- ++(0,0.8) -| node[above, font=\tiny\itshape, text=red] {Batal} (a2.south);
+\draw[arrok] (g2) -- node[above, font=\tiny\itshape] {Setuju} (h2);
+\draw[arr_tobe] (h2.south) -- ++(0,-0.4) -| (a3.north);
+\draw[arr_tobe] (a3) -- (a4); \draw[arr_tobe] (a4) -- (e2);
+\node[timelbl_tobe, below=0.15cm of h1] {SLA: 16 Jam};
+\node[font=\small\bfseries, text=green!50!black] at (9, -6.5) {SIKLUS DIGITAL: $<$ 24 JAM};
+\end{tikzpicture}
+}
+\caption{Model BPMN Kondisi Target (TO-BE): Alur Terintegrasi dengan SLA Singkat}
 \end{figure}
 
 \needspace{4\baselineskip}
@@ -559,7 +808,7 @@ Sebelum rancangan BPMN disahkan dan anggaran dicairkan, Manajemen Atas wajib mem
 1. Kelengkapan & Apakah setiap pemicu (\textit{trigger}) memiliki aktivitas (\textit{task}) dan peristiwa akhir (\textit{end event}) yang terdefinisi? \\
 2. Konsistensi & Apakah semua gerbang keputusan (\textit{gateway}) memiliki jalur persetujuan \textit{dan} penolakan untuk mencegah kebuntuan proses? \\
 \rowcolor{rowalt}
-3. Kepatuhan & Apakah alur kerja telah sesuai dengan regulasi (PP 71/2019, ISO 15489, tata naskah dinas)? \\
+3. Kepatuhan & Apakah alur kerja telah sesuai dengan payung hukum dan standar kearsipan yang berlaku? \\
 4. Fallback & Apakah tersedia prosedur mitigasi apabila terjadi kegagalan sistem (\textit{downtime}, API \textit{timeout})? \\
 \bottomrule
 \end{xltabular}
@@ -576,8 +825,9 @@ Desain alur kerja adalah rancangan arsitektur operasional: tanpa validasi Manaje
 \needspace{4\baselineskip}
 
 \section{Aktivitas Workshop (30 Menit)}
+\textit{(Catatan: Gunakan \textbf{Lampiran B: Lembar Kerja Diagram BPMN To-Be} untuk aktivitas ini.)}
 \begin{enumerate}[leftmargin=*]
-    \item Pilih 1 proses dari hasil diagnosa Bab 1 dan gambar sketsa alur \textit{to-be} menggunakan notasi BPMN (di kertas terpisah).
+    \item Pilih 1 proses dari hasil diagnosa Bab 1 dan gambar sketsa alur \textit{to-be} menggunakan notasi BPMN pada lembar kerja yang tersedia.
     \item Tentukan trigger sistem, jalur paralel (jika ada), threshold SLA, dan jalur eskalasi.
     \item Identifikasi 1 risiko potensial dan rancang mekanisme \textit{fallback}-nya.
 \end{enumerate}
@@ -592,9 +842,9 @@ Portofolio 2 (Fase 2: Desain Alur Kerja): Diagram BPMN 2.0 \textit{to-be} + Peta
 (Kriteria Penilaian 4.3.3 -- Target Kompetensi 3)
 % ============================================================
 
-Bab ini mendukung pencapaian Fase 3: SOP Digital -- peserta mampu menyusun SOP Digital Terintegrasi 8 Komponen yang memenuhi persyaratan regulasi (PP 71/2019, Perka ANRI). SOP Digital bukan sekadar SOP konvensional yang di-\textit{scan} dan diunggah, melainkan protokol korporat yang mengikat SLA, arsitektur alur kerja, akuntabilitas pengambil keputusan, dan kepatuhan regulasi dalam satu dokumen yang sah secara hukum.
+Bab ini mendukung pencapaian Fase 3: SOP Digital -- peserta mampu menyusun SOP Digital Terintegrasi 8 Komponen yang memenuhi persyaratan regulasi secara komprehensif. 
 
-Mengapa bab ini berurutan setelah Desain Alur Kerja? Rancangan alur kerja (Fase 2) menyusun \textit{blueprint} visual proses. Namun, blueprint tanpa SOP yang disahkan tidak memiliki kekuatan mengikat di level organisasi. Tanpa SOP Digital yang disahkan oleh Manajemen Atas, alur kerja terintegrasi hanyalah konfigurasi teknis yang dapat dengan mudah diabaikan atau diubah tanpa pertanggungjawaban. SOP Digital (Fase 3) memberikan landasan legitimasi bagi seluruh mekanisme optimalisasi, sekaligus memastikan keselarasan dengan standar internasional (ISO 15489), regulasi nasional (PP 71/2019), dan prinsip GCG BUMN (TARIF).
+Rancangan alur kerja BPMN pada Fase 2 telah berhasil memetakan \textit{blueprint} arsitektur otomasi. Namun, sehebat apa pun sistem tata kelola IT yang dibangun, diagram tersebut tidak akan memiliki daya ikat hukum apabila tidak dibakukan. SOP Digital hadir untuk menjembatani celah legitimasi tersebut. Ia bukan sekadar dokumen manual yang di-\textit{scan}, melainkan protokol korporat yang mengikat SLA sistem, memvalidasi pergerakan data, dan memaksa kepatuhan operasional sesuai dengan tata kelola organisasi dan prinsip GCG BUMN (TARIF).
 
 \needspace{4\baselineskip}
 
@@ -653,13 +903,43 @@ Agar SOP memiliki kekuatan hukum dan operasional, wajib memuat kedelapan kompone
     \item Lampiran Teknis. Dilengkapi peta kodifikasi database, draf log rekaman mesin (Audit Trail), dan ilustrasi Matriks Metadata Terintegrasi (14 field wajib).
 \end{enumerate}
 
+\begingroup
+\small
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\caption{Contoh Transformasi Rumusan Kalimat Uraian Prosedur (Komponen 6)}\\
+\toprule
+\textbf{SOP Konvensional (Kurang Tepat)} & \textbf{SOP Digital Terintegrasi (Benar)} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l}{\small\textit{Lanjutan Tabel \thetable}}\\
+\toprule
+\textbf{SOP Konvensional (Kurang Tepat)} & \textbf{SOP Digital Terintegrasi (Benar)} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\rowcolor{rowalt}
+\textit{``Vendor mengirim invoice fisik ke loket PLN. Staf mengecek kelengkapan, lalu meminta paraf Asisten Manajer. Maksimal 3 hari.''} \newline \newline
+(Fokus pada pergerakan fisik dan entitas manusia, rawan kehilangan jejak audit).
+&
+\textit{``Saat status \textbf{Goods Receipt (GR)} di sistem SAP terverifikasi, sistem secara otomatis merilis \textbf{trigger} ke modul E-Invoice. Manajer memverifikasi via \textit{dashboard} dengan TTE dalam \textbf{SLA maksimal 1$\times$24 jam}. Jika SLA terlampaui, sistem menjalankan \textbf{eskalasi otomatis} ke General Manager.''} \newline \newline
+(Fokus pada \textit{event/trigger} sistem, parameter SLA digital, dan manajemen risiko). \\
+\bottomrule
+\end{xltabular}
+\endgroup
+
 \begin{plnbox}[Panduan Pemanfaatan 8 Komponen untuk Keputusan Manajemen]
-Gunakan 8 komponen sebagai dasar penilaian kecukupan draf SOP dari tim: (1) Apakah komponen 2 (Dasar Hukum) mencakup PP 71/2019 dan Perka ANRI? (2) Apakah komponen 4 (Peran + System Custodian) mengakui sistem sebagai entitas pengawasan? (3) Apakah komponen 6 (Uraian Prosedur) menggunakan bahasa trigger dan SLA, bukan bahasa manual? Jika salah satu komponen tidak ada, SOP belum layak disahkan.
+Gunakan 8 komponen sebagai dasar penilaian kecukupan draf SOP dari tim: (1) Apakah komponen 2 (Dasar Hukum) mencantumkan rujukan hukum dan regulasi yang valid? (2) Apakah komponen 4 (Peran + System Custodian) mengakui sistem sebagai entitas pengawasan? (3) Apakah komponen 6 (Uraian Prosedur) menggunakan bahasa trigger dan SLA, bukan bahasa manual? Jika salah satu komponen tidak ada, SOP belum layak disahkan.
 \end{plnbox}
 
 \needspace{4\baselineskip}
 
 \section{Skema Tata Kelola Metadata: 14 Field \& 3 Lapisan Perlindungan}
+
+\textbf{Mengapa Metadata dibahas dalam bab SOP Digital?} Manajemen Atas sering kali menganggap metadata murni sebagai ``urusan teknis IT''. Padahal, di dalam anatomi \textbf{SOP Komponen ke-8 (Lampiran Teknis)}, perancangan \textit{Matriks Metadata} bersifat wajib. Jika SOP yang diajukan tidak memuat instruksi logikal metadata, arsitektur IT PLN tidak akan tahu parameter operasional apa yang harus ditarik otomatis dari sistem guna memastikan suatu dokumen sah secara hukum saat diaudit.
 
 Metadata adalah komponen fundamental pembentuk identitas arsip digital. Tanpa metadata yang lengkap dan terstruktur, dokumen tidak dapat diverifikasi keabsahannya, dilacak riwayatnya, atau dikategorikan hak aksesnya---meskipun file itu sendiri masih ada di server. Bagian ini menjelaskan 14 field metadata minimum yang wajib direkam secara otomatis dan tiga lapisan perlindungan yang menjaga integritas arsip dari input hingga penyimpanan jangka panjang.
 Arsip digital bukan sekadar file PDF. Arsip yang sah dilindungi oleh 14 field metadata yang di-\textit{auto-capture} sebelum dokumen dikunci permanen. Tiga lapisan perlindungannya adalah:
@@ -751,9 +1031,24 @@ SEARCH\_TAGS & Kata Kunci Terkontrol & Thesaurus & Semi \\
 
 \noindent Membaca Tabel untuk Keputusan Manajemen: Dua belas field bertanda \textit{Wajib} membentuk \textit{minimum viable audit log} yang harus ada agar entri log memiliki kekuatan hukum. Tanpa salah satu dari 12 field ini, log tersebut berisiko ditolak oleh auditor eksternal atau regulator.
 
+\vspace{0.3cm}
+\begin{plnbox}[Contoh Praktis Pengisian Matriks (Studi Kasus: BAST Pembangkit)]
+Bagi manajer operasional, terminologi IT di atas harus diterjemahkan ke data bisnis nyata. Jika diterapkan pada \textbf{BAST Pembangkit}, rumusan matriks metadatanya berbunyi:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{DOC\_ID}: \texttt{BAST/JB-01/2023/009} (Sistem Penomoran Korporat).
+    \item \textbf{ASSET\_ID}: \texttt{PLTU-SURALAYA-UNIT8} (Validasi otomatis ke sistem SAP-PM).
+    \item \textbf{CONTRACT\_REF}: \texttt{KONTRAK/EPC/2021/045} (Tautan relasional ke E-Procurement).
+    \item \textbf{CLASSIFICATION}: \texttt{TERBATAS} (Hanya untuk akses internal terkait).
+    \item \textbf{RETENTION\_RULE}: \texttt{AKTIF 5 THN, INAKTIF 10 THN} (Sistem JRA PLN otomatis).
+\end{itemize}
+Pemetaan nilailah yang harus dipastikan oleh Manajemen Atas dalam penyusunan Komponen 8 SOP Digital.
+\end{plnbox}
+
 \needspace{4\baselineskip}
 
 \section{Keabsahan Hukum \& Trust-Chain Digital}
+\textbf{Korelasi dengan Komponen Dasar Hukum (SOP Komponen ke-2):} Saat berpindah dari kertas ke alur kerja elektronik, SOP harus mampu mewajibkan penggunaan pengaman kriptografis sebagai pengganti pena. Manajemen Atas perlu memastikan elemen \textit{Trust-Chain} berikut tertera tegas dalam klausul SOP agar produk akhirnya memiliki kedudukan hukum tak terbantahkan.
+
 \begin{itemize}[leftmargin=*]
     \item TTE Tersertifikasi (PP 71/2019, Pasal 14--16): Memiliki kekuatan hukum setara tanda tangan basah. Jaminannya: Autentisitas, Integritas, dan Nirsangkal (\textit{non-repudiation}).
     \item Trust-Chain: Setiap TTE terhubung ke sertifikat yang diterbitkan oleh \textit{Certificate Authority} terakreditasi nasional.
@@ -782,10 +1077,11 @@ SOP Digital adalah payung hukum yang memberikan legitimasi dan keberlanjutan bag
 \needspace{4\baselineskip}
 
 \section{Aktivitas Workshop (30 Menit)}
+\textit{(Catatan: Gunakan Lembar Kerja / Form Lampiran yang telah disediakan oleh Instruktur untuk seluruh aktivitas di bawah ini.)}
 \begin{enumerate}[leftmargin=*]
-    \item Susun draf SOP Digital 8 Komponen untuk 1 proses prioritas (maks. 2 halaman).
-    \item Lengkapi Matriks Metadata 14 Field untuk 1 jenis arsip kritis unit Anda.
-    \item Validasi apakah dasar hukum SOP mencakup PP 71/2019 dan Perka ANRI.
+    \item Susun draf SOP Digital 8 Komponen untuk 1 proses prioritas (maks. 2 halaman) pada \textbf{Lembar Kerja 1}.
+    \item Lengkapi Matriks Metadata 14 Field untuk 1 jenis arsip kritis unit Anda pada \textbf{Lembar Kerja 2}.
+    \item Lakukan \textit{peer-review} (validasi silang) atas kelengkapan dasar hukum pada draf rekan Anda.
 \end{enumerate}
 
 \begin{outputbox}
@@ -798,9 +1094,9 @@ Portofolio 3 (Fase 3: SOP Digital): Draft SOP Digital Terintegrasi 8 Komponen + 
 (Kriteria Penilaian 4.3.4 -- Target Kompetensi 4)
 % ============================================================
 
-Bab ini mendukung pencapaian Fase 4: Justifikasi Bisnis -- peserta mampu menghitung efisiensi, ROI, dan menyusun justifikasi bisnis berbasis KPI Time-Cost-Risk serta Balanced \textit{scorecard}. Optimalisasi tidak lengkap tanpa bukti kuantitatif bahwa intervensi yang diusulkan memang bernilai strategis dibandingkan biayanya.
+Bab ini mendukung pencapaian Fase 4: Justifikasi Bisnis -- peserta mampu menghitung efisiensi, ROI, dan menyusun justifikasi bisnis berbasis KPI Time-Cost-Risk serta Balanced \textit{scorecard}. 
 
-Mengapa bab ini berurutan setelah SOP Digital? Kebijakan dan prosedur (Fase 3) menetapkan \textit{apa} yang harus dilakukan dan \textit{bagaimana} standarnya. Namun, SOP tanpa justifikasi bisnis tidak akan mendapatkan persetujuan anggaran. Manajemen Atas memerlukan data: berapa biayanya, berapa manfaatnya, dan kapan modal kembali. Justifikasi bisnis (Fase 4) melengkapi tiga fase sebelumnya dengan memastikan bahwa transformasi yang diusulkan tidak hanya ``bagus secara teori'', melainkan menguntungkan secara finansial.
+Setelah SOP Digital (Fase 3) menetapkan landasan operasional dan legal, Manajemen Atas akan dihadapkan pada satu pertanyaan krusial di hadapan dewan direksi atau komite investasi: \textit{``Berapa besar nilai tambah finansial dari transformasi ini?''} Kebijakan dan sistem secanggih apa pun mustahil disetujui jika tidak didukung oleh pembuktian kelayakan anggaran. Oleh karena itu, justifikasi bisnis (Fase 4) berfungsi sebagai pamungkas yang menerjemahkan seluruh perbaikan proses teknis sebelumnya menjadi bahasa pengembalian investasi (ROI) yang sangat kuantitatif.
 
 \needspace{4\baselineskip}
 
@@ -961,6 +1257,7 @@ Justifikasi bisnis adalah fondasi legitimasi anggaran: tanpa bukti kuantitatif, 
 \needspace{4\baselineskip}
 
 \section{Aktivitas Workshop (30 Menit)}
+\textit{(Catatan: Gunakan \textbf{Lampiran D: Business Case \& Action Plan 30 Hari} untuk aktivitas ini.)}
 \begin{enumerate}[leftmargin=*]
     \item Pilih 1 proses prioritas dari unit Anda dan kalkulasi estimasi kerugian tahunan (Time-Cost-Risk).
     \item Tetapkan target KPI (Cycle Time, FTA, Compliance) yang realistis.
@@ -976,7 +1273,9 @@ Portofolio 4 (Fase 4: Justifikasi Bisnis): Business Case 1 Halaman + Action Plan
 \chapter{Manajemen Perubahan: Implementasi \& Mitigasi Resistensi}
 % ============================================================
 
-Implementasi alur kerja terintegrasi dan SOP Digital tidak akan berhasil tanpa dukungan orang-orang yang menjalankannya. Manajemen perubahan bukan sekadar melatih pegawai cara mengklik aplikasi baru, melainkan proses sistematis untuk mengubah resistensi individu menjadi komitmen kolektif terhadap budaya kerja terintegrasi. Bab ini membahas kerangka manajemen perubahan yang paling relevan untuk konteks PLN: ADKAR untuk level individu dan Kotter untuk level organisasi.
+Setelah proposal justifikasi bisnis dan penghitungan ROI (Bab 4) disetujui, unit kerja siap bergerak menuju tahap eksekusi implementasi. Namun, sebaik apa pun rancangan alur kerja dan sistem digital yang telah dibuat, penerapannya di lapangan tidak akan berhasil tanpa dukungan penuh dari sumber daya manusia yang mengoperasikannya. 
+
+Oleh karena itu, investasi teknologi harus dikawal ketat oleh strategi \textit{Change Management}. Bab ini tidak sekadar membahas cara melatih pegawai menggunakan aplikasi baru, melainkan sebuah strategi sistematis untuk mengubah resistensi (penolakan) individu menjadi komitmen kolektif terhadap budaya kerja terintegrasi PLN. Pembahasan akan berfokus pada dua kerangka yang paling relevan: ADKAR (untuk transisi individu) dan Kotter (untuk transformasi organisasi).
 
 \begin{warnbox}[Peringatan untuk Manajemen Atas]
 Kesalahan paling fatal dalam transformasi digital kearsipan bukan memilih teknologi yang salah, melainkan mengabaikan dimensi manusia. Sebagian besar pilot project yang gagal di lingkungan BUMN bukan karena sistemnya tidak berfungsi, tetapi karena personel tidak disiapkan secara memadai untuk mengadopsinya. Alokasikan minimal 30\% dari anggaran dan waktu implementasi untuk aktivitas manajemen perubahan.
@@ -1102,14 +1401,13 @@ Manajemen perubahan adalah fondasi keberhasilan implementasi: tanpa dukungan per
 \chapter{Validasi, Rubrik Penilaian \& Komitmen Tindak Lanjut}
 % ============================================================
 
-Bab ini menyajikan kerangka validasi akhir, rubrik penilaian portofolio, dan langkah konkret yang harus diambil Manajemen Atas setelah pelatihan selesai.
+Seluruh tahapan dari Fase Diagnosa di awal hingga mitigasi SDM di Bab 5 pada akhirnya akan bermuara pada satu momen esensial: \textit{Persetujuan Eksekutif}. Bab pamungkas ini menyajikan kerangka validasi akhir guna memastikan bahwa setiap dokumen portofolio yang diajukan sudah benar-benar memenuhi kelayakan operasional PLN.
 
 \needspace{4\baselineskip}
 
 \section{Executive Tollgate Final (4 Gerbang Keputusan)}
 
-Sebelum menyetujui pengeluaran anggaran atau mengesahkan implementasi sistem baru, Manajemen Atas memerlukan kerangka verifikasi yang jelas dan tidak dapat ditawar. \textit{Executive Tollgate} bukan sekadar formalitas tanda tangan persetujuan administratif, melainkan gerbang perlindungan berlapis untuk memastikan kepatuhan regulasi sebelum investasi bernilai miliaran rupiah dieksekusi. Empat gerbang keputusan berikut adalah ``filter'' untuk memastikan bahwa rancangan yang disetujui sudah memenuhi syarat hukum, operasional, teknis, dan manajemen perubahan---sehingga risiko kegagalan proyek diminimalisir sejak awal.
-Sebelum menyetujui implementasi (\textit{go-live}), pastikan keempat gerbang berikut berstatus hijau:
+Sebelum membubuhkan tanda tangan persetujuan \textit{go-live} yang akan mengunci pengeluaran anggaran, Manajemen Atas memerlukan kerangka verifikasi yang tidak dapat ditawar. \textit{Executive Tollgate} hadir bukan sebagai formalitas administratif belaka, melainkan sebagai instrumen perlindungan berlapis untuk meniadakan risiko kegagalan proyek. Pastikan keempat gerbang keputusan berikut seluruhnya berstatus hijau sebelum investasi kearsipan digital tersebut resmi dieksekusi:
 
 \begingroup
 \small
@@ -1130,7 +1428,7 @@ Sebelum menyetujui implementasi (\textit{go-live}), pastikan keempat gerbang ber
 \endfoot
 
 \rowcolor{rowalt}
-1. Legal Compliance & Apakah alur baru selaras dengan ISO 15489, tata naskah dinas, \& PP 71/2019? \\
+1. Legal Compliance & Apakah alur baru selaras dengan pedoman tata naskah dan regulasi nasional? \\
 2. Data Integrity & Apakah audit trail, TTE, \& Hash SHA-256 sudah menjamin keaslian? \\
 \rowcolor{rowalt}
 3. Operational Value & Apakah efisiensi waktu \& biaya sudah tervalidasi melalui kalkulasi ROI? \\
@@ -1358,11 +1656,650 @@ Zero Trust & Prinsip keamanan tanpa pengguna/sistem \textit{default} terpercaya;
 
 \end{thebibliography}
 
-\vfill
+
+
+% ============================================================
+\chapter*{Lampiran Lembar Kerja}
+\addcontentsline{toc}{chapter}{Lampiran Lembar Kerja}
+\markboth{Lampiran Lembar Kerja}{}
+\setcounter{section}{0}
+\renewcommand{\thesection}{\Alph{section}}
+
+\newtcolorbox{wsinfobox}[1][]{%
+  enhanced,
+  colback=plnblue!5!white,
+  colframe=plnblue,
+  fonttitle=\bfseries\color{white},
+  coltitle=white,
+  attach boxed title to top left={yshift=-3mm, xshift=5mm},
+  boxed title style={colback=plnblue, sharp corners, boxrule=0pt},
+  sharp corners,
+  boxrule=0.8pt,
+  left=8pt, right=8pt, top=10pt, bottom=8pt,
+  breakable,
+  title={#1}
+}
+
+\newtcolorbox{wsinstruksibox}{%
+  enhanced,
+  colback=plncyan!5!white,
+  colframe=plncyan,
+  fonttitle=\bfseries\color{white},
+  coltitle=white,
+  attach boxed title to top left={yshift=-3mm, xshift=5mm},
+  boxed title style={colback=plncyan, sharp corners, boxrule=0pt},
+  sharp corners,
+  boxrule=0.8pt,
+  left=8pt, right=8pt, top=10pt, bottom=8pt,
+  breakable,
+  title={Instruksi Pengerjaan}
+}
+
+\newtcolorbox{wstipbox}{%
+  enhanced,
+  colback=plngreen!5!white,
+  colframe=plngreen,
+  fonttitle=\bfseries\color{white},
+  coltitle=white,
+  attach boxed title to top left={yshift=-3mm, xshift=5mm},
+  boxed title style={colback=plngreen, sharp corners, boxrule=0pt},
+  sharp corners,
+  boxrule=0.8pt,
+  left=8pt, right=8pt, top=10pt, bottom=8pt,
+  breakable,
+  title={Tips \& Trik}
+}
+
+\newtcolorbox{wswarnbox}{%
+  enhanced,
+  colback=plnorange!5!white,
+  colframe=plnorange,
+  fonttitle=\bfseries\color{white},
+  coltitle=white,
+  attach boxed title to top left={yshift=-3mm, xshift=5mm},
+  boxed title style={colback=plnorange, sharp corners, boxrule=0pt},
+  sharp corners,
+  boxrule=0.8pt,
+  left=8pt, right=8pt, top=10pt, bottom=8pt,
+  breakable,
+  title={Perhatian}
+}
+\newcommand{\fillline}[1][6cm]{\underline{\hspace{#1}}}
+\newcommand{\writespace}[1][2cm]{\rule{0pt}{#1}}
+
+\thispagestyle{fancy}
+
+\section*{\color{plnblue}Panduan Pengerjaan Lembar Kerja}
+\addcontentsline{toc}{section}{Panduan Pengerjaan}
+
+\begin{wsinfobox}[Petunjuk Umum]
+\begin{enumerate}
+    \item Lembar kerja ini merupakan bagian \textbf{wajib} dari portofolio kompetensi Modul 4.3.
+    \item Setiap lampiran dirancang untuk dikerjakan selama sesi workshop sesuai durasi yang telah ditetapkan.
+    \item Hasil pengisian menjadi syarat penilaian kelulusan (Passing Grade $\geq$70).
+    \item Kerjakan secara berkelompok (4--5 orang) kecuali dinyatakan lain.
+    \item Setelah selesai, kumpulkan ke Unit Kearsipan Holding/Subholding untuk verifikasi.
+\end{enumerate}
+\end{wsinfobox}
+
+\vspace{0.4cm}
+
+\noindent{\large\bfseries\color{plnblue}Ringkasan Output \& Kriteria Penilaian}
+
+\vspace{0.2cm}
+
+{\small
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\textwidth}{@{} c p{4.2cm} X c c @{}}
+\toprule
+\textbf{No} & \textbf{Lampiran} & \textbf{Output yang Dihasilkan} & \textbf{Durasi} & \textbf{Bobot} \\
+\midrule
+A & Matriks Area Optimasi & Identifikasi minimal 4 area hambatan + rekomendasi & 15 menit & 25\% \\
+B & Diagram BPMN To-Be & Diagram alur kerja terintegrasi + daftar pemicu otomatis & 20 menit & 25\% \\
+C & Draft SOP Digital & SOP 8 komponen lengkap + peer review & 15 menit & 25\% \\
+D & Business Case & Business case 1 halaman + action plan 30 hari & 15 menit & 25\% \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+}
+
+\vspace{0.4cm}
+
+\begin{wsinstruksibox}
+\textbf{Alur Pengerjaan yang Dianjurkan:}
+\begin{enumerate}
+    \item \textbf{Lampiran A} -- Identifikasi area optimasi dari proses kearsipan unit Anda saat ini.
+    \item \textbf{Lampiran B} -- Rancang ulang alur kerja To-Be berdasarkan area yang diidentifikasi.
+    \item \textbf{Lampiran C} -- Susun SOP digital 8 komponen untuk mengatur alur kerja baru tersebut.
+    \item \textbf{Lampiran D} -- Hitung estimasi manfaat finansial dan susun rencana aksi 30 hari.
+\end{enumerate}
+\textit{Catatan:} Lampiran B, C, dan D harus \textbf{selaras} -- gunakan proses yang sama di seluruh lampiran.
+\end{wsinstruksibox}
+
+\vspace{0.3cm}
+
+\begin{wstipbox}
+\begin{itemize}
+    \item Pilih proses yang \textbf{ familiar} (sering Anda temui sehari-hari) agar identifikasi hambatan lebih akurat.
+    \item Gunakan \textbf{data nyata} unit Anda (volume arsip, waktu siklus, jumlah temuan audit) untuk business case.
+    \item Manfaatkan \texttt{contoh\_lampiran.pdf} (kunci jawaban) sebagai referensi gaya pengisian.
+    \item Diskusikan aktif dalam kelompok -- hasil terbaik datang dari persilangan perspektif.
+\end{itemize}
+\end{wstipbox}
+
+\vspace{0.3cm}
+
+\begin{wswarnbox}
+\begin{itemize}
+    \item Jangan mengisi lembar kerja dengan pensil -- gunakan \textbf{ballpoint} untuk keabsahan dokumen.
+    \item Pastikan setiap anggota kelompok memahami seluruh isi sebelum menandatangani.
+    \item Keterlambatan pengumpulan dapat mempengaruhi status kelulusan modul.
+\end{itemize}
+\end{wswarnbox}
+
+\vspace{0.4cm}
+\noindent\textbf{\color{plnblue}Durasi Total Pengerjaan:} $\approx$ 65 menit (dilakukan secara bertahap sesuai alur bab 2--5)
+
+
+% ============================================================
+%   LAMPIRAN A: Matriks Identifikasi Area Optimasi (Bab 2)
+% ============================================================
+\newpage
+\section*{\color{plnblue} LAMPIRAN A}
+\addcontentsline{toc}{section}{Lampiran A: Matriks Identifikasi Area Optimasi}
+{\Large\bfseries Matriks Identifikasi Area Optimasi}\\[0.15cm]
+{\normalsize\color{medgray}\textit{Output Wajib Bab 2 -- Kriteria Penilaian 4.3.1}}
+
+\vspace{0.4cm}
+
+\noindent\textbf{Nama Kelompok:} \fillline[5cm] \quad \textbf{Tanggal:} \fillline[3cm]\\[0.25cm]
+\textbf{Proses yang Dievaluasi:} \fillline[9cm]\\[0.25cm]
+\textbf{Unit Kerja:} \fillline[5cm] \quad \textbf{Volume Proses/Tahun:} \fillline[3cm]
+
+\begin{wsinstruksibox}
+\begin{enumerate}
+    \item Pilih \textbf{1 proses kearsipan} PLN yang sedang berjalan di unit Anda.
+    \item Identifikasi minimal \textbf{4 area/tahapan} yang berpotensi untuk dioptimalkan.
+    \item Untuk setiap area, jelaskan jenis hambatan, potensi integrasi, dan estimasi dampak.
+    \item Tentukan prioritas berdasarkan urgensi vs effort implementasi.
+    \item \textbf{Durasi pengerjaan: 15 menit.}
+\end{enumerate}
+\end{wsinstruksibox}
+
+\vspace{0.4cm}
+
+\noindent{\small\color{darkgray}\textit{Gunakan tabel di bawah untuk mencatat hasil identifikasi:}}
+
+\vspace{0.2cm}
+
+\noindent
+\resizebox{\textwidth}{!}{%
+\small
+\renewcommand{\arraystretch}{2.2}
+\begin{tabularx}{17cm}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c @{}}
+\toprule
+\textbf{No} & \textbf{Tahapan Proses} & \textbf{Jenis Hambatan / Titik Gesekan} & \textbf{Potensi Integrasi / Solusi} & \textbf{Prior.} \\
+\midrule
+1 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\hline
+2 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\hline
+3 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\hline
+4 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\hline
+5 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\hline
+6 & & & & $\square$ T~~ $\square$ S~~ $\square$ R \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+}
+
+\vspace{0.3cm}
+\noindent{\small\color{medgray}\textit{Keterangan Prioritas: T = Tinggi, S = Sedang, R = Rendah}}
+
+\vspace{0.5cm}
+
+\begin{wstipbox}
+\textbf{Panduan Menentukan Prioritas:}
+\begin{itemize}
+    \item \textbf{Tinggi (T):} Hambatan berdampak langsung pada kepatuhan, audit, atau keselamatan operasional.
+    \item \textbf{Sedang (S):} Hambatan menyebabkan ineffisiensi signifikan namun tidak kritis.
+    \item \textbf{Rendah (R):} Hambatan bersifat administratif atau dapat ditangani dengan usaha minimal.
+\end{itemize}
+\end{wstipbox}
+
+\vspace{0.3cm}
+
+\noindent\textbf{Kesimpulan \& Rekomendasi Utama:}\\[0.2cm]
+\noindent\rule{\textwidth}{0.3pt}\writespace[0.8cm]\\
+\noindent\rule{\textwidth}{0.3pt}\writespace[0.8cm]\\
+\noindent\rule{\textwidth}{0.3pt}\writespace[0.8cm]\\
+\noindent\rule{\textwidth}{0.3pt}
+
+
+% ============================================================
+%   LAMPIRAN B: Lembar Kerja Diagram BPMN To-Be (Bab 3)
+% ============================================================
+\newpage
+\section*{\color{plnblue} LAMPIRAN B}
+\addcontentsline{toc}{section}{Lampiran B: Lembar Kerja Diagram BPMN To-Be}
+{\Large\bfseries Lembar Kerja Diagram BPMN To-Be}\\[0.15cm]
+{\normalsize\color{medgray}\textit{Output Wajib Bab 3 -- Kriteria Penilaian 4.3.2}}
+
+\vspace{0.4cm}
+
+\noindent\textbf{Nama Kelompok:} \fillline[5cm] \quad \textbf{Tanggal:} \fillline[3cm]\\[0.25cm]
+\textbf{Proses yang Dirancang Ulang:} \fillline[9cm]
+
+\begin{wsinstruksibox}
+\begin{enumerate}
+    \item Gunakan area kosong di bawah untuk menggambar diagram alur kerja \textbf{To-Be} (setelah integrasi).
+    \item Gunakan notasi BPMN sederhana: $\bullet$ \textbf{Start}, $\square$ \textbf{Task}, $\diamond$ \textbf{Gateway}, $\blacksquare$ \textbf{End}.
+    \item Tentukan minimal \textbf{3 swimlane} (Pool/Lane) untuk peran atau sistem yang berbeda.
+    \item Tandai setiap pemicu otomatis dengan warna/arsir berbeda.
+    \item \textbf{Durasi pengerjaan: 20 menit.}
+\end{enumerate}
+\end{wsinstruksibox}
+
+\vspace{0.3cm}
+
+\noindent\textbf{Diagram Alur Kerja To-Be:}
+\vspace{0.3cm}
+
+\begin{tikzpicture}[
+  scale=0.95, transform shape,
+  symstart/.style={circle, draw=green!60!black, fill=green!15, minimum size=0.9cm, font=\tiny},
+  symtask/.style={rectangle, rounded corners=2pt, draw=plnblue, fill=plnblue!10, minimum width=1.6cm, minimum height=0.7cm, font=\tiny},
+  symgateway/.style={diamond, draw=plnorange!80!black, fill=plnorange!10, minimum size=0.8cm, font=\tiny, inner sep=0pt},
+  symend/.style={circle, draw=plnblue!80!black, fill=plnblue!20, minimum size=0.9cm, font=\tiny, line width=1.5pt},
+  symarrow/.style={-{Stealth[length=4pt]}, thick, color=plnblue!60},
+]
+% Pool border
+\draw[plnblue, line width=1.5pt] (0,0) rectangle (16cm, 13cm);
+% Lane backgrounds
+\fill[plnblue!5] (2.5cm,8.8cm) rectangle (16cm,13cm);
+\fill[plnorange!5] (2.5cm,4.4cm) rectangle (16cm,8.8cm);
+\fill[plncyan!5] (2.5cm,0cm) rectangle (16cm,4.4cm);
+% Lane dividers
+\draw[plnblue!50, thick] (2.5cm,0) -- (2.5cm,13cm);
+\draw[plnblue!40, thick] (0,8.8cm) -- (16cm,8.8cm);
+\draw[plnblue!40, thick] (0,4.4cm) -- (16cm,4.4cm);
+% Lane labels
+\node[rotate=90, font=\small\bfseries, text=plnblue, text width=3.5cm, align=center] at (1.25cm, 10.9cm) {Lane 1:\\{\fillline[2.5cm]}};
+\node[rotate=90, font=\small\bfseries, text=plnblue, text width=3.5cm, align=center] at (1.25cm, 6.6cm) {Lane 2:\\{\fillline[2.5cm]}};
+\node[rotate=90, font=\small\bfseries, text=plnblue, text width=3.5cm, align=center] at (1.25cm, 2.2cm) {Lane 3:\\{\fillline[2.5cm]}};
+% Grid dots for guidance
+\foreach \x in {3.5,5.5,7.5,9.5,11.5,13.5,15.5} {
+  \foreach \y in {1,2.2,3.4,4.6,5.8,7,8.2,9.4,10.6,11.8} {
+    \fill[plnblue!12] (\x,\y) circle (0.6pt);
+  }
+}
+% Example symbols (guides)
+\node[symstart] at (4,10.9) {};
+\node[font=\tiny, text=green!40!black] at (4,10.2) {Start};
+\node[symtask] at (6,10.9) {};
+\node[font=\tiny, text=plnblue] at (6,10.2) {Task};
+\node[symgateway] at (8,10.9) {};
+\node[font=\tiny, text=plnorange!80!black] at (8,10.2) {Gateway};
+\node[symend] at (10,10.9) {};
+\node[font=\tiny, text=plnblue] at (10,10.2) {End};
+\draw[symarrow] (4.5,10.9) -- (5.2,10.9);
+\node[font=\tiny, text=plnblue!60] at (11.5,10.9) {$\rightarrow$ Panah = alur};
+\end{tikzpicture}
+
+\vspace{0.2cm}
+\noindent{\small\color{medgray}\textit{Gambar simbol di atas adalah panduan. Silakan gambar alur kerja Anda di area kosong di bawah simbol.}}
+
+\vspace{0.4cm}
+
+\newcommand{\symstart}{\raisebox{-1pt}{\tikz\draw[green!60!black, fill=green!15] (0,0) circle (3.5pt);}}
+\newcommand{\symtask}{\raisebox{-1pt}{\tikz\draw[plnblue, fill=plnblue!10, rounded corners=1pt] (-4pt,-2.5pt) rectangle (4pt,2.5pt);}}
+\newcommand{\symgateway}{\raisebox{-1pt}{\tikz\draw[plnorange!80!black, fill=plnorange!10] (0,0) -- (3.5pt,3.5pt) -- (0,7pt) -- (-3.5pt,3.5pt) -- cycle;}}
+\newcommand{\symend}{\raisebox{-1pt}{\tikz\draw[plnblue!80!black, fill=plnblue!20, line width=1pt] (0,0) circle (3.5pt);}}
+\newcommand{\symarrow}{\raisebox{-1pt}{{\color{plnblue}$\longrightarrow$}}}
+
+\begin{wstipbox}
+\textbf{Notasi BPMN yang Dianjurkan:}
+\begin{itemize}
+    \item[\symstart] \textbf{Start Event} -- awal proses
+    \item[\symtask] \textbf{Task} -- aktivitas yang dilakukan
+    \item[\symgateway] \textbf{Gateway} -- titik keputusan (Yes/No)
+    \item[\symend] \textbf{End Event} -- akhir proses
+    \item[\symarrow] \textbf{Arrow / Sequence Flow} -- arah alur kerja
+\end{itemize}
+\end{wstipbox}
+
+\vspace{0.3cm}
+
+\noindent\textbf{Daftar Pemicu Otomatis:}
+
+\vspace{0.2cm}
+
+\noindent
+{\small
+\renewcommand{\arraystretch}{2.0}
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{No} & \textbf{Pemicu / Status} & \textbf{Aksi Otomatis} & \textbf{Sistem Sumber} \\
+\midrule
+1 & & & \\
+\hline
+2 & & & \\
+\hline
+3 & & & \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+}
+
+
+% ============================================================
+%   LAMPIRAN C: Template Draft SOP Digital (Bab 4)
+% ============================================================
+\newpage
+\section*{\color{plnblue} LAMPIRAN C}
+\addcontentsline{toc}{section}{Lampiran C: Template Draft SOP Digital Terintegrasi}
+{\Large\bfseries Template Draft SOP Digital Terintegrasi}\\[0.15cm]
+{\normalsize\color{medgray}\textit{Output Wajib Bab 4 -- Kriteria Penilaian 4.3.3}}
+
+\vspace{0.4cm}
+
+\noindent\textbf{Nama Kelompok:} \fillline \quad \textbf{Tanggal:} \fillline[3cm]
+
+\begin{wsinstruksibox}
+\begin{enumerate}
+    \item Isi \textbf{kedelapan komponen SOP} untuk 1 proses kearsipan PLN yang telah dirancang di Bab 3.
+    \item Pastikan setiap komponen merujuk pada regulasi dan standar yang relevan (PP 71/2019, Perka ANRI, ISO 15489, dll).
+    \item Lakukan \textbf{peer review silang} dengan kelompok lain setelah selesai.
+    \item \textbf{Durasi pengerjaan: 15 menit.}
+\end{enumerate}
+\end{wsinstruksibox}
+
+\vspace{0.4cm}
+
+% Komponen 1
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!60, sharp corners, title={\small\bfseries Komponen 1: Tujuan \& Ruang Lingkup}, boxrule=0.8pt]
+\vspace{2.0cm}
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+% Komponen 2
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!60, sharp corners, title={\small\bfseries Komponen 2: Definisi \& Akronim}, boxrule=0.8pt]
+\vspace{2.0cm}
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+% Komponen 3
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!60, sharp corners, title={\small\bfseries Komponen 3: Peran \& Tanggung Jawab}, boxrule=0.8pt]
+\small
+\renewcommand{\arraystretch}{2.0}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Peran} & \textbf{Jabatan/Fungsi} & \textbf{Tanggung Jawab Utama} \\
+\midrule
+Inisiator & & \\
+\hline
+Validator & & \\
+\hline
+Custodian & & \\
+\hline
+Approver & & \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+\end{tcolorbox}
+
+\newpage
+
+% Komponen 4
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!60, sharp corners, title={\small\bfseries Komponen 4: Pemicu Sistem \& Metadata Wajib}, boxrule=0.8pt]
+\noindent\textbf{Pemicu:} \fillline[10cm]\\[0.25cm]
+\textbf{Sistem Sumber:} \fillline[10cm]\\[0.25cm]
+\textbf{Metadata Wajib (min. 8 field):}\\[0.2cm]
+\begin{tabularx}{\textwidth}{@{} X X X X @{}}
+1. \fillline[3cm] & 2. \fillline[3cm] & 3. \fillline[3cm] & 4. \fillline[3cm] \\[0.35cm]
+5. \fillline[3cm] & 6. \fillline[3cm] & 7. \fillline[3cm] & 8. \fillline[3cm] \\
+\end{tabularx}
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+% Komponen 5
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!60, sharp corners, title={\small\bfseries Komponen 5: Alur Validasi \& SLA}, boxrule=0.8pt]
+\small
+\renewcommand{\arraystretch}{2.0}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c >{\raggedright\arraybackslash}X @{}}
+\toprule
+\textbf{Tahapan} & \textbf{PIC} & \textbf{SLA} & \textbf{Eskalasi Jika Lewat} \\
+\midrule
+Validasi Level 1 & & ~~~~jam & \\
+\hline
+Validasi Level 2 & & ~~~~jam & \\
+\hline
+Approval Final & & ~~~~jam & \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+% Komponen 6
+\begin{tcolorbox}[colback=plnorange!5, colframe=plnorange!60, sharp corners, title={\small\bfseries Komponen 6: Exception Handling \& Fallback}, boxrule=0.8pt]
+\noindent\textbf{Skenario 1 -- Sistem Down / Gangguan Teknis:}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}\writespace[0.5cm]
+
+\vspace{0.2cm}
+\noindent\textbf{Skenario 2 -- Validasi Ditolak:}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}\writespace[0.5cm]
+
+\vspace{0.2cm}
+\noindent\textbf{Skenario 3 -- Metadata Tidak Lengkap:}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+% Komponen 7
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!60, sharp corners, title={\small\bfseries Komponen 7: Referensi Regulasi \& Standar}, boxrule=0.8pt]
+\begin{enumerate}
+    \item \fillline[12cm]
+    \item \fillline[12cm]
+    \item \fillline[12cm]
+    \item \fillline[12cm]
+\end{enumerate}
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+% Komponen 8
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue!60, sharp corners, title={\small\bfseries Komponen 8: Lampiran Teknis (Matriks Metadata, Peta DB, \& Audit Trail)}, boxrule=0.8pt]
+\small
+\noindent\textbf{8.1 Matriks Metadata Terintegrasi (14 field wajib):}\\[0.15cm]
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{} c X c @{}}
+\toprule
+\textbf{No} & \textbf{Nama Field} & \textbf{Sumber Data} \\
+\midrule
+1 & \fillline[6cm] & \fillline[3cm] \\
+2 & \fillline[6cm] & \fillline[3cm] \\
+3 & \fillline[6cm] & \fillline[3cm] \\
+4 & \fillline[6cm] & \fillline[3cm] \\
+5 & \fillline[6cm] & \fillline[3cm] \\
+6 & \fillline[6cm] & \fillline[3cm] \\
+7 & \fillline[6cm] & \fillline[3cm] \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.3cm}
+\noindent\textbf{8.2 Peta Kodifikasi Database / Skema Relasi Tabel:}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}
+
+\vspace{0.3cm}
+\noindent\textbf{8.3 Draf Log Rekaman Mesin (Audit Trail):}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}
+\end{tcolorbox}
+
+\vspace{0.4cm}
+
+\begin{wstipbox}
+\textbf{Referensi yang Sering Digunakan:}
+\begin{itemize}
+    \item PP No. 71 Tahun 2019 -- Sistem dan Transaksi Elektronik
+    \item Perka ANRI No. 6 Tahun 2021 -- Pedoman Pengelolaan Arsip Elektronik
+    \item ISO 15489-1:2016 -- Records Management
+    \item SOP Induk Tata Kelola Informasi PT PLN (Persero)
+\end{itemize}
+\end{wstipbox}
+
+\vspace{0.3cm}
+
+\noindent\textbf{Catatan Peer Review (diisi oleh kelompok penilai):}\\[0.2cm]
+\noindent\rule{\textwidth}{0.3pt}\writespace[0.8cm]\\
+\noindent\rule{\textwidth}{0.3pt}\writespace[0.8cm]\\
+\noindent\rule{\textwidth}{0.3pt}
+
+
+% ============================================================
+%   LAMPIRAN D: Business Case & Action Plan 30 Hari (Bab 5)
+% ============================================================
+\newpage
+\section*{\color{plnblue} LAMPIRAN D}
+\addcontentsline{toc}{section}{Lampiran D: Business Case \& Action Plan 30 Hari}
+{\Large\bfseries Business Case \& Action Plan 30 Hari}\\[0.15cm]
+{\normalsize\color{medgray}\textit{Output Wajib Bab 5 -- Kriteria Penilaian 4.3.4}}
+
+\vspace{0.4cm}
+
+\noindent\textbf{Nama Kelompok:} \fillline \quad \textbf{Tanggal:} \fillline[3cm]\\[0.25cm]
+\textbf{Proses yang Dioptimalkan:} \fillline[10cm]\\[0.25cm]
+\textbf{Unit Kerja Target Pilot:} \fillline[10cm]
+
+\begin{wsinstruksibox}
+\begin{enumerate}
+    \item Isi seluruh komponen business case berdasarkan analisis di Bab 3--5.
+    \item Gunakan data kalkulasi \textbf{ROI} yang telah dihitung untuk bagian estimasi manfaat.
+    \item Susun \textbf{action plan 30 hari} yang realistis dengan PIC jelas di setiap aktivitas.
+    \item \textbf{Durasi pengerjaan: 15 menit.}
+\end{enumerate}
+\end{wsinstruksibox}
+
+\vspace{0.3cm}
+
+% Business Case
+\begin{tcolorbox}[colback=plnblue!3, colframe=plnblue, sharp corners, title={\bfseries Business Case 1 Halaman}, boxrule=1pt]
+
+\noindent\textbf{1. Latar Belakang \& Masalah:}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}\writespace[0.5cm]
+
+\vspace{0.2cm}
+\noindent\textbf{2. Solusi yang Diusulkan:}\\
+\rule{\textwidth}{0.3pt}\writespace[0.7cm]\\
+\rule{\textwidth}{0.3pt}\writespace[0.5cm]
+
+\vspace{0.2cm}
+\noindent\textbf{3. Target KPI:}
+
+\vspace{0.2cm}
+{\small
+\renewcommand{\arraystretch}{1.8}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X c c @{}}
+\toprule
+\textbf{Indikator} & \textbf{Baseline (Saat Ini)} & \textbf{Target (30 Hari)} \\
+\midrule
+Waktu Siklus & & \\
+\hline
+Ketepatan Awal & & \\
+\hline
+Tingkat Kepatuhan Prosedur & & \\
+\hline
+Waktu Temu Kembali & & \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+}
+
+\vspace{0.3cm}
+\noindent\textbf{4. Estimasi Manfaat Finansial:}\\[0.2cm]
+\begin{tabularx}{\textwidth}{@{} X r @{}}
+Penghematan waktu siklus: & Rp \fillline[4cm] /tahun \\[0.25cm]
+Reduksi biaya error/revisi: & Rp \fillline[4cm] /tahun \\[0.25cm]
+Mitigasi risiko kepatuhan: & Rp \fillline[4cm] /tahun \\[0.25cm]
+\textbf{Total Estimasi Manfaat:} & \textbf{Rp \fillline[4cm] /tahun} \\
+\end{tabularx}
+
+\vspace{0.3cm}
+\noindent\textbf{5. Estimasi Biaya Implementasi:} Rp \fillline[4cm]\\[0.2cm]
+\noindent\textbf{6. ROI Proyeksi:} \fillline[3cm]\% \quad \textbf{Payback Period:} \fillline[3cm]
+
+\end{tcolorbox}
+
+\vspace{0.3cm}
+
+\begin{wstipbox}
+\textbf{Rumus Perhitungan:}
+\begin{itemize}
+    \item \textbf{ROI} = $\dfrac{\text{Total Manfaat} - \text{Total Biaya}}{\text{Total Biaya}} \times 100\%$
+    \item \textbf{Payback Period} = $\dfrac{\text{Total Biaya Implementasi}}{\text{Manfaat per Bulan}}$
+    \item Gunakan estimasi konservatif -- jangan terlalu optimis.
+\end{itemize}
+\end{wstipbox}
+
+\vspace{0.3cm}
+
+% Action Plan 30 Hari
+\begin{tcolorbox}[colback=plnorange!5, colframe=plnorange, sharp corners, title={\bfseries Action Plan 30 Hari}, boxrule=1pt]
+
+\small
+\renewcommand{\arraystretch}{2.2}
+\begin{tabularx}{\textwidth}{@{} c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c @{}}
+\toprule
+\textbf{Minggu} & \textbf{Aktivitas Utama} & \textbf{PIC} & \textbf{Status} \\
+\midrule
+\textbf{1} & & & $\square$ \\
+\hline
+\textbf{2} & & & $\square$ \\
+\hline
+\textbf{3} & & & $\square$ \\
+\hline
+\textbf{4} & & & $\square$ \\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{0.3cm}
+\noindent\textbf{Mekanisme Monitoring:} \fillline[8cm]\\[0.2cm]
+\noindent\textbf{Pelaporan Hasil Kepada:} \fillline[8cm]\\[0.2cm]
+\noindent\textbf{Tanggal Laporan Akhir:} \fillline[8cm]
+
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
 \begin{center}
-\small\textit{Handout ini merupakan ringkasan eksekutif dari Modul 4.3 Level 4 (Mastery) PLN.\\
-Diselaraskan dengan Narasi Narasumber, Slide Presentasi, Glosarium, \& Lembar Kerja.\\
-Gunakan sebagai rujukan cepat saat workshop dan implementasi lapangan.}
+\begin{tcolorbox}[colback=plngreen!5, colframe=plngreen!70!black, width=0.88\textwidth, sharp corners, boxrule=1pt]
+\centering
+{\bfseries\color{plngreen!70!black}Tanda Tangan Kelompok}\\[0.5cm]
+\begin{tabularx}{0.9\textwidth}{@{} X X X @{}}
+\centering Ketua Kelompok & \centering Anggota 1 & \centering Anggota 2 \tabularnewline[1.3cm]
+\centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} \tabularnewline[0.15cm]
+\centering Anggota 3 & \centering Anggota 4 & \centering Fasilitator \tabularnewline[1.3cm]
+\centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} & \centering\rule{3cm}{0.3pt} \tabularnewline
+\end{tabularx}
+\end{tcolorbox}
 \end{center}
+
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  28 APR 2026 11:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  28 APR 2026 13:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -954,6 +954,14 @@ s.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -986,18 +994,36 @@ e.tex
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
 decorations.markings.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshadows.code.tex
+File: tikzlibraryshadows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2023/07/05 v6.0f a miscellany of footnote facilities
+\FN@temptoken=\toks53
+\footnotemargin=\dimen328
+\@outputbox@depth=\dimen329
+Package footmisc Info: Declaring symbol style bringhurst on input line 696.
+Package footmisc Info: Declaring symbol style chicago on input line 704.
+Package footmisc Info: Declaring symbol style wiley on input line 713.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 724.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 744.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 765
+.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
-\ESO@tempdima=\dimen328
-\ESO@tempdimb=\dimen329
+\ESO@tempdima=\dimen330
+\ESO@tempdimb=\dimen331
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 81.
+Package hyperref Info: Option `colorlinks' set `true' on input line 111.
 
 (/usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 91
-.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 12
+1.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1010,24 +1036,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./modul43_handout.aux)
 \openout1 = `modul43_handout.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1066,16 +1092,16 @@ LaTeX Font Info:    ... okay on input line 91.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count350
-\scratchdimen=\dimen330
+\scratchdimen=\dimen332
 \scratchbox=\box96
 \nofMPsegments=\count351
 \nofMParguments=\count352
-\everyMPshowfont=\toks53
+\everyMPshowfont=\toks54
 \MPscratchCnt=\count353
-\MPscratchDim=\dimen331
+\MPscratchDim=\dimen333
 \MPnumerator=\count354
 \makeMPintoPDFobject=\count355
-\everyMPtoPDFconversion=\toks54
+\everyMPtoPDFconversion=\toks55
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1086,19 +1112,19 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count356
-LaTeX Info: Redefining \microtypecontext on input line 91.
-Package microtype Info: Applying patch `item' on input line 91.
-Package microtype Info: Applying patch `toc' on input line 91.
-Package microtype Info: Applying patch `eqnum' on input line 91.
-Package microtype Info: Applying patch `footnote' on input line 91.
-Package microtype Info: Applying patch `verbatim' on input line 91.
+LaTeX Info: Redefining \microtypecontext on input line 121.
+Package microtype Info: Applying patch `item' on input line 121.
+Package microtype Info: Applying patch `toc' on input line 121.
+Package microtype Info: Applying patch `eqnum' on input line 121.
+Package microtype Info: Applying patch `footnote' on input line 121.
+Package microtype Info: Applying patch `verbatim' on input line 121.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 91.
+LaTeX Info: Redefining \showhyphens on input line 121.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1107,7 +1133,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring ON on input line 91.
+Package hyperref Info: Link coloring ON on input line 121.
 
 (./modul43_handout.out) (./modul43_handout.out)
 \@outlinefile=\write4
@@ -1115,52 +1141,52 @@ Package hyperref Info: Link coloring ON on input line 91.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<template-handout/cover_handout.png, id=220, 474.573pt x 672.111pt>
+<template-handout/cover_handout.png, id=244, 474.573pt x 672.111pt>
 File: template-handout/cover_handout.png Graphic file (type png)
 <use template-handout/cover_handout.png>
 Package pdftex.def Info: template-handout/cover_handout.png  used on input line
- 131.
+ 161.
 (pdftex.def)             Requested size: 597.51617pt x 845.10037pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
 dvips/lm/lm-ec.enc} <./template-handout/cover_handout.png>]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-41.
+71.
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-53.
+83.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-53.
+83.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-153.
+183.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-153.
+183.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 153.
+(Font)              <12> on input line 183.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 153.
+(Font)              <8> on input line 183.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 153.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 153
+(Font)              <6> on input line 183.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 183
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1169,7 +1195,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 153
+LaTeX Font Info:    Trying to load font information for U+msb on input line 183
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1182,13 +1208,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.162 \tableofcontents
+l.192 \tableofcontents
                       
-<template-handout/content_handout.png, id=229, 477.58424pt x 673.3155pt>
+<template-handout/content_handout.png, id=253, 477.58424pt x 673.3155pt>
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 162.
+ne 192.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [1{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/
 dvips/lm/lm-mathsy.enc} <./template-handout/content_handout.png>] (./modul43_ha
@@ -1209,288 +1235,294 @@ ne 44.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 164.
+ne 194.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [3]
-<assets/value_center.png, id=301, 903.375pt x 634.37pt>
-File: assets/value_center.png Graphic file (type png)
-<use assets/value_center.png>
-Package pdftex.def Info: assets/value_center.png  used on input line 176.
-(pdftex.def)             Requested size: 341.43307pt x 239.76602pt.
-<assets/rc3.png, id=302, 385.44pt x 273.9033pt>
-File: assets/rc3.png Graphic file (type png)
-<use assets/rc3.png>
-Package pdftex.def Info: assets/rc3.png  used on input line 182.
-(pdftex.def)             Requested size: 341.43307pt x 242.62799pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 209.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 209.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 209.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 185.
+ne 243.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [4
 
- <./assets/value_center.png (PNG copy)>]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 189.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 189.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 189.
-File: template-handout/content_handout.png Graphic file (type png)
-<use template-handout/content_handout.png>
-Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 195.
-(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [5 <./assets/rc3.png>]
-File: template-handout/content_handout.png Graphic file (type png)
-<use template-handout/content_handout.png>
-Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 263.
-(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [6
+
 pdfTeX warning (ext4): destination with the same identifier (name{table.0.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.263 \end{xltabular}
-                     
+l.243 
+      ]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 310.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [5
 pdfTeX warning (ext4): destination with the same identifier (name{table.0.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.263 \end{xltabular}
-                     ]
-File: template-handout/content_handout.png Graphic file (type png)
-<use template-handout/content_handout.png>
-Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 305.
-(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [7
+l.310 \end{xltabular}
+                     
 pdfTeX warning (ext4): destination with the same identifier (name{table.0.3}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.305 \chapter
-              {Diagnosa: Evaluasi Prosedur \& Identifikasi Area Optimasi}]
-Bab 1.
+l.310 \end{xltabular}
+                     ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 356.
+ne 322.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
-[8
+ [6]
+Bab 1.
+<assets/value_center.png, id=353, 903.375pt x 634.37pt>
+File: assets/value_center.png Graphic file (type png)
+<use assets/value_center.png>
+Package pdftex.def Info: assets/value_center.png  used on input line 332.
+(pdftex.def)             Requested size: 341.43307pt x 239.76602pt.
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 377.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+[7
 
-
+ <./assets/value_center.png (PNG copy)>]
+<assets/rc3.png, id=362, 385.44pt x 273.9033pt>
+File: assets/rc3.png Graphic file (type png)
+<use assets/rc3.png>
+Package pdftex.def Info: assets/rc3.png  used on input line 441.
+(pdftex.def)             Requested size: 341.43307pt x 242.62799pt.
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 444.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [8]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 467.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [9 <./assets/rc3.png>]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 552.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [10
 pdfTeX warning (ext4): destination with the same identifier (name{table.1.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.356 \end{xltabular}
+l.552 \end{xltabular}
                      ]
-<assets/diagram_7domain.png, id=336, 681.5061pt x 571.8966pt>
+<assets/diagram_7domain.png, id=383, 681.5061pt x 571.8966pt>
 File: assets/diagram_7domain.png Graphic file (type png)
 <use assets/diagram_7domain.png>
-Package pdftex.def Info: assets/diagram_7domain.png  used on input line 372.
+Package pdftex.def Info: assets/diagram_7domain.png  used on input line 568.
 (pdftex.def)             Requested size: 386.96027pt x 324.71912pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 375.
+ne 574.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [9]
+ [11 <./assets/diagram_7domain.png>]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 389.
-(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [10 <./assets/diagram_7domain.png>]
-File: template-handout/content_handout.png Graphic file (type png)
-<use template-handout/content_handout.png>
-Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 417.
-(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [11]
-File: template-handout/content_handout.png Graphic file (type png)
-<use template-handout/content_handout.png>
-Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 425.
+ne 602.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [12]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 612.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [13]
 Bab 2.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 448.
+ne 641.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
-[13
+[14
 
-]
-<assets/diagram_pola_integrasi.png, id=372, 1074.6549pt x 370.986pt>
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}]
+<assets/diagram_pola_integrasi.png, id=412, 1074.61475pt x 371.18675pt>
 File: assets/diagram_pola_integrasi.png Graphic file (type png)
 <use assets/diagram_pola_integrasi.png>
 Package pdftex.def Info: assets/diagram_pola_integrasi.png  used on input line 
-464.
-(pdftex.def)             Requested size: 432.48051pt x 149.29749pt.
- (/usr/share/texmf/tex/latex/lm/t1lmtt.fd)
-Underfull \hbox (badness 3826) in paragraph at lines 500--500
+647.
+(pdftex.def)             Requested size: 432.48051pt x 149.38394pt.
+
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd)
+Underfull \hbox (badness 3826) in paragraph at lines 683--683
 []|\T1/lmr/m/n/10.95 (+20) Pemicu alur (con-toh: \T1/lmtt/m/n/10.95 SPK_Selesai
 \T1/lmr/m/n/10.95 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 683--683
 []|\T1/lmr/m/n/10.95 (+20) Aktivitas bis-nis (con-toh: \T1/lmtt/m/n/10.95 Cek
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 683--683
 []|\T1/lmr/m/n/10.95 (+20) Penyelesaian alur (con-toh:
  []
 
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 500.
+ne 683.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
-[14{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc} <./assets/diagram_pola_i
-ntegrasi.png>]
-<assets/diagram_bpmn.png, id=382, 1002.144pt x 450.483pt>
-File: assets/diagram_bpmn.png Graphic file (type png)
-<use assets/diagram_bpmn.png>
-Package pdftex.def Info: assets/diagram_bpmn.png  used on input line 512.
-(pdftex.def)             Requested size: 432.48051pt x 194.40503pt.
-File: template-handout/content_handout.png Graphic file (type png)
-<use template-handout/content_handout.png>
-Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 522.
-(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [15
+[15
 pdfTeX warning (ext4): destination with the same identifier (name{table.2.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.522     \item P
-                 emicu: Vendor menekan ``Submit Pekerjaan'' di portal E-Proc...
- <./assets/diagram_bpmn.png>]
+l.683 \end{xltabular}
+                      <./assets/diagram_pola_integrasi.png>]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 574.
+ne 764.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [16
+ [16]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 814.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [17]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 841.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [18
 pdfTeX warning (ext4): destination with the same identifier (name{table.2.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.574 \end{plnbox}
-                  ]
-File: template-handout/content_handout.png Graphic file (type png)
-<use template-handout/content_handout.png>
-Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 591.
-(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [17]
+l.841 \chapter
+              {SOP Digital: Penyusunan SOP Terintegrasi 8 Komponen}]
 Bab 3.
-<assets/evolusi_sop.png, id=411, 1002.144pt x 522.5121pt>
+<assets/evolusi_sop.png, id=452, 1002.144pt x 522.5121pt>
 File: assets/evolusi_sop.png Graphic file (type png)
 <use assets/evolusi_sop.png>
-Package pdftex.def Info: assets/evolusi_sop.png  used on input line 636.
+Package pdftex.def Info: assets/evolusi_sop.png  used on input line 886.
 (pdftex.def)             Requested size: 432.48051pt x 225.48904pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 639.
+ne 889.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
-[18
+[19
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.639 
+l.889 
       ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 654.
+ne 904.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [19 <./assets/evolusi_sop.png>]
-Overfull \hbox (42.07016pt too wide) in paragraph at lines 703--704
- [][] 
- []
-
+ [20 <./assets/evolusi_sop.png>]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 747.
-(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
-[20]
-<trust_chain.png, id=444, 246.6816pt x 246.6816pt>
-File: trust_chain.png Graphic file (type png)
-<use trust_chain.png>
-Package pdftex.def Info: trust_chain.png  used on input line 762.
-(pdftex.def)             Requested size: 318.66948pt x 318.69861pt.
-File: template-handout/content_handout.png Graphic file (type png)
-<use template-handout/content_handout.png>
-Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 765.
+ne 951.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [21
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.765 
-      ]
-<assets/Blockchain_Hash_Chain.png, id=450, 584.93532pt x 389.20406pt>
+l.951 \end{enumerate}
+                     ]
+Overfull \hbox (42.07016pt too wide) in paragraph at lines 983--984
+ [][] 
+ []
+
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 1043.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+[22
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.3}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1043 \end{plnbox}
+                   ]
+<trust_chain.png, id=490, 246.6816pt x 246.6816pt>
+File: trust_chain.png Graphic file (type png)
+<use trust_chain.png>
+Package pdftex.def Info: trust_chain.png  used on input line 1057.
+(pdftex.def)             Requested size: 318.66948pt x 318.69861pt.
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 1063.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [23 <./trust_chain.png>]
+<assets/Blockchain_Hash_Chain.png, id=496, 584.93532pt x 389.20406pt>
 File: assets/Blockchain_Hash_Chain.png Graphic file (type png)
 <use assets/Blockchain_Hash_Chain.png>
-Package pdftex.def Info: assets/Blockchain_Hash_Chain.png  used on input line 7
-72.
+Package pdftex.def Info: assets/Blockchain_Hash_Chain.png  used on input line 1
+067.
 (pdftex.def)             Requested size: 295.90588pt x 196.8939pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 778.
+ne 1091.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [22 <./trust_chain.png> <./assets/Blockchain_Hash_Chain.png>]
-File: template-handout/content_handout.png Graphic file (type png)
-<use template-handout/content_handout.png>
-Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 795.
-(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [23]
+ [24 <./assets/Blockchain_Hash_Chain.png>]
 Bab 4.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 851.
+ne 1147.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
-[24
+[25
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.851     \item F
-                 inancial: \textit{Cost Saved} (dari eliminasi manual \& rew...
+l.1147     \item F
+                  inancial: \textit{Cost Saved} (dari eliminasi manual \& re...
 ]
-<assets/Balanced_Scorecard.png, id=471, 1104.125pt x 621.32124pt>
+<assets/Balanced_Scorecard.png, id=511, 1104.125pt x 621.32124pt>
 File: assets/Balanced_Scorecard.png Graphic file (type png)
 <use assets/Balanced_Scorecard.png>
-Package pdftex.def Info: assets/Balanced_Scorecard.png  used on input line 859.
-
+Package pdftex.def Info: assets/Balanced_Scorecard.png  used on input line 1155
+.
 (pdftex.def)             Requested size: 341.43307pt x 192.13356pt.
 
-Underfull \hbox (badness 2626) in paragraph at lines 901--901
+Underfull \hbox (badness 2626) in paragraph at lines 1197--1197
 []|\T1/lmr/m/n/10.95 (+20) 1.200 ar-sip $\OMS/lmsy/m/n/10.95 ^^B$ \T1/lmr/m/n/1
 0.95 (+20) 4,2 ha-ri $\OMS/lmsy/m/n/10.95 ^^B$ \T1/lmr/m/n/10.95 (+20) Rp
  []
 
 
-Underfull \hbox (badness 1655) in paragraph at lines 901--901
+Underfull \hbox (badness 1655) in paragraph at lines 1197--1197
 []|\T1/lmr/m/n/10.95 (+20) 1.200 ar-sip $\OMS/lmsy/m/n/10.95 ^^B$ \T1/lmr/m/n/1
 0.95 (+20) 0,25 jam $\OMS/lmsy/m/n/10.95 ^^B$ \T1/lmr/m/n/10.95 (+20) Rp
  []
@@ -1498,181 +1530,331 @@ Underfull \hbox (badness 1655) in paragraph at lines 901--901
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 901.
+ne 1197.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
-[25{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}
+[26{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}
 pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.901 \end{xltabular}
-                      <./assets/Balanced_Scorecard.png>]
-<assets/infografis_roi.png, id=479, 999.9759pt x 467.5869pt>
+l.1197 \end{xltabular}
+                       <./assets/Balanced_Scorecard.png>]
+<assets/infografis_roi.png, id=519, 999.9759pt x 467.5869pt>
 File: assets/infografis_roi.png Graphic file (type png)
 <use assets/infografis_roi.png>
-Package pdftex.def Info: assets/infografis_roi.png  used on input line 910.
+Package pdftex.def Info: assets/infografis_roi.png  used on input line 1206.
 (pdftex.def)             Requested size: 432.48051pt x 202.22142pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 930.
+ne 1226.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [26 <./assets/infografis_roi.png>]
-<assets/efficiency_heatmap.png, id=486, 327.20242pt x 87.26602pt>
+ [27 <./assets/infografis_roi.png>]
+<assets/efficiency_heatmap.png, id=526, 327.20242pt x 87.26602pt>
 File: assets/efficiency_heatmap.png Graphic file (type png)
 <use assets/efficiency_heatmap.png>
-Package pdftex.def Info: assets/efficiency_heatmap.png  used on input line 941.
-
+Package pdftex.def Info: assets/efficiency_heatmap.png  used on input line 1237
+.
 (pdftex.def)             Requested size: 409.71692pt x 109.27664pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 970.
+ne 1263.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [27 <./assets/efficiency_heatmap.png>]
+ [28 <./assets/efficiency_heatmap.png>]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 974.
+ne 1271.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [28]
+ [29]
 Bab 5.
-<assets/ADKAR_Model.png, id=500, 1378.14874pt x 702.625pt>
+<assets/ADKAR_Model.png, id=540, 1378.14874pt x 702.625pt>
 File: assets/ADKAR_Model.png Graphic file (type png)
 <use assets/ADKAR_Model.png>
-Package pdftex.def Info: assets/ADKAR_Model.png  used on input line 997.
+Package pdftex.def Info: assets/ADKAR_Model.png  used on input line 1296.
 (pdftex.def)             Requested size: 318.66948pt x 162.46877pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1000.
+ne 1299.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
-[29
+[30
 
 ]
-<assets/Kotters_8_Step.png, id=510, 994.71625pt x 582.175pt>
+<assets/Kotters_8_Step.png, id=551, 994.71625pt x 582.175pt>
 File: assets/Kotters_8_Step.png Graphic file (type png)
 <use assets/Kotters_8_Step.png>
-Package pdftex.def Info: assets/Kotters_8_Step.png  used on input line 1015.
+Package pdftex.def Info: assets/Kotters_8_Step.png  used on input line 1314.
 (pdftex.def)             Requested size: 341.43307pt x 199.82901pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1019.
+ne 1318.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [30 <./assets/ADKAR_Model.png (PNG copy)> <./assets/Kotters_8_Step.png>]
-<assets/Power-Interest_Grid.png, id=519, 770.88pt x 433.62pt>
+ [31 <./assets/ADKAR_Model.png (PNG copy)> <./assets/Kotters_8_Step.png>]
+<assets/Power-Interest_Grid.png, id=559, 770.88pt x 433.62pt>
 File: assets/Power-Interest_Grid.png Graphic file (type png)
 <use assets/Power-Interest_Grid.png>
-Package pdftex.def Info: assets/Power-Interest_Grid.png  used on input line 106
-5.
+Package pdftex.def Info: assets/Power-Interest_Grid.png  used on input line 136
+4.
 (pdftex.def)             Requested size: 295.90588pt x 166.44467pt.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1069.
+ne 1368.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
 
-[31
+[32
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1069 \needspace{4\baselineskip}
+l.1368 \needspace{4\baselineskip}
                                   <./assets/Power-Interest_Grid.png (PNG copy)>
 ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1100.
+ne 1399.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [32]
+ [33]
 Bab 6.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1178.
+ne 1476.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
-[33
+[34
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{table.6.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1178 \end{xltabular}
+l.1476 \end{xltabular}
                       
 pdfTeX warning (ext4): destination with the same identifier (name{table.6.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1178 \end{xltabular}
+l.1476 \end{xltabular}
                       ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1232.
+ne 1530.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [34
+ [35
 pdfTeX warning (ext4): destination with the same identifier (name{table.6.3}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1232 \end{plnbox}
+l.1530 \end{plnbox}
                    ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1260.
+ne 1558.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [35]
+ [36]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1317.
+ne 1615.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [36
+ [37
 
 ]
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1365.
+ne 1659.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [37
+ [38
 
-] (./modul43_handout.aux)
+]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 1730.
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 1759--1762
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1759--1762
+
+ []
+
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 1785.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+[39
+
+]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 1804.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [40]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 1868.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [41]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 1882.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [42]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 1969.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [43]
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 1977--1993
+ []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1977--1993
+
+ []
+
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 1998.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+[44]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 2053.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [45]
+Underfull \hbox (badness 10000) in paragraph at lines 2063--2063
+[]|\T1/lmr/m/n/10.95 (+20) 1.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2063--2063
+[]|\T1/lmr/m/n/10.95 (+20) 2.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2063--2063
+[]|\T1/lmr/m/n/10.95 (+20) 3.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2063--2063
+[]|\T1/lmr/m/n/10.95 (+20) 4.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2063--2063
+[]|\T1/lmr/m/n/10.95 (+20) 5.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2063--2063
+[]|\T1/lmr/m/n/10.95 (+20) 6.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2063--2063
+[]|\T1/lmr/m/n/10.95 (+20) 7.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2063--2063
+[]|\T1/lmr/m/n/10.95 (+20) 8.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2122--2138
+
+ []
+
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 2149.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+[46]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 2173.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [47]
+Underfull \hbox (badness 10000) in paragraph at lines 2227--2230
+
+ []
+
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 2245.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 2276--2278
+
+ []
+
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 2285.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+[49]
+File: template-handout/content_handout.png Graphic file (type png)
+<use template-handout/content_handout.png>
+Package pdftex.def Info: template-handout/content_handout.png  used on input li
+ne 2302.
+(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
+ [50] (./modul43_handout.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `modul43_handout.out' has not changed.
-(rerunfilecheck)             Checksum: 67AA78E8C7F07C45424D13438803BF0A;10976.
+(rerunfilecheck)             Checksum: 34B6FF0294285D0920EC09EBADE27E98;12508.
  ) 
 Here is how much of TeX's memory you used:
- 35665 strings out of 475670
- 710160 string characters out of 5784921
- 1953975 words of memory out of 5000000
- 56735 multiletter control sequences out of 15000+600000
- 679173 words of font info for 242 fonts, out of 8000000 for 9000
+ 36657 strings out of 475670
+ 728929 string characters out of 5784921
+ 1949975 words of memory out of 5000000
+ 57612 multiletter control sequences out of 15000+600000
+ 702642 words of font info for 273 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 101i,13n,107p,1012b,1010s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,15n,107p,1012b,1331s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/p
-ublic/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pf
-b></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/pu
-blic/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
-ymbols/msam10.pfb>
-Output written on modul43_handout.pdf (38 pages, 3575301 bytes).
+pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx6.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/pub
+lic/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/
+fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri7.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/publ
+ic/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msam10.pfb>
+Output written on modul43_handout.pdf (51 pages, 3459011 bytes).
 PDF statistics:
- 710 PDF objects out of 1000 (max. 8388607)
- 578 compressed objects within 6 object streams
- 191 named destinations out of 1000 (max. 500000)
- 66637 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 851 PDF objects out of 1000 (max. 8388607)
+ 701 compressed objects within 8 object streams
+ 242 named destinations out of 1000 (max. 500000)
+ 81016 words of extra memory for PDF output out of 89155 (max. 10000000)
 
