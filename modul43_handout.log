@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  28 APR 2026 08:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  28 APR 2026 08:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1565,7 +1565,7 @@ ne 1270.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1324.
+ne 1327.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
  [32
 
@@ -1573,17 +1573,9 @@ ne 1324.
 File: template-handout/content_handout.png Graphic file (type png)
 <use template-handout/content_handout.png>
 Package pdftex.def Info: template-handout/content_handout.png  used on input li
-ne 1328.
-(pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [33
-
-]
-File: template-handout/content_handout.png Graphic file (type png)
-<use template-handout/content_handout.png>
-Package pdftex.def Info: template-handout/content_handout.png  used on input li
 ne 1375.
 (pdftex.def)             Requested size: 597.53267pt x 845.043pt.
- [34
+ [33
 
 ] (./modul43_handout.aux)
  ***********
@@ -1591,11 +1583,11 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `modul43_handout.out' has not changed.
-(rerunfilecheck)             Checksum: 31B69A4D5A58EA640EA1D7C3174A1310;10920.
+(rerunfilecheck)             Checksum: E8625EA976AFBC029E1D55DCE4CEBD1B;10925.
  ) 
 Here is how much of TeX's memory you used:
- 35737 strings out of 475670
- 710688 string characters out of 5784921
+ 35735 strings out of 475670
+ 710672 string characters out of 5784921
  1947975 words of memory out of 5000000
  56812 multiletter control sequences out of 15000+600000
  679270 words of font info for 243 fonts, out of 8000000 for 9000
@@ -1612,10 +1604,10 @@ b></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on modul43_handout.pdf (35 pages, 2155473 bytes).
+Output written on modul43_handout.pdf (34 pages, 2155031 bytes).
 PDF statistics:
- 673 PDF objects out of 1000 (max. 8388607)
- 558 compressed objects within 6 object streams
- 184 named destinations out of 1000 (max. 500000)
+ 668 PDF objects out of 1000 (max. 8388607)
+ 554 compressed objects within 6 object streams
+ 182 named destinations out of 1000 (max. 500000)
  66607 words of extra memory for PDF output out of 74296 (max. 10000000)
 
