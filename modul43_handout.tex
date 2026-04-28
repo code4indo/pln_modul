@@ -151,7 +151,7 @@ Handout ini menggunakan beberapa konvensi visual untuk memudahkan navigasi:
 \begin{enumerate}[leftmargin=*]
     \item Sebelum pelatihan: Baca Pendahuluan untuk memahami konteks, target kompetensi, dan arsitektur optimalisasi. Gunakan Glosarium di akhir dokumen sebagai referensi istilah teknis.
     \item Saat pelatihan: Durasi fasilitasi 45 menit (Pendahuluan 5$\cdot$ Diagnosa 10$\cdot$ Desain 10$\cdot$ SOP 10$\cdot$ ROI 7$\cdot$ Kasus 3). Kerjakan Aktivitas Workshop di setiap bab secara mandiri (30 menit/bab). Hasil workshop menjadi bagian dari Portofolio yang dinilai.
-    \item Studi kasus: Bab 5 menguji pemahaman holistik -- baca skenario transformasi SPK Pemeliharaan GI 150 kV dan analisis dari 4 perspektif pilar optimalisasi.
+    \item Studi kasus: Bab 4 menguji pemahaman holistik -- baca skenario transformasi SPK Pemeliharaan GI 150 kV dan analisis dari 4 perspektif pilar optimalisasi.
     \item Setelah pelatihan: Lihat Bab 6 (Validasi \& Rubrik Penilaian) untuk memahami kriteria kelulusan dan menyusun komitmen tindak lanjut.
 \end{enumerate}
 \end{plnbox}
@@ -167,18 +167,18 @@ Handout ini menggunakan beberapa konvensi visual untuk memudahkan navigasi:
 \setcounter{section}{0}
 \renewcommand{\thesection}{\Alph{section}}
 
-Modul 4.3 merupakan mata pelajaran inti dalam Level 4 (Mastery) yang berfokus pada optimalisasi prosedur dan alur kerja terintegrasi kearsipan digital. Sasaran utamanya adalah membekali Manajemen Atas PLN dengan kemampuan mengevaluasi prosedur yang ada, merancang alur kerja baru berbasis otomasi, menyusun SOP Digital yang sah secara hukum, serta membuktikan efisiensi dan ROI transformasi.
+Modul 4.3 merupakan mata pelajaran inti dalam Level 4 (Mastery) yang berfokus pada \textbf{optimalisasi prosedur dan alur kerja terintegrasi} kearsipan digital. Sasaran utamanya adalah membekali Manajemen Atas PLN dengan kemampuan mengevaluasi prosedur yang ada, merancang alur kerja baru berbasis otomasi, menyusun SOP Digital yang sah secara hukum, serta membuktikan efisiensi dan ROI transformasi.
 
-Dua konsep kunci yang menjadi landasan modul ini perlu dipahami sejak awal. Pertama, \textit{\textit{\textit{value-added} Focus}}: setiap langkah dalam alur kerja harus ditanya apakah benar-benar menambah nilai bagi organisasi atau sekadar \textit{waste} (pemborosan). Dalam konteks PLN, langkah seperti mencetak dokumen hanya untuk ditandatangani basah, mengantar kertas antar-meja, atau mengetik ulang data yang sudah ada di sistem ERP merupakan \textit{\textit{non-\textit{value-added}} activities} yang harus dieliminasi. Kedua, \textit{\textit{Single Source of Truth}}: data cukup diinput sekali di sistem sumber operasional (misal: SAP-PM, E-Procurement, SCADA), dan mengalir otomatis beserta metadata-nya ke repositori kearsipan tanpa intervensi manual.
+Dua konsep kunci yang menjadi landasan modul ini perlu dipahami sejak awal. Pertama, \textbf{\textit{Value-Added Focus}}: setiap langkah dalam alur kerja harus ditanya apakah benar-benar menambah nilai bagi organisasi atau sekadar \textit{waste} (pemborosan). Dalam konteks PLN, langkah seperti mencetak dokumen hanya untuk ditandatangani basah, mengantar kertas antar-meja, atau mengetik ulang data yang sudah ada di sistem ERP merupakan \textbf{\textit{non-value-added activities}} yang harus dieliminasi. Kedua, \textbf{\textit{Single Source of Truth}}: data cukup diinput sekali di sistem sumber operasional (misal: SAP-PM, E-Procurement, SCADA), dan mengalir otomatis beserta metadata-nya ke repositori kearsipan tanpa intervensi manual.
 
 \needspace{4\baselineskip}
 
 \section{Konteks \& Urgensi: Mengapa Ini Penting bagi PLN?}
-PLN sebagai Badan Usaha Milik Negara yang mengelola infrastruktur kelistrikan nasional menghadapi tantangan tata kelola arsip yang semakin kompleks. Banyak organisasi infrastruktur, termasuk sektor kelistrikan, masih menggunakan pola Digital $\rightarrow$ Analog $\rightarrow$ Digital: dokumen lahir secara digital di Sistem A, lalu dicetak menjadi kertas, ditandatangani basah, di-scan, dan diunggah kembali ke Sistem B. Pola ini bukan hanya memperlambat siklus bisnis, tetapi juga meningkatkan risiko ketidakpatuhan terhadap PP 71/2019\footnote{PP 71/2019; lihat Daftar Pustaka [2].} tentang Penyelenggaraan Sistem dan Transaksi Elektronik (PSTE) serta standar audit BPK dan BUMN.
+PLN sebagai Badan Usaha Milik Negara yang mengelola infrastruktur kelistrikan nasional menghadapi tantangan tata kelola arsip yang semakin kompleks. Banyak organisasi infrastruktur, termasuk sektor kelistrikan, masih menggunakan pola \textbf{Digital $\rightarrow$ Analog $\rightarrow$ Digital}: dokumen lahir secara digital di Sistem A, lalu dicetak menjadi kertas, ditandatangani basah, di-scan, dan diunggah kembali ke Sistem B. Pola ini \textbf{bukan hanya memperlambat siklus bisnis, tetapi juga meningkatkan risiko ketidakpatuhan} terhadap PP 71/2019\footnote{PP 71/2019; lihat Daftar Pustaka [2].} tentang Penyelenggaraan Sistem dan Transaksi Elektronik (PSTE) serta standar audit BPK dan BUMN.
 
-Pertimbangkan skenario berikut: jika proses persetujuan Berita Acara Serah Terima (BAST) pembangkit memerlukan waktu 5 hari karena harus melewati antrean cetak, kurir, dan tanda tangan basah, maka pembayaran kepada vendor tertunda, proyek pembangkit terhambat, dan PLN menghadapi risiko ganda: (1) kerugian finansial akibat keterlambatan operasional, serta (2) sanksi regulasi jika audit trail tidak lengkap. Dalam perspektif GCG, kegagalan mengoptimasi prosedur secara langsung memengaruhi penilaian tata kelola perusahaan -- termasuk dalam parameter TARIF yang menjadi tolok ukur kinerja BUMN.
+Pertimbangkan skenario berikut: jika proses persetujuan Berita Acara Serah Terima (BAST) pembangkit memerlukan waktu 5 hari karena harus melewati antrean cetak, kurir, dan tanda tangan basah, maka pembayaran kepada vendor tertunda, proyek pembangkit terhambat, dan PLN menghadapi risiko ganda: (1) kerugian finansial akibat keterlambatan operasional, serta (2) sanksi regulasi jika audit trail tidak lengkap. Dalam perspektif GCG, kegagalan mengoptimasi prosedur \textbf{secara langsung memengaruhi penilaian tata kelola perusahaan} -- termasuk dalam parameter TARIF yang menjadi tolok ukur kinerja BUMN.
 
-Modul ini dirancang untuk menjawab kebutuhan tersebut dengan pendekatan empat pilar terintegrasi: Diagnosa (Pilar 1), Desain Alur Kerja (Pilar 2), SOP Digital (Pilar 3), dan Justifikasi Bisnis (Pilar 4). Studi kasus nyata di Bab 5 akan mendemonstrasikan bagaimana kegagalan pada satu pilar dapat menyebabkan inefisiensi sistemik yang berdampak langsung pada operasional dan keuangan PLN.
+Modul ini dirancang untuk menjawab kebutuhan tersebut dengan pendekatan empat pilar terintegrasi: Diagnosa (Pilar 1), Desain Alur Kerja (Pilar 2), SOP Digital (Pilar 3), dan Justifikasi Bisnis (Pilar 4). Studi kasus nyata di Bab 4 akan mendemonstrasikan bagaimana kegagalan pada satu pilar dapat menyebabkan inefisiensi sistemik yang berdampak langsung pada operasional dan keuangan PLN.
 
 \begin{figure}[H]
 \centering
@@ -294,7 +294,7 @@ TK-4 (ROI) & TK-1, TK-2, TK-3 & Justifikasi bisnis memvalidasi apakah intervensi
 \endgroup
 
 \begin{plnbox}[Pandangan Strategis untuk Manajemen Atas]
-Ketika mengesahkan rencana optimalisasi, Manajemen Atas harus memastikan bahwa keempat pilar ini dirancang secara bersamaan, bukan secara berurutan oleh unit yang berbeda tanpa koordinasi. Solusi parsial -- misalnya merancang alur otomatis tanpa SOP yang jelas, atau menghitung ROI tanpa diagnosa yang akurat -- akan menciptakan inefisiensi baru yang tidak terdeteksi hingga terjadi kegagalan implementasi. Studi kasus di Bab 5 akan mendemonstrasikan bagaimana keempat pilar ini saling bergantung dalam situasi nyata.
+Ketika mengesahkan rencana optimalisasi, Manajemen Atas harus memastikan bahwa keempat pilar ini dirancang secara bersamaan, bukan secara berurutan oleh unit yang berbeda tanpa koordinasi. Solusi parsial -- misalnya merancang alur otomatis tanpa SOP yang jelas, atau menghitung ROI tanpa diagnosa yang akurat -- akan menciptakan inefisiensi baru yang tidak terdeteksi hingga terjadi kegagalan implementasi. Studi kasus di Bab 4 akan mendemonstrasikan bagaimana keempat pilar ini saling bergantung dalam situasi nyata.
 \end{plnbox}
 
 % Kembalikan penomeran section ke format 1.1, 2.1, ...
