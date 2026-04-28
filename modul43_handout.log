@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  28 APR 2026 09:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  28 APR 2026 09:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1595,14 +1595,14 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `modul43_handout.out' has not changed.
-(rerunfilecheck)             Checksum: 31B69A4D5A58EA640EA1D7C3174A1310;10920.
+(rerunfilecheck)             Checksum: 1EE79A71C0B254F4166E1F0E57D51990;10976.
  ) 
 Here is how much of TeX's memory you used:
- 35623 strings out of 475670
- 708924 string characters out of 5784921
+ 35621 strings out of 475670
+ 708902 string characters out of 5784921
  1947975 words of memory out of 5000000
  56700 multiletter control sequences out of 15000+600000
- 679270 words of font info for 243 fonts, out of 8000000 for 9000
+ 679173 words of font info for 242 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
  101i,12n,107p,1012b,1010s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
@@ -1616,7 +1616,7 @@ b></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on modul43_handout.pdf (34 pages, 2200127 bytes).
+Output written on modul43_handout.pdf (34 pages, 2200113 bytes).
 PDF statistics:
  670 PDF objects out of 1000 (max. 8388607)
  554 compressed objects within 6 object streams
