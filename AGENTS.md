@@ -179,6 +179,10 @@ Direktori `fakta/` berisi catatan riset mandiri untuk memastikan akurasi klaim d
 
 ---
 
+# gaya bahasa 
+
+gunakan gaya bahasa formal, hindari menggunakan kalimat  / kata kiasan / metaforis
+
 ## Ringkasan Perintah untuk Agen
 
 ```bash

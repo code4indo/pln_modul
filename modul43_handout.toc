@@ -17,9 +17,9 @@
 \contentsline {section}{\numberline {2.5}Aktivitas Workshop (30 Menit)}{18}{section.2.5}%
 \contentsline {chapter}{\numberline {3}SOP Digital: Penyusunan SOP Terintegrasi 8 Komponen}{19}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Evolusi SOP: Dari Manual ke Digital-Integrated}{19}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Delapan Komponen Wajib SOP Digital Terintegrasi}{20}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Delapan Komponen Wajib SOP Digital Terintegrasi}{19}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Skema Tata Kelola Metadata: 14 Field \& 3 Lapisan Perlindungan}{21}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Keabsahan Hukum \& Trust-Chain Digital}{23}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Keabsahan Hukum \& Trust-Chain Digital}{22}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Aktivitas Workshop (30 Menit)}{24}{section.3.5}%
 \contentsline {chapter}{\numberline {4}Justifikasi Bisnis: Efisiensi, ROI \& KPI}{25}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Trifecta Manfaat: Time--Cost--Risk}{25}{section.4.1}%
@@ -41,10 +41,10 @@
 \contentsline {section}{\numberline {6.3}\textit {checklist} Implementasi 30 Hari}{35}{section.6.3}%
 \contentsline {section}{\numberline {6.4}FAQ Singkat untuk Manajemen Atas}{35}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Empat Langkah Setelah Hari Ini}{36}{section.6.5}%
-\contentsline {chapter}{Glosarium}{37}{chapter*.22}%
-\contentsline {chapter}{Daftar Pustaka}{38}{chapter*.23}%
-\contentsline {chapter}{Lampiran Lembar Kerja}{39}{chapter*.24}%
-\contentsline {section}{Panduan Pengerjaan}{39}{section*.25}%
+\contentsline {chapter}{Glosarium}{37}{chapter*.21}%
+\contentsline {chapter}{Daftar Pustaka}{38}{chapter*.22}%
+\contentsline {chapter}{Lampiran Lembar Kerja}{39}{chapter*.23}%
+\contentsline {section}{Panduan Pengerjaan}{39}{section*.24}%
 \contentsline {section}{Lampiran A: Matriks Identifikasi Area Optimasi}{41}{Item.70}%
 \contentsline {section}{Lampiran B: Lembar Kerja Diagram BPMN To-Be}{43}{Item.75}%
 \contentsline {section}{Lampiran C: Template Draft SOP Digital Terintegrasi}{45}{Item.80}%
