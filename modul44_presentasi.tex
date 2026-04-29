@@ -108,10 +108,10 @@
 }
 
 \title{Perancangan Sistem Keamanan \& Keterlacakan Terintegrasi}
-\subtitle{Modul 4.4 -- Level 4 (Mastery) -- Transformasi Tata Kelola Kearsipan\\ \textbf{PT PLN (Persero)}}
-\author{}
-\institute[PLN]{}
-\date{}
+\subtitle{Modul 4.4 -- Level 4 (Mastery) -- Transformasi Tata Kelola Kearsipan}\vspace{0.8cm}
+\author{PUSAT PENDIDIKAN DAN PELATIHAN \\ PT PLN (Persero)}
+% \institute[PLN]{}
+\date{2026}
 
 \newcommand{\stepicon}[2]{
     \begin{tikzpicture}
@@ -163,7 +163,7 @@
             Modul ini ditujukan secara khusus bagi:
             \begin{itemize}
                 \item \textbf{Manajemen Atas (MA)} PT PLN (Persero).
-                \item Unit Kearsipan, IT Governance, GCG, Risk Management.
+                \item Unit Kearsipan, IT Governance, GCG, Manajemen Risiko.
                 \item Pengambil Kebijakan Tata Kelola Keamanan Informasi.
             \end{itemize}
         \end{premiumbox}
@@ -222,7 +222,7 @@
         \column{0.31\textwidth}
         \begin{tcolorbox}[colback=plnblue!5!white, colframe=plnblue, fonttitle=\bfseries\footnotesize, sharp corners, boxrule=0.6pt, left=2pt, right=2pt, top=0.5pt, bottom=0.5pt, title={Bagian I:\\Fondasi \& Urgensi}]
             \makebox[\linewidth][r]{%
-                \tcbox[on line, colback=plnblue!15, colframe=plnblue, boxrule=0.5pt, arc=2pt, boxsep=0pt, left=2pt, right=2pt, top=0.5pt, bottom=0.5pt, fontupper=\bfseries\tiny\color{plnblue}]{10 menit}%
+                \tcbox[on line, colback=plnblue!15, colframe=plnblue, boxrule=0.5pt, arc=2pt, boxsep=0pt, left=2pt, right=2pt, top=0.5pt, bottom=0.5pt, fontupper=\bfseries\tiny\color{plnblue}]{5 menit}%
             }
             \scriptsize
             \stepicon{plnblue}{1} \textbf{Konteks \& Urgensi}\\
@@ -234,7 +234,7 @@
         \column{0.31\textwidth}
         \begin{tcolorbox}[colback=plnorange!5!white, colframe=plnorange, fonttitle=\bfseries\footnotesize, sharp corners, boxrule=0.6pt, left=2pt, right=2pt, top=0.5pt, bottom=0.5pt, title={Bagian II:\\Empat Pilar Keamanan}]
             \makebox[\linewidth][r]{%
-                \tcbox[on line, colback=plnorange!15, colframe=plnorange, boxrule=0.5pt, arc=2pt, boxsep=0pt, left=2pt, right=2pt, top=0.5pt, bottom=0.5pt, fontupper=\bfseries\tiny\color{plnorange}]{30 menit}%
+                \tcbox[on line, colback=plnorange!15, colframe=plnorange, boxrule=0.5pt, arc=2pt, boxsep=0pt, left=2pt, right=2pt, top=0.5pt, bottom=0.5pt, fontupper=\bfseries\tiny\color{plnorange}]{37 menit}%
             }
             \scriptsize
             \stepicon{plnorange}{3} \textbf{Pilar 1: RBAC}\\
@@ -246,18 +246,18 @@
         \column{0.31\textwidth}
         \begin{tcolorbox}[colback=plngreen!5!white, colframe=plngreen, fonttitle=\bfseries\footnotesize, sharp corners, boxrule=0.6pt, left=2pt, right=2pt, top=0.5pt, bottom=0.5pt, title={Bagian III:\\Studi Kasus \& Validasi}]
             \makebox[\linewidth][r]{%
-                \tcbox[on line, colback=plngreen!15, colframe=plngreen, boxrule=0.5pt, arc=2pt, boxsep=0pt, left=2pt, right=2pt, top=0.5pt, bottom=0.5pt, fontupper=\bfseries\tiny\color{plngreen}]{10 menit}%
+                \tcbox[on line, colback=plngreen!15, colframe=plngreen, boxrule=0.5pt, arc=2pt, boxsep=0pt, left=2pt, right=2pt, top=0.5pt, bottom=0.5pt, fontupper=\bfseries\tiny\color{plngreen}]{3 menit}%
             }
             \scriptsize
             \stepicon{plngreen}{7} \textbf{Studi Kasus Integratif}\\
             {\tiny Insiden kebocoran arsip.}\\
-            \stepicon{plngreen}{8} \textbf{Portofolio \& Tollgate}\\
+            \stepicon{plngreen}{8} \textbf{Portofolio \& Kendali Manajemen}\\
             {\tiny Rubrik, komitmen, tindak lanjut.}
         \end{tcolorbox}
     \end{columns}
     \centering
     \vspace{0.15cm}
-    \textcolor{darkgrey}{\scriptsize \textit{Durasi fasilitasi: 45 menit (Pendahuluan 5$\cdot$ RBAC 10$\cdot$ Audit 10$\cdot$ ISMS 10$\cdot$ DR 7$\cdot$ Kasus 3), workshop mandiri 4$\times$30 menit}}
+    \textcolor{darkgrey}{\scriptsize \textit{Durasi fasilitasi: 45 menit (Fondasi 5$\cdot$ RBAC 10$\cdot$ Audit 10$\cdot$ ISMS 10$\cdot$ DR 7$\cdot$ Kasus 3), workshop mandiri 4$\times$30 menit}}
 \end{frame}
 
 % SLIDE 5: KONTEKS & URGENSI
@@ -311,12 +311,13 @@
         \draw[arrp] (p2) -- (p3);
         \draw[arrp] (p3) -- (p4);
         
-        \node[font=\tiny, text=gray] at (2,0.5) {WHO?};
-        \node[font=\tiny, text=gray] at (6,0.5) {WHEN/WHAT?};
-        \node[font=\tiny, text=gray] at (10,0.5) {HOW?};
+        \node[font=\tiny, text=gray] at (0,1.3) {WHO?};
+        \node[font=\tiny, text=gray] at (4,1.3) {WHEN/WHAT?};
+        \node[font=\tiny, text=gray] at (8,1.3) {HOW?};
+        \node[font=\tiny, text=gray] at (12,1.3) {HOW?};
     \end{tikzpicture}
     
-    \vspace{0.4cm}
+    \vspace{0.4cm}/
     \begin{premiumbox}[Pandangan Strategis]
         \small
         Keempat pilar harus dirancang \textbf{bersamaan}, bukan berurutan oleh unit yang berbeda tanpa koordinasi. Solusi parsial = celah keamanan yang tidak terdeteksi hingga terjadi insiden.
@@ -533,14 +534,17 @@
 % SLIDE 14: DIAGRAM ALUR AUDIT TRAIL
 \begin{frame}{Diagram Alur Audit Trail Sistem Arsip Digital PLN}
     \centering
-\includegraphics[width=0.88\textwidth,keepaspectratio]{audit_v3.png}
-    \begin{tabularx}{\textwidth}{@{} >{\centering\arraybackslash}p{2.2cm} >{\centering\arraybackslash}p{2.2cm} >{\centering\arraybackslash}p{2.2cm} >{\centering\arraybackslash}p{2.2cm} @{}}
+\includegraphics[width=0.60\textwidth,keepaspectratio]{audit_v3.png}
+    \vspace{0.6cm}
+    {\centering
+    \begin{tabular}{@{} >{\centering\arraybackslash\tiny}p{1.8cm} >{\centering\arraybackslash\tiny}p{1.7cm} >{\centering\arraybackslash\tiny}p{1.4cm} >{\centering\arraybackslash\tiny}p{1.3cm} @{}}
         \toprule
         \textbf{WHO} & \textbf{WHAT} & \textbf{WHEN} & \textbf{WHERE} \\
         \midrule
         ID Pegawai + Role (SSO) & Aksi: view/edit/export & Timestamp ISO 8601 & IP + Lokasi Unit \\
         \bottomrule
-    \end{tabularx}
+    \end{tabular}
+    \par}
 \end{frame}
 
 % SLIDE 15: 14 FIELD METADATA
@@ -982,13 +986,13 @@
 % SLIDE 28: BCP LIFECYCLE
 \begin{frame}{Business Continuity Plan (BCP): Siklus Hidup ISO 22301}
     \centering
-    \includegraphics[width=0.55\textwidth,keepaspectratio]{gambar/BCP_Lifecycle_Custom.png}
+    \includegraphics[width=0.38\textwidth,keepaspectratio]{gambar/BCP_Lifecycle_Custom.png}
     
-    \vspace{0.2cm}
+    \vspace{0.08cm}
     \begin{columns}[T]
         \column{0.48\textwidth}
         \begin{premiumbox}[5 Fase Iteratif]
-            \scriptsize
+            \tiny
             \begin{enumerate}
                 \item \textbf{Analysis} -- BIA \& penilaian risiko.
                 \item \textbf{Solution Design} -- Strategi pemulihan.
@@ -998,13 +1002,13 @@
         
         \column{0.48\textwidth}
         \begin{orangebox}[Pemeliharaan]
-            \scriptsize
+            \tiny
             \begin{enumerate}\setcounter{enumi}{3}
                 \item \textbf{Testing \& Acceptance} -- Simulasi \& validasi.
                 \item \textbf{Maintenance} -- Update berkala.
             \end{enumerate}
-            \vspace{0.1cm}
-            \textbf{Simulasi minimal 6 bulan sekali!}
+            \vspace{0.05cm}
+            \textbf{\tiny Simulasi minimal 6 bulan sekali!}
         \end{orangebox}
     \end{columns}
 \end{frame}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  28 APR 2026 18:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.10)  29 APR 2026 07:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1068,9 +1068,12 @@ s.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerthemeMadrid.sty
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemerounded.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty))
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemestructure.sty)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 112.
+
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 13
 7.
-
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
@@ -1197,8 +1200,6 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 5.69998pt on input line 137.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 13.67995pt on input line 153.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.40245pt on input line 153.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.59998pt on input line 153.
 <assets/section.png, id=85, 737.75626pt x 413.1435pt>
@@ -1210,6 +1211,8 @@ Package pdftex.def Info: assets/section.png  used on input line 153.
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc} <./assets/section.png>]
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.40245pt on input line 182.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 9.49997pt on input line 182.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
@@ -1258,7 +1261,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 11.39996pt on input line 182.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 11.39996pt on input line 182.
-<assets/content.png, id=96, 738.3585pt x 415.5525pt>
+<assets/content.png, id=95, 738.3585pt x 415.5525pt>
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
 Package pdftex.def Info: assets/content.png  used on input line 182.
@@ -1299,7 +1302,7 @@ Package pdftex.def Info: assets/content.png  used on input line 296.
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 324.
+Package pdftex.def Info: assets/content.png  used on input line 325.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [6
 
@@ -1307,83 +1310,83 @@ Package pdftex.def Info: assets/content.png  used on input line 324.
 <gambar/kerangka_pikir.png, id=126, 711.8595pt x 529.7391pt>
 File: gambar/kerangka_pikir.png Graphic file (type png)
 <use gambar/kerangka_pikir.png>
-Package pdftex.def Info: gambar/kerangka_pikir.png  used on input line 348.
+Package pdftex.def Info: gambar/kerangka_pikir.png  used on input line 349.
 (pdftex.def)             Requested size: 238.41754pt x 177.4172pt.
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 348.
+(Font)              scaled to size 10.40245pt on input line 349.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 10.40245pt on input line 348.
+(Font)              scaled to size 10.40245pt on input line 349.
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 348.
+Package pdftex.def Info: assets/content.png  used on input line 349.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [7
 
  <./gambar/kerangka_pikir.png>]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 23.63593pt on input line 355.
+(Font)              scaled to size 23.63593pt on input line 356.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 23.63593pt on input line 355.
+(Font)              scaled to size 23.63593pt on input line 356.
 File: assets/section.png Graphic file (type png)
 <use assets/section.png>
-Package pdftex.def Info: assets/section.png  used on input line 355.
+Package pdftex.def Info: assets/section.png  used on input line 356.
 (pdftex.def)             Requested size: 455.24277pt x 256.08327pt.
  [8
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 385.
+Package pdftex.def Info: assets/content.png  used on input line 386.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [9
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 414.
+Package pdftex.def Info: assets/content.png  used on input line 415.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [10
 
 ]
-Underfull \hbox (badness 10000) in alignment at lines 448--448
+Underfull \hbox (badness 10000) in alignment at lines 449--449
 [][][][][] 
  []
 
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 448.
+(Font)              scaled to size 11.39996pt on input line 449.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 11.39996pt on input line 448.
+(Font)              scaled to size 11.39996pt on input line 449.
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 448.
+Package pdftex.def Info: assets/content.png  used on input line 449.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
 [11
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 479.
+Package pdftex.def Info: assets/content.png  used on input line 480.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [12
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 502.
+Package pdftex.def Info: assets/content.png  used on input line 503.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [13
 
 ]
 File: assets/section.png Graphic file (type png)
 <use assets/section.png>
-Package pdftex.def Info: assets/section.png  used on input line 508.
+Package pdftex.def Info: assets/section.png  used on input line 509.
 (pdftex.def)             Requested size: 455.24277pt x 256.08327pt.
  [14
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 531.
+Package pdftex.def Info: assets/content.png  used on input line 532.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [15
 
@@ -1391,77 +1394,72 @@ Package pdftex.def Info: assets/content.png  used on input line 531.
 <audit_v3.png, id=181, 693.99275pt x 403.30675pt>
 File: audit_v3.png Graphic file (type png)
 <use audit_v3.png>
-Package pdftex.def Info: audit_v3.png  used on input line 544.
-(pdftex.def)             Requested size: 381.46806pt x 221.69016pt.
+Package pdftex.def Info: audit_v3.png  used on input line 548.
+(pdftex.def)             Requested size: 260.09306pt x 151.15349pt.
 
-Underfull \hbox (badness 10000) in alignment at lines 544--544
-[][][][] 
- []
-
-
-Overfull \vbox (61.17484pt too high) detected at line 544
+Overfull \vbox (1.10999pt too high) detected at line 548
  []
 
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 544.
+Package pdftex.def Info: assets/content.png  used on input line 548.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
 [16
 
  <./audit_v3.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
-82.
+86.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 582.
+Package pdftex.def Info: assets/content.png  used on input line 586.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
 
 [17
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 4.74998pt on input line 628.
+(Font)              scaled to size 4.74998pt on input line 632.
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 628.
+Package pdftex.def Info: assets/content.png  used on input line 632.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [18
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 658.
+Package pdftex.def Info: assets/content.png  used on input line 662.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [19
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 681.
+Package pdftex.def Info: assets/content.png  used on input line 685.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [20
 
 ]
 File: assets/section.png Graphic file (type png)
 <use assets/section.png>
-Package pdftex.def Info: assets/section.png  used on input line 688.
+Package pdftex.def Info: assets/section.png  used on input line 692.
 (pdftex.def)             Requested size: 455.24277pt x 256.08327pt.
  [21
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 711.
+Package pdftex.def Info: assets/content.png  used on input line 715.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [22
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 747.
+Package pdftex.def Info: assets/content.png  used on input line 751.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [23
 
@@ -1470,55 +1468,55 @@ Package pdftex.def Info: assets/content.png  used on input line 747.
 File: gambar/NIST_Zero_Trust_Architecture.png Graphic file (type png)
 <use gambar/NIST_Zero_Trust_Architecture.png>
 Package pdftex.def Info: gambar/NIST_Zero_Trust_Architecture.png  used on input
- line 780.
+ line 784.
 (pdftex.def)             Requested size: 151.72205pt x 90.72221pt.
 <gambar/nist.png, id=231, 216.81pt x 171.64125pt>
 File: gambar/nist.png Graphic file (type png)
 <use gambar/nist.png>
-Package pdftex.def Info: gambar/nist.png  used on input line 780.
+Package pdftex.def Info: gambar/nist.png  used on input line 784.
 (pdftex.def)             Requested size: 151.72205pt x 120.11923pt.
 
-Overfull \vbox (7.86436pt too high) detected at line 780
+Overfull \vbox (7.86436pt too high) detected at line 784
  []
 
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 780.
+Package pdftex.def Info: assets/content.png  used on input line 784.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
 [24
 
  <./gambar/NIST_Zero_Trust_Architecture.png> <./gambar/nist.png (PNG copy)>]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 806.
+Package pdftex.def Info: assets/content.png  used on input line 810.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
 [25
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 837.
+Package pdftex.def Info: assets/content.png  used on input line 841.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [26
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 864.
+Package pdftex.def Info: assets/content.png  used on input line 868.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [27
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 887.
+Package pdftex.def Info: assets/content.png  used on input line 891.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [28
 
 ]
 File: assets/section.png Graphic file (type png)
 <use assets/section.png>
-Package pdftex.def Info: assets/section.png  used on input line 893.
+Package pdftex.def Info: assets/section.png  used on input line 897.
 (pdftex.def)             Requested size: 455.24277pt x 256.08327pt.
  [29
 
@@ -1526,56 +1524,56 @@ Package pdftex.def Info: assets/section.png  used on input line 893.
 <321_rule.png, id=267, 526.8483pt x 280.4076pt>
 File: 321_rule.png Graphic file (type png)
 <use 321_rule.png>
-Package pdftex.def Info: 321_rule.png  used on input line 917.
+Package pdftex.def Info: 321_rule.png  used on input line 921.
 (pdftex.def)             Requested size: 368.46407pt x 196.10855pt.
 
-Overfull \vbox (37.0013pt too high) detected at line 917
+Overfull \vbox (37.0013pt too high) detected at line 921
  []
 
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 917.
+Package pdftex.def Info: assets/content.png  used on input line 921.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
 [30
 
  <./321_rule.png>]
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 980.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 984.
 LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 9.49997pt on input line 980.
+(Font)              scaled to size 9.49997pt on input line 984.
 
-Underfull \hbox (badness 3769) in paragraph at lines 980--980
+Underfull \hbox (badness 3769) in paragraph at lines 984--984
 \T1/phv/m/n/8 ver oto-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 980--980
+Underfull \hbox (badness 10000) in paragraph at lines 984--984
 []|\T1/phv/m/n/8 Backup
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 980--980
+Underfull \hbox (badness 10000) in paragraph at lines 984--984
 \T1/phv/m/n/8 ha-ri-an
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 980--980
+Underfull \hbox (badness 10000) in paragraph at lines 984--984
 \T1/phv/m/n/8 ter-enk-ri-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 980--980
+Underfull \hbox (badness 10000) in paragraph at lines 984--984
 []|\T1/phv/m/n/8 Backup
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 980--980
+Underfull \hbox (badness 10000) in paragraph at lines 984--984
 \T1/phv/m/n/8 ming-gu-
  []
 
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 980.
+Package pdftex.def Info: assets/content.png  used on input line 984.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
 [31
 
@@ -1584,71 +1582,71 @@ Package pdftex.def Info: assets/content.png  used on input line 980.
 File: gambar/BCP_Lifecycle_Custom.png Graphic file (type png)
 <use gambar/BCP_Lifecycle_Custom.png>
 Package pdftex.def Info: gambar/BCP_Lifecycle_Custom.png  used on input line 10
-10.
-(pdftex.def)             Requested size: 238.41754pt x 192.64636pt.
+14.
+(pdftex.def)             Requested size: 164.72604pt x 133.09639pt.
 
-Overfull \vbox (67.40039pt too high) detected at line 1010
+Overfull \vbox (2.90231pt too high) detected at line 1014
  []
 
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 1010.
+Package pdftex.def Info: assets/content.png  used on input line 1014.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
 [32
 
  <./gambar/BCP_Lifecycle_Custom.png>]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 1040.
+Package pdftex.def Info: assets/content.png  used on input line 1044.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [33
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 1063.
+Package pdftex.def Info: assets/content.png  used on input line 1067.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [34
 
 ]
 File: assets/section.png Graphic file (type png)
 <use assets/section.png>
-Package pdftex.def Info: assets/section.png  used on input line 1070.
+Package pdftex.def Info: assets/section.png  used on input line 1074.
 (pdftex.def)             Requested size: 455.24277pt x 256.08327pt.
  [35
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 1089.
+Package pdftex.def Info: assets/content.png  used on input line 1093.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [36
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 1117.
+Package pdftex.def Info: assets/content.png  used on input line 1121.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [37
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 1145.
+Package pdftex.def Info: assets/content.png  used on input line 1149.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [38
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 1166.
+Package pdftex.def Info: assets/content.png  used on input line 1170.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [39
 
 ]
 File: assets/section.png Graphic file (type png)
 <use assets/section.png>
-Package pdftex.def Info: assets/section.png  used on input line 1172.
+Package pdftex.def Info: assets/section.png  used on input line 1176.
 (pdftex.def)             Requested size: 455.24277pt x 256.08327pt.
 
 [40
@@ -1656,36 +1654,36 @@ Package pdftex.def Info: assets/section.png  used on input line 1172.
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 1210.
+Package pdftex.def Info: assets/content.png  used on input line 1214.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [41
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 1248.
+Package pdftex.def Info: assets/content.png  used on input line 1252.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [42
 
 ]
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 1267.
+Package pdftex.def Info: assets/content.png  used on input line 1271.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [43
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 19.70294pt on input line 1291.
+(Font)              scaled to size 19.70294pt on input line 1295.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 19.70294pt on input line 1291.
+(Font)              scaled to size 19.70294pt on input line 1295.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 1291.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 1295.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 10.40245pt on input line 1291.
+(Font)              scaled to size 10.40245pt on input line 1295.
 File: assets/content.png Graphic file (type png)
 <use assets/content.png>
-Package pdftex.def Info: assets/content.png  used on input line 1291.
+Package pdftex.def Info: assets/content.png  used on input line 1295.
 (pdftex.def)             Requested size: 455.2426pt x 256.08638pt.
  [44
 
@@ -1708,10 +1706,10 @@ Package rerunfilecheck Info: File `modul44_presentasi.out' has not changed.
 (rerunfilecheck)             Checksum: 254FD38C48355CB9485B9E7ED30929B1;1737.
  ) 
 Here is how much of TeX's memory you used:
- 34736 strings out of 475670
- 727091 string characters out of 5784921
+ 34739 strings out of 475670
+ 727154 string characters out of 5784921
  1946975 words of memory out of 5000000
- 56112 multiletter control sequences out of 15000+600000
+ 56115 multiletter control sequences out of 15000+600000
  632203 words of font info for 126 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
  101i,14n,107p,419b,1327s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1725,7 +1723,7 @@ type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helv
 etic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on modul44_presentasi.pdf (44 pages, 1972708 bytes).
+Output written on modul44_presentasi.pdf (44 pages, 1973222 bytes).
 PDF statistics:
  450 PDF objects out of 1000 (max. 8388607)
  307 compressed objects within 4 object streams
